@@ -15,12 +15,7 @@
 		F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */; };
 		F7124E0C13D1EE1B0041BF36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0B13D1EE1B0041BF36 /* main.m */; };
 		F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */; };
-		F7124E1213D1EE1B0041BF36 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1013D1EE1B0041BF36 /* MainWindow.xib */; };
-		F7124E1413D1EE1B0041BF36 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1313D1EE1B0041BF36 /* Shader.fsh */; };
-		F7124E1613D1EE1B0041BF36 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1513D1EE1B0041BF36 /* Shader.vsh */; };
 		F7124E1913D1EE1B0041BF36 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1813D1EE1B0041BF36 /* EAGLView.m */; };
-		F7124E1C13D1EE1B0041BF36 /* TouchEngineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1B13D1EE1B0041BF36 /* TouchEngineViewController.m */; };
-		F7124E1F13D1EE1B0041BF36 /* TouchEngineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1D13D1EE1B0041BF36 /* TouchEngineViewController.xib */; };
 		F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.mm */; };
 		F7C7F0E313D2369C0061A219 /* FreeCellGame.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */; };
 /* End PBXBuildFile section */
@@ -38,14 +33,8 @@
 		F7124E0B13D1EE1B0041BF36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchEngineAppDelegate.h; sourceTree = "<group>"; };
 		F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchEngineAppDelegate.mm; sourceTree = "<group>"; };
-		F7124E1113D1EE1B0041BF36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		F7124E1313D1EE1B0041BF36 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		F7124E1513D1EE1B0041BF36 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		F7124E1713D1EE1B0041BF36 /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		F7124E1813D1EE1B0041BF36 /* EAGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
-		F7124E1A13D1EE1B0041BF36 /* TouchEngineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchEngineViewController.h; sourceTree = "<group>"; };
-		F7124E1B13D1EE1B0041BF36 /* TouchEngineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchEngineViewController.m; sourceTree = "<group>"; };
-		F7124E1E13D1EE1B0041BF36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TouchEngineViewController.xib; sourceTree = "<group>"; };
 		F7C7F0DD13D234B20061A219 /* TEEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEEngine.mm; sourceTree = "<group>"; };
 		F7C7F0DE13D234B20061A219 /* TEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEngine.h; sourceTree = "<group>"; };
 		F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FreeCellGame.mm; sourceTree = "<group>"; };
@@ -102,14 +91,8 @@
 			children = (
 				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
 				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
-				F7124E1013D1EE1B0041BF36 /* MainWindow.xib */,
-				F7124E1313D1EE1B0041BF36 /* Shader.fsh */,
-				F7124E1513D1EE1B0041BF36 /* Shader.vsh */,
 				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
 				F7124E1813D1EE1B0041BF36 /* EAGLView.m */,
-				F7124E1A13D1EE1B0041BF36 /* TouchEngineViewController.h */,
-				F7124E1B13D1EE1B0041BF36 /* TouchEngineViewController.m */,
-				F7124E1D13D1EE1B0041BF36 /* TouchEngineViewController.xib */,
 				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
 				F7C7F0DD13D234B20061A219 /* TEEngine.mm */,
 				F7C7F0DE13D234B20061A219 /* TEEngine.h */,
@@ -178,10 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
-				F7124E1213D1EE1B0041BF36 /* MainWindow.xib in Resources */,
-				F7124E1413D1EE1B0041BF36 /* Shader.fsh in Resources */,
-				F7124E1613D1EE1B0041BF36 /* Shader.vsh in Resources */,
-				F7124E1F13D1EE1B0041BF36 /* TouchEngineViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +174,6 @@
 				F7124E0C13D1EE1B0041BF36 /* main.m in Sources */,
 				F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm in Sources */,
 				F7124E1913D1EE1B0041BF36 /* EAGLView.m in Sources */,
-				F7124E1C13D1EE1B0041BF36 /* TouchEngineViewController.m in Sources */,
 				F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */,
 				F7C7F0E313D2369C0061A219 /* FreeCellGame.mm in Sources */,
 			);
@@ -210,22 +188,6 @@
 				F7124E0813D1EE1B0041BF36 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F7124E1013D1EE1B0041BF36 /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7124E1113D1EE1B0041BF36 /* en */,
-			);
-			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		F7124E1D13D1EE1B0041BF36 /* TouchEngineViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7124E1E13D1EE1B0041BF36 /* en */,
-			);
-			name = TouchEngineViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

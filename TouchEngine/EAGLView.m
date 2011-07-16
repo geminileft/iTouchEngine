@@ -7,55 +7,15 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-
 #import "EAGLView.h"
-
-@interface EAGLView (PrivateMethods)
-- (void)createFramebuffer;
-- (void)deleteFramebuffer;
-@end
 
 @implementation EAGLView
 
 @synthesize context;
 
-// You must implement this method
 + (Class)layerClass
 {
     return [CAEAGLLayer class];
-}
-
-//The EAGL view is stored in the nib file. When it's unarchived it's sent -initWithCoder:.
-- (id)initWithCoder:(NSCoder*)coder
-{
-    self = [super initWithCoder:coder];
-	if (self) {
-
-        EAGLContext *aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        
-        if (!aContext)
-            NSLog(@"Failed to create ES context");
-        else if (![EAGLContext setCurrentContext:aContext])
-            NSLog(@"Failed to set ES context current");
-        
-        self.context = aContext;
-        [aContext release];
-        
-        [self setContext:context];
-        [self setFramebuffer];
-        
-        [self startAnimation];
-        
-        CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
-        
-        eaglLayer.opaque = TRUE;
-        eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
-                                        kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
-                                        nil];
-    }
-    
-    return self;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -90,7 +50,6 @@
 
 - (void)dealloc
 {
-    [self deleteFramebuffer];    
     [context release];
     
     [super dealloc];
@@ -98,12 +57,9 @@
 
 - (void)setContext:(EAGLContext *)newContext
 {
-    if (context != newContext) {
-        [self deleteFramebuffer];
-        
+    if (context != newContext) {        
         [context release];
         context = [newContext retain];
-        
         [EAGLContext setCurrentContext:nil];
     }
 }
@@ -128,23 +84,6 @@
         
         if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
             NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
-    }
-}
-
-- (void)deleteFramebuffer
-{
-    if (context) {
-        [EAGLContext setCurrentContext:context];
-        
-        if (defaultFramebuffer) {
-            glDeleteFramebuffers(1, &defaultFramebuffer);
-            defaultFramebuffer = 0;
-        }
-        
-        if (colorRenderbuffer) {
-            glDeleteRenderbuffers(1, &colorRenderbuffer);
-            colorRenderbuffer = 0;
-        }
     }
 }
 
@@ -179,8 +118,19 @@
 
 - (void)layoutSubviews
 {
-    // The framebuffer will be re-created at the beginning of the next setFramebuffer method call.
-    [self deleteFramebuffer];
+    if (context) {
+        [EAGLContext setCurrentContext:context];
+        
+        if (defaultFramebuffer) {
+            glDeleteFramebuffers(1, &defaultFramebuffer);
+            defaultFramebuffer = 0;
+        }
+        
+        if (colorRenderbuffer) {
+            glDeleteRenderbuffers(1, &colorRenderbuffer);
+            colorRenderbuffer = 0;
+        }
+    }
 }
 
 - (void)startAnimation {
