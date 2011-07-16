@@ -18,17 +18,8 @@
 @interface TouchEngineViewController : UIViewController {
 @private
     EAGLContext *context;
-    GLuint program;
-    
-    BOOL animating;
-    NSInteger animationFrameInterval;
-    CADisplayLink *displayLink;
 }
 
-@property (readonly, nonatomic, getter=isAnimating) BOOL animating;
-@property (nonatomic) NSInteger animationFrameInterval;
-
-- (void)startAnimation;
 - (void)stopAnimation;
 
 @end

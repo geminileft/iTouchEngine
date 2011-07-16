@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#include "FreeCellGame.h"
+
 @class TouchEngineViewController;
 
 @interface TouchEngineAppDelegate : NSObject <UIApplicationDelegate> {
 
+@private
+    FreeCellGame mGame;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet TouchEngineViewController *viewController;
+//@property (nonatomic, retain) IBOutlet TouchEngineViewController *viewController;
 
 @end

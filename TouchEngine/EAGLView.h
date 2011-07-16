@@ -33,4 +33,6 @@
 - (void)setFramebuffer;
 - (BOOL)presentFramebuffer;
 
+- (void)startAnimation;
+
 @end
