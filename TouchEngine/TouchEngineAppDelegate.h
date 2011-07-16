@@ -16,6 +16,7 @@
 
 @private
     FreeCellGame mGame;
+    UIWindow* mWindow;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

@@ -14,7 +14,6 @@
 
 @implementation TouchEngineAppDelegate
 
-
 @synthesize window=_window;
 
 //@synthesize viewController=_viewController;
@@ -25,9 +24,14 @@
     //self.window.rootViewController = self.
     CGRect frame = [[UIScreen mainScreen] bounds];
     EAGLView* view = [[EAGLView alloc] initWithFrame:frame];
-    [self.window addSubview:view];
+    mWindow = [[UIWindow alloc] initWithFrame:frame];
+    mWindow.backgroundColor = [UIColor redColor];
+    [mWindow addSubview:view];
+    [mWindow makeKeyAndVisible];
+    //[self.window addSubview:view];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
