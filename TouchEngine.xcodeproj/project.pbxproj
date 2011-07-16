@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFA13D1EE1B0041BF36 /* UIKit.framework */; };
+		F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFC13D1EE1B0041BF36 /* Foundation.framework */; };
+		F7124DFF13D1EE1B0041BF36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFE13D1EE1B0041BF36 /* CoreGraphics.framework */; };
+		F7124E0113D1EE1B0041BF36 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124E0013D1EE1B0041BF36 /* QuartzCore.framework */; };
+		F7124E0313D1EE1B0041BF36 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124E0213D1EE1B0041BF36 /* OpenGLES.framework */; };
+		F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */; };
+		F7124E0C13D1EE1B0041BF36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0B13D1EE1B0041BF36 /* main.m */; };
+		F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.m */; };
+		F7124E1213D1EE1B0041BF36 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1013D1EE1B0041BF36 /* MainWindow.xib */; };
+		F7124E1413D1EE1B0041BF36 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1313D1EE1B0041BF36 /* Shader.fsh */; };
+		F7124E1613D1EE1B0041BF36 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1513D1EE1B0041BF36 /* Shader.vsh */; };
+		F7124E1913D1EE1B0041BF36 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1813D1EE1B0041BF36 /* EAGLView.m */; };
+		F7124E1C13D1EE1B0041BF36 /* TouchEngineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1B13D1EE1B0041BF36 /* TouchEngineViewController.m */; };
+		F7124E1F13D1EE1B0041BF36 /* TouchEngineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7124E1D13D1EE1B0041BF36 /* TouchEngineViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F7124DF613D1EE1B0041BF36 /* TouchEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7124DFA13D1EE1B0041BF36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F7124DFC13D1EE1B0041BF36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F7124DFE13D1EE1B0041BF36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F7124E0013D1EE1B0041BF36 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F7124E0213D1EE1B0041BF36 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		F7124E0613D1EE1B0041BF36 /* TouchEngine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchEngine-Info.plist"; sourceTree = "<group>"; };
+		F7124E0813D1EE1B0041BF36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7124E0A13D1EE1B0041BF36 /* TouchEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchEngine-Prefix.pch"; sourceTree = "<group>"; };
+		F7124E0B13D1EE1B0041BF36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchEngineAppDelegate.h; sourceTree = "<group>"; };
+		F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchEngineAppDelegate.m; sourceTree = "<group>"; };
+		F7124E1113D1EE1B0041BF36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		F7124E1313D1EE1B0041BF36 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		F7124E1513D1EE1B0041BF36 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		F7124E1713D1EE1B0041BF36 /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		F7124E1813D1EE1B0041BF36 /* EAGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		F7124E1A13D1EE1B0041BF36 /* TouchEngineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchEngineViewController.h; sourceTree = "<group>"; };
+		F7124E1B13D1EE1B0041BF36 /* TouchEngineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchEngineViewController.m; sourceTree = "<group>"; };
+		F7124E1E13D1EE1B0041BF36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TouchEngineViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7124DF313D1EE1B0041BF36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */,
+				F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */,
+				F7124DFF13D1EE1B0041BF36 /* CoreGraphics.framework in Frameworks */,
+				F7124E0113D1EE1B0041BF36 /* QuartzCore.framework in Frameworks */,
+				F7124E0313D1EE1B0041BF36 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7124DEB13D1EE1B0041BF36 = {
+			isa = PBXGroup;
+			children = (
+				F7124E0413D1EE1B0041BF36 /* TouchEngine */,
+				F7124DF913D1EE1B0041BF36 /* Frameworks */,
+				F7124DF713D1EE1B0041BF36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7124DF713D1EE1B0041BF36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7124DF613D1EE1B0041BF36 /* TouchEngine.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7124DF913D1EE1B0041BF36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7124DFA13D1EE1B0041BF36 /* UIKit.framework */,
+				F7124DFC13D1EE1B0041BF36 /* Foundation.framework */,
+				F7124DFE13D1EE1B0041BF36 /* CoreGraphics.framework */,
+				F7124E0013D1EE1B0041BF36 /* QuartzCore.framework */,
+				F7124E0213D1EE1B0041BF36 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7124E0413D1EE1B0041BF36 /* TouchEngine */ = {
+			isa = PBXGroup;
+			children = (
+				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
+				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.m */,
+				F7124E1013D1EE1B0041BF36 /* MainWindow.xib */,
+				F7124E1313D1EE1B0041BF36 /* Shader.fsh */,
+				F7124E1513D1EE1B0041BF36 /* Shader.vsh */,
+				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
+				F7124E1813D1EE1B0041BF36 /* EAGLView.m */,
+				F7124E1A13D1EE1B0041BF36 /* TouchEngineViewController.h */,
+				F7124E1B13D1EE1B0041BF36 /* TouchEngineViewController.m */,
+				F7124E1D13D1EE1B0041BF36 /* TouchEngineViewController.xib */,
+				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
+			);
+			path = TouchEngine;
+			sourceTree = "<group>";
+		};
+		F7124E0513D1EE1B0041BF36 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7124E0613D1EE1B0041BF36 /* TouchEngine-Info.plist */,
+				F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */,
+				F7124E0A13D1EE1B0041BF36 /* TouchEngine-Prefix.pch */,
+				F7124E0B13D1EE1B0041BF36 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7124DF513D1EE1B0041BF36 /* TouchEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7124E2213D1EE1B0041BF36 /* Build configuration list for PBXNativeTarget "TouchEngine" */;
+			buildPhases = (
+				F7124DF213D1EE1B0041BF36 /* Sources */,
+				F7124DF313D1EE1B0041BF36 /* Frameworks */,
+				F7124DF413D1EE1B0041BF36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchEngine;
+			productName = TouchEngine;
+			productReference = F7124DF613D1EE1B0041BF36 /* TouchEngine.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7124DED13D1EE1B0041BF36 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = F7124DF013D1EE1B0041BF36 /* Build configuration list for PBXProject "TouchEngine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F7124DEB13D1EE1B0041BF36;
+			productRefGroup = F7124DF713D1EE1B0041BF36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7124DF513D1EE1B0041BF36 /* TouchEngine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7124DF413D1EE1B0041BF36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
+				F7124E1213D1EE1B0041BF36 /* MainWindow.xib in Resources */,
+				F7124E1413D1EE1B0041BF36 /* Shader.fsh in Resources */,
+				F7124E1613D1EE1B0041BF36 /* Shader.vsh in Resources */,
+				F7124E1F13D1EE1B0041BF36 /* TouchEngineViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7124DF213D1EE1B0041BF36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7124E0C13D1EE1B0041BF36 /* main.m in Sources */,
+				F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.m in Sources */,
+				F7124E1913D1EE1B0041BF36 /* EAGLView.m in Sources */,
+				F7124E1C13D1EE1B0041BF36 /* TouchEngineViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7124E0813D1EE1B0041BF36 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F7124E1013D1EE1B0041BF36 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7124E1113D1EE1B0041BF36 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		F7124E1D13D1EE1B0041BF36 /* TouchEngineViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7124E1E13D1EE1B0041BF36 /* en */,
+			);
+			name = TouchEngineViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7124E2013D1EE1B0041BF36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F7124E2113D1EE1B0041BF36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		F7124E2313D1EE1B0041BF36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchEngine/TouchEngine-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "TouchEngine/TouchEngine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F7124E2413D1EE1B0041BF36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchEngine/TouchEngine-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "TouchEngine/TouchEngine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7124DF013D1EE1B0041BF36 /* Build configuration list for PBXProject "TouchEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7124E2013D1EE1B0041BF36 /* Debug */,
+				F7124E2113D1EE1B0041BF36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7124E2213D1EE1B0041BF36 /* Build configuration list for PBXNativeTarget "TouchEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7124E2313D1EE1B0041BF36 /* Debug */,
+				F7124E2413D1EE1B0041BF36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7124DED13D1EE1B0041BF36 /* Project object */;
+}
