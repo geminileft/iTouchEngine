@@ -89,15 +89,14 @@
 		F7124E0413D1EE1B0041BF36 /* TouchEngine */ = {
 			isa = PBXGroup;
 			children = (
+				F7E8D2B413D25B830049AA45 /* Core */,
 				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
 				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
 				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
 				F7124E1813D1EE1B0041BF36 /* EAGLView.m */,
-				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
-				F7C7F0DD13D234B20061A219 /* TEEngine.mm */,
-				F7C7F0DE13D234B20061A219 /* TEEngine.h */,
 				F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */,
 				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
+				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
 			);
 			path = TouchEngine;
 			sourceTree = "<group>";
@@ -111,6 +110,15 @@
 				F7124E0B13D1EE1B0041BF36 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7E8D2B413D25B830049AA45 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7C7F0DD13D234B20061A219 /* TEEngine.mm */,
+				F7C7F0DE13D234B20061A219 /* TEEngine.h */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
