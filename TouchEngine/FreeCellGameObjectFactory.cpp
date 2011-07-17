@@ -7,17 +7,23 @@
 //
 
 #include "FreeCellGameObjectFactory.h"
+#include "TETypes.h"
+#include "RenderImage.h"
 
-TEGameObject* FreeCellGameObjectFactory::createBackground(/*Point position*/) {
+TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
-/*
-    Size size = new Size(480, 854);
-    RenderImage image = new RenderImage(R.drawable.table_background, null, size);
-    gameObject.addComponent(image);
-    gameObject.addComponent(new SoundStart(R.raw.shuffle));
-    gameObject.position = position;
-    gameObject.size = size;
-*/
+    TESize size;
+    size.width = 480;
+    size.height = 854;
+    TEPoint position;
+    position.x = 0;
+    position.y = 0;
+    RenderImage* image = new RenderImage("table_background.png", position, size);
+    gameObject->addComponent(image);
+    //gameObject.addComponent(new SoundStart(R.raw.shuffle));
+    gameObject->position.x = size.width / 2;
+    gameObject->position.y = size.height / 2;
+    gameObject->size = size;
     return gameObject;
 }
 

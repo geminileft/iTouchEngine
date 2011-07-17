@@ -6,7 +6,7 @@
 class FreeCellGameObjectFactory {
 
 public:
-    TEGameObject* createBackground(/*Point position*/);
+    TEGameObject* createBackground();
 
 };
 #endif

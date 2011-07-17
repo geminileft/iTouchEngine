@@ -1,5 +1,8 @@
 #include "TEEngine.h"
+#include "TEManagerRender.h"
+#include "TEManagerTouch.h"
 #include "TEComponentRender.h"
+#include "TEComponentTouch.h"
 
 /*
 	private Context mContext;
@@ -10,20 +13,16 @@
     
 TEEngine::TEEngine() {
         /*
-		mContext = context;
-        TEStaticSettings.setContext(context);
-		mGameObjects = new Vector<TEGameObject>();
-		mManagers = new Vector<TEManager>();
-        TEManagerTouch touchManager = TEManagerTouch.sharedManager();
         TEManagerStack stackManager = TEManagerStack.sharedManager();
         TEManagerSound soundManager = TEManagerSound.sharedManager();
         */
+    TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
         /*
-        mManagers.add(touchManager);
         mManagers.add(stackManager);
         mManagers.add(soundManager);
         */
+    mManagers.push_back(touchManager);
     mManagers.push_back(renderManager);
 	}
 
@@ -36,8 +35,8 @@ void TEEngine::run() {
 
 void TEEngine::addGameObject(TEGameObject* gameObject) {
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
+    TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
     /*
-    TEManagerTouch touchManager = TEManagerTouch.sharedManager();
     TEManagerSound soundManager = TEManagerSound.sharedManager();
     TEManagerStack stackManager = TEManagerStack.sharedManager();
     */
@@ -48,25 +47,24 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
         component = *iterator;
         if (dynamic_cast<TEComponentRender*>(component)) {
             renderManager->addComponent(component);
-        /*
-        } else if (component instanceof TEComponentTouch) {
-            touchManager.addComponent(component);
+        } else if (dynamic_cast<TEComponentTouch*>(component)) {
+            touchManager->addComponent(component);
+/*
         } else if (component instanceof TEComponentSound) {
             soundManager.addComponent(component);
         } else if (component instanceof TEComponentStack) {
             stackManager.addComponent(component);
-        */
+*/
         }
     }
     mGameObjects.push_back(gameObject);
 }
 
+void TEEngine::initGraphics() {
+    //TEManagerGraphics* graphicsManager = TEManagerGraphics::sharedManager();
+}
 
 /*	
-	void setGraphicManager() {
-		TEManagerGraphics.setGL(gl);
-	}
-	
 	Context getContext() {
 		return mContext;
 	}

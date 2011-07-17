@@ -3,7 +3,6 @@
 
 #include <vector>
 #include "TEManager.h"
-#include "TEManagerRender.h"
 #include "TEGameObject.h"
 
 using namespace std;
@@ -21,7 +20,7 @@ public:
     
     void run();
     void addGameObject(TEGameObject* gameObject);
-    
+    void initGraphics();
 };
 
 #endif

@@ -40,14 +40,14 @@
         if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
             NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));        
         glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
-        glViewport(0, 0, framebufferWidth, framebufferHeight);
-        [self startAnimation];
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
                                         kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
                                         nil];
+        glViewport(0, 0, framebufferWidth, framebufferHeight);
+        [self startAnimation];
     }
     return self;
 }

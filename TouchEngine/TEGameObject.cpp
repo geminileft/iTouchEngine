@@ -4,10 +4,7 @@ void TEGameObject::update() {}
 
 /*
 private HashMap<TEComponent.Event, Vector<TEComponent.EventListener>> mEventSubscribers = new HashMap<TEComponent.Event, Vector<TEComponent.EventListener>>(); 
-	
-	public Size size;
-	public Point position;
-	
+		
 	public TEGameObject() {
 		super();
 	}

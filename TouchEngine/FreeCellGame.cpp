@@ -17,7 +17,7 @@ void FreeCellGame::start() {
     TEGameObject* gameObject;
     //TEComponent.EventListener listener;
     
-    gameObject = mFactory->createBackground(/*new Point(240, 427)*/);
+    gameObject = mFactory->createBackground();
     addGameObject(gameObject);
 /*    
     int x = START_X;
