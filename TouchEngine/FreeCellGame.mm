@@ -7,18 +7,19 @@
 //
 
 #include "FreeCellGame.h"
+#include "TEGameObject.h"
 
 FreeCellGame::FreeCellGame() {
 }
 
 void FreeCellGame::start() {
-/*
-    TEGameObject gameObject;
-    TEComponent.EventListener listener;
+
+    TEGameObject* gameObject;
+    //TEComponent.EventListener listener;
     
-    gameObject = mFactory.createBackground(new Point(240, 427));
+    gameObject = mFactory->createBackground(/*new Point(240, 427)*/);
     addGameObject(gameObject);
-    
+/*    
     int x = START_X;
     int y = mHeight - 50;
     

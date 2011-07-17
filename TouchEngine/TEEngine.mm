@@ -1,4 +1,5 @@
 #include "TEEngine.h"
+#include "TEComponentRender.h"
 
 /*
 	private Context mContext;
@@ -32,6 +33,35 @@ void TEEngine::run() {
         mManagers[count]->update();
     }
 }
+
+void TEEngine::addGameObject(TEGameObject* gameObject) {
+    TEManagerRender* renderManager = TEManagerRender::sharedManager();
+    /*
+    TEManagerTouch touchManager = TEManagerTouch.sharedManager();
+    TEManagerSound soundManager = TEManagerSound.sharedManager();
+    TEManagerStack stackManager = TEManagerStack.sharedManager();
+    */
+    TEComponentContainer components = gameObject->getComponents();
+    TEComponentContainer::iterator iterator;
+    TEComponent* component;
+    for(iterator = components.begin();iterator != components.end();++iterator) {
+        component = *iterator;
+        if (dynamic_cast<TEComponentRender*>(component)) {
+            renderManager->addComponent(component);
+        /*
+        } else if (component instanceof TEComponentTouch) {
+            touchManager.addComponent(component);
+        } else if (component instanceof TEComponentSound) {
+            soundManager.addComponent(component);
+        } else if (component instanceof TEComponentStack) {
+            stackManager.addComponent(component);
+        */
+        }
+    }
+    mGameObjects.push_back(gameObject);
+}
+
+
 /*	
 	void setGraphicManager() {
 		TEManagerGraphics.setGL(gl);
@@ -39,29 +69,6 @@ void TEEngine::run() {
 	
 	Context getContext() {
 		return mContext;
-	}
-    
-	public final void addGameObject(TEGameObject gameObject) {
-		TEManagerRender renderManager = TEManagerRender.sharedManager();
-		TEManagerTouch touchManager = TEManagerTouch.sharedManager();
-		TEManagerSound soundManager = TEManagerSound.sharedManager();
-		TEManagerStack stackManager = TEManagerStack.sharedManager();
-		TEComponentContainer components = gameObject.getComponents();
-		final int size = components.size();
-		TEComponent component;
-		for(int i = 0; i < size; ++i) {
-			component = components.get(i);
-			if (component instanceof TEComponentRender) {
-				renderManager.addComponent(component);
-			} else if (component instanceof TEComponentTouch) {
-				touchManager.addComponent(component);
-			} else if (component instanceof TEComponentSound) {
-				soundManager.addComponent(component);
-			} else if (component instanceof TEComponentStack) {
-				stackManager.addComponent(component);
-			}
-		}
-		mGameObjects.add(gameObject);
 	}
     
     public boolean onTouchEvent(MotionEvent event) {

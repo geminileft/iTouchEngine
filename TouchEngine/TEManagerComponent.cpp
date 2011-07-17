@@ -5,6 +5,20 @@ TEComponentContainer TEManagerComponent::getComponents() const {
     return mComponents;
 }
 
+void TEManagerComponent::addComponent(TEComponent* component) {
+    addComponent(component, -1);
+}
+
+void TEManagerComponent::addComponent(TEComponent* component, int index) {
+    if (index == -1) {
+        mComponents.push_back(component);
+    } else {
+        mComponents.push_front(component);
+        //mComponents.add(index, component);
+    }
+    component->setManager(this);
+}
+
 /*
 public void update() {
 		TEComponentContainer components = getComponents();
@@ -15,18 +29,6 @@ public void update() {
 	    }
 	}
 	
-	public void addComponent(TEComponent component) {
-		addComponent(component, -1);
-	}
-	
-	public void addComponent(TEComponent component, int index) {
-		if (index == -1) {
-			mComponents.add(component);
-		} else {
-			mComponents.add(index, component);
-		}
-		component.setManager(this);
-	}
 	
 	public abstract void moveComponentToTop(TEComponent component);
 }

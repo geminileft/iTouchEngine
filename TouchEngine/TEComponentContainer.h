@@ -1,6 +1,8 @@
 #ifndef TECOMPONENTCONTAINER
 #define TECOMPONENTCONTAINER
 
+class TEComponent;
+
 #include <list>
 #include "TEComponent.h"
 

@@ -11,11 +11,15 @@
 #define FREECELLGAME
 
 #include "TEEngine.h"
+#include "FreeCellGameObjectFactory.h"
 
 class FreeCellGame : public TEEngine {
 public:
     FreeCellGame();
     virtual void start();
+
+private:
+	FreeCellGameObjectFactory* mFactory;
 };
 
 #endif

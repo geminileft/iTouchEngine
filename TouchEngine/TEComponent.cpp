@@ -1,5 +1,9 @@
 #include "TEComponent.h"
 
+void TEComponent::setManager(TEManagerComponent* manager) {
+    mManager = manager;
+}
+
 /*
 	public interface EventListener {
 		public abstract void invoke();
@@ -23,11 +27,7 @@
 	public final void setParent(TEGameObject parentGameObject) {
 		parent = parentGameObject;
 	}
-	
-	public final void setManager(TEManagerComponent manager) {
-		mManager = manager;
-	}
-	
+		
 	public final TEManagerComponent getManager() {
 		return mManager;
 	}

@@ -10,6 +10,8 @@ private:
 
 public:
     TEComponentContainer getComponents() const;
+    void addComponent(TEComponent* component, int index);
+	void addComponent(TEComponent* component);
 
 };
     
