@@ -1,9 +1,9 @@
 
 #include "RenderImage.h"
 
-RenderImage::RenderImage(std::string imageName, TEPoint position, TESize size) {
+RenderImage::RenderImage(void* imageData, TEPoint position, TESize size) {
     //addEventSubscription(TEComponent.Event.EVENT_MOVE_TO_TOP, mMoveToTopListener);
-    mTexture = new TEUtilTexture(imageName, position, size);
+    mTexture = new TEUtilTexture(imageData, position, size);
     if (size.width == 0 && size.height == 0) {
         size = mTexture->getBitmapSize();
     }
@@ -21,7 +21,7 @@ void RenderImage::draw() {
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
     glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, mCrop);
-    //glDrawTexfOES(mParent->position.x - (mWidth / 2), mParent->position.y - (mHeight / 2), 0, mWidth, mHeight);
+    glDrawTexfOES(mParent->position.x - (mWidth / 2), mParent->position.y - (mHeight / 2), 0, mWidth, mHeight);
     glDisable(GL_TEXTURE_2D);
 }
 

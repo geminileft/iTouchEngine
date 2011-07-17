@@ -5,6 +5,7 @@
 #include "TETypes.h"
 #include <string>
 #include "TEUtilTexture.h"
+
 class RenderImage : public TEComponentRender {
 private:
 	TEUtilTexture* mTexture;
@@ -17,7 +18,7 @@ private:
 	private GL10 mGL;
 */
 public:
-    RenderImage(std::string imageName, TEPoint position, TESize size);
+    RenderImage(void* imageData, TEPoint position, TESize size);
 
     virtual void update();
     virtual void draw();
