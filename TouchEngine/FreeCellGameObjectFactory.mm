@@ -18,7 +18,7 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEPoint position;
     position.x = 0;
     position.y = 0;
-    RenderImage* renderImage = new RenderImage("table_background", position, size);
+    RenderImage* renderImage = new RenderImage(@"table_background", position, size);
     gameObject->addComponent(renderImage);
     //gameObject.addComponent(new SoundStart(R.raw.shuffle));
     gameObject->position.x = size.width / 2;

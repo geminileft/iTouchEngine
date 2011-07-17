@@ -16,7 +16,7 @@ private:
 
 public:
 	GLuint mTextureName;
-	TEUtilTexture(std::string resourceName, TEPoint position, TESize size);
+	TEUtilTexture(NSString* resourceName, TEPoint position, TESize size);
     TESize getBitmapSize() const;
 	TESize getCropSize() const;
 };

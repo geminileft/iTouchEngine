@@ -67,7 +67,9 @@
 
 - (void)drawFrame
 {
+    glClear(GL_COLOR_BUFFER_BIT);
     mGame->run();
+/*
     static const GLfloat squareVertices[] = {
         -0.5f, -0.33f,
         0.5f, -0.33f,
@@ -100,7 +102,7 @@
         glEnableClientState(GL_COLOR_ARRAY);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    
+*/
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
