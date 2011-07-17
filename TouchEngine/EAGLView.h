@@ -4,6 +4,8 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#include "TEEngine.h"
+
 @class EAGLContext;
 
 @interface EAGLView : UIView {
@@ -12,11 +14,13 @@
     GLint framebufferHeight;
     GLuint defaultFramebuffer;
     GLuint colorRenderbuffer;
+    TEEngine* mGame;
+    
 }
 
 @property (nonatomic, retain) EAGLContext *context;
 
-//- (void)setFramebuffer;
+- (id)initWithFrame:(CGRect)frame game:(TEEngine*) game;
 - (void)startAnimation;
 
 @end

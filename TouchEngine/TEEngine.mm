@@ -7,11 +7,11 @@
 //
 
 #include "TEEngine.h"
+#include "TEManagerRender.h"
 
 /*
 	private Context mContext;
 	private Vector<TEGameObject> mGameObjects;
-	private Vector<TEManager> mManagers;
 	private int mHeight;
 	private int mWidth;
 */
@@ -25,21 +25,23 @@ TEEngine::TEEngine() {
         TEManagerTouch touchManager = TEManagerTouch.sharedManager();
         TEManagerStack stackManager = TEManagerStack.sharedManager();
         TEManagerSound soundManager = TEManagerSound.sharedManager();
-        TEManagerRender renderManager = TEManagerRender.sharedManager();
+        */
+        //TEManagerRender* renderManager = TEManagerRender.sharedManager();
+        /*
         mManagers.add(touchManager);
         mManagers.add(stackManager);
         mManagers.add(soundManager);
-        mManagers.add(renderManager);
-         */
+        */
+        //mManagers.push_back(renderManager);
 	}
-/*
-	void run() {
-		final int managerCount = mManagers.size();
-		for (int count = 0;count < managerCount; ++count) {
-			mManagers.get(count).update();
-		}
-	}
-	
+
+void TEEngine::run() {
+    int managerCount = mManagers.size();
+    for (int count = 0;count < managerCount; ++count) {
+        mManagers[count].update();
+    }
+}
+/*	
 	void setGraphicManager() {
 		TEManagerGraphics.setGL(gl);
 	}

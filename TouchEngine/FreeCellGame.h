@@ -12,7 +12,7 @@
 
 #include "TEEngine.h"
 
-class FreeCellGame : TEEngine {
+class FreeCellGame : public TEEngine {
 public:
     FreeCellGame();
     virtual void start();

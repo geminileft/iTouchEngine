@@ -15,7 +15,6 @@
 @interface TouchEngineAppDelegate : NSObject <UIApplicationDelegate> {
 
 @private
-    FreeCellGame mGame;
     UIWindow* mWindow;
 }
 

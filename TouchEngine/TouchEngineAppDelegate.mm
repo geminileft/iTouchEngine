@@ -14,7 +14,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     CGRect frame = [[UIScreen mainScreen] bounds];
-    EAGLView* view = [[EAGLView alloc] initWithFrame:frame];
+    FreeCellGame* game = new FreeCellGame();
+
+    EAGLView* view = [[EAGLView alloc] initWithFrame:frame game:game];
     mWindow = [[UIWindow alloc] initWithFrame:frame];
     [mWindow addSubview:view];
     [mWindow makeKeyAndVisible];

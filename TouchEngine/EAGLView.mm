@@ -18,10 +18,10 @@
     return [CAEAGLLayer class];
 }
 
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame game:(TEEngine*) game {
     self = [super initWithFrame:frame];
 	if (self) {
-        
+        mGame = game;
         EAGLContext *aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
         if (!aContext)
             NSLog(@"Failed to create ES context");
