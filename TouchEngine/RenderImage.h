@@ -18,7 +18,7 @@ private:
 	private GL10 mGL;
 */
 public:
-    RenderImage(void* imageData, TEPoint position, TESize size);
+    RenderImage(std::string resourceName, TEPoint position, TESize size);
 
     virtual void update();
     virtual void draw();

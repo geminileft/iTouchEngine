@@ -18,17 +18,7 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEPoint position;
     position.x = 0;
     position.y = 0;
-    UIImage* image = [UIImage imageNamed:@"table_background"];
-    GLuint width = CGImageGetWidth(image.CGImage);
-    GLuint height = CGImageGetHeight(image.CGImage);
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    void *imageData = malloc( height * width * 4 );
-    CGContextRef context = CGBitmapContextCreate( imageData, width, height, 8, 4 * width, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big );
-    CGColorSpaceRelease( colorSpace );
-    CGContextClearRect( context, CGRectMake( 0, 0, width, height ) );
-    CGContextTranslateCTM( context, 0, height - height );
-    CGContextDrawImage( context, CGRectMake( 0, 0, width, height ), image.CGImage );
-    RenderImage* renderImage = new RenderImage(imageData, position, size);
+    RenderImage* renderImage = new RenderImage("table_background", position, size);
     gameObject->addComponent(renderImage);
     //gameObject.addComponent(new SoundStart(R.raw.shuffle));
     gameObject->position.x = size.width / 2;

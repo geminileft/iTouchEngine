@@ -8,7 +8,7 @@
 
 #include "TEUtilTexture.h"
 
-TEUtilTexture::TEUtilTexture(void* imageData, TEPoint position, TESize size) {
+TEUtilTexture::TEUtilTexture(std::string resourceName, TEPoint position, TESize size) {
     glGenTextures(1, &mTextureName);
     //InputStream is = context.getResources().openRawResource(resourceId);
     glBindTexture(GL_TEXTURE_2D, mTextureName);
@@ -17,7 +17,7 @@ TEUtilTexture::TEUtilTexture(void* imageData, TEPoint position, TESize size) {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width, size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width, size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 }
 
 TESize TEUtilTexture::getBitmapSize() const {
