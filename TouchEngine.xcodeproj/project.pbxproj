@@ -50,6 +50,7 @@
 		F7E8D2BE13D264880049AA45 /* TEComponentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentContainer.h; sourceTree = "<group>"; };
 		F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEComponent.cpp; sourceTree = "<group>"; };
 		F7E8D2C013D265E20049AA45 /* TEComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponent.h; sourceTree = "<group>"; };
+		F7E8D2C213D26C4D0049AA45 /* TEComponentRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentRender.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +137,7 @@
 				F7E8D2BE13D264880049AA45 /* TEComponentContainer.h */,
 				F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */,
 				F7E8D2C013D265E20049AA45 /* TEComponent.h */,
+				F7E8D2C213D26C4D0049AA45 /* TEComponentRender.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";

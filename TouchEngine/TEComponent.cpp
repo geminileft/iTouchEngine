@@ -19,9 +19,7 @@
 	private TEManagerComponent mManager;
 	
 	private HashMap<TEComponent.Event, EventListener> mEventSubscriptions = new HashMap<TEComponent.Event, EventListener>();
-    
-	public abstract void update();
-	
+    	
 	public final void setParent(TEGameObject parentGameObject) {
 		parent = parentGameObject;
 	}

@@ -6,10 +6,29 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#include "TEComponentRender.h"
 #include "TEManagerRender.h"
 
+static TEManagerRender* mSharedInstance = NULL;
+
+void TEManagerRender::update() {
+    TEComponentContainer components = getComponents();
+    TEComponentContainer::iterator iterator;
+    
+    for (iterator = components.begin(); iterator != components.end();iterator++) {
+        TEComponentRender* component = (TEComponentRender*)(*iterator);
+        component->update();
+        component->draw();
+    }
+}
+
+TEManagerRender* TEManagerRender::sharedManager() {
+    if (mSharedInstance == NULL) {
+        mSharedInstance = new TEManagerRender();
+    }
+    return mSharedInstance;
+}
 /*
-private static TEManagerRender mSharedInstance = null;
 	
 	private TEComponent.EventListener mTouchStartedListener = new TEComponent.EventListener() {
 		
@@ -17,26 +36,11 @@ private static TEManagerRender mSharedInstance = null;
 		}
 	};
 	
-	public static TEManagerRender sharedManager() {
-		if (mSharedInstance == null) {
-			mSharedInstance = new TEManagerRender();
-		}
-		return mSharedInstance;
-	}
     
 	public TEManagerRender() {
 		super();
 	}
 	
-	public void update() {
-		TEComponentContainer components = getComponents();
-		final int size = components.size();
-		for(int i = 0; i < size; ++i) {
-            TEComponentRender component = (TEComponentRender)components.get(i);
-            component.update();
-            component.draw();
-        }
-	}
 	
 	public TEComponent.EventListener getTouchStartedListener() {
 		return mTouchStartedListener;

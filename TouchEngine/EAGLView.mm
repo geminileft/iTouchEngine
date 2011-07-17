@@ -59,13 +59,15 @@
     [super dealloc];
 }
 - (void)startAnimation {
-        CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
-        [aDisplayLink setFrameInterval:1];
-        [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    mGame->start();
+    CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
+    [aDisplayLink setFrameInterval:1];
+    [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 - (void)drawFrame
 {
+    mGame->run();
     static const GLfloat squareVertices[] = {
         -0.5f, -0.33f,
         0.5f, -0.33f,

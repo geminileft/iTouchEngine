@@ -3,13 +3,14 @@
 
 #include <vector>
 #include "TEManager.h"
+#include "TEManagerRender.h"
 
 using namespace std;
 
 class TEEngine {
 
 private:
-	vector<TEManager> mManagers;
+	vector<TEManager*> mManagers;
     
 public:
     TEEngine();

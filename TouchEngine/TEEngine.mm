@@ -1,13 +1,4 @@
-//
-//  TEEngine.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/16/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TEEngine.h"
-#include "TEManagerRender.h"
 
 /*
 	private Context mContext;
@@ -26,19 +17,19 @@ TEEngine::TEEngine() {
         TEManagerStack stackManager = TEManagerStack.sharedManager();
         TEManagerSound soundManager = TEManagerSound.sharedManager();
         */
-        //TEManagerRender* renderManager = TEManagerRender.sharedManager();
+    TEManagerRender* renderManager = TEManagerRender::sharedManager();
         /*
         mManagers.add(touchManager);
         mManagers.add(stackManager);
         mManagers.add(soundManager);
         */
-        //mManagers.push_back(renderManager);
+    mManagers.push_back(renderManager);
 	}
 
 void TEEngine::run() {
     int managerCount = mManagers.size();
     for (int count = 0;count < managerCount; ++count) {
-        mManagers[count].update();
+        mManagers[count]->update();
     }
 }
 /*	

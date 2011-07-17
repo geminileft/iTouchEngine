@@ -1,6 +1,10 @@
 
 #include "TEManagerComponent.h"
 
+TEComponentContainer TEManagerComponent::getComponents() const {
+    return mComponents;
+}
+
 /*
 public void update() {
 		TEComponentContainer components = getComponents();
@@ -24,10 +28,6 @@ public void update() {
 		component.setManager(this);
 	}
 	
-	public final TEComponentContainer getComponents() {
-		return mComponents;
-	}
-    
 	public abstract void moveComponentToTop(TEComponent component);
 }
 */
