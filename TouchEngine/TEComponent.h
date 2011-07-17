@@ -1,18 +1,15 @@
-class TEManagerComponent;
-
 #ifndef TECOMPONENT
 #define TECOMPONENT
 
-#include "TEManagerComponent.h"
+#include "TEGameObject.h"
+
+class TEGameObject;
 
 class TEComponent {
-private:
-    TEManagerComponent* mManager;
-    
 public:
+    TEGameObject* mParent;
     virtual void update() = 0;
 
-    void setManager(TEManagerComponent* manager);
 };
 
 #endif

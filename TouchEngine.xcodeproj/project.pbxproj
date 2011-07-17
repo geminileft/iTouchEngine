@@ -27,6 +27,7 @@
 		F7F1621A13D292D400A34457 /* TEManagerTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621813D292D400A34457 /* TEManagerTouch.cpp */; };
 		F7F1621E13D294E300A34457 /* TEComponentTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */; };
 		F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */; };
+		F7F1622713D2A94B00A34457 /* TEUtilTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1622513D2A94A00A34457 /* TEUtilTexture.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		F7F1621D13D294E300A34457 /* TEComponentTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentTouch.h; sourceTree = "<group>"; };
 		F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEInputTouch.cpp; sourceTree = "<group>"; };
 		F7F1622013D2971C00A34457 /* TEInputTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEInputTouch.h; sourceTree = "<group>"; };
+		F7F1622513D2A94A00A34457 /* TEUtilTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEUtilTexture.cpp; sourceTree = "<group>"; };
+		F7F1622613D2A94B00A34457 /* TEUtilTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilTexture.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				F7F1621D13D294E300A34457 /* TEComponentTouch.h */,
 				F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */,
 				F7F1622013D2971C00A34457 /* TEInputTouch.h */,
+				F7F1622513D2A94A00A34457 /* TEUtilTexture.cpp */,
+				F7F1622613D2A94B00A34457 /* TEUtilTexture.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				F7F1621A13D292D400A34457 /* TEManagerTouch.cpp in Sources */,
 				F7F1621E13D294E300A34457 /* TEComponentTouch.cpp in Sources */,
 				F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */,
+				F7F1622713D2A94B00A34457 /* TEUtilTexture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

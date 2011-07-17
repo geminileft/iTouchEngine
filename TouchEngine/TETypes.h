@@ -5,8 +5,6 @@ class TEComponent;
 
 #include <list>
 
-using namespace std;
-
 struct TESize {
     float width;
     float height;
@@ -21,5 +19,5 @@ struct TEPoint {
 
 typedef TEPoint TEPoint;
 
-typedef list<TEComponent*> TEComponentContainer;
+typedef std::list<TEComponent*> TEComponentContainer;
 #endif

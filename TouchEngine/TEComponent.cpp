@@ -1,9 +1,5 @@
 #include "TEComponent.h"
 
-void TEComponent::setManager(TEManagerComponent* manager) {
-    mManager = manager;
-}
-
 /*
 	public interface EventListener {
 		public abstract void invoke();
@@ -19,7 +15,6 @@ void TEComponent::setManager(TEManagerComponent* manager) {
 		, EVENT_MOVE_TO_FOUNDATION
 	}
 	
-	public TEGameObject parent;
 	private TEManagerComponent mManager;
 	
 	private HashMap<TEComponent.Event, EventListener> mEventSubscriptions = new HashMap<TEComponent.Event, EventListener>();

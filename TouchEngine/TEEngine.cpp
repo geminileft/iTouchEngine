@@ -3,7 +3,11 @@
 #include "TEManagerTouch.h"
 #include "TEComponentRender.h"
 #include "TEComponentTouch.h"
-
+#include "TEGameObject.h"
+#include <OpenGLES/ES1/gl.h>
+#include <OpenGLES/ES1/glext.h>
+#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES2/glext.h>
 /*
 	private Context mContext;
 	private Vector<TEGameObject> mGameObjects;
@@ -60,8 +64,20 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
     mGameObjects.push_back(gameObject);
 }
 
-void TEEngine::initGraphics() {
-    //TEManagerGraphics* graphicsManager = TEManagerGraphics::sharedManager();
+void TEEngine::initGraphics(int width, int height) {
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //always drawing textures...enable once
+    //glEnable(GL_TEXTURE_2D);
+    //required for vertex/textures
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 }
 
 /*	

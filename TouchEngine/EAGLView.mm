@@ -46,7 +46,7 @@
                                         [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
                                         kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
                                         nil];
-        glViewport(0, 0, framebufferWidth, framebufferHeight);
+        mGame->initGraphics(framebufferWidth, framebufferHeight);
         [self startAnimation];
     }
     return self;

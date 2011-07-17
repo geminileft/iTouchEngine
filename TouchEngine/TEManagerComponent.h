@@ -2,8 +2,9 @@
 #define TEMANAGERCOMPONENT
 
 #include "TEManager.h"
-#include "TEComponent.h"
 #include "TETypes.h"
+
+class TEComponent;
 
 class TEManagerComponent : public TEManager {
 private:

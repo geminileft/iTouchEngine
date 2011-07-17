@@ -4,22 +4,20 @@
 #include "TEComponentRender.h"
 #include "TETypes.h"
 #include <string>
-
-using namespace std;
-
+#include "TEUtilTexture.h"
 class RenderImage : public TEComponentRender {
 private:
-/*
-	private int mWidth;
-	private int mHeight;
+	TEUtilTexture* mTexture;
+	int mCrop[4];
+	int mWidth;
+	int mHeight;
+    /*
 	float mX = 0;
 	float mY = 0;
-	private TEUtilTexture mTexture;
 	private GL10 mGL;
-	private int[] mCrop = new int[4];
 */
 public:
-    RenderImage(string imageName, TEPoint position, TESize size);
+    RenderImage(std::string imageName, TEPoint position, TESize size);
 
     virtual void update();
     virtual void draw();

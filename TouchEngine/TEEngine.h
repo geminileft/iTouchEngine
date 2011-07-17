@@ -2,16 +2,18 @@
 #define TEENGINE
 
 #include <vector>
-#include "TEManager.h"
-#include "TEGameObject.h"
 
-using namespace std;
+class TEManager;
+class TEGameObject;
+
+//#include "TEManager.h"
+//#include "TEGameObject.h"
 
 class TEEngine {
 
 private:
-	vector<TEManager*> mManagers;
-    vector<TEGameObject*> mGameObjects;
+    std::vector<TEManager*> mManagers;
+    std::vector<TEGameObject*> mGameObjects;
 
 public:
     TEEngine();
@@ -20,7 +22,7 @@ public:
     
     void run();
     void addGameObject(TEGameObject* gameObject);
-    void initGraphics();
+    void initGraphics(int width, int height);
 };
 
 #endif

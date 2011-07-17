@@ -16,7 +16,6 @@ void TEManagerComponent::addComponent(TEComponent* component, int index) {
         mComponents.push_front(component);
         //mComponents.add(index, component);
     }
-    component->setManager(this);
 }
 
 /*
