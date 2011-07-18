@@ -101,7 +101,7 @@ void FreeCellGame::start() {
     deck[50] = new PlayingCard(Queen, Diamond);
     deck[51] = new PlayingCard(King, Diamond);
     
-    srand(10);
+    srand(15);
     //Random rand = new Random(SystemClock.uptimeMillis());
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {

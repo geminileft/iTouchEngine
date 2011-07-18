@@ -93,10 +93,11 @@ TEGameObject* FreeCellGameObjectFactory::createPlayingCard(TEPoint position, Pla
     size.height = 64;
     std::string key = card->getCardName();
     NSString* resourceId;
-    if (mCardMap.find(key) == mCardMap.end()) {
+    std::map<std::string, const char * >::iterator iterator = mCardMap.find(key);
+    if (iterator == mCardMap.end()) {
         resourceId = @"spade_ace.png";
     } else {
-        resourceId = @"spade_ace.png";
+        resourceId = [NSString stringWithUTF8String:iterator->second];
     }
     TEPoint pt;
     pt.x = 0;
