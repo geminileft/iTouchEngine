@@ -17,6 +17,7 @@
 		F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */; };
 		F7124E1913D1EE1B0041BF36 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1813D1EE1B0041BF36 /* EAGLView.mm */; };
 		F761D41513D3A9D900ED12F9 /* table_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F761D41413D3A9D900ED12F9 /* table_background.png */; };
+		F761D42C13D3C4C000ED12F9 /* free_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F761D42B13D3C4C000ED12F9 /* free_cell.png */; };
 		F795ECA613D2739500550919 /* TEGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F795ECA413D2739500550919 /* TEGameObject.cpp */; };
 		F795ECAA13D274A500550919 /* FreeCellGameObjectFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */; };
 		F795ECAE13D27EDD00550919 /* RenderImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECAC13D27EDD00550919 /* RenderImage.mm */; };
@@ -48,6 +49,7 @@
 		F7124E1813D1EE1B0041BF36 /* EAGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilsMath.h; sourceTree = "<group>"; };
 		F761D41413D3A9D900ED12F9 /* table_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_background.png; path = ../../../../../../Development/Resources/Cards/table_background.png; sourceTree = "<group>"; };
+		F761D42B13D3C4C000ED12F9 /* free_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = free_cell.png; sourceTree = "<group>"; };
 		F795ECA413D2739500550919 /* TEGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEGameObject.cpp; sourceTree = "<group>"; };
 		F795ECA513D2739500550919 /* TEGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEGameObject.h; sourceTree = "<group>"; };
 		F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FreeCellGameObjectFactory.mm; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		F7124E0513D1EE1B0041BF36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F761D42B13D3C4C000ED12F9 /* free_cell.png */,
 				F761D41413D3A9D900ED12F9 /* table_background.png */,
 				F7124E0613D1EE1B0041BF36 /* TouchEngine-Info.plist */,
 				F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */,
@@ -231,6 +234,7 @@
 			files = (
 				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
 				F761D41513D3A9D900ED12F9 /* table_background.png in Resources */,
+				F761D42C13D3C4C000ED12F9 /* free_cell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

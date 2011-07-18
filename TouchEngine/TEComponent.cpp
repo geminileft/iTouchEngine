@@ -1,5 +1,8 @@
 #include "TEComponent.h"
 
+void TEComponent::setParent(TEGameObject* parentGameObject) {
+    mParent = parentGameObject;
+}
 /*
 	public interface EventListener {
 		public abstract void invoke();
@@ -19,10 +22,6 @@
 	
 	private HashMap<TEComponent.Event, EventListener> mEventSubscriptions = new HashMap<TEComponent.Event, EventListener>();
     	
-	public final void setParent(TEGameObject parentGameObject) {
-		parent = parentGameObject;
-	}
-		
 	public final TEManagerComponent getManager() {
 		return mManager;
 	}

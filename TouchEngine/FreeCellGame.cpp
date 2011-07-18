@@ -9,6 +9,9 @@
 #include "FreeCellGame.h"
 #include "TEGameObject.h"
 
+#define START_X 35
+#define mHeight 480
+
 FreeCellGame::FreeCellGame() {
 }
 
@@ -19,19 +22,22 @@ void FreeCellGame::start() {
     
     gameObject = mFactory->createBackground();
     addGameObject(gameObject);
-/*    
     int x = START_X;
     int y = mHeight - 50;
     
-    listener = addHUDMoves();
-    addHUDTimer();
+    //listener = addHUDMoves();
+    //addHUDTimer();
     
     for (int i = 0;i < 4;++i) {
-        gameObject = mFactory.createFreeCell(new Point(x, y));
+        TEPoint pt;
+        pt.x = x;
+        pt.y = y;
+        gameObject = mFactory->createFreeCell(pt);
         addGameObject(gameObject);
         x += 55;
     }
     
+    /*  
     for (int i = 0;i < 4;++i) {
         gameObject = mFactory.createAceCellStack(new Point(x, y));
         addGameObject(gameObject);

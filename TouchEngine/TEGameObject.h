@@ -10,6 +10,7 @@ public:
 	TESize size;
 	TEPoint position;
     virtual void update();
+    void addComponent(TEComponent* component);
 };
 
 #endif

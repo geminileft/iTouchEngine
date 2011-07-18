@@ -1,6 +1,23 @@
 #include "TEGameObject.h"
+#include "TEComponent.h"
 
 void TEGameObject::update() {}
+
+void TEGameObject::addComponent(TEComponent* component) {
+    TEManagerComponent::addComponent(component);
+    /*
+    HashMap<TEComponent.Event, TEComponent.EventListener> eventSubscriptions = component.getEventSubscriptions();
+    if (!eventSubscriptions.isEmpty()) {
+        Set<TEComponent.Event> keys = eventSubscriptions.keySet();
+        Iterator<TEComponent.Event> iterator = keys.iterator();
+        while (iterator.hasNext()) {
+            TEComponent.Event event = iterator.next();
+            addEventSubscription(event, eventSubscriptions.get(event));
+        }
+    }
+    */
+    component->setParent(this);		
+}
 
 /*
 private HashMap<TEComponent.Event, Vector<TEComponent.EventListener>> mEventSubscribers = new HashMap<TEComponent.Event, Vector<TEComponent.EventListener>>(); 
@@ -9,21 +26,6 @@ private HashMap<TEComponent.Event, Vector<TEComponent.EventListener>> mEventSubs
 		super();
 	}
 		
-	@Override
-	public void addComponent(TEComponent component) {
-		super.addComponent(component);
-		HashMap<TEComponent.Event, TEComponent.EventListener> eventSubscriptions = component.getEventSubscriptions();
-		if (!eventSubscriptions.isEmpty()) {
-			Set<TEComponent.Event> keys = eventSubscriptions.keySet();
-			Iterator<TEComponent.Event> iterator = keys.iterator();
-			while (iterator.hasNext()) {
-				TEComponent.Event event = iterator.next();
-				addEventSubscription(event, eventSubscriptions.get(event));
-			}
-		}
-		component.setParent(this);		
-	}
-    
 	public void invokeEvent(TEComponent.Event event) {
 		Vector<TEComponent.EventListener> subscribers = mEventSubscribers.get(event);
 		if (subscribers != null) {

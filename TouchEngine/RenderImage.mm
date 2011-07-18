@@ -21,10 +21,11 @@ void RenderImage::draw() {
     glEnable(GL_TEXTURE_2D);
     unsigned int textureName = mTexture->mTextureName;
     TEPoint position;
-    //position.x = mParent->position.x;
-    //position.y = mParent->position.y;
-    position.x = 160;
-    position.y = 240;
+    
+    position.x = mParent->position.x;
+    position.y = mParent->position.y;
+    //position.x = 160;
+    //position.y = 240;
     glBindTexture(GL_TEXTURE_2D, textureName);
     glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, mCrop);
     glDrawTexfOES(position.x - (mWidth / 2), position.y - (mHeight / 2), 0, mWidth, mHeight);

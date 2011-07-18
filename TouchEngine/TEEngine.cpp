@@ -72,7 +72,7 @@ void TEEngine::initGraphics(int width, int height) {
     //required for vertex/textures
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glClearColor(0.7f, 1.0f, 0.12f, 1.0f);
+    glClearColor(0.4f, 0.7f, 0.12f, 1.0f);
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);

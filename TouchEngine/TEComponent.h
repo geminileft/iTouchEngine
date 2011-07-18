@@ -3,12 +3,11 @@
 
 #include "TEGameObject.h"
 
-class TEGameObject;
-
 class TEComponent {
 public:
     TEGameObject* mParent;
     virtual void update() = 0;
+	void setParent(TEGameObject* parentGameObject);
 
 };
 

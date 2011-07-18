@@ -13,6 +13,8 @@ private:
 	int mBitmapHeight;
 	int mCropWidth;
 	int mCropHeight;
+    
+    void GLUtexImage2D(CGImageRef cgImage);
 
 public:
 	GLuint mTextureName;

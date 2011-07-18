@@ -110,17 +110,22 @@ public final class SampleGameObjectFactory {
 		gameObject.addEventSubscription(Event.EVENT_MOVE_TO_FOUNDATION, stackManager.getMoveToAceStackListener());
 		return gameObject;
 	}
-    
-	public TEGameObject createFreeCell(Point position) {
-		TEGameObject gameObject = new TEGameObject();
-		Size size = new Size(48, 64);
-		gameObject.addComponent(new RenderImage(R.drawable.free_cell, null, size));
-		gameObject.addComponent(new StackFreeCell());
-		gameObject.position = position;
-		gameObject.size = size;
-		return gameObject;
+*/
+TEGameObject* FreeCellGameObjectFactory::createFreeCell(TEPoint position) {
+    TEGameObject* gameObject = new TEGameObject();
+    TESize size;
+    size.width = 48;
+    size.height = 64;
+    TEPoint offset;
+    offset.x = 0;
+    offset.y = 0;
+    gameObject->addComponent(new RenderImage(@"free_cell.png", offset, size));
+    //gameObject->addComponent(new StackFreeCell());
+    gameObject->position = position;
+    gameObject->size = size;
+    return gameObject;
 	}
-    
+/*
 	public TEGameObject createAceCellStack(Point position) {
 		TEManagerStack stackManager = TEManagerStack.sharedManager();
 		TEGameObject gameObject = new TEGameObject();
