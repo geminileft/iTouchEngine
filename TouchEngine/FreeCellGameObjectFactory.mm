@@ -9,6 +9,7 @@
 #include "FreeCellGameObjectFactory.h"
 #include "TETypes.h"
 #include "RenderImage.h"
+#include "PlayingCard.h"
 
 TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
@@ -27,90 +28,89 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
     return gameObject;
 }
 
-/*
-public final class SampleGameObjectFactory {
-	private HashMap<String, Integer> mCardMap = new HashMap<String, Integer>();
-	
-	public SampleGameObjectFactory() {
-		super();
-		mCardMap.put("SpadeAce", R.drawable.spade_ace);
-		mCardMap.put("SpadeTwo", R.drawable.spade_two);
-		mCardMap.put("SpadeThree", R.drawable.spade_three);
-		mCardMap.put("SpadeFour", R.drawable.spade_four);
-		mCardMap.put("SpadeFive", R.drawable.spade_five);
-		mCardMap.put("SpadeSix", R.drawable.spade_six);
-		mCardMap.put("SpadeSeven", R.drawable.spade_seven);
-		mCardMap.put("SpadeEight", R.drawable.spade_eight);
-		mCardMap.put("SpadeNine", R.drawable.spade_nine);
-		mCardMap.put("SpadeTen", R.drawable.spade_ten);
-		mCardMap.put("SpadeJack", R.drawable.spade_jack);
-		mCardMap.put("SpadeQueen", R.drawable.spade_queen);
-		mCardMap.put("SpadeKing", R.drawable.spade_king);
-		
-		mCardMap.put("DiamondAce", R.drawable.diamond_ace);
-		mCardMap.put("DiamondTwo", R.drawable.diamond_two);
-		mCardMap.put("DiamondThree", R.drawable.diamond_three);
-		mCardMap.put("DiamondFour", R.drawable.diamond_four);
-		mCardMap.put("DiamondFive", R.drawable.diamond_five);
-		mCardMap.put("DiamondSix", R.drawable.diamond_six);
-		mCardMap.put("DiamondSeven", R.drawable.diamond_seven);
-		mCardMap.put("DiamondEight", R.drawable.diamond_eight);
-		mCardMap.put("DiamondNine", R.drawable.diamond_nine);
-		mCardMap.put("DiamondTen", R.drawable.diamond_ten);
-		mCardMap.put("DiamondJack", R.drawable.diamond_jack);
-		mCardMap.put("DiamondQueen", R.drawable.diamond_queen);
-		mCardMap.put("DiamondKing", R.drawable.diamond_king);
-		
-		mCardMap.put("HeartAce", R.drawable.heart_ace);
-		mCardMap.put("HeartTwo", R.drawable.heart_two);
-		mCardMap.put("HeartThree", R.drawable.heart_three);
-		mCardMap.put("HeartFour", R.drawable.heart_four);
-		mCardMap.put("HeartFive", R.drawable.heart_five);
-		mCardMap.put("HeartSix", R.drawable.heart_six);
-		mCardMap.put("HeartSeven", R.drawable.heart_seven);
-		mCardMap.put("HeartEight", R.drawable.heart_eight);
-		mCardMap.put("HeartNine", R.drawable.heart_nine);
-		mCardMap.put("HeartTen", R.drawable.heart_ten);
-		mCardMap.put("HeartJack", R.drawable.heart_jack);
-		mCardMap.put("HeartQueen", R.drawable.heart_queen);
-		mCardMap.put("HeartKing", R.drawable.heart_king);
-		
-		mCardMap.put("ClubAce", R.drawable.club_ace);
-		mCardMap.put("ClubTwo", R.drawable.club_two);
-		mCardMap.put("ClubThree", R.drawable.club_three);
-		mCardMap.put("ClubFour", R.drawable.club_four);
-		mCardMap.put("ClubFive", R.drawable.club_five);
-		mCardMap.put("ClubSix", R.drawable.club_six);
-		mCardMap.put("ClubSeven", R.drawable.club_seven);
-		mCardMap.put("ClubEight", R.drawable.club_eight);
-		mCardMap.put("ClubNine", R.drawable.club_nine);
-		mCardMap.put("ClubTen", R.drawable.club_ten);
-		mCardMap.put("ClubJack", R.drawable.club_jack);
-		mCardMap.put("ClubQueen", R.drawable.club_queen);
-		mCardMap.put("ClubKing", R.drawable.club_king);
-	}
-        
-	public TEGameObject createPlayingCard(Point position, PlayingCard card) {
-		TEGameObject gameObject = new TEGameObject();
-		Size size = new Size(48, 64);
-		String key = card.getCardName();
-		Integer resource = mCardMap.get(key);
-		int resourceId;
-		if (resource == null) {
-			resourceId = R.drawable.spade_ace;
-		} else {
-			resourceId = resource;
-		}
-		RenderImage image = new RenderImage(resourceId, null, size);
-		gameObject.addComponent(image);
-		gameObject.addComponent(new TouchDrag());
-		gameObject.position = position;
-		gameObject.size = size;
-		TEManagerStack stackManager = TEManagerStack.sharedManager();
-		gameObject.addEventSubscription(Event.EVENT_MOVE_TO_FOUNDATION, stackManager.getMoveToAceStackListener());
-		return gameObject;
-	}
-*/
+FreeCellGameObjectFactory::FreeCellGameObjectFactory() {
+    mCardMap["SpadeAce"] = "spade_ace.png";
+    mCardMap["SpadeTwo"] = "spade_two.png";
+    mCardMap["SpadeThree"] = "spade_three.png";
+    mCardMap["SpadeFour"] = "spade_four.png";
+    mCardMap["SpadeFive"] = "spade_five.png";
+    mCardMap["SpadeSix"] = "spade_six.png";
+    mCardMap["SpadeSeven"] = "spade_seven.png";
+    mCardMap["SpadeEight"] = "spade_eight.png";
+    mCardMap["SpadeNine"] = "spade_nine.png";
+    mCardMap["SpadeTen"] = "spade_ten.png";
+    mCardMap["SpadeJack"] = "spade_jack.png";
+    mCardMap["SpadeQueen"] = "spade_queen.png";
+    mCardMap["SpadeKing"] = "spade_king.png";
+
+    mCardMap["DiamondAce"] = "diamond_ace.png";
+    mCardMap["DiamondTwo"] = "diamond_two.png";
+    mCardMap["DiamondThree"] = "diamond_three.png";
+    mCardMap["DiamondFour"] = "diamond_four.png";
+    mCardMap["DiamondFive"] = "diamond_five.png";
+    mCardMap["DiamondSix"] = "diamond_six.png";
+    mCardMap["DiamondSeven"] = "diamond_seven.png";
+    mCardMap["DiamondEight"] = "diamond_eight.png";
+    mCardMap["DiamondNine"] = "diamond_nine.png";
+    mCardMap["DiamondTen"] = "diamond_ten.png";
+    mCardMap["DiamondJack"] = "diamond_jack.png";
+    mCardMap["DiamondQueen"] = "diamond_queen.png";
+    mCardMap["DiamondKing"] = "diamond_king.png";
+
+    mCardMap["HeartAce"] = "heart_ace.png";
+    mCardMap["HeartTwo"] = "heart_two.png";
+    mCardMap["HeartThree"] = "heart_three.png";
+    mCardMap["HeartFour"] = "heart_four.png";
+    mCardMap["HeartFive"] = "heart_five.png";
+    mCardMap["HeartSix"] = "heart_six.png";
+    mCardMap["HeartSeven"] = "heart_seven.png";
+    mCardMap["HeartEight"] = "heart_eight.png";
+    mCardMap["HeartNine"] = "heart_nine.png";
+    mCardMap["HeartTen"] = "heart_ten.png";
+    mCardMap["HeartJack"] = "heart_jack.png";
+    mCardMap["HeartQueen"] = "heart_queen.png";
+    mCardMap["HeartKing"] = "heart_king.png";
+
+    mCardMap["ClubAce"] = "club_ace.png";
+    mCardMap["ClubTwo"] = "club_two.png";
+    mCardMap["ClubThree"] = "club_three.png";
+    mCardMap["ClubFour"] = "club_four.png";
+    mCardMap["ClubFive"] = "club_five.png";
+    mCardMap["ClubSix"] = "club_six.png";
+    mCardMap["ClubSeven"] = "club_seven.png";
+    mCardMap["ClubEight"] = "club_eight.png";
+    mCardMap["ClubNine"] = "club_nine.png";
+    mCardMap["ClubTen"] = "club_ten.png";
+    mCardMap["ClubJack"] = "club_jack.png";
+    mCardMap["ClubQueen"] = "club_queen.png";
+    mCardMap["ClubKing"] = "club_king.png";
+}
+
+TEGameObject* FreeCellGameObjectFactory::createPlayingCard(TEPoint position, PlayingCard* card) {
+    TEGameObject* gameObject = new TEGameObject();
+    TESize size;
+    size.width = 48;
+    size.height = 64;
+    std::string key = card->getCardName();
+    NSString* resourceId;
+    if (mCardMap.find(key) == mCardMap.end()) {
+        resourceId = @"spade_ace.png";
+    } else {
+        resourceId = @"spade_ace.png";
+    }
+    TEPoint pt;
+    pt.x = 0;
+    pt.y = 0;
+    RenderImage* image = new RenderImage(resourceId, pt, size);
+    gameObject->addComponent(image);
+    //gameObject.addComponent(new TouchDrag());
+    gameObject->position = position;
+    gameObject->size = size;
+    //TEManagerStack stackManager = TEManagerStack.sharedManager();
+    //gameObject.addEventSubscription(Event.EVENT_MOVE_TO_FOUNDATION, stackManager.getMoveToAceStackListener());
+    return gameObject;
+}
+
 TEGameObject* FreeCellGameObjectFactory::createFreeCell(TEPoint position) {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
@@ -124,28 +124,36 @@ TEGameObject* FreeCellGameObjectFactory::createFreeCell(TEPoint position) {
     gameObject->position = position;
     gameObject->size = size;
     return gameObject;
-	}
-/*
-	public TEGameObject createAceCellStack(Point position) {
-		TEManagerStack stackManager = TEManagerStack.sharedManager();
-		TEGameObject gameObject = new TEGameObject();
-		StackAceCell aceCell = new StackAceCell();
-		Size size = new Size(48, 64);
-		gameObject.addComponent(new RenderImage(R.drawable.ace_cell, null, size));
-    	gameObject.addComponent(aceCell);
-    	gameObject.position = position;
-		gameObject.size = size;
-		stackManager.addAceStack(aceCell);
-		return gameObject;
-	}
-    
-	public TEGameObject createTableCellStack(Point position) {
-		TEGameObject gameObject = new TEGameObject();
-		Size size = new Size(48, 64);
-		gameObject.addComponent(new RenderImage(R.drawable.free_cell, null, size));
-    	gameObject.position = position;
-		gameObject.size = size;
-		return gameObject;
-	}
 }
-*/
+
+TEGameObject* FreeCellGameObjectFactory::createAceCellStack(TEPoint position) {
+    //TEManagerStack stackManager = TEManagerStack->sharedManager();
+    TEGameObject* gameObject = new TEGameObject();
+    //StackAceCell aceCell = new StackAceCell();
+    TESize size;
+    size.width = 48;
+    size.height = 64;
+    TEPoint offset;
+    offset.x = 0;
+    offset.y = 0;
+    gameObject->addComponent(new RenderImage(@"ace_cell.png", offset, size));
+    //gameObject.addComponent(aceCell);
+    gameObject->position = position;
+    gameObject->size = size;
+    //stackManager.addAceStack(aceCell);
+    return gameObject;
+}
+
+TEGameObject* FreeCellGameObjectFactory::createTableCellStack(TEPoint position) {
+    TEGameObject* gameObject = new TEGameObject();
+    TESize size;
+    size.width = 48;
+    size.height = 64;
+    TEPoint offset;
+    offset.x = 0;
+    offset.y = 0;
+    gameObject->addComponent(new RenderImage(@"free_cell.png", offset, size));
+    gameObject->position = position;
+    gameObject->size = size;
+    return gameObject;
+}

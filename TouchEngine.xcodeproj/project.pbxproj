@@ -23,6 +23,9 @@
 		F795ECAE13D27EDD00550919 /* RenderImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECAC13D27EDD00550919 /* RenderImage.mm */; };
 		F7C7F0DF13D234B20061A219 /* TEEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.cpp */; };
 		F7C7F0E313D2369C0061A219 /* FreeCellGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */; };
+		F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6213D3D47400E7DC7B /* ace_cell.png */; };
+		F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */; };
+		F7E2DC6B13D3E6D900E7DC7B /* spade_ace.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */; };
 		F7E8D2BA13D262980049AA45 /* TEManagerRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */; };
 		F7E8D2BD13D262FE0049AA45 /* TEManagerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */; };
 		F7E8D2C113D265E20049AA45 /* TEComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */; };
@@ -48,7 +51,7 @@
 		F7124E1713D1EE1B0041BF36 /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		F7124E1813D1EE1B0041BF36 /* EAGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilsMath.h; sourceTree = "<group>"; };
-		F761D41413D3A9D900ED12F9 /* table_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_background.png; path = ../../../../../../Development/Resources/Cards/table_background.png; sourceTree = "<group>"; };
+		F761D41413D3A9D900ED12F9 /* table_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_background.png; path = /Development/Resources/Cards/table_background.png; sourceTree = "<absolute>"; };
 		F761D42B13D3C4C000ED12F9 /* free_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = free_cell.png; sourceTree = "<group>"; };
 		F795ECA413D2739500550919 /* TEGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEGameObject.cpp; sourceTree = "<group>"; };
 		F795ECA513D2739500550919 /* TEGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEGameObject.h; sourceTree = "<group>"; };
@@ -61,6 +64,10 @@
 		F7C7F0DE13D234B20061A219 /* TEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEngine.h; sourceTree = "<group>"; };
 		F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCellGame.cpp; sourceTree = "<group>"; };
 		F7C7F0E213D2369C0061A219 /* FreeCellGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCellGame.h; sourceTree = "<group>"; };
+		F7E2DC6213D3D47400E7DC7B /* ace_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ace_cell.png; sourceTree = "<group>"; };
+		F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayingCard.cpp; sourceTree = "<group>"; };
+		F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_ace.png; sourceTree = "<group>"; };
 		F7E8D2B613D25D290049AA45 /* TEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManager.h; sourceTree = "<group>"; };
 		F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerRender.cpp; sourceTree = "<group>"; };
 		F7E8D2B913D262980049AA45 /* TEManagerRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerRender.h; sourceTree = "<group>"; };
@@ -128,14 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				F7E8D2B413D25B830049AA45 /* Core */,
-				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
-				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
-				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
-				F7124E1813D1EE1B0041BF36 /* EAGLView.mm */,
-				F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */,
-				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
-				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
-				F795ECA913D274A500550919 /* FreeCellGameObjectFactory.h */,
+				F7E2DC6513D3D4D100E7DC7B /* Game */,
+				F7E2DC6613D3D50100E7DC7B /* Images */,
 				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
 			);
 			path = TouchEngine;
@@ -144,8 +145,6 @@
 		F7124E0513D1EE1B0041BF36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F761D42B13D3C4C000ED12F9 /* free_cell.png */,
-				F761D41413D3A9D900ED12F9 /* table_background.png */,
 				F7124E0613D1EE1B0041BF36 /* TouchEngine-Info.plist */,
 				F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */,
 				F7124E0A13D1EE1B0041BF36 /* TouchEngine-Prefix.pch */,
@@ -154,9 +153,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F7E2DC6513D3D4D100E7DC7B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
+				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
+				F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */,
+				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
+				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
+				F795ECA913D274A500550919 /* FreeCellGameObjectFactory.h */,
+				F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */,
+				F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		F7E2DC6613D3D50100E7DC7B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */,
+				F7E2DC6213D3D47400E7DC7B /* ace_cell.png */,
+				F761D42B13D3C4C000ED12F9 /* free_cell.png */,
+				F761D41413D3A9D900ED12F9 /* table_background.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		F7E8D2B413D25B830049AA45 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
+				F7124E1813D1EE1B0041BF36 /* EAGLView.mm */,
 				F7C7F0DD13D234B20061A219 /* TEEngine.cpp */,
 				F7C7F0DE13D234B20061A219 /* TEEngine.h */,
 				F7E8D2B613D25D290049AA45 /* TEManager.h */,
@@ -235,6 +262,8 @@
 				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
 				F761D41513D3A9D900ED12F9 /* table_background.png in Resources */,
 				F761D42C13D3C4C000ED12F9 /* free_cell.png in Resources */,
+				F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */,
+				F7E2DC6B13D3E6D900E7DC7B /* spade_ace.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +289,7 @@
 				F7F1621E13D294E300A34457 /* TEComponentTouch.cpp in Sources */,
 				F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */,
 				F7F1622713D2A94B00A34457 /* TEUtilTexture.mm in Sources */,
+				F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
