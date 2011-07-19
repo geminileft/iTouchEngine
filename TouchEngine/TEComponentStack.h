@@ -11,6 +11,8 @@
 
 #include "TEComponent.h"
 
+#define CARD_OFFSET 40
+
 class PlayingCard;
 
 enum StackType {
@@ -22,13 +24,10 @@ enum StackType {
 
 typedef enum StackType StackType;
 
-class TEComponentStack : TEComponent {
+class TEComponentStack : public TEComponent {
 
 public:
-	static int openFreeCellCount;
-	static int openTableCellCount;
 	bool isEvaluateReady;
-
 	virtual int getStackOffset(bool isFirst) = 0;
 	bool doesAccept(TEComponentStack* stack);
 

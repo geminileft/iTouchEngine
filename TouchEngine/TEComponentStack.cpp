@@ -8,7 +8,6 @@
 
 #include "TEComponentStack.h"
 
-#define CARD_OFFSET 40
 /*
 	public TEComponentStack(StackType stackType) {
 		super();

@@ -8,7 +8,8 @@
 
 #include "FreeCellGame.h"
 #include "TEGameObject.h"
-#include <ctime>
+#include "TEComponentStack.h"
+#include "StackTableCell.h"
 
 #define START_X 35
 #define mHeight 480
@@ -18,14 +19,12 @@ FreeCellGame::FreeCellGame() : mFactory(new FreeCellGameObjectFactory()){}
 void FreeCellGame::start() {
 
     TEGameObject* gameObject;
-    //TEComponent.EventListener listener;
-    
     gameObject = mFactory->createBackground();
     addGameObject(gameObject);
     int x = START_X;
     int y = mHeight - 50;
     
-    //listener = addHUDMoves();
+    //TEComponent.EventListener listener = addHUDMoves();
     //addHUDTimer();
     
     for (int i = 0;i < 4;++i) {
@@ -110,8 +109,8 @@ void FreeCellGame::start() {
         deck[j] = deck[--wLeft];
     }
     addTableStack(START_X, mFactory, stacks/*, listener*/);
-    //TEComponentStack.openFreeCellCount = 4;
-    //TEComponentStack.openTableCellCount = 0;
+    //TEComponentStack::setOpenFreeCellCount(4);
+    //TEComponentStack::setOpenTableCellCount(0);
 }
 
 void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7]/*, TEComponent.EventListener listener */) {
@@ -122,8 +121,8 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
         pt.x = x;
         pt.y = y;
         TEGameObject* gameObject = factory->createTableCellStack(pt);
-        //StackTableCell tableStack = new StackTableCell(StackType.TableCell);
-        //gameObject.addComponent(tableStack);
+        StackTableCell* tableStack = new StackTableCell(TableCell);
+        gameObject->addComponent(tableStack);
         addGameObject(gameObject);
         //TEComponentStack stack = tableStack;
         for (int i = 0;i < 7;++i) {

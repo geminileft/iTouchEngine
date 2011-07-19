@@ -86,6 +86,7 @@
 		F7F1622713D2A94B00A34457 /* TEUtilTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */; };
 		F7FC1ACA13D50FD5003A7211 /* TEManagerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */; };
 		F7FC1ACE13D511E3003A7211 /* TEComponentStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */; };
+		F7FC1AD113D519EA003A7211 /* StackTableCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +193,8 @@
 		F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerStack.h; sourceTree = "<group>"; };
 		F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEComponentStack.cpp; sourceTree = "<group>"; };
 		F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentStack.h; sourceTree = "<group>"; };
+		F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackTableCell.cpp; sourceTree = "<group>"; };
+		F7FC1AD013D519EA003A7211 /* StackTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTableCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +374,8 @@
 				F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */,
 				F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */,
 				F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */,
+				F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */,
+				F7FC1AD013D519EA003A7211 /* StackTableCell.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -506,6 +511,7 @@
 				F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */,
 				F7FC1ACA13D50FD5003A7211 /* TEManagerStack.cpp in Sources */,
 				F7FC1ACE13D511E3003A7211 /* TEComponentStack.cpp in Sources */,
+				F7FC1AD113D519EA003A7211 /* StackTableCell.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
