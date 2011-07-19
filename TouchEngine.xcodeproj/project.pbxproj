@@ -84,6 +84,8 @@
 		F7F1621E13D294E300A34457 /* TEComponentTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */; };
 		F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */; };
 		F7F1622713D2A94B00A34457 /* TEUtilTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */; };
+		F7FC1ACA13D50FD5003A7211 /* TEManagerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */; };
+		F7FC1ACE13D511E3003A7211 /* TEComponentStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +188,10 @@
 		F7F1622013D2971C00A34457 /* TEInputTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEInputTouch.h; sourceTree = "<group>"; };
 		F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEUtilTexture.mm; sourceTree = "<group>"; };
 		F7F1622613D2A94B00A34457 /* TEUtilTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilTexture.h; sourceTree = "<group>"; };
+		F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerStack.cpp; sourceTree = "<group>"; };
+		F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerStack.h; sourceTree = "<group>"; };
+		F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEComponentStack.cpp; sourceTree = "<group>"; };
+		F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentStack.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +367,10 @@
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7F1622613D2A94B00A34457 /* TEUtilTexture.h */,
 				F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */,
+				F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */,
+				F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */,
+				F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */,
+				F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -494,6 +504,8 @@
 				F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */,
 				F7F1622713D2A94B00A34457 /* TEUtilTexture.mm in Sources */,
 				F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */,
+				F7FC1ACA13D50FD5003A7211 /* TEManagerStack.cpp in Sources */,
+				F7FC1ACE13D511E3003A7211 /* TEComponentStack.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,6 @@
 class TEManager;
 class TEGameObject;
 
-//#include "TEManager.h"
-//#include "TEGameObject.h"
-
 class TEEngine {
 
 private:

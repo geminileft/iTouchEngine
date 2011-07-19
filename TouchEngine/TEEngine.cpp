@@ -1,31 +1,27 @@
 #include "TEEngine.h"
 #include "TEManagerRender.h"
 #include "TEManagerTouch.h"
+#include "TEManagerStack.h"
 #include "TEComponentRender.h"
 #include "TEComponentTouch.h"
+#include "TEComponentStack.h"
 #include "TEGameObject.h"
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
-/*
-	private Context mContext;
-	private Vector<TEGameObject> mGameObjects;
-	private int mHeight;
-	private int mWidth;
-*/
     
 TEEngine::TEEngine() {
         /*
-        TEManagerStack stackManager = TEManagerStack.sharedManager();
         TEManagerSound soundManager = TEManagerSound.sharedManager();
         */
+    TEManagerStack* stackManager = TEManagerStack::sharedManager();
     TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
         /*
-        mManagers.add(stackManager);
         mManagers.add(soundManager);
         */
+    mManagers.push_back(stackManager);
     mManagers.push_back(touchManager);
     mManagers.push_back(renderManager);
 	}
@@ -40,9 +36,9 @@ void TEEngine::run() {
 void TEEngine::addGameObject(TEGameObject* gameObject) {
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
     TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
+    TEManagerStack* stackManager = TEManagerStack::sharedManager();
     /*
     TEManagerSound soundManager = TEManagerSound.sharedManager();
-    TEManagerStack stackManager = TEManagerStack.sharedManager();
     */
     TEComponentContainer components = gameObject->getComponents();
     TEComponentContainer::iterator iterator;
@@ -53,11 +49,11 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
             renderManager->addComponent(component);
         } else if (dynamic_cast<TEComponentTouch*>(component)) {
             touchManager->addComponent(component);
+        } else if (dynamic_cast<TEComponentStack*>(component)) {
+            stackManager->addComponent(component);
 /*
         } else if (component instanceof TEComponentSound) {
             soundManager.addComponent(component);
-        } else if (component instanceof TEComponentStack) {
-            stackManager.addComponent(component);
 */
         }
     }
