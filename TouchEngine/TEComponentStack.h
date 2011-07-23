@@ -28,8 +28,17 @@ class TEComponentStack : public TEComponent {
 
 public:
 	bool isEvaluateReady;
+    TEComponentStack(StackType stackType);
+    //TEComponentStack();
 	virtual int getStackOffset(bool isFirst) = 0;
 	bool doesAccept(TEComponentStack* stack);
+    void setPlayingCard(PlayingCard* card);
+	void pushStack(TEComponentStack* stack);
+    void setParentStack(TEComponentStack* stack);
+    void adjustStackPositions();
+    TEComponentStack* getRootStack();
+	TEComponentStack* getParentStack();
+    TEComponentStack* getChildStack();
 
 private:
 	StackType mStackType;

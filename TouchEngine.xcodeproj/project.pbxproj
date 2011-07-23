@@ -87,6 +87,7 @@
 		F7FC1ACA13D50FD5003A7211 /* TEManagerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */; };
 		F7FC1ACE13D511E3003A7211 /* TEComponentStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */; };
 		F7FC1AD113D519EA003A7211 /* StackTableCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */; };
+		F7FC1AD413D529AC003A7211 /* StackCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7FC1AD213D529AB003A7211 /* StackCard.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,8 @@
 		F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentStack.h; sourceTree = "<group>"; };
 		F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackTableCell.cpp; sourceTree = "<group>"; };
 		F7FC1AD013D519EA003A7211 /* StackTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTableCell.h; sourceTree = "<group>"; };
+		F7FC1AD213D529AB003A7211 /* StackCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackCard.cpp; sourceTree = "<group>"; };
+		F7FC1AD313D529AC003A7211 /* StackCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackCard.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +379,8 @@
 				F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */,
 				F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */,
 				F7FC1AD013D519EA003A7211 /* StackTableCell.h */,
+				F7FC1AD213D529AB003A7211 /* StackCard.cpp */,
+				F7FC1AD313D529AC003A7211 /* StackCard.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				F7FC1ACA13D50FD5003A7211 /* TEManagerStack.cpp in Sources */,
 				F7FC1ACE13D511E3003A7211 /* TEComponentStack.cpp in Sources */,
 				F7FC1AD113D519EA003A7211 /* StackTableCell.cpp in Sources */,
+				F7FC1AD413D529AC003A7211 /* StackCard.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #include "TEGameObject.h"
 #include "TEComponentStack.h"
 #include "StackTableCell.h"
+#include "StackCard.h"
 
 #define START_X 35
 #define mHeight 480
@@ -100,7 +101,7 @@ void FreeCellGame::start() {
     deck[50] = new PlayingCard(Queen, Diamond);
     deck[51] = new PlayingCard(King, Diamond);
     
-    srand(15);
+    srand(17);
     //Random rand = new Random(SystemClock.uptimeMillis());
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {
@@ -124,19 +125,19 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
         StackTableCell* tableStack = new StackTableCell(TableCell);
         gameObject->addComponent(tableStack);
         addGameObject(gameObject);
-        //TEComponentStack stack = tableStack;
+        TEComponentStack* stack = tableStack;
         for (int i = 0;i < 7;++i) {
             PlayingCard* card = cards[j][i];
             if (card != NULL) {
-            //StackCard cardStack;
+                StackCard* cardStack;
                 TEPoint pt;
                 pt.x = 0;
                 pt.y = 0;
                 gameObject = factory->createPlayingCard(pt, card);
-                //cardStack = new StackCard(card);
-                //gameObject.addComponent(cardStack);
-                //stack.pushStack(cardStack);
-                //stack = cardStack;
+                cardStack = new StackCard(card);
+                gameObject->addComponent(cardStack);
+                stack->pushStack(cardStack);
+                stack = cardStack;
                 //gameObject.addEventSubscription(Event.EVENT_ACCEPT_MOVE, listener);
                 addGameObject(gameObject);				
             }

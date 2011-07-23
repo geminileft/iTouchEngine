@@ -20,7 +20,7 @@ int StackTableCell::getStackOffset(bool isFirst) {
 
 void StackTableCell::update() {}
 
-StackTableCell::StackTableCell(StackType stackType) {
+StackTableCell::StackTableCell(StackType stackType) : TEComponentStack(stackType) {
     //TEComponentStack(stackType);
     // TODO Auto-generated constructor stub
 }
