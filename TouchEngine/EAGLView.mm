@@ -9,6 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "EAGLView.h"
 
+#include "TEInputTouch.h"
+#include "TEManagerInput.h"
+
 @implementation EAGLView
 
 @synthesize context;
@@ -69,44 +72,26 @@
 {
     glClear(GL_COLOR_BUFFER_BIT);
     mGame->run();
-/*
-    static const GLfloat squareVertices[] = {
-        -0.5f, -0.33f,
-        0.5f, -0.33f,
-        -0.5f,  0.33f,
-        0.5f,  0.33f,
-    };
-    
-    static const GLubyte squareColors[] = {
-        255, 255,   0, 255,
-        0,   255, 255, 255,
-        0,     0,   0,   0,
-        255,   0, 255, 255,
-    };
-    
-    static float transY = 0.0f;
-    
-    glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
-        transY += 0.075f;
-        
-        glVertexPointer(2, GL_FLOAT, 0, squareVertices);
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glColorPointer(4, GL_UNSIGNED_BYTE, 0, squareColors);
-        glEnableClientState(GL_COLOR_ARRAY);
-    
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-*/
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    TEManagerInput* inputManager;
+    for (UITouch* touch in touches) {
+        CGPoint point = [touch locationInView:self];
+        float x = point.x;
+        float y = point.y;    		
+        TEInputTouch* inputTouch = new TEInputTouch([touch hash], x, y);
+        inputManager->beginTouch(inputTouch);
+    }
+}
+/*
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+}
+*/
 
 @end
