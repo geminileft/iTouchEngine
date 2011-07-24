@@ -11,8 +11,6 @@
 
 static TEManagerInput* mSharedInstance = NULL;
 
-void TEManagerInput::update() {}
-
 TEManagerInput* TEManagerInput::sharedManager() {
     if (mSharedInstance == NULL) {
         mSharedInstance = new TEManagerInput();
@@ -21,29 +19,24 @@ TEManagerInput* TEManagerInput::sharedManager() {
 }
 
 void TEManagerInput::beginTouch(TEInputTouch* touch) {
-    //mTouches.put(touch.getPointerId(), touch);
+    mTouches[touch->getPointerId()] = touch;
 }
 
+void TEManagerInput::moveTouch(TEInputTouch* touch) {
+    std::map<int, TEInputTouch*>::iterator iterator = mTouches.find(touch->getPointerId());
+    if (iterator != mTouches.end()) {
+        iterator->second->setEndPoint(touch->getEndPoint());
+    }
+}
 
-/*
-	private HashMap<Integer, TEInputTouch> mTouches;
-	
-	public TEManagerInput() {
-		mTouches = new HashMap<Integer, TEInputTouch>();
-	}
-    
-	public void moveTouch(TEInputTouch touch) {
-		if (mTouches.containsKey(touch.getPointerId())) {
-			mTouches.get(touch.getPointerId()).getEndPoint().update(touch.getEndPoint());
-		}
-	}
-    
-	public void endTouch(TEInputTouch touch) {
-		if (mTouches.containsKey(touch.getPointerId())) {
-			mTouches.get(touch.getPointerId()).endTouch(touch.getEndPoint());
-		}
-	}
-    
+void TEManagerInput::endTouch(TEInputTouch* touch) {
+    std::map<int, TEInputTouch*>::iterator iterator = mTouches.find(touch->getPointerId());
+    if (iterator != mTouches.end()) {
+        iterator->second->endTouch(touch->getEndPoint());
+    }
+}
+
+/*    
 	public 	HashMap<Integer, TEInputTouch> getInputState() {
 		HashMap<Integer, TEInputTouch> touchState = new HashMap<Integer, TEInputTouch>();
 		Collection<TEInputTouch> collection = mTouches.values();

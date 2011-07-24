@@ -33,7 +33,11 @@ TEPoint TEInputTouch::getStartPoint() const {
 TEPoint TEInputTouch::getEndPoint() const {
     return mEndPoint;
 }
-	
+
+void TEInputTouch::setEndPoint(TEPoint point) {
+    mEndPoint = point;
+}
+
 int TEInputTouch::getPointerId() const {
     return mHash;
 }

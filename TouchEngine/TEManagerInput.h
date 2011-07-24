@@ -4,12 +4,16 @@
 class TEInputTouch;
 
 #include "TEManagerComponent.h"
+#include <map>
+class TEManagerInput {
+private:
+    std::map<int, TEInputTouch*> mTouches;
 
-class TEManagerInput : TEManagerComponent {
 public:
     static TEManagerInput* sharedManager();
-    virtual void update();
     void beginTouch(TEInputTouch* touch);
+    void moveTouch(TEInputTouch* touch);
+    void endTouch(TEInputTouch* touch);
 };
 
 #endif

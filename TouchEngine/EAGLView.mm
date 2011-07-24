@@ -76,22 +76,38 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    TEManagerInput* inputManager;
+    TEManagerInput* inputManager = TEManagerInput::sharedManager();
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
     for (UITouch* touch in touches) {
         CGPoint point = [touch locationInView:self];
         float x = point.x;
-        float y = point.y;    		
+        float y = screenSize.size.height - point.y;	
         TEInputTouch* inputTouch = new TEInputTouch([touch hash], x, y);
         inputManager->beginTouch(inputTouch);
     }
 }
-/*
+
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    TEManagerInput* inputManager = TEManagerInput::sharedManager();
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
+    for (UITouch* touch in touches) {
+        CGPoint point = [touch locationInView:self];
+        float x = point.x;
+        float y = screenSize.size.height - point.y;	
+        TEInputTouch* inputTouch = new TEInputTouch([touch hash], x, y);
+        inputManager->moveTouch(inputTouch);
+    }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    TEManagerInput* inputManager = TEManagerInput::sharedManager();
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
+    for (UITouch* touch in touches) {
+        CGPoint point = [touch locationInView:self];
+        float x = point.x;
+        float y = screenSize.size.height - point.y;	
+        TEInputTouch* inputTouch = new TEInputTouch([touch hash], x, y);
+        inputManager->endTouch(inputTouch);
+    }
 }
-*/
 
 @end
