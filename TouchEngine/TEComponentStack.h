@@ -25,11 +25,16 @@ enum StackType {
 typedef enum StackType StackType;
 
 class TEComponentStack : public TEComponent {
+private:
+	StackType mStackType;
+	PlayingCard* mCard;
+	TEComponentStack* mChildStack;
+	TEComponentStack* mParentStack;
+	bool mTopStack;	
 
 public:
-	bool isEvaluateReady;
     TEComponentStack(StackType stackType);
-    //TEComponentStack();
+	bool isEvaluateReady;
 	virtual int getStackOffset(bool isFirst) = 0;
 	bool doesAccept(TEComponentStack* stack);
     void setPlayingCard(PlayingCard* card);
@@ -39,13 +44,6 @@ public:
     TEComponentStack* getRootStack();
 	TEComponentStack* getParentStack();
     TEComponentStack* getChildStack();
-
-private:
-	StackType mStackType;
-	PlayingCard* mCard;
-	TEComponentStack* mChildStack;
-	TEComponentStack* mParentStack;
-	bool mTopStack;	
 };	
 
 #endif

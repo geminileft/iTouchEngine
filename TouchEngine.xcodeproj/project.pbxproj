@@ -81,6 +81,7 @@
 		F7E8D2BA13D262980049AA45 /* TEManagerRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */; };
 		F7E8D2BD13D262FE0049AA45 /* TEManagerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */; };
 		F7E8D2C113D265E20049AA45 /* TEComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */; };
+		F7E9572713DBDA3300565556 /* TouchDrag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E9572513DBDA3200565556 /* TouchDrag.cpp */; };
 		F7F1621A13D292D400A34457 /* TEManagerTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621813D292D400A34457 /* TEManagerTouch.cpp */; };
 		F7F1621E13D294E300A34457 /* TEComponentTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */; };
 		F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */; };
@@ -185,6 +186,8 @@
 		F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEComponent.cpp; sourceTree = "<group>"; };
 		F7E8D2C013D265E20049AA45 /* TEComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponent.h; sourceTree = "<group>"; };
 		F7E8D2C213D26C4D0049AA45 /* TEComponentRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentRender.h; sourceTree = "<group>"; };
+		F7E9572513DBDA3200565556 /* TouchDrag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchDrag.cpp; sourceTree = "<group>"; };
+		F7E9572613DBDA3200565556 /* TouchDrag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDrag.h; sourceTree = "<group>"; };
 		F7F1621813D292D400A34457 /* TEManagerTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerTouch.cpp; sourceTree = "<group>"; };
 		F7F1621913D292D400A34457 /* TEManagerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTouch.h; sourceTree = "<group>"; };
 		F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEComponentTouch.cpp; sourceTree = "<group>"; };
@@ -352,40 +355,42 @@
 			children = (
 				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
 				F7124E1813D1EE1B0041BF36 /* EAGLView.mm */,
+				F795ECAB13D27DF800550919 /* TETypes.h */,
 				F7C7F0DD13D234B20061A219 /* TEEngine.cpp */,
 				F7C7F0DE13D234B20061A219 /* TEEngine.h */,
 				F7E8D2B613D25D290049AA45 /* TEManager.h */,
+				F7F1621813D292D400A34457 /* TEManagerTouch.cpp */,
+				F7F1621913D292D400A34457 /* TEManagerTouch.h */,
 				F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */,
 				F7E8D2B913D262980049AA45 /* TEManagerRender.h */,
 				F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */,
 				F7E8D2BC13D262FE0049AA45 /* TEManagerComponent.h */,
+				F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */,
+				F7C1B51F13DA853000EF84E8 /* TEManagerInput.h */,
+				F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */,
+				F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */,
 				F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */,
 				F7E8D2C013D265E20049AA45 /* TEComponent.h */,
+				F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */,
+				F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */,
 				F7E8D2C213D26C4D0049AA45 /* TEComponentRender.h */,
-				F795ECA413D2739500550919 /* TEGameObject.cpp */,
-				F795ECA513D2739500550919 /* TEGameObject.h */,
-				F795ECAB13D27DF800550919 /* TETypes.h */,
-				F795ECAC13D27EDD00550919 /* RenderImage.mm */,
-				F795ECAD13D27EDD00550919 /* RenderImage.h */,
-				F7F1621813D292D400A34457 /* TEManagerTouch.cpp */,
-				F7F1621913D292D400A34457 /* TEManagerTouch.h */,
 				F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */,
 				F7F1621D13D294E300A34457 /* TEComponentTouch.h */,
+				F795ECA413D2739500550919 /* TEGameObject.cpp */,
+				F795ECA513D2739500550919 /* TEGameObject.h */,
 				F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */,
 				F7F1622013D2971C00A34457 /* TEInputTouch.h */,
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7F1622613D2A94B00A34457 /* TEUtilTexture.h */,
 				F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */,
-				F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */,
-				F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */,
-				F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */,
-				F7FC1ACD13D511E3003A7211 /* TEComponentStack.h */,
+				F795ECAC13D27EDD00550919 /* RenderImage.mm */,
+				F795ECAD13D27EDD00550919 /* RenderImage.h */,
 				F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */,
 				F7FC1AD013D519EA003A7211 /* StackTableCell.h */,
 				F7FC1AD213D529AB003A7211 /* StackCard.cpp */,
 				F7FC1AD313D529AC003A7211 /* StackCard.h */,
-				F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */,
-				F7C1B51F13DA853000EF84E8 /* TEManagerInput.h */,
+				F7E9572513DBDA3200565556 /* TouchDrag.cpp */,
+				F7E9572613DBDA3200565556 /* TouchDrag.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -524,6 +529,7 @@
 				F7FC1AD113D519EA003A7211 /* StackTableCell.cpp in Sources */,
 				F7FC1AD413D529AC003A7211 /* StackCard.cpp in Sources */,
 				F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */,
+				F7E9572713DBDA3300565556 /* TouchDrag.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

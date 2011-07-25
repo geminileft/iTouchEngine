@@ -1,35 +1,36 @@
 
 #include "TEInputTouch.h"
 
-TEInputTouch::TEInputTouch(int hash, float x, float y) {
+TEInputTouch::TEInputTouch(unsigned int hash, float x, float y) {
     mStartPoint.x = x;
     mStartPoint.y = y;
     mEndPoint.x = x;
     mEndPoint.y = y;
     mBegan = true;
     mEnd = false;
+    mHash = hash;
 }
-    
-TEInputTouch::TEInputTouch(bool began, bool ended, TEPoint startPoint, TEPoint endPoint, int hash) {
+
+TEInputTouch::TEInputTouch(bool began, bool ended, TEPoint startPoint, TEPoint endPoint, unsigned int hash) {
     mBegan = began;
     mEnd = ended;
     mStartPoint = startPoint;
     mEndPoint = endPoint;
     mHash = hash;	
 }
-	
+
 bool TEInputTouch::began() const {
     return mBegan;
 }
-	
+
 bool TEInputTouch::ended() const {
     return mEnd;
 }
-	
+
 TEPoint TEInputTouch::getStartPoint() const {
     return mStartPoint;
 }
-	
+
 TEPoint TEInputTouch::getEndPoint() const {
     return mEndPoint;
 }
@@ -38,7 +39,7 @@ void TEInputTouch::setEndPoint(TEPoint point) {
     mEndPoint = point;
 }
 
-int TEInputTouch::getPointerId() const {
+unsigned int TEInputTouch::getPointerId() const {
     return mHash;
 }
 	

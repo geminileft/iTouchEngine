@@ -8,6 +8,8 @@
 
 #include "StackTableCell.h"
 
+StackTableCell::StackTableCell(StackType stackType) : TEComponentStack(stackType) {}
+
 int StackTableCell::getStackOffset(bool isFirst) {
     int offset = 0;
     if (isFirst) {
@@ -19,11 +21,6 @@ int StackTableCell::getStackOffset(bool isFirst) {
 }
 
 void StackTableCell::update() {}
-
-StackTableCell::StackTableCell(StackType stackType) : TEComponentStack(stackType) {
-    //TEComponentStack(stackType);
-    // TODO Auto-generated constructor stub
-}
 
 /*
     

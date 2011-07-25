@@ -81,7 +81,7 @@
     for (UITouch* touch in touches) {
         CGPoint point = [touch locationInView:self];
         float x = point.x;
-        float y = screenSize.size.height - point.y;	
+        float y = screenSize.size.height - point.y;
         TEInputTouch* inputTouch = new TEInputTouch([touch hash], x, y);
         inputManager->beginTouch(inputTouch);
     }

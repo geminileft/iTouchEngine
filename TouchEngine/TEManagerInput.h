@@ -5,15 +5,17 @@ class TEInputTouch;
 
 #include "TEManagerComponent.h"
 #include <map>
+
 class TEManagerInput {
 private:
-    std::map<int, TEInputTouch*> mTouches;
+    std::map<unsigned int, TEInputTouch*> mTouches;
 
 public:
     static TEManagerInput* sharedManager();
     void beginTouch(TEInputTouch* touch);
     void moveTouch(TEInputTouch* touch);
     void endTouch(TEInputTouch* touch);
+    std::map<unsigned int, TEInputTouch*> getInputState();
 };
 
 #endif

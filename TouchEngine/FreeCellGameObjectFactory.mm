@@ -10,6 +10,7 @@
 #include "TETypes.h"
 #include "RenderImage.h"
 #include "PlayingCard.h"
+#include "TouchDrag.h"
 
 TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
@@ -86,7 +87,7 @@ FreeCellGameObjectFactory::FreeCellGameObjectFactory() {
     mCardMap["ClubKing"] = "club_king.png";
 }
 
-TEGameObject* FreeCellGameObjectFactory::createPlayingCard(TEPoint position, PlayingCard* card) {
+TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
     size.width = 48;
@@ -104,8 +105,7 @@ TEGameObject* FreeCellGameObjectFactory::createPlayingCard(TEPoint position, Pla
     pt.y = 0;
     RenderImage* image = new RenderImage(resourceId, pt, size);
     gameObject->addComponent(image);
-    //gameObject.addComponent(new TouchDrag());
-    gameObject->position = position;
+    gameObject->addComponent(new TouchDrag());
     gameObject->size = size;
     //TEManagerStack stackManager = TEManagerStack.sharedManager();
     //gameObject.addEventSubscription(Event.EVENT_MOVE_TO_FOUNDATION, stackManager.getMoveToAceStackListener());

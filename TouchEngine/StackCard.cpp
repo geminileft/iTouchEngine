@@ -8,6 +8,13 @@
 
 #include "StackCard.h"
 
+StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card) {
+    setPlayingCard(card);
+    //addEventSubscription(Event.EVENT_TOUCH_STARTED, mTouchStartedListener);
+    //addEventSubscription(Event.EVENT_TOUCH_ENDED, mTouchEndedListener);
+    //addEventSubscription(Event.EVENT_REJECT_MOVE, mRejectMoveListener);
+}
+
 void StackCard::update() {
     /*
     if (mMoving) {
@@ -18,13 +25,6 @@ void StackCard::update() {
 
 int StackCard::getStackOffset(bool isFirst) {
     return CARD_OFFSET;
-}
-
-StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card) {
-    setPlayingCard(card);
-    //addEventSubscription(Event.EVENT_TOUCH_STARTED, mTouchStartedListener);
-    //addEventSubscription(Event.EVENT_TOUCH_ENDED, mTouchEndedListener);
-    //addEventSubscription(Event.EVENT_REJECT_MOVE, mRejectMoveListener);
 }
 
 

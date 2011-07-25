@@ -12,17 +12,13 @@
 #include <OpenGLES/ES2/glext.h>
     
 TEEngine::TEEngine() {
-        /*
-        TEManagerSound soundManager = TEManagerSound.sharedManager();
-        */
-    TEManagerStack* stackManager = TEManagerStack::sharedManager();
     TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
+    TEManagerStack* stackManager = TEManagerStack::sharedManager();
+    //TEManagerSound soundManager = TEManagerSound.sharedManager();
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
-        /*
-        mManagers.add(soundManager);
-        */
-    mManagers.push_back(stackManager);
     mManagers.push_back(touchManager);
+    mManagers.push_back(stackManager);
+    //mManagers.add(soundManager);
     mManagers.push_back(renderManager);
 	}
 
@@ -80,40 +76,6 @@ void TEEngine::initGraphics(int width, int height) {
 	Context getContext() {
 		return mContext;
 	}
-    
-    public boolean onTouchEvent(MotionEvent event) {
-    	TEManagerInput inputManager = TEManagerInput.sharedManager();
-    	int pointerId;
-    	float x;
-    	float y;
-    	final int actionId = event.getAction();
-    	TEInputTouch touch;
-    	
-    	final int pointerCount = event.getPointerCount();
-    	for (int i = 0;i < pointerCount; ++i) {
-    		pointerId = event.getPointerId(i);
-    		x = event.getX(pointerId);
-    		y = mHeight - event.getY(pointerId);    		
-        	switch (actionId) {
-                case MotionEvent.ACTION_DOWN:
-                    touch = new TEInputTouch(pointerId, x, y);
-                    inputManager.beginTouch(touch);
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    touch = new TEInputTouch(pointerId, x, y);
-                    inputManager.moveTouch(touch);
-                    break;
-                case MotionEvent.ACTION_UP:
-                    touch = new TEInputTouch(pointerId, x, y);
-                    inputManager.endTouch(touch);
-                    break;
-                default:
-                    Log.v("info", "Couldn't identify " + String.valueOf(actionId));
-                    break;
-        	}
-    	}
-    	return false;
-    }
     
     public void setScreenSize(int width, int height) {
     	mHeight = height;

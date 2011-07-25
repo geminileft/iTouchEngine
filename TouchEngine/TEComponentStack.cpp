@@ -11,11 +11,7 @@
 TEComponentStack::TEComponentStack(StackType stackType) : mChildStack(NULL), mParentStack(NULL) {
     mStackType = stackType;
 }
-/*
-TEComponentStack::TEComponentStack() : mChildStack(NULL), mParentStack(NULL) {
-    int i = 0;
-}
-*/
+
 void TEComponentStack::setPlayingCard(PlayingCard* card) {
     mCard = card;
 }

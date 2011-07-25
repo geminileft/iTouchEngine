@@ -18,6 +18,6 @@ public:
     TEGameObject* createFreeCell(TEPoint position);
     TEGameObject* createAceCellStack(TEPoint position);
 	TEGameObject* createTableCellStack(TEPoint position);
-    TEGameObject* createPlayingCard(TEPoint position, PlayingCard* card);
+    TEGameObject* createPlayingCard(PlayingCard* card);
 };
 #endif

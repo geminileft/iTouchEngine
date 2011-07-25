@@ -130,16 +130,13 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
             PlayingCard* card = cards[j][i];
             if (card != NULL) {
                 StackCard* cardStack;
-                TEPoint pt;
-                pt.x = 0;
-                pt.y = 0;
-                gameObject = factory->createPlayingCard(pt, card);
+                gameObject = factory->createPlayingCard(card);
                 cardStack = new StackCard(card);
                 gameObject->addComponent(cardStack);
                 stack->pushStack(cardStack);
-                stack = cardStack;
                 //gameObject.addEventSubscription(Event.EVENT_ACCEPT_MOVE, listener);
                 addGameObject(gameObject);				
+                stack = cardStack;
             }
         }
         x += 55;

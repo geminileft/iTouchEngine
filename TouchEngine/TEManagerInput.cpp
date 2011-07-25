@@ -23,35 +23,31 @@ void TEManagerInput::beginTouch(TEInputTouch* touch) {
 }
 
 void TEManagerInput::moveTouch(TEInputTouch* touch) {
-    std::map<int, TEInputTouch*>::iterator iterator = mTouches.find(touch->getPointerId());
+    std::map<unsigned int, TEInputTouch*>::iterator iterator = mTouches.find(touch->getPointerId());
     if (iterator != mTouches.end()) {
         iterator->second->setEndPoint(touch->getEndPoint());
     }
 }
 
 void TEManagerInput::endTouch(TEInputTouch* touch) {
-    std::map<int, TEInputTouch*>::iterator iterator = mTouches.find(touch->getPointerId());
+    std::map<unsigned int, TEInputTouch*>::iterator iterator = mTouches.find(touch->getPointerId());
     if (iterator != mTouches.end()) {
         iterator->second->endTouch(touch->getEndPoint());
     }
 }
 
-/*    
-	public 	HashMap<Integer, TEInputTouch> getInputState() {
-		HashMap<Integer, TEInputTouch> touchState = new HashMap<Integer, TEInputTouch>();
-		Collection<TEInputTouch> collection = mTouches.values();
-		TEInputTouch addTouch;
-		final Iterator<TEInputTouch> iterator = collection.iterator();
-		while (iterator.hasNext()) {
-			addTouch = iterator.next().copy();
-			touchState.put(addTouch.getPointerId(), addTouch);
-			if (addTouch.ended()) {
-				mTouches.remove(addTouch.getPointerId());
-			} else {
-				mTouches.get(addTouch.getPointerId()).reset();
-			}
-		}
-		return touchState;
-	}
+std::map<unsigned int, TEInputTouch*> TEManagerInput::getInputState() {
+    std::map<unsigned int, TEInputTouch*> touchState;
+    TEInputTouch* addTouch;
+    std::map<unsigned int, TEInputTouch*>::iterator iterator;
+    for(iterator = mTouches.begin();iterator != mTouches.end();++iterator) {
+        addTouch = (*iterator).second->copy();
+        touchState[addTouch->getPointerId()] = addTouch;
+        if (addTouch->ended()) {
+            mTouches.erase(iterator);
+        } else {
+            (*iterator).second->reset();
+        }
+    }
+    return touchState;
 }
-*/
