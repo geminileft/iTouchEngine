@@ -11,12 +11,13 @@
 #include "RenderImage.h"
 #include "PlayingCard.h"
 #include "TouchDrag.h"
+#include "TEEngine.h"
 
 TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
-    size.width = 320;
-    size.height = 480;
+    size.width = mGame->mWidth;
+    size.height = mGame->mHeight;
     TEPoint position;
     position.x = 0;
     position.y = 0;
@@ -29,7 +30,8 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
     return gameObject;
 }
 
-FreeCellGameObjectFactory::FreeCellGameObjectFactory() {
+FreeCellGameObjectFactory::FreeCellGameObjectFactory(TEEngine* game) {
+	mGame = game;
     mCardMap["SpadeAce"] = "spade_ace.png";
     mCardMap["SpadeTwo"] = "spade_two.png";
     mCardMap["SpadeThree"] = "spade_three.png";

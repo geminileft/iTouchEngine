@@ -10,10 +10,10 @@
 
 @interface EAGLView : UIView {
 @private
-    GLint framebufferWidth;
-    GLint framebufferHeight;
-    GLuint defaultFramebuffer;
-    GLuint colorRenderbuffer;
+    GLint mFramebufferWidth;
+    GLint mFramebufferHeight;
+    GLuint mDefaultFramebuffer;
+    GLuint mColorRenderbuffer;
     TEEngine* mGame;
     
 }

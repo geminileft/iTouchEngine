@@ -11,7 +11,9 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
     
-TEEngine::TEEngine() {
+TEEngine::TEEngine(int width, int height) {
+	mWidth = width;
+	mHeight = height;
     TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
     TEManagerStack* stackManager = TEManagerStack::sharedManager();
     //TEManagerSound soundManager = TEManagerSound.sharedManager();
@@ -65,11 +67,33 @@ void TEEngine::initGraphics(int width, int height) {
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glClearColor(0.4f, 0.7f, 0.12f, 1.0f);
+	graphicsChange(width, height);
+
+}
+
+void TEEngine::graphicsChange(int width, int height) {
+/*
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+*/
+	bool useOrtho = true;
+	const int zDepth = height / 2;
+	const float ratio = (float)width / height;
+	glViewport(0, 0, width, height);
+	glMatrixMode(GL_PROJECTION);
+	if (useOrtho) {
+		glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);
+	} else {
+		glFrustumf(-ratio, ratio, -1, 1, 1, zDepth);
+	}
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	if (!useOrtho) {
+		glTranslatef(-width / 2, -height / 2, -zDepth);				
+	}
 }
 
 /*	

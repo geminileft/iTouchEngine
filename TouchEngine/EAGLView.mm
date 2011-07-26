@@ -22,6 +22,8 @@
 }
 
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game {
+	frame.size.width = game->mWidth;
+	frame.size.height = game->mHeight;
     self = [super initWithFrame:frame];
 	if (self) {
         mGame = game;
@@ -32,24 +34,24 @@
             NSLog(@"Failed to set ES context current");
         self.context = aContext;
         [aContext release];
-        glGenFramebuffers(1, &defaultFramebuffer);
-        glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
-        glGenRenderbuffers(1, &colorRenderbuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
+        glGenFramebuffers(1, &mDefaultFramebuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, mDefaultFramebuffer);
+        glGenRenderbuffers(1, &mColorRenderbuffer);
+        glBindRenderbuffer(GL_RENDERBUFFER, mColorRenderbuffer);
         [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
-        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &framebufferWidth);
-        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &framebufferHeight);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
+        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mFramebufferWidth);
+        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mFramebufferHeight);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mColorRenderbuffer);
         if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
             NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));        
-        glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, mDefaultFramebuffer);
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
                                         kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
                                         nil];
-        mGame->initGraphics(framebufferWidth, framebufferHeight);
+        mGame->initGraphics(mFramebufferWidth, mFramebufferHeight);
         [self startAnimation];
     }
     return self;

@@ -13,9 +13,8 @@
 #include "StackCard.h"
 
 #define START_X 35
-#define mHeight 480
 
-FreeCellGame::FreeCellGame() : mFactory(new FreeCellGameObjectFactory()){}
+FreeCellGame::FreeCellGame() : TEEngine(480, 854), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
 
