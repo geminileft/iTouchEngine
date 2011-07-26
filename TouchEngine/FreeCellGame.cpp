@@ -12,8 +12,8 @@
 #include "StackTableCell.h"
 #include "StackCard.h"
 
-#define START_X 35
-#define X_GAP 52
+#define START_X 28
+#define X_GAP 50
 FreeCellGame::FreeCellGame() : TEEngine(320, 480), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
