@@ -18,6 +18,8 @@ private:
 
 public:
 	GLuint mTextureName;
+	float mTextureBuffer[8];
+	float mVertexBuffer[8];
 	TEUtilTexture(NSString* resourceName, TEPoint position, TESize size);
     TESize getBitmapSize() const;
 	TESize getCropSize() const;

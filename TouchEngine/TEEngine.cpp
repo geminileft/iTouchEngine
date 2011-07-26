@@ -59,14 +59,20 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
 }
 
 void TEEngine::initGraphics(int width, int height) {
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
+	glShadeModel(GL_FLAT);
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_DITHER);
+	glDisable(GL_LIGHTING);
+	glTexEnvx(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //always drawing textures...enable once
-    //glEnable(GL_TEXTURE_2D);
+    glEnable(GL_TEXTURE_2D);
     //required for vertex/textures
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glClearColor(0.4f, 0.7f, 0.12f, 1.0f);
+    glClearColor(1.0f, 0.7f, 0.12f, 1.0f);
 	graphicsChange(width, height);
 
 }
@@ -79,8 +85,9 @@ void TEEngine::graphicsChange(int width, int height) {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 */
-	bool useOrtho = true;
-	const int zDepth = height / 2;
+	bool useOrtho = false;
+	const int scaleFactor = 1;
+	const int zDepth = height / (2 / scaleFactor);
 	const float ratio = (float)width / height;
 	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);

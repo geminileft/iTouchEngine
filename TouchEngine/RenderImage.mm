@@ -18,18 +18,27 @@ RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) 
 void RenderImage::update() {}
 
 void RenderImage::draw() {
-    glEnable(GL_TEXTURE_2D);
-    unsigned int textureName = mTexture->mTextureName;
-    TEPoint position;
-    
-    position.x = mParent->position.x;
-    position.y = mParent->position.y;
-    //position.x = 160;
-    //position.y = 240;
+/*
     glBindTexture(GL_TEXTURE_2D, textureName);
     glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, mCrop);
     glDrawTexfOES(position.x - (mWidth / 2), position.y - (mHeight / 2), 0, mWidth, mHeight);
-    glDisable(GL_TEXTURE_2D);
+*/
+	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
+	
+	const bool useDrawTexfOES = false;
+	if (useDrawTexfOES) {
+		glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, mCrop);
+		glDrawTexfOES(mParent->position.x - (mWidth / 2), mParent->position.y - (mHeight / 2), 
+									 0.001f, mWidth, mHeight);
+	} else {
+		glPushMatrix();
+		glTranslatef(mParent->position.x, mParent->position.y, 0.0f);
+		glTexCoordPointer(2, GL_FLOAT, 0, mTexture->mTextureBuffer);
+		glVertexPointer(2, GL_FLOAT, 0, mTexture->mVertexBuffer);
+		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+		glPopMatrix();
+	}
+
 }
 
 /*	

@@ -22,8 +22,9 @@
 }
 
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game {
-	frame.size.width = game->mWidth;
-	frame.size.height = game->mHeight;
+	const int scaleFactor = 1;
+	frame.size.width = game->mWidth * scaleFactor;
+	frame.size.height = game->mHeight * scaleFactor;
     self = [super initWithFrame:frame];
 	if (self) {
         mGame = game;

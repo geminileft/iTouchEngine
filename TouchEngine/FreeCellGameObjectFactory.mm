@@ -13,6 +13,9 @@
 #include "TouchDrag.h"
 #include "TEEngine.h"
 
+#define CARD_SIZE_WIDTH 48
+#define CARD_SIZE_HEIGHT 64
+
 TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
@@ -92,8 +95,8 @@ FreeCellGameObjectFactory::FreeCellGameObjectFactory(TEEngine* game) {
 TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
-    size.width = 48;
-    size.height = 64;
+    size.width = CARD_SIZE_WIDTH;
+    size.height = CARD_SIZE_HEIGHT;
     std::string key = card->getCardName();
     NSString* resourceId;
     std::map<std::string, const char * >::iterator iterator = mCardMap.find(key);
@@ -117,8 +120,8 @@ TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
 TEGameObject* FreeCellGameObjectFactory::createFreeCell(TEPoint position) {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
-    size.width = 48;
-    size.height = 64;
+    size.width = CARD_SIZE_WIDTH;
+    size.height = CARD_SIZE_HEIGHT;
     TEPoint offset;
     offset.x = 0;
     offset.y = 0;
@@ -134,8 +137,8 @@ TEGameObject* FreeCellGameObjectFactory::createAceCellStack(TEPoint position) {
     TEGameObject* gameObject = new TEGameObject();
     //StackAceCell aceCell = new StackAceCell();
     TESize size;
-    size.width = 48;
-    size.height = 64;
+    size.width = CARD_SIZE_WIDTH;
+    size.height = CARD_SIZE_HEIGHT;
     TEPoint offset;
     offset.x = 0;
     offset.y = 0;
@@ -150,8 +153,8 @@ TEGameObject* FreeCellGameObjectFactory::createAceCellStack(TEPoint position) {
 TEGameObject* FreeCellGameObjectFactory::createTableCellStack(TEPoint position) {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
-    size.width = 48;
-    size.height = 64;
+    size.width = CARD_SIZE_WIDTH;
+    size.height = CARD_SIZE_HEIGHT;
     TEPoint offset;
     offset.x = 0;
     offset.y = 0;

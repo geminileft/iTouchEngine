@@ -13,8 +13,8 @@
 #include "StackCard.h"
 
 #define START_X 35
-
-FreeCellGame::FreeCellGame() : TEEngine(480, 854), mFactory(new FreeCellGameObjectFactory(this)){}
+#define X_GAP 52
+FreeCellGame::FreeCellGame() : TEEngine(320, 480), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
 
@@ -33,7 +33,7 @@ void FreeCellGame::start() {
         pt.y = y;
         gameObject = mFactory->createFreeCell(pt);
         addGameObject(gameObject);
-        x += 55;
+        x += X_GAP;
     }
     
     for (int i = 0;i < 4;++i) {
@@ -42,10 +42,17 @@ void FreeCellGame::start() {
         pt.y = y;
         gameObject = mFactory->createAceCellStack(pt);
         addGameObject(gameObject);
-        x += 55;
+        x += X_GAP;
     }
     
-    PlayingCard* stacks[8][7];
+	const int stack1 = 8;
+	const int stack2 = 7;
+    PlayingCard* stacks[stack1][stack2];
+	for (int i = 0; i < stack1; ++i) {
+		for (int j = 0; j < stack2; ++j) {
+			stacks[i][j] = NULL;
+		}
+	}
     PlayingCard* deck[52];
     deck[0] = new PlayingCard(Ace, Spade);
     deck[1] = new PlayingCard(Two, Spade);
@@ -138,7 +145,7 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
                 stack = cardStack;
             }
         }
-        x += 55;
+        x += X_GAP;
     }
 }
 /*

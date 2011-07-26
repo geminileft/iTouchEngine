@@ -25,6 +25,49 @@ TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize si
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); //GL10.GL_REPLACE);
     UIImage* image = [UIImage imageNamed:resourceName];
+
+	float left;
+	if (position.x != 0 || position.y != 0) {
+		left = position.x / size.width;
+	} else {
+		left = 0;
+	}
+	float width;
+	float height;
+	if (size.height != 0 || size.width != 0) {
+		width = size.width;
+		height = size.height;
+	} else {
+		width = image.size.width;
+		height = image.size.height;
+	}
+	
+	const float maxS = ((float)width / image.size.width) + left;
+	const float maxT = (float)height / image.size.height;
+	
+	mTextureBuffer[0] = left;//left
+	mTextureBuffer[1] = maxT;//top
+	mTextureBuffer[2] = maxS;//right
+	mTextureBuffer[3] = maxT;//top
+	mTextureBuffer[4] = maxS;//right
+	mTextureBuffer[5] = 0.0f;//bottom
+	mTextureBuffer[6] = left;//left
+	mTextureBuffer[7] = 0.0f;//bottom
+
+	const float leftX = -(float)width / 2;
+	const float rightX = leftX + width;
+	const float bottomY = -(float)height / 2;
+	const float topY = bottomY + height;
+	
+	mVertexBuffer[0] = leftX;
+	mVertexBuffer[1] = bottomY;
+	mVertexBuffer[2] = rightX;
+	mVertexBuffer[3] = bottomY;
+	mVertexBuffer[4] = rightX;
+	mVertexBuffer[5] = topY;
+	mVertexBuffer[6] = leftX;
+	mVertexBuffer[7] = topY;
+
     GLUtexImage2D([image CGImage]);
 }
 
@@ -128,5 +171,6 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
             [NSException raise:NSInternalInconsistencyException format:@""];
     }
     //CGContextRelease(context);
-    //free(data);    
+    //free(data);
+	
 }
