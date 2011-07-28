@@ -1,7 +1,7 @@
-
 #include "RenderImage.h"
 
 RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {
+	//TEEventListener<RenderImage*> moveToTopListener = new TEEventListener<RenderImage*>(&this, &RenderImage::moveToTopListener);
     //addEventSubscription(EVENT_MOVE_TO_TOP, &moveToTopListener);
     mTexture = new TEUtilTexture(resourceName, position, size);
     if (size.width == 0 && size.height == 0) {

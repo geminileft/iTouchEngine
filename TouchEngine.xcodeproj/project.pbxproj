@@ -75,6 +75,7 @@
 		F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */; };
 		F7C7F0DF13D234B20061A219 /* TEEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.cpp */; };
 		F7C7F0E313D2369C0061A219 /* FreeCellGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */; };
+		F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */; };
 		F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6213D3D47400E7DC7B /* ace_cell.png */; };
 		F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */; };
 		F7E2DC6B13D3E6D900E7DC7B /* spade_ace.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */; };
@@ -174,6 +175,8 @@
 		F7C7F0DE13D234B20061A219 /* TEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEngine.h; sourceTree = "<group>"; };
 		F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCellGame.cpp; sourceTree = "<group>"; };
 		F7C7F0E213D2369C0061A219 /* FreeCellGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCellGame.h; sourceTree = "<group>"; };
+		F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEEventListenerBase.cpp; sourceTree = "<group>"; };
+		F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEventListenerBase.h; sourceTree = "<group>"; };
 		F7E2DC6213D3D47400E7DC7B /* ace_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ace_cell.png; sourceTree = "<group>"; };
 		F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayingCard.cpp; sourceTree = "<group>"; };
 		F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				F7FC1AD313D529AC003A7211 /* StackCard.h */,
 				F7E9572513DBDA3200565556 /* TouchDrag.cpp */,
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,
+				F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */,
+				F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				F7FC1AD413D529AC003A7211 /* StackCard.cpp in Sources */,
 				F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */,
 				F7E9572713DBDA3300565556 /* TouchDrag.cpp in Sources */,
+				F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

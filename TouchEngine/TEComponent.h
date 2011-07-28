@@ -6,8 +6,6 @@
 
 class TEComponent;
 
-class TEEventListener;
-
 enum TEComponentEvent {
 	EVENT_TOUCH_STARTED
 	, EVENT_TOUCH_REJECT
