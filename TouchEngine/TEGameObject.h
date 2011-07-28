@@ -11,6 +11,7 @@ public:
 	TEPoint position;
     virtual void update();
     void addComponent(TEComponent* component);
+	virtual void moveComponentToTop(TEComponent* component);
 };
 
 #endif

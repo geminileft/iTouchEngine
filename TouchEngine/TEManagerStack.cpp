@@ -18,6 +18,8 @@ TEManagerStack* TEManagerStack::sharedManager() {
     return mSharedInstance;
 }
 
+void TEManagerStack::moveComponentToTop(TEComponent* component) {}
+
 void TEManagerStack::update() {
 /*
     TEComponentContainer components = getComponents();
@@ -52,10 +54,7 @@ void TEManagerStack::update() {
 			}
 			Log.v("TEManagerStack.mMoveToAceStack.invoke", "I am called");
 		}
-	};    
-	@Override
-	public final void moveComponentToTop(TEComponent component) {}
-    
+	};        
 	
 	private TEComponentStack getDropStack(TEComponentStack component) {
 		TEComponentStack returnStack = null;

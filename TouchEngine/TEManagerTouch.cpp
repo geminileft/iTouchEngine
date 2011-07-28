@@ -51,15 +51,8 @@ TEManagerTouch* TEManagerTouch::sharedManager() {
     return mSharedInstance;
 }
 
-/*
-	public final void moveComponentToTop(TEComponent component) {
-		TEComponentContainer components = getComponents();
-		if (components.remove(component)) {
-			addComponent(component, 0);	
-		} else {
-			Log.v("TEManagerComponent.moveComponentToTop", "did not find component");
-		}
-	}
-    
+void TEManagerTouch::moveComponentToTop(TEComponent* component) {
+	TEComponentContainer components = getComponents();
+	components.remove(component);
+	addComponent(component, 0);	
 }
-*/

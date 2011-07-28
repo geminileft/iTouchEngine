@@ -16,6 +16,7 @@ class TEManagerStack : public TEManagerComponent {
 public:
     void update();
 	static TEManagerStack* sharedManager();
+	virtual void moveComponentToTop(TEComponent* component);
 };
 
 

@@ -39,8 +39,8 @@ bool TouchDrag::addTouch(TEInputTouch* touch) {
         TEPoint pt = mParent->position;
         mTouchOffset.x = pt.x - touch->getStartPoint().x;
         mTouchOffset.y = pt.y - touch->getStartPoint().y;
+		getManager()->moveComponentToTop(this);
         //parent.invokeEvent(TEComponent.Event.EVENT_TOUCH_STARTED);
-        //this.getManager().moveComponentToTop(this);
     }
     return added;
 }

@@ -1,5 +1,6 @@
 
 #include "TEManagerComponent.h"
+#include "TEComponent.h"
 
 TEComponentContainer TEManagerComponent::getComponents() const {
     return mComponents;
@@ -16,6 +17,7 @@ void TEManagerComponent::addComponent(TEComponent* component, int index) {
         mComponents.push_front(component);
         //mComponents.add(index, component);
     }
+	component->setManager(this);
 }
 
 /*
@@ -29,6 +31,5 @@ public void update() {
 	}
 	
 	
-	public abstract void moveComponentToTop(TEComponent component);
 }
 */

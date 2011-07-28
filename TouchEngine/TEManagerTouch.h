@@ -13,6 +13,7 @@ private:
 public:
     void update();
 	static TEManagerTouch* sharedManager();
+	virtual void moveComponentToTop(TEComponent* component);
 };
 
 #endif

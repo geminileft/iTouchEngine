@@ -19,6 +19,8 @@ void TEGameObject::addComponent(TEComponent* component) {
     component->setParent(this);		
 }
 
+void TEGameObject::moveComponentToTop(TEComponent* component) {}
+
 /*
 private HashMap<TEComponent.Event, Vector<TEComponent.EventListener>> mEventSubscribers = new HashMap<TEComponent.Event, Vector<TEComponent.EventListener>>(); 
 		
@@ -46,6 +48,5 @@ private HashMap<TEComponent.Event, Vector<TEComponent.EventListener>> mEventSubs
 		mEventSubscribers.put(event, subscribers);
 	}
     
-	public final void moveComponentToTop(TEComponent component) {}
 }
 */

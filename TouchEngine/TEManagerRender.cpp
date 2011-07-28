@@ -22,6 +22,13 @@ void TEManagerRender::update() {
     }
 }
 
+void TEManagerRender::moveComponentToTop(TEComponent* component) {
+	TEComponentContainer components = getComponents();
+	components.remove(component);
+	int size = components.size();
+	addComponent(component, size);			
+}
+
 TEManagerRender* TEManagerRender::sharedManager() {
     if (mSharedInstance == NULL) {
         mSharedInstance = new TEManagerRender();
@@ -46,14 +53,5 @@ TEManagerRender* TEManagerRender::sharedManager() {
 		return mTouchStartedListener;
 	}
     
-	public final void moveComponentToTop(TEComponent component) {
-		TEComponentContainer components = getComponents();
-		if (components.remove(component)) {
-			int size = components.size();
-			addComponent(component, size);			
-		} else {
-			Log.v("TEManagerComponent.moveComponentToTop", "did not find component");
-		}
-	}
 }
 */

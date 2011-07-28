@@ -3,6 +3,14 @@
 void TEComponent::setParent(TEGameObject* parentGameObject) {
     mParent = parentGameObject;
 }
+
+void TEComponent::setManager(TEManagerComponent* manager) {
+	mManager = manager;
+}
+
+TEManagerComponent* TEComponent::getManager() {
+	return mManager;
+}
 /*
 	public interface EventListener {
 		public abstract void invoke();
@@ -18,14 +26,9 @@ void TEComponent::setParent(TEGameObject* parentGameObject) {
 		, EVENT_MOVE_TO_FOUNDATION
 	}
 	
-	private TEManagerComponent mManager;
 	
 	private HashMap<TEComponent.Event, EventListener> mEventSubscriptions = new HashMap<TEComponent.Event, EventListener>();
     	
-	public final TEManagerComponent getManager() {
-		return mManager;
-	}
-	
 	public final void addEventSubscription(TEComponent.Event event, EventListener listener) {
 		mEventSubscriptions.put(event, listener);
 	}
