@@ -2,7 +2,7 @@
 #include "RenderImage.h"
 
 RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {
-    //addEventSubscription(TEComponent.Event.EVENT_MOVE_TO_TOP, mMoveToTopListener);
+    //addEventSubscription(EVENT_MOVE_TO_TOP, &moveToTopListener);
     mTexture = new TEUtilTexture(resourceName, position, size);
     if (size.width == 0 && size.height == 0) {
         size = mTexture->getBitmapSize();
@@ -38,17 +38,20 @@ void RenderImage::draw() {
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		glPopMatrix();
 	}
-
 }
 
-/*	
-	private TEComponent.EventListener mMoveToTopListener = new TEComponent.EventListener() {
-		
-		public void invoke() {
-			RenderImage.this.getManager().moveComponentToTop(RenderImage.this);
-		}
-	};
-	
+void RenderImage::moveToTopListener() {
+	getManager()->moveComponentToTop(this);
+};
+
+/*
+void RenderImage::MoveToTopListener::invoke() {
+	//TEManager* = getManager();
+	//getManager()->moveComponentToTop(this);
+};
+*/
+
+/*
 	public RenderImage(int resourceId) {
 		this(resourceId, null, null);
 	}

@@ -20,4 +20,5 @@ struct TEPoint {
 typedef TEPoint TEPoint;
 
 typedef std::list<TEComponent*> TEComponentContainer;
+
 #endif

@@ -18,8 +18,8 @@ private:
 */
 public:
     RenderImage(NSString* resourceName, TEPoint position, TESize size);
-
     virtual void update();
     virtual void draw();
+	void moveToTopListener();
 };
 #endif
