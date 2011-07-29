@@ -16,9 +16,6 @@
 #include "StackAceCell.h"
 #include "TEManagerStack.h"
 
-#define CARD_SIZE_WIDTH 48
-#define CARD_SIZE_HEIGHT 64
-
 TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;

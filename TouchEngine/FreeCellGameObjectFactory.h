@@ -7,6 +7,9 @@ class TEEngine;
 #include <string>
 #include <map>
 
+#define CARD_SIZE_WIDTH 36//48
+#define CARD_SIZE_HEIGHT 48//64
+
 class TEGameObject;
 class PlayingCard;
 

@@ -11,7 +11,7 @@
 
 #include "TEComponent.h"
 
-#define CARD_OFFSET 40
+#define CARD_OFFSET 30
 
 class PlayingCard;
 

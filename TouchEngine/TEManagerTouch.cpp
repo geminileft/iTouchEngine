@@ -15,7 +15,6 @@ void TEManagerTouch::update() {
     std::map<unsigned int, TEInputTouch*> inputState = inputManager->getInputState();
     std::map<unsigned int, TEInputTouch*>::iterator iterator;
     std::map<unsigned int, TEComponentTouch*>::iterator eIterator;
-
     TEInputTouch* touch;
     for(iterator = inputState.begin();iterator != inputState.end();++iterator) {
         touch = (*iterator).second;

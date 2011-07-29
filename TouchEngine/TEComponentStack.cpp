@@ -12,7 +12,7 @@
 static int mOpenFreeCellCount = 0;
 static int mOpenTableCellCount = 0;
 
-TEComponentStack::TEComponentStack(StackType stackType) : mChildStack(NULL), mParentStack(NULL), mIsEvaluateReady(true) {
+TEComponentStack::TEComponentStack(StackType stackType) : mChildStack(NULL), mParentStack(NULL), mIsEvaluateReady(true), mTopStack(true) {
     mStackType = stackType;
 }
 

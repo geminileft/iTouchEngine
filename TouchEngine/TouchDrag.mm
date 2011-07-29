@@ -58,7 +58,6 @@ void TouchDrag::touchAcceptListener() {
 	mTouchValid = true;
 }
 
-
 void TouchDrag::touchRejectListener() {
 	mTouchValid = false;
 	mTouch = NULL;	

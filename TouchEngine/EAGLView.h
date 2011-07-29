@@ -15,7 +15,6 @@
     GLuint mDefaultFramebuffer;
     GLuint mColorRenderbuffer;
     TEEngine* mGame;
-    
 }
 
 @property (nonatomic, retain) EAGLContext *context;
