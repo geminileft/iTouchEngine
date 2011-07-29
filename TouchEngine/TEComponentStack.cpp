@@ -8,6 +8,9 @@
 
 #include "TEComponentStack.h"
 
+static int mOpenFreeCellCount = 0;
+static int mOpenTableCellCount = 0;
+
 TEComponentStack::TEComponentStack(StackType stackType) : mChildStack(NULL), mParentStack(NULL) {
     mStackType = stackType;
 }
@@ -64,18 +67,38 @@ TEComponentStack* TEComponentStack::getParentStack() {
 TEComponentStack* TEComponentStack::getChildStack() {
     return mChildStack;
 }
+
+PlayingCard* TEComponentStack::getPlayingCard() {
+	return mCard;
+}
+
+int TEComponentStack::getOpenTableCellCount() {
+	return mOpenTableCellCount;
+}
+int TEComponentStack::getOpenFreeCellCount() {
+	return mOpenFreeCellCount;
+}
+
+int TEComponentStack::getPickupCount(int freeCellCount, int tableCellCount) {
+	int pickupCount = freeCellCount + 1;
+	for (int i = 0;i < tableCellCount;++i) {
+		pickupCount += i + 1 + freeCellCount;
+	}
+	return pickupCount;
+}
+
+void TEComponentStack::popStack(TEComponentStack* stack) {
+	if (stack == mChildStack) {
+		stack->setParentStack(NULL);
+		mChildStack = NULL;
+		mTopStack = true;
+	}
+}
+
 /*
 	
 	public StackType getStackType() {
 		return mStackType;
-	}
-	
-	public void popStack(TEComponentStack stack) {
-		if (stack == mChildStack) {
-			stack.setParentStack(null);
-			mChildStack = null;
-			mTopStack = true;
-		}
 	}
 	
 	public final boolean doesOverlap(TEComponentStack stack) {
@@ -115,16 +138,5 @@ TEComponentStack* TEComponentStack::getChildStack() {
 		return returnValue;
 	}
     
-	public PlayingCard getPlayingCard() {
-		return mCard;
-	}
-	
-	public final int getPickupCount(int freeCellCount, int tableCellCount) {
-		int pickupCount = freeCellCount + 1;
-		for (int i = 0;i < tableCellCount;++i) {
-			pickupCount += i + 1 + freeCellCount;
-		}
-		return pickupCount;
-	}
 }
 */

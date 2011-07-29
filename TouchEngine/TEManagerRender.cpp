@@ -25,8 +25,7 @@ void TEManagerRender::update() {
 void TEManagerRender::moveComponentToTop(TEComponent* component) {
 	TEComponentContainer components = getComponents();
 	components.remove(component);
-	int size = components.size();
-	addComponent(component, size);			
+	addComponent(component);			
 }
 
 TEManagerRender* TEManagerRender::sharedManager() {

@@ -14,11 +14,17 @@
 class PlayingCard;
 
 class StackCard : public TEComponentStack {
+private:
+	bool mMoving;
+	TEPoint mPreviousPosition;
+	TEComponentStack* mPreviousStack;
+
 public:
 	StackCard(PlayingCard* card);
 
     virtual void update();
 	virtual int getStackOffset(bool isFirst);
+	void moveToTopListener();
 };
 
 #endif

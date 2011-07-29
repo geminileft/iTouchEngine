@@ -21,6 +21,7 @@ public:
     void addComponent(TEComponent* component);
 	virtual void moveComponentToTop(TEComponent* component);
 	void addEventSubscription(TEComponentEvent event, TEEventListenerBase* eventListener);
+	void invokeEvent(TEComponentEvent event);
 };
 
 #endif

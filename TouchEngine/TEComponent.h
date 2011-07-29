@@ -7,6 +7,8 @@
 
 #include <map>
 
+#define LAST_INDEX -1
+
 class TEComponent;
 class TEManagerComponent;
 class TEGameObject;

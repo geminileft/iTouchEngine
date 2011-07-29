@@ -7,15 +7,14 @@ TEComponentContainer TEManagerComponent::getComponents() const {
 }
 
 void TEManagerComponent::addComponent(TEComponent* component) {
-    addComponent(component, -1);
+    addComponent(component, LAST_INDEX);
 }
 
 void TEManagerComponent::addComponent(TEComponent* component, int index) {
-    if (index == -1) {
+    if (index == LAST_INDEX) {
         mComponents.push_back(component);
     } else {
         mComponents.push_front(component);
-        //mComponents.add(index, component);
     }
 	component->setManager(this);
 }

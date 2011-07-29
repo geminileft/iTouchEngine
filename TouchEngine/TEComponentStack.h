@@ -33,17 +33,23 @@ private:
 	bool mTopStack;	
 
 public:
-    TEComponentStack(StackType stackType);
 	bool isEvaluateReady;
+
+	TEComponentStack(StackType stackType);
 	virtual int getStackOffset(bool isFirst) = 0;
 	bool doesAccept(TEComponentStack* stack);
     void setPlayingCard(PlayingCard* card);
+	PlayingCard* getPlayingCard();
 	void pushStack(TEComponentStack* stack);
     void setParentStack(TEComponentStack* stack);
     void adjustStackPositions();
     TEComponentStack* getRootStack();
 	TEComponentStack* getParentStack();
     TEComponentStack* getChildStack();
-};	
+	static int getOpenTableCellCount();
+	static int getOpenFreeCellCount();
+	int getPickupCount(int freeCellCount, int tableCellCount);
+	void popStack(TEComponentStack* stack);
+};
 
 #endif

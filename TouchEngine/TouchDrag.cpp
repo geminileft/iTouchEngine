@@ -9,9 +9,10 @@
 #include "TouchDrag.h"
 
 TouchDrag::TouchDrag() : TEComponentTouch(), mTouch(NULL), mTouchValid(false) {
-    //super();
-    //this.addEventSubscription(Event.EVENT_TOUCH_ACCEPT, mEventTouchAccept);
-    //this.addEventSubscription(Event.EVENT_TOUCH_REJECT, mEventTouchReject);
+	TEEventListener<TouchDrag>* touchAcceptListener = new TEEventListener<TouchDrag>(this, &TouchDrag::touchAcceptListener);
+	TEEventListener<TouchDrag>* touchRejectListener = new TEEventListener<TouchDrag>(this, &TouchDrag::touchAcceptListener);
+    addEventSubscription(EVENT_TOUCH_ACCEPT, touchAcceptListener);
+    addEventSubscription(EVENT_TOUCH_REJECT, touchRejectListener);
 }
 
 void TouchDrag::update() {
@@ -20,7 +21,7 @@ void TouchDrag::update() {
         float y = mTouch->getEndPoint().y + mTouchOffset.y;
         if (mTouch->ended()) {
             //mTouchHandler.endTouch(mTouch);
-            //parent.invokeEvent(TEComponent.Event.EVENT_TOUCH_ENDED);
+            mParent->invokeEvent(EVENT_TOUCH_ENDED);
             mTouch = NULL;
             mTouchValid = false;
         }
@@ -32,7 +33,6 @@ void TouchDrag::update() {
 bool TouchDrag::addTouch(TEInputTouch* touch) {
     bool added = false;
     if (mTouch == NULL) {
-        mTouchValid = true;
         //mTouchHandler->startTouch(touch);
         added = true;
         mTouch = touch->copy();
@@ -40,7 +40,7 @@ bool TouchDrag::addTouch(TEInputTouch* touch) {
         mTouchOffset.x = pt.x - touch->getStartPoint().x;
         mTouchOffset.y = pt.y - touch->getStartPoint().y;
 		getManager()->moveComponentToTop(this);
-        //parent.invokeEvent(TEComponent.Event.EVENT_TOUCH_STARTED);
+        mParent->invokeEvent(EVENT_TOUCH_STARTED);
     }
     return added;
 }
@@ -52,6 +52,16 @@ bool TouchDrag::updateTouch(TEInputTouch* touch) {
         returnValue = true;
     }
     return returnValue;
+}
+
+void TouchDrag::touchAcceptListener() {
+	mTouchValid = true;
+}
+
+
+void TouchDrag::touchRejectListener() {
+	mTouchValid = false;
+	mTouch = NULL;	
 }
 
 /*
@@ -107,22 +117,6 @@ public class TouchDrag extends TEComponentTouch {
 		//}
 	}
 	
-	private TEComponent.EventListener mEventTouchAccept = new TEComponent.EventListener() {
-		
-		public void invoke() {
-			mTouchValid = true;
-		}
-	};
-	
-	private TEComponent.EventListener mEventTouchReject = new TEComponent.EventListener() {
-		
-		public void invoke() {
-			mTouchValid = false;
-			mTouch = null;
-			mTouchOffset = null;
-			
-		}
-	};
 	
 }
 */

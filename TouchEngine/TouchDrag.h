@@ -16,6 +16,8 @@ public:
     virtual void update();
     virtual bool addTouch(TEInputTouch* touch);
 	virtual bool updateTouch(TEInputTouch* touch);
+	void touchAcceptListener();
+	void touchRejectListener();
 };
 
 #endif

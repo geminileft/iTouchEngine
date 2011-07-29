@@ -5,7 +5,7 @@ void TEGameObject::update() {}
 void TEGameObject::addComponent(TEComponent* component) {
     TEManagerComponent::addComponent(component);
 	std::map<TEComponentEvent, TEEventListenerBase*> eventSubscriptions = component->getEventSubscriptions();
-    if (eventSubscriptions.empty()) {
+    if (!eventSubscriptions.empty()) {
 		std::map<TEComponentEvent, TEEventListenerBase*>::iterator iterator;
 		for (iterator = eventSubscriptions.begin();iterator != eventSubscriptions.end();++iterator) {
             TEComponentEvent event = (*iterator).first;
@@ -14,26 +14,45 @@ void TEGameObject::addComponent(TEComponent* component) {
     }
     component->setParent(this);		
 }
-
-void TEGameObject::moveComponentToTop(TEComponent* component) {}
-
 /*
-	public void invokeEvent(TEComponent.Event event) {
-		Vector<TEComponent.EventListener> subscribers = mEventSubscribers.get(event);
-		if (subscribers != null) {
-			Iterator<TEComponent.EventListener> iterator = subscribers.iterator();
-			while (iterator.hasNext()) {
-				TEComponent.EventListener eventListener = iterator.next();
-				eventListener.invoke();
-			}
+public void addComponent(TEComponent component) {
+	super.addComponent(component);
+	HashMap<TEComponent.Event, TEComponent.EventListener> eventSubscriptions = component.getEventSubscriptions();
+	if (!eventSubscriptions.isEmpty()) {
+		Set<TEComponent.Event> keys = eventSubscriptions.keySet();
+		Iterator<TEComponent.Event> iterator = keys.iterator();
+		while (iterator.hasNext()) {
+			TEComponent.Event event = iterator.next();
+			addEventSubscription(event, eventSubscriptions.get(event));
 		}
 	}
+	component.setParent(this);		
+}
 */
+void TEGameObject::moveComponentToTop(TEComponent* component) {}
+
+void TEGameObject::invokeEvent(TEComponentEvent event) {
+	std::map<TEComponentEvent, std::vector<TEEventListenerBase*> >::iterator iterator; 
+	iterator = mEventSubscribers.find(event);
+	if (iterator != mEventSubscribers.end()) {
+		std::vector<TEEventListenerBase*> subscribers = (*iterator).second;
+		if (!subscribers.empty()) {
+			std::vector<TEEventListenerBase*>::iterator subscriberIterator;
+			for (subscriberIterator = subscribers.begin();subscriberIterator != subscribers.end();++subscriberIterator) {
+				(*subscriberIterator)->invoke();
+			}
+
+		}
+	}
+}
 
 void TEGameObject::addEventSubscription(TEComponentEvent event, TEEventListenerBase* eventListener) {
 	std::map<TEComponentEvent, std::vector<TEEventListenerBase*> >::iterator iterator;
 	iterator = mEventSubscribers.find(event);
-	std::vector<TEEventListenerBase*> subscribers = (*iterator).second;
+	std::vector<TEEventListenerBase*> subscribers;
+	if (iterator != mEventSubscribers.end()) {
+		subscribers = (*iterator).second;
+	}
 	subscribers.push_back(eventListener);
 	mEventSubscribers[event] = subscribers;
 }
