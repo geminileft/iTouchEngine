@@ -12,15 +12,10 @@ TEManagerComponent* TEComponent::getManager() {
 	return mManager;
 }
 
-/*
-void TEComponent::addEventSubscription(TEComponentEvent event, EventListener* listener) {
+void TEComponent::addEventSubscription(TEComponentEvent event, TEEventListenerBase* listener) {
 	mEventSubscriptions[event] = listener;
 }
-*/
 
-/*
-	public final HashMap<TEComponent.Event, EventListener> getEventSubscriptions() {
-		return mEventSubscriptions;
-	}
+const std::map<TEComponentEvent, TEEventListenerBase*> TEComponent::getEventSubscriptions() const {
+	return mEventSubscriptions;
 }
- */

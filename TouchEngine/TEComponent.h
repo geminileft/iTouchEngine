@@ -1,28 +1,20 @@
 #ifndef TECOMPONENT
 #define TECOMPONENT
 
+#include "TETypes.h"
 #include "TEGameObject.h"
+#include "TEEventListener.h"
+
 #include <map>
 
 class TEComponent;
-
-enum TEComponentEvent {
-	EVENT_TOUCH_STARTED
-	, EVENT_TOUCH_REJECT
-	, EVENT_TOUCH_ACCEPT
-	, EVENT_TOUCH_ENDED
-	, EVENT_MOVE_TO_TOP
-	, EVENT_ACCEPT_MOVE
-	, EVENT_REJECT_MOVE
-	, EVENT_MOVE_TO_FOUNDATION
-};
-
-typedef TEComponentEvent TEComponentEvent;
+class TEManagerComponent;
+class TEGameObject;
 
 class TEComponent {
 private:
 	TEManagerComponent* mManager;
-	//std::map<TEComponentEvent, EventListener*> mEventSubscriptions;
+	std::map<TEComponentEvent, TEEventListenerBase*> mEventSubscriptions;
 
 public:
     TEGameObject* mParent;
@@ -30,7 +22,8 @@ public:
 	void setParent(TEGameObject* parentGameObject);
 	void setManager(TEManagerComponent* manager);
 	TEManagerComponent* getManager();
-	//void addEventSubscription(TEComponentEvent event, EventListener* listener);
+	void addEventSubscription(TEComponentEvent event, TEEventListenerBase* listener);
+	const std::map<TEComponentEvent, TEEventListenerBase*> getEventSubscriptions() const;
 };
 
 #endif

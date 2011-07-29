@@ -207,6 +207,7 @@
 		F7FC1AD013D519EA003A7211 /* StackTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTableCell.h; sourceTree = "<group>"; };
 		F7FC1AD213D529AB003A7211 /* StackCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackCard.cpp; sourceTree = "<group>"; };
 		F7FC1AD313D529AC003A7211 /* StackCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackCard.h; sourceTree = "<group>"; };
+		F7FE2F4813E25F2D00B9858D /* TEEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEventListener.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +397,7 @@
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,
 				F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */,
 				F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */,
+				F7FE2F4813E25F2D00B9858D /* TEEventListener.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
