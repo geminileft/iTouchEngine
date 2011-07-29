@@ -34,4 +34,30 @@ typedef TEPoint TEPoint;
 
 typedef std::list<TEComponent*> TEComponentContainer;
 
+struct TERect {
+	float left;
+	float right;
+	float top;
+	float bottom;
+	
+	bool overlaps(TERect rect) {
+		return
+		(left <= rect.right)
+		&& (right >= rect.left)
+		&& (bottom <= rect.top)
+		&& (top >= rect.bottom);
+	}
+};
+
+typedef TERect TERect;
+
+inline TERect TERectMake(TEPoint position, TESize size) {
+	TERect rect;
+	rect.left = position.x - ((float)size.width / 2);
+	rect.right = rect.left + size.width;
+	rect.bottom = position.y - ((float)size.height / 2);
+	rect.top = rect.bottom + size.height;
+	return rect;
+}
+
 #endif

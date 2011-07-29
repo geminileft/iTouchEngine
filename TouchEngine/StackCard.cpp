@@ -68,15 +68,16 @@ void StackCard::moveToTopListener() {
 	}
 }
 
+void StackCard::touchEndedListener() {
+	mMoving = false;
+	evaluate();
+}
+
+bool StackCard::doesAccept(TEComponentStack* stack) {
+	return true;
+}
+
 /*
-	private TEComponent.EventListener mTouchEndedListener = new TEComponent.EventListener() {
-		
-		public void invoke() {
-			mMoving = false;
-			StackCard.this.evaluate();
-		}
-	};
-	
 	private TEComponent.EventListener mRejectMoveListener = new TEComponent.EventListener() {
 		
 		public void invoke() {
@@ -90,9 +91,5 @@ void StackCard::moveToTopListener() {
 		}
 	};
 	
-	@Override
-	public final boolean doesAccept(TEComponentStack stack) {
-		return true;
-	}
 }
 */

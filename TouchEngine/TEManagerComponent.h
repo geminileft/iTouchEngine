@@ -16,7 +16,7 @@ public:
 	void addComponent(TEComponent* component);
     void addComponent(TEComponent* component, int index);
 	virtual void moveComponentToTop(TEComponent* component) = 0;
-
+	virtual void update();
 };
 
 #endif

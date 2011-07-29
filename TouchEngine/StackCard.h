@@ -25,6 +25,8 @@ public:
     virtual void update();
 	virtual int getStackOffset(bool isFirst);
 	void moveToTopListener();
+	void touchEndedListener();
+	virtual bool doesAccept(TEComponentStack* stack);
 };
 
 #endif

@@ -116,8 +116,8 @@ void FreeCellGame::start() {
         deck[j] = deck[--wLeft];
     }
     addTableStack(START_X, mFactory, stacks/*, listener*/);
-    //TEComponentStack::setOpenFreeCellCount(4);
-    //TEComponentStack::setOpenTableCellCount(0);
+    TEComponentStack::setOpenFreeCellCount(4);
+    TEComponentStack::setOpenTableCellCount(0);
 }
 
 void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7]/*, TEComponent.EventListener listener */) {

@@ -1,25 +1,23 @@
 //
-//  StackTableCell.h
+//  StackAceCell.h
 //  TouchEngine
 //
-//  Created by geminileft on 7/18/11.
+//  Created by geminileft on 7/29/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef STACKTABLECELL
-#define STACKTABLECELL
+#ifndef STACKACECELL
+#define STACKACECELL
 
 #include "TEComponentStack.h"
 
-class StackTableCell : public TEComponentStack {
-
+class StackAceCell : public TEComponentStack {
 public:
-    StackTableCell(StackType stackType);
+	StackAceCell();
 
-    virtual void update();
 	virtual int getStackOffset(bool isFirst);
 	virtual bool doesAccept(TEComponentStack* stack);
-
+	virtual void update();
 };
-    
+
 #endif

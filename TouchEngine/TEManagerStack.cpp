@@ -7,9 +7,11 @@
 //
 
 #include "TEManagerStack.h"
+#include "TEComponentStack.h"
+#include "StackAceCell.h"
 
 static TEManagerStack* mSharedInstance = NULL;
-//private final int ACE_STACK_COUNT = 4;
+static int mAceStackCount = 0;
 
 TEManagerStack* TEManagerStack::sharedManager() {
     if (mSharedInstance == NULL) {
@@ -21,28 +23,46 @@ TEManagerStack* TEManagerStack::sharedManager() {
 void TEManagerStack::moveComponentToTop(TEComponent* component) {}
 
 void TEManagerStack::update() {
-/*
     TEComponentContainer components = getComponents();
-    if (!components.isEmpty()) {
-        final int size = components.size();
-        for(int i = 0;i < size;++i) {
-            TEComponentStack component = (TEComponentStack)components.get(i);
-            component.update();
-            if (component.isEvaluateReady) {
-                TEComponentStack dropStack = getDropStack(component);
-                if (dropStack == null) {
-                    component.parent.invokeEvent(Event.EVENT_REJECT_MOVE);
+    if (!components.empty()) {
+		TEComponentContainer::iterator iterator;
+        for(iterator = components.begin();iterator != components.end();++iterator) {
+            TEComponentStack* component = (TEComponentStack*)(*iterator);
+            component->update();
+            if (component->mIsEvaluateReady) {
+                TEComponentStack* dropStack = getDropStack(component);
+                if (dropStack == NULL) {
+                    component->mParent->invokeEvent(EVENT_REJECT_MOVE);
                 } else {
-                    component.parent.invokeEvent(Event.EVENT_ACCEPT_MOVE);
-                    dropStack.pushStack(component);
+                    component->mParent->invokeEvent(EVENT_ACCEPT_MOVE);
+                    dropStack->pushStack(component);
                 }
-                component.resetEvaluate();
+                component->resetEvaluate();
             }
         }		
     }
-*/
 }
 
+TEComponentStack* TEManagerStack::getDropStack(TEComponentStack* component) {
+	TEComponentStack* returnStack = NULL;
+	TEComponentContainer components = getComponents();
+	if (!components.empty()) {
+		TEComponentContainer::iterator iterator;
+		for(iterator = components.begin();iterator != components.end();++iterator) {
+			TEComponentStack* stack = (TEComponentStack*)(*iterator);
+			if ((stack->isTopStack()) && component->doesOverlap(stack) && stack->getRootStack()->doesAccept(component)) {
+				returnStack = stack;
+				break;
+			}
+		}
+	}
+	return returnStack;
+}
+
+void TEManagerStack::addAceStack(StackAceCell* aceStack) {
+	mAceStacks[mAceStackCount] = aceStack;
+	++mAceStackCount;
+}
 /*
 	private TEComponent.EventListener mMoveToFoundationListener = new TEComponent.EventListener() {
 		
@@ -55,30 +75,8 @@ void TEManagerStack::update() {
 			Log.v("TEManagerStack.mMoveToAceStack.invoke", "I am called");
 		}
 	};        
-	
-	private TEComponentStack getDropStack(TEComponentStack component) {
-		TEComponentStack returnStack = null;
-		TEComponentContainer components = getComponents();
-		if (!components.isEmpty()) {
-			final int size = components.size();
-		    for(int i = 0;i < size;++i) {
-		    	TEComponentStack stack = (TEComponentStack)components.get(i);
-		    	if ((stack.isTopStack()) && component.doesOverlap(stack) && stack.getRootStack().doesAccept(component)) {
-		    		returnStack = stack;
-		    		break;
-		    	}
-		    }
-		}
-		return returnStack;
-	}
-	
+
 	public TEComponent.EventListener getMoveToAceStackListener() {
 		return mMoveToFoundationListener;
 	}
-	
-	public void addAceStack(StackAceCell aceStack) {
-		mAceStacks[mAceStackCount] = aceStack;
-		++mAceStackCount;
-	}
-}
- */
+*/

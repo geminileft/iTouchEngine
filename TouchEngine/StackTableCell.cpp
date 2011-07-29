@@ -7,6 +7,7 @@
 //
 
 #include "StackTableCell.h"
+#include "PlayingCard.h"
 
 StackTableCell::StackTableCell(StackType stackType) : TEComponentStack(stackType) {}
 
@@ -22,32 +23,31 @@ int StackTableCell::getStackOffset(bool isFirst) {
 
 void StackTableCell::update() {}
 
-/*
-    
-	@Override
-	public boolean doesAccept(TEComponentStack stack) {
-		boolean results = false;
-		TEComponentStack childStack = getChildStack();
-		
-		if (childStack == null) {
-			final int dropCount = getPickupCount(openFreeCellCount, openTableCellCount - 1);
-			childStack = stack;
-			int stackCount = 0;
-			while (childStack != null) {
-				++stackCount;
-				childStack = childStack.getChildStack();
-			}
-			results = stackCount <= dropCount;
-		} else {
-			while (childStack.getChildStack() != null) {
-				childStack = childStack.getChildStack();
-			}
-			PlayingCard card = childStack.getPlayingCard();
-			PlayingCard stackCard = stack.getPlayingCard();
-			results = card.canStack(stackCard);	
+bool StackTableCell::doesAccept(TEComponentStack* stack) {
+	bool results = false;
+	TEComponentStack* childStack = getChildStack();
+	
+	if (childStack == NULL) {
+		const int dropCount = getPickupCount(getOpenFreeCellCount(), getOpenTableCellCount() - 1);
+		childStack = stack;
+		int stackCount = 0;
+		while (childStack != NULL) {
+			++stackCount;
+			childStack = childStack->getChildStack();
 		}
-		return results;
+		results = stackCount <= dropCount;
+	} else {
+		while (childStack->getChildStack() != NULL) {
+			childStack = childStack->getChildStack();
+		}
+		PlayingCard* card = childStack->getPlayingCard();
+		PlayingCard* stackCard = stack->getPlayingCard();
+		results = card->canStack(stackCard);	
 	}
+	return results;
+}
+
+/*
     
 	@Override
 	public void pushStack(TEComponentStack stack) {

@@ -10,7 +10,7 @@
 
 TouchDrag::TouchDrag() : TEComponentTouch(), mTouch(NULL), mTouchValid(false) {
 	TEEventListener<TouchDrag>* touchAcceptListener = new TEEventListener<TouchDrag>(this, &TouchDrag::touchAcceptListener);
-	TEEventListener<TouchDrag>* touchRejectListener = new TEEventListener<TouchDrag>(this, &TouchDrag::touchAcceptListener);
+	TEEventListener<TouchDrag>* touchRejectListener = new TEEventListener<TouchDrag>(this, &TouchDrag::touchRejectListener);
     addEventSubscription(EVENT_TOUCH_ACCEPT, touchAcceptListener);
     addEventSubscription(EVENT_TOUCH_REJECT, touchRejectListener);
 }

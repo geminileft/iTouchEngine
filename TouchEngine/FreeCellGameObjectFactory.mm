@@ -12,6 +12,9 @@
 #include "PlayingCard.h"
 #include "TouchDrag.h"
 #include "TEEngine.h"
+#include "StackFreeCell.h"
+#include "StackAceCell.h"
+#include "TEManagerStack.h"
 
 #define CARD_SIZE_WIDTH 48
 #define CARD_SIZE_HEIGHT 64
@@ -126,16 +129,16 @@ TEGameObject* FreeCellGameObjectFactory::createFreeCell(TEPoint position) {
     offset.x = 0;
     offset.y = 0;
     gameObject->addComponent(new RenderImage(@"free_cell.png", offset, size));
-    //gameObject->addComponent(new StackFreeCell());
+    gameObject->addComponent(new StackFreeCell());
     gameObject->position = position;
     gameObject->size = size;
     return gameObject;
 }
 
 TEGameObject* FreeCellGameObjectFactory::createAceCellStack(TEPoint position) {
-    //TEManagerStack stackManager = TEManagerStack->sharedManager();
+    TEManagerStack* stackManager = TEManagerStack::sharedManager();
     TEGameObject* gameObject = new TEGameObject();
-    //StackAceCell aceCell = new StackAceCell();
+    StackAceCell* aceCell = new StackAceCell();
     TESize size;
     size.width = CARD_SIZE_WIDTH;
     size.height = CARD_SIZE_HEIGHT;
@@ -143,10 +146,10 @@ TEGameObject* FreeCellGameObjectFactory::createAceCellStack(TEPoint position) {
     offset.x = 0;
     offset.y = 0;
     gameObject->addComponent(new RenderImage(@"ace_cell.png", offset, size));
-    //gameObject.addComponent(aceCell);
+    gameObject->addComponent(aceCell);
     gameObject->position = position;
     gameObject->size = size;
-    //stackManager.addAceStack(aceCell);
+    stackManager->addAceStack(aceCell);
     return gameObject;
 }
 

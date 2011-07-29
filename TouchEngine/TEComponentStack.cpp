@@ -7,11 +7,12 @@
 //
 
 #include "TEComponentStack.h"
+#include "TETypes.h"
 
 static int mOpenFreeCellCount = 0;
 static int mOpenTableCellCount = 0;
 
-TEComponentStack::TEComponentStack(StackType stackType) : mChildStack(NULL), mParentStack(NULL) {
+TEComponentStack::TEComponentStack(StackType stackType) : mChildStack(NULL), mParentStack(NULL), mIsEvaluateReady(true) {
     mStackType = stackType;
 }
 
@@ -95,48 +96,55 @@ void TEComponentStack::popStack(TEComponentStack* stack) {
 	}
 }
 
+void TEComponentStack::evaluate() {
+	mIsEvaluateReady = true;
+}
+
+void TEComponentStack::resetEvaluate() {
+	mIsEvaluateReady = false;
+}
+
+bool TEComponentStack::isTopStack() {
+	return mTopStack;
+}
+
+bool TEComponentStack::doesOverlap(TEComponentStack* stack) {
+	bool returnValue = false;
+	if (!isParentOf(stack)) {
+		TERect parentRect = TERectMake(mParent->position, mParent->size);
+		TEGameObject* stackParent = stack->mParent;
+		TERect stackRect = TERectMake(stackParent->position, stackParent->size);
+		returnValue = parentRect.overlaps(stackRect);
+	}
+	return returnValue;
+}
+
+bool TEComponentStack::isParentOf(TEComponentStack* stack) {
+	bool returnValue = (stack == this);
+	TEComponentStack* childStack = getChildStack();
+	while (!returnValue && (childStack != NULL)) {
+		//returnValue = (stack == childStack);
+		childStack = childStack->getChildStack();
+	}
+	return returnValue;
+}
+
+void TEComponentStack::setOpenTableCellCount(int openTableCellCount) {
+	mOpenTableCellCount	= openTableCellCount;
+}
+void TEComponentStack::setOpenFreeCellCount(int openFreeCellCount) {
+	mOpenFreeCellCount = openFreeCellCount;
+}
+
 /*
 	
 	public StackType getStackType() {
 		return mStackType;
 	}
 	
-	public final boolean doesOverlap(TEComponentStack stack) {
-		boolean returnValue = false;
-		if (!isParentOf(stack)) {
-			TEUtilRect parentRect = new TEUtilRect(parent.position, parent.size);
-			TEGameObject stackParent = stack.parent;
-			TEUtilRect stackRect = new TEUtilRect(stackParent.position, stackParent.size);
-			returnValue = parentRect.overlaps(stackRect);
-		}
-		return returnValue;
-	}
-	
-	public final boolean isTopStack() {
-		return mTopStack;
-	}
-	
 	public final TEComponentStack getChildStack() {
 		return mChildStack;
 	}
 	
-	public final void evaluate() {
-		isEvaluateReady = true;
-	}
-	
-	public final void resetEvaluate() {
-		isEvaluateReady = false;
-	}
-	
-	private final boolean isParentOf(TEComponentStack stack) {
-		boolean returnValue = (stack == this);
-		TEComponentStack childStack = this.getChildStack();
-		while (!returnValue && (childStack != null)) {
-			returnValue = (stack == childStack);
-			childStack = childStack.getChildStack();
-		}
-		return returnValue;
-	}
-    
 }
 */

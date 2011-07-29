@@ -73,6 +73,8 @@
 		F795ECAA13D274A500550919 /* FreeCellGameObjectFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */; };
 		F795ECAE13D27EDD00550919 /* RenderImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECAC13D27EDD00550919 /* RenderImage.mm */; };
 		F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */; };
+		F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */; };
+		F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */; };
 		F7C7F0DF13D234B20061A219 /* TEEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.cpp */; };
 		F7C7F0E313D2369C0061A219 /* FreeCellGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */; };
 		F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */; };
@@ -171,6 +173,10 @@
 		F795ECAD13D27EDD00550919 /* RenderImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderImage.h; sourceTree = "<group>"; };
 		F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerInput.cpp; sourceTree = "<group>"; };
 		F7C1B51F13DA853000EF84E8 /* TEManagerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerInput.h; sourceTree = "<group>"; };
+		F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackFreeCell.cpp; sourceTree = "<group>"; };
+		F7C78C6513E33A7B00A7F69E /* StackFreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackFreeCell.h; sourceTree = "<group>"; };
+		F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackAceCell.cpp; sourceTree = "<group>"; };
+		F7C78C6913E33D7800A7F69E /* StackAceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackAceCell.h; sourceTree = "<group>"; };
 		F7C7F0DD13D234B20061A219 /* TEEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEEngine.cpp; sourceTree = "<group>"; };
 		F7C7F0DE13D234B20061A219 /* TEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEngine.h; sourceTree = "<group>"; };
 		F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCellGame.cpp; sourceTree = "<group>"; };
@@ -398,6 +404,10 @@
 				F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */,
 				F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */,
 				F7FE2F4813E25F2D00B9858D /* TEEventListener.h */,
+				F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */,
+				F7C78C6513E33A7B00A7F69E /* StackFreeCell.h */,
+				F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */,
+				F7C78C6913E33D7800A7F69E /* StackAceCell.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -538,6 +548,8 @@
 				F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */,
 				F7E9572713DBDA3300565556 /* TouchDrag.cpp in Sources */,
 				F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */,
+				F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */,
+				F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
