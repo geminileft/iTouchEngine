@@ -123,7 +123,7 @@ bool TEComponentStack::isParentOf(TEComponentStack* stack) {
 	bool returnValue = (stack == this);
 	TEComponentStack* childStack = getChildStack();
 	while (!returnValue && (childStack != NULL)) {
-		//returnValue = (stack == childStack);
+		returnValue = (stack == childStack);
 		childStack = childStack->getChildStack();
 	}
 	return returnValue;
@@ -135,16 +135,3 @@ void TEComponentStack::setOpenTableCellCount(int openTableCellCount) {
 void TEComponentStack::setOpenFreeCellCount(int openFreeCellCount) {
 	mOpenFreeCellCount = openFreeCellCount;
 }
-
-/*
-	
-	public StackType getStackType() {
-		return mStackType;
-	}
-	
-	public final TEComponentStack getChildStack() {
-		return mChildStack;
-	}
-	
-}
-*/

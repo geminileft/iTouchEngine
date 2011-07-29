@@ -78,13 +78,6 @@ void TEEngine::initGraphics(int width, int height) {
 }
 
 void TEEngine::graphicsChange(int width, int height) {
-/*
-    glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-    glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-*/
 	bool useOrtho = false;
 	const int scaleFactor = 1;
 	const int zDepth = height / (2 / scaleFactor);

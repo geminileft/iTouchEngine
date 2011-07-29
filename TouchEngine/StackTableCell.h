@@ -19,6 +19,8 @@ public:
     virtual void update();
 	virtual int getStackOffset(bool isFirst);
 	virtual bool doesAccept(TEComponentStack* stack);
+	virtual void pushStack(TEComponentStack* stack);
+	virtual void popStack(TEComponentStack* stack);
 
 };
     

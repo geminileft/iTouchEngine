@@ -34,23 +34,3 @@ TEManagerRender* TEManagerRender::sharedManager() {
     }
     return mSharedInstance;
 }
-/*
-	
-	private TEComponent.EventListener mTouchStartedListener = new TEComponent.EventListener() {
-		
-		public void invoke() {
-		}
-	};
-	
-    
-	public TEManagerRender() {
-		super();
-	}
-	
-	
-	public TEComponent.EventListener getTouchStartedListener() {
-		return mTouchStartedListener;
-	}
-    
-}
-*/

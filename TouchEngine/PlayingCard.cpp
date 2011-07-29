@@ -87,7 +87,6 @@ std::string PlayingCard::getCardName() const {
     }
     
     return Value;
-	//return "SpadeAce";
 }
 
 bool PlayingCard::canStack(PlayingCard* stackCard) const {

@@ -47,19 +47,12 @@ bool StackTableCell::doesAccept(TEComponentStack* stack) {
 	return results;
 }
 
-/*
-    
-	@Override
-	public void pushStack(TEComponentStack stack) {
-		super.pushStack(stack);
-		--TEComponentStack.openTableCellCount;
-	}
-	
-	@Override
-	public void popStack(TEComponentStack stack) {
-		super.popStack(stack);
-		++TEComponentStack.openTableCellCount;
-	}
-    
+void StackTableCell::pushStack(TEComponentStack* stack) {
+	TEComponentStack::pushStack(stack);
+	TEComponentStack::setOpenTableCellCount(TEComponentStack::getOpenTableCellCount() - 1);
 }
-*/
+	
+void StackTableCell::popStack(TEComponentStack* stack) {
+	TEComponentStack::popStack(stack);
+	TEComponentStack::setOpenTableCellCount(TEComponentStack::getOpenTableCellCount() + 1);
+}

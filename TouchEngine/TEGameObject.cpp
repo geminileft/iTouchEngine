@@ -14,21 +14,7 @@ void TEGameObject::addComponent(TEComponent* component) {
     }
     component->setParent(this);		
 }
-/*
-public void addComponent(TEComponent component) {
-	super.addComponent(component);
-	HashMap<TEComponent.Event, TEComponent.EventListener> eventSubscriptions = component.getEventSubscriptions();
-	if (!eventSubscriptions.isEmpty()) {
-		Set<TEComponent.Event> keys = eventSubscriptions.keySet();
-		Iterator<TEComponent.Event> iterator = keys.iterator();
-		while (iterator.hasNext()) {
-			TEComponent.Event event = iterator.next();
-			addEventSubscription(event, eventSubscriptions.get(event));
-		}
-	}
-	component.setParent(this);		
-}
-*/
+
 void TEGameObject::moveComponentToTop(TEComponent* component) {}
 
 void TEGameObject::invokeEvent(TEComponentEvent event) {

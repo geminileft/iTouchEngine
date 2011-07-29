@@ -12,6 +12,7 @@
 #include "TEManagerComponent.h"
 
 #define ACE_STACK_COUNT 4
+
 class TEComponentStack;
 class TEEventListenerBase;
 class StackAceCell;
@@ -26,7 +27,6 @@ public:
 	virtual void moveComponentToTop(TEComponent* component);
 	TEComponentStack* getDropStack(TEComponentStack* component);
 	void addAceStack(StackAceCell* aceStack);
-	//TEEventListenerBase* getMoveToAceStackListener();
 };
 
 

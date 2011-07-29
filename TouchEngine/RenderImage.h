@@ -11,11 +11,7 @@ private:
 	int mCrop[4];
 	int mWidth;
 	int mHeight;
-    /*
-	float mX = 0;
-	float mY = 0;
-	private GL10 mGL;
-*/
+
 public:
     RenderImage(NSString* resourceName, TEPoint position, TESize size);
     virtual void update();

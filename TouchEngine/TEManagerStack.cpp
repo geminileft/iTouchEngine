@@ -63,6 +63,7 @@ void TEManagerStack::addAceStack(StackAceCell* aceStack) {
 	mAceStacks[mAceStackCount] = aceStack;
 	++mAceStackCount;
 }
+
 /*
 	private TEComponent.EventListener mMoveToFoundationListener = new TEComponent.EventListener() {
 		

@@ -141,9 +141,6 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
     }
     
     
-    //CGContextClearRect(context, CGRectMake(0, 0, width, height));
-    //CGContextTranslateCTM(context, 0, height - mImageSize.height);
-    
     CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage)), cgImage);
     if(pixelFormat == kTexture2DPixelFormat_RGB565) {
         tempData = malloc(height * width * 2);
@@ -154,8 +151,8 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
         free(data);
         data = tempData;
         
-    }    
-    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    }
+	
     switch(pixelFormat) {
             
         case kTexture2DPixelFormat_RGBA8888:
@@ -170,7 +167,4 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
         default:
             [NSException raise:NSInternalInconsistencyException format:@""];
     }
-    //CGContextRelease(context);
-    //free(data);
-	
 }

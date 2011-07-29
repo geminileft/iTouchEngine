@@ -18,11 +18,6 @@ RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) 
 void RenderImage::update() {}
 
 void RenderImage::draw() {
-/*
-    glBindTexture(GL_TEXTURE_2D, textureName);
-    glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, mCrop);
-    glDrawTexfOES(position.x - (mWidth / 2), position.y - (mHeight / 2), 0, mWidth, mHeight);
-*/
 	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
 	
 	const bool useDrawTexfOES = false;
@@ -43,23 +38,3 @@ void RenderImage::draw() {
 void RenderImage::moveToTopListener() {
 	getManager()->moveComponentToTop(this);
 };
-
-/*
-void RenderImage::MoveToTopListener::invoke() {
-	//TEManager* = getManager();
-	//getManager()->moveComponentToTop(this);
-};
-*/
-
-/*
-	public RenderImage(int resourceId) {
-		this(resourceId, null, null);
-	}
-    
-	@Override
-	
-	public Size getSize() {
-		return new Size(mWidth, mHeight);
-	}
-}
-*/

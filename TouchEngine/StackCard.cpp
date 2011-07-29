@@ -9,27 +9,27 @@
 #include "StackCard.h"
 #include "PlayingCard.h"
 
-StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card), mMoving(false) {
+StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card), mMoving(false), mPreviousStack(NULL) {
     setPlayingCard(card);
-	TEEventListener<StackCard>* touchStartedListener = new TEEventListener<StackCard>(this, &StackCard::moveToTopListener);
+	TEEventListener<StackCard>* touchStartedListener = new TEEventListener<StackCard>(this, &StackCard::touchStartedListener);
+	TEEventListener<StackCard>* touchEndedListener = new TEEventListener<StackCard>(this, &StackCard::touchEndedListener);
+	TEEventListener<StackCard>* rejectMoveListener = new TEEventListener<StackCard>(this, &StackCard::rejectMoveListener);
     addEventSubscription(EVENT_TOUCH_STARTED, touchStartedListener);
-    //addEventSubscription(Event.EVENT_TOUCH_ENDED, mTouchEndedListener);
-    //addEventSubscription(Event.EVENT_REJECT_MOVE, mRejectMoveListener);
+    addEventSubscription(EVENT_TOUCH_ENDED, touchEndedListener);
+    addEventSubscription(EVENT_REJECT_MOVE, rejectMoveListener);
 }
 
 void StackCard::update() {
-    /*
     if (mMoving) {
         adjustStackPositions();			
     }
-     */
 }
 
 int StackCard::getStackOffset(bool isFirst) {
     return CARD_OFFSET;
 }
 
-void StackCard::moveToTopListener() {
+void StackCard::touchStartedListener() {
 	bool isGoodStack = true;
 	TEComponentStack* component = this;
 	int cardCount = 1;
@@ -77,19 +77,13 @@ bool StackCard::doesAccept(TEComponentStack* stack) {
 	return true;
 }
 
-/*
-	private TEComponent.EventListener mRejectMoveListener = new TEComponent.EventListener() {
-		
-		public void invoke() {
-			StackCard component = StackCard.this;
-			if (mPreviousStack != null) {
-				mPreviousStack.pushStack(component);
-			} else {
-				component.parent.position = new Point(mPreviousPosition.x, mPreviousPosition.y);
-				adjustStackPositions();
-			}
-		}
-	};
-	
+void StackCard::rejectMoveListener() {
+	StackCard* component = this;
+	if (mPreviousStack != NULL) {
+		mPreviousStack->pushStack(component);
+	} else {
+		component->mParent->position.x = mPreviousPosition.x;
+		component->mParent->position.y = mPreviousPosition.y;
+		adjustStackPositions();
+	}
 }
-*/
