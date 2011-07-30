@@ -86,13 +86,8 @@ void RenderHUDMoves::draw() {
 	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
 	while (digits > 0) {
 		number = moveCountDigits[--digits];
-		//glTexCoordPointer(2, GL_FLOAT, 0, mTexture->mTextureBuffer);
 		glTexCoordPointer(2, GL_FLOAT, 0, mTextureBuffers[number]);
-		//glVertexPointer(2, GL_FLOAT, 0, mTexture->mVertexBuffer);
 		glVertexPointer(2, GL_FLOAT, 0, mVertexBuffers[number]);
-/*
-		glVertexPointer(2, GL_FLOAT, 0, mVertexBuffers[number]);
-*/
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		glTranslatef(MAX_TEXT_SIZE, 0.0f, 0.0f);
 	}
