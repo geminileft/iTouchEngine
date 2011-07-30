@@ -24,5 +24,7 @@ public:
     TEGameObject* createAceCellStack(TEPoint position);
 	TEGameObject* createTableCellStack(TEPoint position);
     TEGameObject* createPlayingCard(PlayingCard* card);
+	TEGameObject* createHUDTimer();
 };
+
 #endif

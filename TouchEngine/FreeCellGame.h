@@ -18,7 +18,8 @@ class FreeCellGame : public TEEngine {
 public:
     FreeCellGame();
     virtual void start();
-    void addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7]/*, TEComponent.EventListener listener*/);
+    void addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7], TEEventListenerBase* listener);
+	TEEventListenerBase* addHUDMoves();
 
 private:
 	FreeCellGameObjectFactory* mFactory;

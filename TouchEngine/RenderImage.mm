@@ -38,3 +38,10 @@ void RenderImage::draw() {
 void RenderImage::moveToTopListener() {
 	getManager()->moveComponentToTop(this);
 };
+
+TESize RenderImage::getSize() {
+	TESize size;
+	size.width = mWidth;
+	size.height = mHeight;
+	return size;
+}

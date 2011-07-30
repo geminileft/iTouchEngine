@@ -11,21 +11,22 @@
 #include "TEComponentStack.h"
 #include "StackTableCell.h"
 #include "StackCard.h"
+#include "RenderImage.h"
+#include "RenderHUDMoves.h"
 
 #define START_X 28
 #define X_GAP 2
 FreeCellGame::FreeCellGame() : TEEngine(320, 480), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
-
     TEGameObject* gameObject;
     gameObject = mFactory->createBackground();
     addGameObject(gameObject);
     int x = START_X;
     int y = mHeight - 50;
     
-    //TEComponent.EventListener listener = addHUDMoves();
-    //addHUDTimer();
+    TEEventListenerBase* listener = addHUDMoves();
+	addGameObject(mFactory->createHUDTimer());
     
     for (int i = 0;i < 4;++i) {
         TEPoint pt;
@@ -115,12 +116,12 @@ void FreeCellGame::start() {
         stacks[(i % 8)][i / 8] = deck[j];
         deck[j] = deck[--wLeft];
     }
-    addTableStack(START_X, mFactory, stacks/*, listener*/);
+    addTableStack(START_X, mFactory, stacks, listener);
     TEComponentStack::setOpenFreeCellCount(4);
     TEComponentStack::setOpenTableCellCount(0);
 }
 
-void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7]/*, TEComponent.EventListener listener */) {
+void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7], TEEventListenerBase* listener) {
     int x = startX;
     int y = mHeight - 120;
     for (int j = 0; j < 8;++j) {
@@ -140,7 +141,7 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
                 cardStack = new StackCard(card);
                 gameObject->addComponent(cardStack);
                 stack->pushStack(cardStack);
-                //gameObject.addEventSubscription(Event.EVENT_ACCEPT_MOVE, listener);
+                gameObject->addEventSubscription(EVENT_ACCEPT_MOVE, listener);
                 addGameObject(gameObject);				
                 stack = cardStack;
             }
@@ -148,45 +149,33 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
         x += CARD_SIZE_WIDTH + X_GAP;
     }
 }
-/*
- 
- 
- private TEComponent.EventListener addHUDMoves() {
- final int height = 50;
- TEComponent.EventListener eventListener;
- final int x = 100;
- RenderImage image = new RenderImage(R.drawable.moves, null, new Size(118, 26));
- TEGameObject gameObject = new TEGameObject();
- gameObject.addComponent(image);
- gameObject.position = new Point(x, height);
- addGameObject(gameObject);
- Size size = image.getSize();
- 
- gameObject = new TEGameObject();
- RenderHUDMoves text = new RenderHUDMoves(R.drawable.numbers, null, null);
- eventListener = text.getTouchAcceptListener();
- gameObject.addComponent(text);
- gameObject.position = new Point(x + size.width / 2 + 17, height);
- //return gameObject;
- //gameObject = mFactory.createHUDTimer(new Point(x + size.width / 2 + 17, height), eventListener);
- addGameObject(gameObject);
- return eventListener;
- }
- 
- private void addHUDTimer() {
- final int height = 50;
- final int x = 275;
- Size size = new Size(90, 26);
- RenderImage image = new RenderImage(R.drawable.image_time, null, size);
- TEGameObject gameObject = new TEGameObject();
- gameObject.addComponent(image);
- gameObject.position = new Point(x, height);
- addGameObject(gameObject);
- gameObject = new TEGameObject();
- RenderHUDTimer text = new RenderHUDTimer(R.drawable.numbers, null, null);
- gameObject.addComponent(text);
- gameObject.position = new Point(x + size.width / 2 + 17, height);
- addGameObject(gameObject);
- }
- }
-*/
+
+TEEventListenerBase* FreeCellGame::addHUDMoves() {
+	const int height = 50;
+	const int xOffset = 10;
+	TEEventListenerBase* eventListener;
+	const int x = 100;
+	TESize size;
+	size.width = 118;
+	size.height = 26;
+	TEPoint offset;
+	offset.x = 0;
+	offset.y = 0;
+	RenderImage* image = new RenderImage(@"moves.png", offset, size);
+	TEGameObject* gameObject = new TEGameObject();
+	gameObject->addComponent(image);
+	gameObject->position.x = x;
+	gameObject->position.y = height;
+	addGameObject(gameObject);
+	//TESize imageSize = image->getSize();
+	gameObject = new TEGameObject();
+	size.width = 0;
+	size.height = 0;
+	RenderHUDMoves* text = new RenderHUDMoves(@"numbers.png", offset, size);
+	eventListener = text->getTouchAcceptListener();
+	gameObject->addComponent(text);
+	gameObject->position.x = x + size.width / 2 + xOffset;
+	gameObject->position.y = height;
+	addGameObject(gameObject);
+	return eventListener;
+}

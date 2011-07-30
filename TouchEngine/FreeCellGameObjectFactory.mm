@@ -163,3 +163,29 @@ TEGameObject* FreeCellGameObjectFactory::createTableCellStack(TEPoint position) 
     gameObject->size = size;
     return gameObject;
 }
+
+TEGameObject* FreeCellGameObjectFactory::createHUDTimer() {
+	const int height = 50;
+	const int x = 185;
+	TESize size;
+	size.width = 46;
+	size.height = 14;
+	TEPoint offset;
+	offset.x = 0;
+	offset.y = 0;
+	RenderImage* image = new RenderImage(@"time.png", offset, size);
+	TEGameObject* gameObject = new TEGameObject();
+	gameObject->addComponent(image);
+	gameObject->position.x = x;
+	gameObject->position.y = height;
+	/*
+	 gameObject = new TEGameObject();
+	 RenderHUDTimer text = new RenderHUDTimer(R.drawable.numbers, null, null);
+	 gameObject->addComponent(text);
+	 gameObject->position.x = x + size.width / 2 + 17;
+	 gameObject->position.y = height;
+	 addGameObject(gameObject);
+	 */
+	return gameObject;
+}
+

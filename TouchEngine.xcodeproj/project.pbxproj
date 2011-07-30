@@ -16,6 +16,10 @@
 		F7124E0C13D1EE1B0041BF36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0B13D1EE1B0041BF36 /* main.m */; };
 		F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */; };
 		F7124E1913D1EE1B0041BF36 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1813D1EE1B0041BF36 /* EAGLView.mm */; };
+		F71A35F713E378A700487B99 /* image_time.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A35F613E378A700487B99 /* image_time.png */; };
+		F71A35FD13E37DDA00487B99 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A35FC13E37DDA00487B99 /* time.png */; };
+		F71A360013E38DB100487B99 /* RenderHUDMoves.mm in Sources */ = {isa = PBXBuildFile; fileRef = F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */; };
+		F71A360213E39C4500487B99 /* numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A360113E39C4500487B99 /* numbers.png */; };
 		F74E05C213D3FA4D006DDA9C /* spade_two.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05AE13D3FA4D006DDA9C /* spade_two.png */; };
 		F74E05C313D3FA4D006DDA9C /* spade_three.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05AF13D3FA4D006DDA9C /* spade_three.png */; };
 		F74E05C413D3FA4D006DDA9C /* spade_ten.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05B013D3FA4D006DDA9C /* spade_ten.png */; };
@@ -75,8 +79,8 @@
 		F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */; };
 		F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */; };
 		F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */; };
-		F7C7F0DF13D234B20061A219 /* TEEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.cpp */; };
-		F7C7F0E313D2369C0061A219 /* FreeCellGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */; };
+		F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.mm */; };
+		F7C7F0E313D2369C0061A219 /* FreeCellGame.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */; };
 		F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */; };
 		F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6213D3D47400E7DC7B /* ace_cell.png */; };
 		F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */; };
@@ -110,6 +114,11 @@
 		F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchEngineAppDelegate.mm; sourceTree = "<group>"; };
 		F7124E1713D1EE1B0041BF36 /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		F7124E1813D1EE1B0041BF36 /* EAGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
+		F71A35F613E378A700487B99 /* image_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_time.png; sourceTree = "<group>"; };
+		F71A35FC13E37DDA00487B99 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
+		F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderHUDMoves.mm; sourceTree = "<group>"; };
+		F71A35FF13E38DB100487B99 /* RenderHUDMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderHUDMoves.h; sourceTree = "<group>"; };
+		F71A360113E39C4500487B99 /* numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numbers.png; sourceTree = "<group>"; };
 		F74E05AE13D3FA4D006DDA9C /* spade_two.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_two.png; sourceTree = "<group>"; };
 		F74E05AF13D3FA4D006DDA9C /* spade_three.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_three.png; sourceTree = "<group>"; };
 		F74E05B013D3FA4D006DDA9C /* spade_ten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_ten.png; sourceTree = "<group>"; };
@@ -177,9 +186,9 @@
 		F7C78C6513E33A7B00A7F69E /* StackFreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackFreeCell.h; sourceTree = "<group>"; };
 		F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackAceCell.cpp; sourceTree = "<group>"; };
 		F7C78C6913E33D7800A7F69E /* StackAceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackAceCell.h; sourceTree = "<group>"; };
-		F7C7F0DD13D234B20061A219 /* TEEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEEngine.cpp; sourceTree = "<group>"; };
+		F7C7F0DD13D234B20061A219 /* TEEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEEngine.mm; sourceTree = "<group>"; };
 		F7C7F0DE13D234B20061A219 /* TEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEngine.h; sourceTree = "<group>"; };
-		F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCellGame.cpp; sourceTree = "<group>"; };
+		F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FreeCellGame.mm; sourceTree = "<group>"; };
 		F7C7F0E213D2369C0061A219 /* FreeCellGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCellGame.h; sourceTree = "<group>"; };
 		F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEEventListenerBase.cpp; sourceTree = "<group>"; };
 		F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEventListenerBase.h; sourceTree = "<group>"; };
@@ -288,7 +297,7 @@
 			children = (
 				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
 				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
-				F7C7F0E113D2369C0061A219 /* FreeCellGame.cpp */,
+				F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */,
 				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
 				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
 				F795ECA913D274A500550919 /* FreeCellGameObjectFactory.h */,
@@ -301,6 +310,9 @@
 		F7E2DC6613D3D50100E7DC7B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F71A360113E39C4500487B99 /* numbers.png */,
+				F71A35FC13E37DDA00487B99 /* time.png */,
+				F71A35F613E378A700487B99 /* image_time.png */,
 				F74E05D713D3FA72006DDA9C /* heart_jack.png */,
 				F74E05D813D3FA72006DDA9C /* heart_four.png */,
 				F74E05D913D3FA72006DDA9C /* heart_five.png */,
@@ -366,7 +378,7 @@
 				F7124E1713D1EE1B0041BF36 /* EAGLView.h */,
 				F7124E1813D1EE1B0041BF36 /* EAGLView.mm */,
 				F795ECAB13D27DF800550919 /* TETypes.h */,
-				F7C7F0DD13D234B20061A219 /* TEEngine.cpp */,
+				F7C7F0DD13D234B20061A219 /* TEEngine.mm */,
 				F7C7F0DE13D234B20061A219 /* TEEngine.h */,
 				F7E8D2B613D25D290049AA45 /* TEManager.h */,
 				F7F1621813D292D400A34457 /* TEManagerTouch.cpp */,
@@ -398,6 +410,8 @@
 				F7FE2F4813E25F2D00B9858D /* TEEventListener.h */,
 				F795ECAC13D27EDD00550919 /* RenderImage.mm */,
 				F795ECAD13D27EDD00550919 /* RenderImage.h */,
+				F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */,
+				F71A35FF13E38DB100487B99 /* RenderHUDMoves.h */,
 				F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */,
 				F7FC1AD013D519EA003A7211 /* StackTableCell.h */,
 				F7FC1AD213D529AB003A7211 /* StackCard.cpp */,
@@ -515,6 +529,9 @@
 				F74E061213D3FA72006DDA9C /* club_five.png in Resources */,
 				F74E061313D3FA72006DDA9C /* club_eight.png in Resources */,
 				F74E061413D3FA72006DDA9C /* club_ace.png in Resources */,
+				F71A35F713E378A700487B99 /* image_time.png in Resources */,
+				F71A35FD13E37DDA00487B99 /* time.png in Resources */,
+				F71A360213E39C4500487B99 /* numbers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,8 +545,8 @@
 				F7124E0C13D1EE1B0041BF36 /* main.m in Sources */,
 				F7124E0F13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm in Sources */,
 				F7124E1913D1EE1B0041BF36 /* EAGLView.mm in Sources */,
-				F7C7F0DF13D234B20061A219 /* TEEngine.cpp in Sources */,
-				F7C7F0E313D2369C0061A219 /* FreeCellGame.cpp in Sources */,
+				F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */,
+				F7C7F0E313D2369C0061A219 /* FreeCellGame.mm in Sources */,
 				F7E8D2BA13D262980049AA45 /* TEManagerRender.cpp in Sources */,
 				F7E8D2BD13D262FE0049AA45 /* TEManagerComponent.cpp in Sources */,
 				F7E8D2C113D265E20049AA45 /* TEComponent.cpp in Sources */,
@@ -550,6 +567,7 @@
 				F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */,
 				F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */,
 				F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */,
+				F71A360013E38DB100487B99 /* RenderHUDMoves.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

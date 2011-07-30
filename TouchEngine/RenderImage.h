@@ -17,5 +17,6 @@ public:
     virtual void update();
     virtual void draw();
 	void moveToTopListener();
+	TESize getSize();
 };
 #endif

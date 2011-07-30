@@ -16,7 +16,8 @@ typedef enum {
 	kTexture2DPixelFormat_A8,
 } Texture2DPixelFormat;
 
-TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize size) {
+TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize size) :
+	mBitmapWidth(0), mBitmapHeight(0) {
     glGenTextures(1, &mTextureName);
     glBindTexture(GL_TEXTURE_2D, mTextureName);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -72,12 +73,18 @@ TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize si
 }
 
 TESize TEUtilTexture::getBitmapSize() const {
-    TESize size;
-    size.width = mBitmapWidth;
-    size.height = mBitmapHeight;
-    return size;
+	/**********************
+	 HACKATHON!!! WTF!!
+	 *********************/
+    TESize size3;
+	TESize size2;
+	size3.width = mBitmapWidth;
+	size3.height = mBitmapHeight;
+	size2.width = 15;
+	size2.height = 30;
+    return size3;
 }
-	
+
 TESize TEUtilTexture::getCropSize() const {
     TESize size;
     size.width = mCropWidth;
@@ -86,9 +93,9 @@ TESize TEUtilTexture::getCropSize() const {
 }
 
 void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
-    NSUInteger				width,
-    height,
-    i;
+    float width;
+    float height;
+    float i;
     CGContextRef			context = nil;
     void*					data = nil;;
     CGColorSpaceRef			colorSpace;
@@ -109,14 +116,16 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
         if(hasAlpha)
             pixelFormat = kTexture2DPixelFormat_RGBA8888;
         else
-            pixelFormat = kTexture2DPixelFormat_RGB565;
+			pixelFormat = kTexture2DPixelFormat_RGB565;
     } else  //NOTE: No colorspace means a mask image
         pixelFormat = kTexture2DPixelFormat_A8;
     
-    width = CGImageGetWidth(cgImage);
-    height = CGImageGetHeight(cgImage);
-    width = closestPowerOf2(width);
-    height = closestPowerOf2(height);
+    width = (float)CGImageGetWidth(cgImage);
+    height = (float)CGImageGetHeight(cgImage);
+	mBitmapWidth = width;
+	mBitmapHeight = height;
+    width = closestPowerOf2(mBitmapWidth);
+    height = closestPowerOf2(mBitmapHeight);
     
     switch(pixelFormat) {
         case kTexture2DPixelFormat_RGBA8888:

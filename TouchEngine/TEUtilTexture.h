@@ -1,16 +1,17 @@
 #ifndef TEUTILTEXTURE
 #define TEUTILTEXTURE
 
-#include <string>
 #include "TETypes.h"
+
+#include <string>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 
 class TEUtilTexture {
 private:
-	int mBitmapWidth;
-	int mBitmapHeight;
+	float mBitmapWidth;
+	float mBitmapHeight;
 	int mCropWidth;
 	int mCropHeight;
     
