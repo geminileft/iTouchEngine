@@ -20,6 +20,7 @@
 		F71A35FD13E37DDA00487B99 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A35FC13E37DDA00487B99 /* time.png */; };
 		F71A360013E38DB100487B99 /* RenderHUDMoves.mm in Sources */ = {isa = PBXBuildFile; fileRef = F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */; };
 		F71A360213E39C4500487B99 /* numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A360113E39C4500487B99 /* numbers.png */; };
+		F71F95BA13E5879E003E0D0F /* TERandomizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F71F95B813E5879E003E0D0F /* TERandomizer.cpp */; };
 		F74E05C213D3FA4D006DDA9C /* spade_two.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05AE13D3FA4D006DDA9C /* spade_two.png */; };
 		F74E05C313D3FA4D006DDA9C /* spade_three.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05AF13D3FA4D006DDA9C /* spade_three.png */; };
 		F74E05C413D3FA4D006DDA9C /* spade_ten.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05B013D3FA4D006DDA9C /* spade_ten.png */; };
@@ -119,6 +120,8 @@
 		F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderHUDMoves.mm; sourceTree = "<group>"; };
 		F71A35FF13E38DB100487B99 /* RenderHUDMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderHUDMoves.h; sourceTree = "<group>"; };
 		F71A360113E39C4500487B99 /* numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numbers.png; sourceTree = "<group>"; };
+		F71F95B813E5879E003E0D0F /* TERandomizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TERandomizer.cpp; sourceTree = "<group>"; };
+		F71F95B913E5879E003E0D0F /* TERandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERandomizer.h; sourceTree = "<group>"; };
 		F74E05AE13D3FA4D006DDA9C /* spade_two.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_two.png; sourceTree = "<group>"; };
 		F74E05AF13D3FA4D006DDA9C /* spade_three.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_three.png; sourceTree = "<group>"; };
 		F74E05B013D3FA4D006DDA9C /* spade_ten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_ten.png; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 				F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */,
 				F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */,
 				F7FE2F4813E25F2D00B9858D /* TEEventListener.h */,
+				F71F95B813E5879E003E0D0F /* TERandomizer.cpp */,
+				F71F95B913E5879E003E0D0F /* TERandomizer.h */,
 				F795ECAC13D27EDD00550919 /* RenderImage.mm */,
 				F795ECAD13D27EDD00550919 /* RenderImage.h */,
 				F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */,
@@ -568,6 +573,7 @@
 				F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */,
 				F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */,
 				F71A360013E38DB100487B99 /* RenderHUDMoves.mm in Sources */,
+				F71F95BA13E5879E003E0D0F /* TERandomizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

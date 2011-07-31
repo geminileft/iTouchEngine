@@ -14,6 +14,7 @@
     GLint mFramebufferHeight;
     GLuint mDefaultFramebuffer;
     GLuint mColorRenderbuffer;
+	CFTimeInterval mPreviousInterval;
     TEEngine* mGame;
 }
 

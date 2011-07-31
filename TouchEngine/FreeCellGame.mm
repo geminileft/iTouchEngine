@@ -13,6 +13,7 @@
 #include "StackCard.h"
 #include "RenderImage.h"
 #include "RenderHUDMoves.h"
+#include "TERandomizer.h"
 
 #define START_X 28
 #define X_GAP 2
@@ -108,11 +109,14 @@ void FreeCellGame::start() {
     deck[50] = new PlayingCard(Queen, Diamond);
     deck[51] = new PlayingCard(King, Diamond);
     
-    srand(17);
+	TERandomizer* rand = new TERandomizer(17);
+    //srand(17);
     //Random rand = new Random(SystemClock.uptimeMillis());
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {
-        int j = abs(rand()) % wLeft;
+		unsigned int next  = rand->next();
+		NSLog(@"next: %d", next);
+        int j = abs(next) % wLeft;
         stacks[(i % 8)][i / 8] = deck[j];
         deck[j] = deck[--wLeft];
     }

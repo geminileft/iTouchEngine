@@ -66,6 +66,7 @@
 }
 - (void)startAnimation {
     mGame->start();
+	mPreviousInterval = CACurrentMediaTime();
     CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
     [aDisplayLink setFrameInterval:1];
     [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -73,6 +74,10 @@
 
 - (void)drawFrame
 {
+	//double currentTime = CACurrentMediaTime();
+	//double difference = currentTime - mPreviousInterval;
+	//NSLog(@"frame: %.3f", difference);
+	//mPreviousInterval = currentTime;
     glClear(GL_COLOR_BUFFER_BIT);
     mGame->run();
     [context presentRenderbuffer:GL_RENDERBUFFER];
