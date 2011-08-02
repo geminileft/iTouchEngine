@@ -18,7 +18,7 @@
 		F7124E1913D1EE1B0041BF36 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7124E1813D1EE1B0041BF36 /* EAGLView.mm */; };
 		F71A35F713E378A700487B99 /* image_time.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A35F613E378A700487B99 /* image_time.png */; };
 		F71A35FD13E37DDA00487B99 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A35FC13E37DDA00487B99 /* time.png */; };
-		F71A360013E38DB100487B99 /* RenderHUDMoves.mm in Sources */ = {isa = PBXBuildFile; fileRef = F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */; };
+		F71A360013E38DB100487B99 /* RenderHUD.mm in Sources */ = {isa = PBXBuildFile; fileRef = F71A35FE13E38DB100487B99 /* RenderHUD.mm */; };
 		F71A360213E39C4500487B99 /* numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A360113E39C4500487B99 /* numbers.png */; };
 		F71F95BA13E5879E003E0D0F /* TERandomizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F71F95B813E5879E003E0D0F /* TERandomizer.cpp */; };
 		F74E05C213D3FA4D006DDA9C /* spade_two.png in Resources */ = {isa = PBXBuildFile; fileRef = F74E05AE13D3FA4D006DDA9C /* spade_two.png */; };
@@ -77,6 +77,7 @@
 		F795ECA613D2739500550919 /* TEGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F795ECA413D2739500550919 /* TEGameObject.cpp */; };
 		F795ECAA13D274A500550919 /* FreeCellGameObjectFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */; };
 		F795ECAE13D27EDD00550919 /* RenderImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECAC13D27EDD00550919 /* RenderImage.mm */; };
+		F7A9AD2C13E61CC20053B95A /* TEManagerTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7A9AD2A13E61CC20053B95A /* TEManagerTime.cpp */; };
 		F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */; };
 		F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */; };
 		F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */; };
@@ -117,8 +118,8 @@
 		F7124E1813D1EE1B0041BF36 /* EAGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		F71A35F613E378A700487B99 /* image_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_time.png; sourceTree = "<group>"; };
 		F71A35FC13E37DDA00487B99 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
-		F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderHUDMoves.mm; sourceTree = "<group>"; };
-		F71A35FF13E38DB100487B99 /* RenderHUDMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderHUDMoves.h; sourceTree = "<group>"; };
+		F71A35FE13E38DB100487B99 /* RenderHUD.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderHUD.mm; sourceTree = "<group>"; };
+		F71A35FF13E38DB100487B99 /* RenderHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RenderHUD.h; sourceTree = "<group>"; };
 		F71A360113E39C4500487B99 /* numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numbers.png; sourceTree = "<group>"; };
 		F71F95B813E5879E003E0D0F /* TERandomizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TERandomizer.cpp; sourceTree = "<group>"; };
 		F71F95B913E5879E003E0D0F /* TERandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERandomizer.h; sourceTree = "<group>"; };
@@ -183,6 +184,8 @@
 		F795ECAB13D27DF800550919 /* TETypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETypes.h; sourceTree = "<group>"; };
 		F795ECAC13D27EDD00550919 /* RenderImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderImage.mm; sourceTree = "<group>"; };
 		F795ECAD13D27EDD00550919 /* RenderImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderImage.h; sourceTree = "<group>"; };
+		F7A9AD2A13E61CC20053B95A /* TEManagerTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerTime.cpp; sourceTree = "<group>"; };
+		F7A9AD2B13E61CC20053B95A /* TEManagerTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTime.h; sourceTree = "<group>"; };
 		F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerInput.cpp; sourceTree = "<group>"; };
 		F7C1B51F13DA853000EF84E8 /* TEManagerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerInput.h; sourceTree = "<group>"; };
 		F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackFreeCell.cpp; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 				F7C1B51F13DA853000EF84E8 /* TEManagerInput.h */,
 				F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */,
 				F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */,
+				F7A9AD2A13E61CC20053B95A /* TEManagerTime.cpp */,
+				F7A9AD2B13E61CC20053B95A /* TEManagerTime.h */,
 				F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */,
 				F7E8D2C013D265E20049AA45 /* TEComponent.h */,
 				F7FC1ACC13D511E3003A7211 /* TEComponentStack.cpp */,
@@ -415,8 +420,8 @@
 				F71F95B913E5879E003E0D0F /* TERandomizer.h */,
 				F795ECAC13D27EDD00550919 /* RenderImage.mm */,
 				F795ECAD13D27EDD00550919 /* RenderImage.h */,
-				F71A35FE13E38DB100487B99 /* RenderHUDMoves.mm */,
-				F71A35FF13E38DB100487B99 /* RenderHUDMoves.h */,
+				F71A35FE13E38DB100487B99 /* RenderHUD.mm */,
+				F71A35FF13E38DB100487B99 /* RenderHUD.h */,
 				F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */,
 				F7FC1AD013D519EA003A7211 /* StackTableCell.h */,
 				F7FC1AD213D529AB003A7211 /* StackCard.cpp */,
@@ -572,8 +577,9 @@
 				F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */,
 				F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */,
 				F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */,
-				F71A360013E38DB100487B99 /* RenderHUDMoves.mm in Sources */,
+				F71A360013E38DB100487B99 /* RenderHUD.mm in Sources */,
 				F71F95BA13E5879E003E0D0F /* TERandomizer.cpp in Sources */,
+				F7A9AD2C13E61CC20053B95A /* TEManagerTime.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,19 +1,19 @@
 //
-//  RenderHUDMoves.h
+//  RenderHUD.h
 //  TouchEngine
 //
 //  Created by geminileft on 7/29/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef RENDERHUDMOVES
-#define RENDERHUDMOVES
+#ifndef RENDERHUD
+#define RENDERHUD
 
 #include "TEComponentRender.h"
 #include "TETypes.h"
 #include "TEUtilTexture.h"
 
-class RenderHUDMoves : public TEComponentRender {
+class RenderHUD : public TEComponentRender {
 private:
 	float mX;
 	float mY;
@@ -21,11 +21,14 @@ private:
 	TEUtilTexture* mTexture;
 	float mWidth;
 	float mHeight;
-	float mTextureBuffers[10][8];
-	float mVertexBuffers[10][8];
+	float mTextureBuffers[11][8];
+	float mVertexBuffers[11][8];
+	long mElapsedTime;
+	long mPreviousTime;
+	
 
 public:
-    RenderHUDMoves(NSString* resourceName, TEPoint position, TESize size);
+    RenderHUD(NSString* resourceName, TEPoint position, TESize size);
     virtual void update();
     virtual void draw();
 	void createTextureBuffer(int left, int width, int height, float textureBuffer[]);

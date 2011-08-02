@@ -12,7 +12,7 @@
 #include "StackTableCell.h"
 #include "StackCard.h"
 #include "RenderImage.h"
-#include "RenderHUDMoves.h"
+#include "RenderHUD.h"
 #include "TERandomizer.h"
 
 #define START_X 28
@@ -115,7 +115,6 @@ void FreeCellGame::start() {
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {
 		unsigned int next  = rand->next();
-		NSLog(@"next: %d", next);
         int j = abs(next) % wLeft;
         stacks[(i % 8)][i / 8] = deck[j];
         deck[j] = deck[--wLeft];
@@ -175,7 +174,7 @@ TEEventListenerBase* FreeCellGame::addHUDMoves() {
 	gameObject = new TEGameObject();
 	size.width = 0;
 	size.height = 0;
-	RenderHUDMoves* text = new RenderHUDMoves(@"numbers.png", offset, size);
+	RenderHUD* text = new RenderHUD(@"numbers.png", offset, size);
 	eventListener = text->getTouchAcceptListener();
 	gameObject->addComponent(text);
 	gameObject->position.x = x + size.width / 2 + xOffset;
