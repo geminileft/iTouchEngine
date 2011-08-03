@@ -25,5 +25,5 @@ TEManagerSound* TEManagerSound::sharedManager() {
 	}
 	return mSharedInstance;
 }
-	
+
 void TEManagerSound::moveComponentToTop(TEComponent* component) {}
