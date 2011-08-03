@@ -7,14 +7,17 @@
 //
 
 #include "FreeCellGameObjectFactory.h"
-#include "TETypes.h"
-#include "RenderImage.h"
-#include "PlayingCard.h"
-#include "TouchDrag.h"
 #include "TEEngine.h"
+#include "TETypes.h"
+
+#include "TEManagerStack.h"
+#include "PlayingCard.h"
+
+#include "RenderImage.h"
+#include "TouchDrag.h"
 #include "StackFreeCell.h"
 #include "StackAceCell.h"
-#include "TEManagerStack.h"
+#include "SoundStart.h"
 
 TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEGameObject* gameObject = new TEGameObject();
@@ -26,7 +29,7 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
     position.y = 0;
     RenderImage* renderImage = new RenderImage(@"table_background", position, size);
     gameObject->addComponent(renderImage);
-    //gameObject.addComponent(new SoundStart(R.raw.shuffle));
+    gameObject->addComponent(new SoundStart(@"shuffle", @"caf"));
     gameObject->position.x = size.width / 2;
     gameObject->position.y = size.height / 2;
     gameObject->size = size;
@@ -178,14 +181,6 @@ TEGameObject* FreeCellGameObjectFactory::createHUDTimer() {
 	gameObject->addComponent(image);
 	gameObject->position.x = x;
 	gameObject->position.y = height;
-	/*
-	 gameObject = new TEGameObject();
-	 RenderHUDTimer text = new RenderHUDTimer(R.drawable.numbers, null, null);
-	 gameObject->addComponent(text);
-	 gameObject->position.x = x + size.width / 2 + 17;
-	 gameObject->position.y = height;
-	 addGameObject(gameObject);
-	 */
 	return gameObject;
 }
 

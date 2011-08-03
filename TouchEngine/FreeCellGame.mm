@@ -14,6 +14,7 @@
 #include "RenderImage.h"
 #include "RenderHUD.h"
 #include "TERandomizer.h"
+#include "TEManagerTime.h"
 
 #define START_X 28
 #define X_GAP 2
@@ -109,9 +110,7 @@ void FreeCellGame::start() {
     deck[50] = new PlayingCard(Queen, Diamond);
     deck[51] = new PlayingCard(King, Diamond);
     
-	TERandomizer* rand = new TERandomizer(17);
-    //srand(17);
-    //Random rand = new Random(SystemClock.uptimeMillis());
+	TERandomizer* rand = new TERandomizer(TEManagerTime::currentTime());
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {
 		unsigned int next  = rand->next();
@@ -170,7 +169,6 @@ TEEventListenerBase* FreeCellGame::addHUDMoves() {
 	gameObject->position.x = x;
 	gameObject->position.y = height;
 	addGameObject(gameObject);
-	//TESize imageSize = image->getSize();
 	gameObject = new TEGameObject();
 	size.width = 0;
 	size.height = 0;

@@ -1,11 +1,13 @@
 #include "TEEngine.h"
+#include "TEGameObject.h"
 #include "TEManagerRender.h"
 #include "TEManagerTouch.h"
 #include "TEManagerStack.h"
+#include "TEManagerSound.h"
 #include "TEComponentRender.h"
 #include "TEComponentTouch.h"
 #include "TEComponentStack.h"
-#include "TEGameObject.h"
+#include "TEComponentSound.h"
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
@@ -16,11 +18,11 @@ TEEngine::TEEngine(int width, int height) {
 	mHeight = height;
     TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
     TEManagerStack* stackManager = TEManagerStack::sharedManager();
-    //TEManagerSound soundManager = TEManagerSound.sharedManager();
+    TEManagerSound* soundManager = TEManagerSound::sharedManager();
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
     mManagers.push_back(touchManager);
     mManagers.push_back(stackManager);
-    //mManagers.add(soundManager);
+    mManagers.push_back(soundManager);
     mManagers.push_back(renderManager);
 	}
 
@@ -35,9 +37,7 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
     TEManagerRender* renderManager = TEManagerRender::sharedManager();
     TEManagerTouch* touchManager = TEManagerTouch::sharedManager();
     TEManagerStack* stackManager = TEManagerStack::sharedManager();
-    /*
-    TEManagerSound soundManager = TEManagerSound.sharedManager();
-    */
+    TEManagerSound* soundManager = TEManagerSound::sharedManager();
     TEComponentContainer components = gameObject->getComponents();
     TEComponentContainer::iterator iterator;
     TEComponent* component;
@@ -49,10 +49,8 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
             touchManager->addComponent(component);
         } else if (dynamic_cast<TEComponentStack*>(component)) {
             stackManager->addComponent(component);
-/*
-        } else if (component instanceof TEComponentSound) {
-            soundManager.addComponent(component);
-*/
+        } else if (dynamic_cast<TEComponentSound*>(component)) {
+            soundManager->addComponent(component);
         }
     }
     mGameObjects.push_back(gameObject);
