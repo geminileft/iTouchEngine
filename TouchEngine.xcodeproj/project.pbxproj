@@ -89,7 +89,6 @@
 		F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */; };
 		F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.mm */; };
 		F7C7F0E313D2369C0061A219 /* FreeCellGame.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */; };
-		F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */; };
 		F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6213D3D47400E7DC7B /* ace_cell.png */; };
 		F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */; };
 		F7E2DC6B13D3E6D900E7DC7B /* spade_ace.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */; };
@@ -213,7 +212,6 @@
 		F7C7F0DE13D234B20061A219 /* TEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEngine.h; sourceTree = "<group>"; };
 		F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FreeCellGame.mm; sourceTree = "<group>"; };
 		F7C7F0E213D2369C0061A219 /* FreeCellGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCellGame.h; sourceTree = "<group>"; };
-		F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEEventListenerBase.cpp; sourceTree = "<group>"; };
 		F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEEventListenerBase.h; sourceTree = "<group>"; };
 		F7E2DC6213D3D47400E7DC7B /* ace_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ace_cell.png; sourceTree = "<group>"; };
 		F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayingCard.cpp; sourceTree = "<group>"; };
@@ -271,6 +269,9 @@
 			children = (
 				F7124E0413D1EE1B0041BF36 /* TouchEngine */,
 				F7124DF913D1EE1B0041BF36 /* Frameworks */,
+				F7E2DC6613D3D50100E7DC7B /* Images */,
+				F763053713E9F5A70015334E /* Sounds */,
+				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
 				F7124DF713D1EE1B0041BF36 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -302,11 +303,8 @@
 		F7124E0413D1EE1B0041BF36 /* TouchEngine */ = {
 			isa = PBXGroup;
 			children = (
-				F763053713E9F5A70015334E /* Sounds */,
 				F7E8D2B413D25B830049AA45 /* Core */,
 				F7E2DC6513D3D4D100E7DC7B /* Game */,
-				F7E2DC6613D3D50100E7DC7B /* Images */,
-				F7124E0513D1EE1B0041BF36 /* Supporting Files */,
 			);
 			path = TouchEngine;
 			sourceTree = "<group>";
@@ -320,6 +318,7 @@
 				F7124E0B13D1EE1B0041BF36 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = TouchEngine;
 			sourceTree = "<group>";
 		};
 		F763053713E9F5A70015334E /* Sounds */ = {
@@ -328,6 +327,7 @@
 				F763053813E9F5DD0015334E /* shuffle.caf */,
 			);
 			name = Sounds;
+			path = TouchEngine;
 			sourceTree = "<group>";
 		};
 		F7E2DC6513D3D4D100E7DC7B /* Game */ = {
@@ -408,6 +408,7 @@
 				F761D41413D3A9D900ED12F9 /* table_background.png */,
 			);
 			name = Images;
+			path = TouchEngine;
 			sourceTree = "<group>";
 		};
 		F7E8D2B413D25B830049AA45 /* Core */ = {
@@ -449,7 +450,6 @@
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7F1622613D2A94B00A34457 /* TEUtilTexture.h */,
 				F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */,
-				F7C9DFC413E1F4EA00FA2BA3 /* TEEventListenerBase.cpp */,
 				F7C9DFC513E1F4EA00FA2BA3 /* TEEventListenerBase.h */,
 				F7FE2F4813E25F2D00B9858D /* TEEventListener.h */,
 				F71F95B813E5879E003E0D0F /* TERandomizer.cpp */,
@@ -613,7 +613,6 @@
 				F7FC1AD413D529AC003A7211 /* StackCard.cpp in Sources */,
 				F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */,
 				F7E9572713DBDA3300565556 /* TouchDrag.mm in Sources */,
-				F7C9DFC613E1F4EA00FA2BA3 /* TEEventListenerBase.cpp in Sources */,
 				F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */,
 				F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */,
 				F71A360013E38DB100487B99 /* RenderHUD.mm in Sources */,

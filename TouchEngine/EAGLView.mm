@@ -108,6 +108,7 @@
         inputManager->moveTouch(inputTouch);
     }
 }
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     TEManagerInput* inputManager = TEManagerInput::sharedManager();
     CGRect screenSize = [[UIScreen mainScreen] bounds];

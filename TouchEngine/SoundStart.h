@@ -13,7 +13,7 @@
 
 class SoundStart : public TEComponentSound {
 private:
-	//int mSoundId;
+	NSUInteger mSourceID;
 	bool mHasPlayed;
 
 public:

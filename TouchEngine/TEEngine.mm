@@ -93,19 +93,3 @@ void TEEngine::graphicsChange(int width, int height) {
 		glTranslatef(-width / 2, -height / 2, -zDepth);				
 	}
 }
-
-/*	
-	Context getContext() {
-		return mContext;
-	}
-    
-    public void setScreenSize(int width, int height) {
-    	mHeight = height;
-    	mWidth = width;
-		TEManagerGraphics.setScreenSize(width, height);
-    }
-    
-    public Size getScreenSize() {
-    	return new Size(mWidth, mHeight);
-    }
-*/

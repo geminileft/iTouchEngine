@@ -1,5 +1,3 @@
-
-
 #include "TEManagerTouch.h"
 #include "TEComponent.h"
 #include "TEComponentTouch.h"
