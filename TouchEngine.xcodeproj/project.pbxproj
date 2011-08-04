@@ -339,8 +339,6 @@
 				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
 				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
 				F795ECA913D274A500550919 /* FreeCellGameObjectFactory.h */,
-				F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */,
-				F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -470,6 +468,8 @@
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,
 				F773960113E8896F0099FD29 /* SoundStart.mm */,
 				F773960213E889700099FD29 /* SoundStart.h */,
+				F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */,
+				F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
