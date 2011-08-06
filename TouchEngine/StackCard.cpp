@@ -9,14 +9,12 @@
 #include "StackCard.h"
 #include "PlayingCard.h"
 
-StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card), mMoving(false), mPreviousStack(NULL) {
+StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card), mMoving(false), mPreviousStack(NULL), mMoveToFoundation(false) {
     setPlayingCard(card);
-	TEEventListener<StackCard>* touchStartedListener = new TEEventListener<StackCard>(this, &StackCard::touchStartedListener);
-	TEEventListener<StackCard>* touchEndedListener = new TEEventListener<StackCard>(this, &StackCard::touchEndedListener);
-	TEEventListener<StackCard>* rejectMoveListener = new TEEventListener<StackCard>(this, &StackCard::rejectMoveListener);
-    addEventSubscription(EVENT_TOUCH_STARTED, touchStartedListener);
-    addEventSubscription(EVENT_TOUCH_ENDED, touchEndedListener);
-    addEventSubscription(EVENT_REJECT_MOVE, rejectMoveListener);
+    addEventSubscription(EVENT_TOUCH_STARTED, new TEEventListener<StackCard>(this, &StackCard::touchStartedListener));
+    addEventSubscription(EVENT_TOUCH_ENDED, new TEEventListener<StackCard>(this, &StackCard::touchEndedListener));
+    addEventSubscription(EVENT_REJECT_MOVE, new TEEventListener<StackCard>(this, &StackCard::rejectMoveListener));
+    addEventSubscription(EVENT_PRE_MOVE_TO_FOUNDATION, new TEEventListener<StackCard>(this, &StackCard::preMoveToFoundationListener));
 }
 
 void StackCard::update() {
@@ -86,4 +84,17 @@ void StackCard::rejectMoveListener() {
 		component->mParent->position.y = mPreviousPosition.y;
 		adjustStackPositions();
 	}
+}
+
+void StackCard::preMoveToFoundationListener() {
+	mMoveToFoundation = true;
+	mParent->invokeEvent(EVENT_MOVE_TO_FOUNDATION);
+}
+
+void StackCard::resetMoveToFoundation() {
+	mMoveToFoundation = false;
+}
+
+bool StackCard::isMoveToFoundation() {
+	return mMoveToFoundation;
 }

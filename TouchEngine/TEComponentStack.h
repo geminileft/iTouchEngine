@@ -34,7 +34,7 @@ private:
 
 public:
 	bool mIsEvaluateReady;
-
+	
 	TEComponentStack(StackType stackType);
 	
 	virtual int getStackOffset(bool isFirst) = 0;

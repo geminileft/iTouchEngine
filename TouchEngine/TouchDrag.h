@@ -1,15 +1,31 @@
 #ifndef TOUCHDRAG
 #define TOUCHDRAG
 
+#define TAP_DOWN_THRESHOLD_MS 130
+#define TAP_UP_THRESHOLD_MS 200
+
 class TEInputTouch;
 
 #include "TEComponentTouch.h"
+
+enum TouchAction {
+	NONE
+	, TAP
+	, DOUBLE_TAP
+};
+
+typedef TouchAction TouchAction;
+
+
 
 class TouchDrag : public TEComponentTouch {
 private:
 	TEInputTouch* mTouch;
 	TEPoint mTouchOffset;
 	bool mTouchValid;
+	long mStartTime;
+	int mTapCount;
+	long mLastUpTime;
 
 public:
     TouchDrag();

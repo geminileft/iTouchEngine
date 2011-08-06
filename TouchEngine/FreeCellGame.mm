@@ -15,6 +15,7 @@
 #include "RenderHUD.h"
 #include "TERandomizer.h"
 #include "TEManagerTime.h"
+#include "TEManagerStack.h"
 
 #define START_X 28
 #define X_GAP 2
@@ -124,6 +125,9 @@ void FreeCellGame::start() {
 }
 
 void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7], TEEventListenerBase* listener) {
+	TEManagerStack* stackManager = TEManagerStack::sharedManager();
+	TEEventListenerBase* touchAcceptedListener = stackManager->getTouchAcceptListener();
+	
     int x = startX;
     int y = mHeight - 120;
     for (int j = 0; j < 8;++j) {
@@ -132,6 +136,7 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
         pt.y = y;
         TEGameObject* gameObject = factory->createTableCellStack(pt);
         StackTableCell* tableStack = new StackTableCell(TableCell);
+		stackManager->addTableStack(tableStack);
         gameObject->addComponent(tableStack);
         addGameObject(gameObject);
         TEComponentStack* stack = tableStack;
@@ -144,6 +149,7 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
                 gameObject->addComponent(cardStack);
                 stack->pushStack(cardStack);
                 gameObject->addEventSubscription(EVENT_ACCEPT_MOVE, listener);
+                gameObject->addEventSubscription(EVENT_ACCEPT_MOVE, touchAcceptedListener);
                 addGameObject(gameObject);				
                 stack = cardStack;
             }

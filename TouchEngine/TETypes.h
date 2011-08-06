@@ -14,6 +14,7 @@ enum TEComponentEvent {
 	, EVENT_ACCEPT_MOVE
 	, EVENT_REJECT_MOVE
 	, EVENT_MOVE_TO_FOUNDATION
+	, EVENT_PRE_MOVE_TO_FOUNDATION
 };
 
 typedef TEComponentEvent TEComponentEvent;

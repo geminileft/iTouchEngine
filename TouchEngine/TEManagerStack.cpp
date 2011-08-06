@@ -9,9 +9,12 @@
 #include "TEManagerStack.h"
 #include "TEComponentStack.h"
 #include "StackAceCell.h"
+#include "StackCard.h"
+#include "PlayingCard.h"
 
 static TEManagerStack* mSharedInstance = NULL;
 static int mAceStackCount = 0;
+int mTableStackCount = 0;
 
 TEManagerStack* TEManagerStack::sharedManager() {
     if (mSharedInstance == NULL) {
@@ -64,20 +67,60 @@ void TEManagerStack::addAceStack(StackAceCell* aceStack) {
 	++mAceStackCount;
 }
 
-/*
-	private TEComponent.EventListener mMoveToFoundationListener = new TEComponent.EventListener() {
-		
-		public void invoke() {
-			for(int i = 0;i < ACE_STACK_COUNT;++i) {
-				if (mAceStacks[i].getChildStack() == null) {
-					Log.v("TEManagerStack.mMoveToFoundationListener.invoke", "lol");
+void TEManagerStack::moveToAceStack() {
+	TEComponentContainer components = getComponents();
+	StackCard* card = NULL;
+	for (TEComponentContainer::iterator iterator = components.begin();iterator != components.end();++iterator) {
+		if (((StackCard*)*iterator)->isMoveToFoundation()) {
+			card = (StackCard*)(*iterator);
+			break;
+		}
+	}
+	
+	if (card != NULL) {
+		PlayingCard* playingCard = card->getPlayingCard();
+		for(int i = 0;i < ACE_STACK_COUNT;++i) {
+			if (mAceStacks[i]->getChildStack() == NULL) {
+				if (playingCard->getFaceValue() == Ace) {
+					if (card->getParentStack() != NULL) {
+						card->getParentStack()->popStack(card);
+					}
+					mAceStacks[i]->pushStack(card);
+                    card->mParent->invokeEvent(EVENT_ACCEPT_MOVE);
+					break;
+				}
+			} else {
+				StackCard* topCard = (StackCard*)mAceStacks[i]->getChildStack();
+				while (topCard->getChildStack() != NULL) {
+					topCard = (StackCard*)topCard->getChildStack();
+				}
+				PlayingCard* topPlayingCard = topCard->getPlayingCard();
+				if (playingCard->getSuit() == topPlayingCard->getSuit() && playingCard->getFaceValue() == topPlayingCard->getFaceValue() + 1) {
+					mAceStacks[i]->pushStack(card);
+                    card->mParent->invokeEvent(EVENT_ACCEPT_MOVE);
+					break;
 				}
 			}
-			Log.v("TEManagerStack.mMoveToAceStack.invoke", "I am called");
 		}
-	};        
-
-	public TEComponent.EventListener getMoveToAceStackListener() {
-		return mMoveToFoundationListener;
+		card->resetMoveToFoundation();
 	}
-*/
+}
+
+TEEventListenerBase* TEManagerStack::getMoveToAceStackListener() {
+	return new TEEventListener<TEManagerStack>(this, &TEManagerStack::moveToAceStack);
+}
+
+void TEManagerStack::addTableStack(StackTableCell* tableStack) {
+	mTableStacks[mTableStackCount] = tableStack;
+	++mTableStackCount;
+}
+
+TEEventListenerBase* TEManagerStack::getTouchAcceptListener() {
+	return new TEEventListener<TEManagerStack>(this, &TEManagerStack::touchAcceptListener);
+}
+
+void TEManagerStack::touchAcceptListener() {
+	for (int i = 0;i < TABLE_STACK_COUNT;++i) {
+		
+	}
+}

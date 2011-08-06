@@ -115,8 +115,8 @@ TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
     gameObject->addComponent(image);
     gameObject->addComponent(new TouchDrag());
     gameObject->size = size;
-    //TEManagerStack stackManager = TEManagerStack.sharedManager();
-    //gameObject.addEventSubscription(Event.EVENT_MOVE_TO_FOUNDATION, stackManager.getMoveToAceStackListener());
+    TEManagerStack* stackManager = TEManagerStack::sharedManager();
+    gameObject->addEventSubscription(EVENT_MOVE_TO_FOUNDATION, stackManager->getMoveToAceStackListener());
     return gameObject;
 }
 
