@@ -51,5 +51,5 @@ TEManagerTouch* TEManagerTouch::sharedManager() {
 void TEManagerTouch::moveComponentToTop(TEComponent* component) {
 	TEComponentContainer components = getComponents();
 	components.remove(component);
-	addComponent(component, 0);	
+	addComponent(component, Top);	
 }

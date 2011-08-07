@@ -111,7 +111,9 @@ void FreeCellGame::start() {
     deck[50] = new PlayingCard(Queen, Diamond);
     deck[51] = new PlayingCard(King, Diamond);
     
+	long currentTime = TEManagerTime::currentTime();
 	TERandomizer* rand = new TERandomizer(TEManagerTime::currentTime());
+	NSLog(@"game is %ld", currentTime);
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {
 		unsigned int next  = rand->next();

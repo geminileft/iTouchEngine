@@ -9,6 +9,7 @@
 #include "TEManagerStack.h"
 #include "TEComponentStack.h"
 #include "StackAceCell.h"
+#include "StackTableCell.h"
 #include "StackCard.h"
 #include "PlayingCard.h"
 
@@ -120,7 +121,26 @@ TEEventListenerBase* TEManagerStack::getTouchAcceptListener() {
 }
 
 void TEManagerStack::touchAcceptListener() {
+	bool good = true;
 	for (int i = 0;i < TABLE_STACK_COUNT;++i) {
-		
+		StackTableCell* stack = mTableStacks[i];
+		if (!stack->getClear()) {
+			StackCard* card = (StackCard*)stack->getChildStack();
+			if (card == NULL) {
+				stack->setClear();
+			} else {
+				PlayingCard* playingCard = card->getPlayingCard();
+				while (card->getChildStack() != NULL) {
+					card = (StackCard*)card->getChildStack();
+					PlayingCard* childPlayingCard = card->getPlayingCard();
+					good = (playingCard->getFaceValue() >= childPlayingCard->getFaceValue());
+					if (!good) {
+						return;
+					}
+				}
+				stack->setClear();
+			}
+		}
 	}
+	int j = 0;
 }

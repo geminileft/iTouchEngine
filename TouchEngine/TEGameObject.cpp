@@ -3,7 +3,7 @@
 void TEGameObject::update() {}
 
 void TEGameObject::addComponent(TEComponent* component) {
-    TEManagerComponent::addComponent(component);
+    TEManagerComponent::addComponent(component, Top);
 	std::map<TEComponentEvent, TEEventListenerBase*> eventSubscriptions = component->getEventSubscriptions();
     if (!eventSubscriptions.empty()) {
 		std::map<TEComponentEvent, TEEventListenerBase*>::iterator iterator;

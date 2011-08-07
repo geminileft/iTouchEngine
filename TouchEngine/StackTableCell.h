@@ -12,6 +12,8 @@
 #include "TEComponentStack.h"
 
 class StackTableCell : public TEComponentStack {
+private:
+	bool mClear;
 
 public:
     StackTableCell(StackType stackType);
@@ -22,6 +24,8 @@ public:
 	virtual void pushStack(TEComponentStack* stack);
 	virtual void popStack(TEComponentStack* stack);
 
+	void setClear();
+	bool getClear() const;
 };
     
 #endif

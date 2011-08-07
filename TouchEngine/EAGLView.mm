@@ -65,6 +65,7 @@
     
     [super dealloc];
 }
+
 - (void)startAnimation {
     mGame->start();
 	mPreviousInterval = TEManagerTime::currentTime();

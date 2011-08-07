@@ -6,12 +6,8 @@ TEComponentContainer TEManagerComponent::getComponents() const {
     return mComponents;
 }
 
-void TEManagerComponent::addComponent(TEComponent* component) {
-    addComponent(component, LAST_INDEX);
-}
-
-void TEManagerComponent::addComponent(TEComponent* component, int index) {
-    if (index == LAST_INDEX) {
+void TEManagerComponent::addComponent(TEComponent* component, ComponentLocation location) {
+    if (location == Bottom) {
         mComponents.push_back(component);
     } else {
         mComponents.push_front(component);

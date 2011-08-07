@@ -44,13 +44,13 @@ void TEEngine::addGameObject(TEGameObject* gameObject) {
     for(iterator = components.begin();iterator != components.end();++iterator) {
         component = *iterator;
         if (dynamic_cast<TEComponentRender*>(component)) {
-            renderManager->addComponent(component);
+            renderManager->addComponent(component, Bottom);
         } else if (dynamic_cast<TEComponentTouch*>(component)) {
-            touchManager->addComponent(component);
+            touchManager->addComponent(component, Top);
         } else if (dynamic_cast<TEComponentStack*>(component)) {
-            stackManager->addComponent(component);
+            stackManager->addComponent(component, Top);
         } else if (dynamic_cast<TEComponentSound*>(component)) {
-            soundManager->addComponent(component);
+            soundManager->addComponent(component, Top);
         }
     }
     mGameObjects.push_back(gameObject);

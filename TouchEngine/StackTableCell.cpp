@@ -9,7 +9,7 @@
 #include "StackTableCell.h"
 #include "PlayingCard.h"
 
-StackTableCell::StackTableCell(StackType stackType) : TEComponentStack(stackType) {}
+StackTableCell::StackTableCell(StackType stackType) : TEComponentStack(stackType), mClear(false) {}
 
 int StackTableCell::getStackOffset(bool isFirst) {
     int offset = 0;
@@ -56,3 +56,12 @@ void StackTableCell::popStack(TEComponentStack* stack) {
 	TEComponentStack::popStack(stack);
 	TEComponentStack::setOpenTableCellCount(TEComponentStack::getOpenTableCellCount() + 1);
 }
+
+void StackTableCell::setClear() {
+	mClear = true;
+}
+
+bool StackTableCell::getClear() const {
+	return mClear;
+}
+
