@@ -23,14 +23,13 @@ FreeCellGame::FreeCellGame() : TEEngine(320, 480), mFactory(new FreeCellGameObje
 
 void FreeCellGame::start() {
     TEGameObject* gameObject;
-    gameObject = mFactory->createBackground();
-    addGameObject(gameObject);
+    addGameObject(mFactory->createBackground());
     int x = START_X;
     int y = mHeight - 50;
     
     TEEventListenerBase* listener = addHUDMoves();
 	addGameObject(mFactory->createHUDTimer());
-    
+    addGameObject(mFactory->createMenu());
     for (int i = 0;i < 4;++i) {
         TEPoint pt;
         pt.x = x;
@@ -161,10 +160,10 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
 }
 
 TEEventListenerBase* FreeCellGame::addHUDMoves() {
-	const int height = 50;
+	const int y = 45;
 	const int xOffset = 10;
 	TEEventListenerBase* eventListener;
-	const int x = 100;
+	const int x = 60;
 	TESize size;
 	size.width = 118;
 	size.height = 26;
@@ -175,7 +174,7 @@ TEEventListenerBase* FreeCellGame::addHUDMoves() {
 	TEGameObject* gameObject = new TEGameObject();
 	gameObject->addComponent(image);
 	gameObject->position.x = x;
-	gameObject->position.y = height;
+	gameObject->position.y = y;
 	addGameObject(gameObject);
 	gameObject = new TEGameObject();
 	size.width = 0;
@@ -184,7 +183,7 @@ TEEventListenerBase* FreeCellGame::addHUDMoves() {
 	eventListener = text->getTouchAcceptListener();
 	gameObject->addComponent(text);
 	gameObject->position.x = x + size.width / 2 + xOffset;
-	gameObject->position.y = height;
+	gameObject->position.y = y;
 	addGameObject(gameObject);
 	return eventListener;
 }

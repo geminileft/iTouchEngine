@@ -125,7 +125,7 @@ void RenderHUD::draw() {
 	}
 	digits = (digits < 4) ? 4 : digits;
 	glPushMatrix();
-	glTranslatef(100 + mX + (MAX_TEXT_SIZE * (seconds_size + minute_size)), mY, 0.0f);
+	glTranslatef(50 + mX + (MAX_TEXT_SIZE * (seconds_size + minute_size)), mY, 0.0f);
 	//gl.glEnable(GL10.GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
 	for(int i = 0;i < digits;i++) {

@@ -76,6 +76,7 @@
 		F761D42C13D3C4C000ED12F9 /* free_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F761D42B13D3C4C000ED12F9 /* free_cell.png */; };
 		F763053913E9F5DD0015334E /* shuffle.caf in Resources */ = {isa = PBXBuildFile; fileRef = F763053813E9F5DD0015334E /* shuffle.caf */; };
 		F763053F13E9FE8B0015334E /* TEComponentSound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F763053E13E9FE8B0015334E /* TEComponentSound.mm */; };
+		F76E98BA13EE737D002F8CCB /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F76E98B913EE737D002F8CCB /* menu.png */; };
 		F77395FC13E882040099FD29 /* TEManagerSound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F77395FA13E882040099FD29 /* TEManagerSound.mm */; };
 		F773960313E889700099FD29 /* SoundStart.mm in Sources */ = {isa = PBXBuildFile; fileRef = F773960113E8896F0099FD29 /* SoundStart.mm */; };
 		F773961413E891230099FD29 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F773961213E891230099FD29 /* AudioToolbox.framework */; };
@@ -85,6 +86,7 @@
 		F795ECAE13D27EDD00550919 /* RenderImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = F795ECAC13D27EDD00550919 /* RenderImage.mm */; };
 		F7A9AD2C13E61CC20053B95A /* TEManagerTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7A9AD2A13E61CC20053B95A /* TEManagerTime.cpp */; };
 		F7C1B52013DA853000EF84E8 /* TEManagerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */; };
+		F7C46D4E13F74D50000534DB /* moves.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C46D4D13F74D50000534DB /* moves.png */; };
 		F7C78C6613E33A7C00A7F69E /* StackFreeCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */; };
 		F7C78C6A13E33D7900A7F69E /* StackAceCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */; };
 		F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7C7F0DD13D234B20061A219 /* TEEngine.mm */; };
@@ -96,6 +98,8 @@
 		F7E8D2BD13D262FE0049AA45 /* TEManagerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */; };
 		F7E8D2C113D265E20049AA45 /* TEComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */; };
 		F7E9572713DBDA3300565556 /* TouchDrag.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7E9572513DBDA3200565556 /* TouchDrag.mm */; };
+		F7F141F313EF5A93000B9A54 /* menu_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F141F213EF5A93000B9A54 /* menu_bar.png */; };
+		F7F141F713EF70BB000B9A54 /* RenderMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7F141F513EF70BB000B9A54 /* RenderMenu.mm */; };
 		F7F1621A13D292D400A34457 /* TEManagerTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621813D292D400A34457 /* TEManagerTouch.cpp */; };
 		F7F1621E13D294E300A34457 /* TEComponentTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */; };
 		F7F1622113D2971C00A34457 /* TEInputTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F1621F13D2971C00A34457 /* TEInputTouch.cpp */; };
@@ -184,6 +188,7 @@
 		F761D42B13D3C4C000ED12F9 /* free_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = free_cell.png; sourceTree = "<group>"; };
 		F763053813E9F5DD0015334E /* shuffle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shuffle.caf; sourceTree = "<group>"; };
 		F763053E13E9FE8B0015334E /* TEComponentSound.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEComponentSound.mm; sourceTree = "<group>"; };
+		F76E98B913EE737D002F8CCB /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		F77395FA13E882040099FD29 /* TEManagerSound.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerSound.mm; sourceTree = "<group>"; };
 		F77395FB13E882040099FD29 /* TEManagerSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerSound.h; sourceTree = "<group>"; };
 		F77395FF13E887B30099FD29 /* TEComponentSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentSound.h; sourceTree = "<group>"; };
@@ -204,6 +209,7 @@
 		F7A9AD2B13E61CC20053B95A /* TEManagerTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTime.h; sourceTree = "<group>"; };
 		F7C1B51E13DA852F00EF84E8 /* TEManagerInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerInput.cpp; sourceTree = "<group>"; };
 		F7C1B51F13DA853000EF84E8 /* TEManagerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerInput.h; sourceTree = "<group>"; };
+		F7C46D4D13F74D50000534DB /* moves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moves.png; sourceTree = "<group>"; };
 		F7C78C6413E33A7A00A7F69E /* StackFreeCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackFreeCell.cpp; sourceTree = "<group>"; };
 		F7C78C6513E33A7B00A7F69E /* StackFreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackFreeCell.h; sourceTree = "<group>"; };
 		F7C78C6813E33D7700A7F69E /* StackAceCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StackAceCell.cpp; sourceTree = "<group>"; };
@@ -227,6 +233,9 @@
 		F7E8D2C213D26C4D0049AA45 /* TEComponentRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEComponentRender.h; sourceTree = "<group>"; };
 		F7E9572513DBDA3200565556 /* TouchDrag.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchDrag.mm; sourceTree = "<group>"; };
 		F7E9572613DBDA3200565556 /* TouchDrag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDrag.h; sourceTree = "<group>"; };
+		F7F141F213EF5A93000B9A54 /* menu_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_bar.png; sourceTree = "<group>"; };
+		F7F141F513EF70BB000B9A54 /* RenderMenu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderMenu.mm; sourceTree = "<group>"; };
+		F7F141F613EF70BB000B9A54 /* RenderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderMenu.h; sourceTree = "<group>"; };
 		F7F1621813D292D400A34457 /* TEManagerTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerTouch.cpp; sourceTree = "<group>"; };
 		F7F1621913D292D400A34457 /* TEManagerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTouch.h; sourceTree = "<group>"; };
 		F7F1621C13D294E300A34457 /* TEComponentTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEComponentTouch.cpp; sourceTree = "<group>"; };
@@ -346,6 +355,9 @@
 		F7E2DC6613D3D50100E7DC7B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F7C46D4D13F74D50000534DB /* moves.png */,
+				F7F141F213EF5A93000B9A54 /* menu_bar.png */,
+				F76E98B913EE737D002F8CCB /* menu.png */,
 				F71A360113E39C4500487B99 /* numbers.png */,
 				F71A35FC13E37DDA00487B99 /* time.png */,
 				F71A35F613E378A700487B99 /* image_time.png */,
@@ -456,6 +468,8 @@
 				F795ECAD13D27EDD00550919 /* RenderImage.h */,
 				F71A35FE13E38DB100487B99 /* RenderHUD.mm */,
 				F71A35FF13E38DB100487B99 /* RenderHUD.h */,
+				F7F141F513EF70BB000B9A54 /* RenderMenu.mm */,
+				F7F141F613EF70BB000B9A54 /* RenderMenu.h */,
 				F7FC1ACF13D519EA003A7211 /* StackTableCell.cpp */,
 				F7FC1AD013D519EA003A7211 /* StackTableCell.h */,
 				F7FC1AD213D529AB003A7211 /* StackCard.cpp */,
@@ -581,6 +595,9 @@
 				F71A35FD13E37DDA00487B99 /* time.png in Resources */,
 				F71A360213E39C4500487B99 /* numbers.png in Resources */,
 				F763053913E9F5DD0015334E /* shuffle.caf in Resources */,
+				F76E98BA13EE737D002F8CCB /* menu.png in Resources */,
+				F7F141F313EF5A93000B9A54 /* menu_bar.png in Resources */,
+				F7C46D4E13F74D50000534DB /* moves.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +638,7 @@
 				F77395FC13E882040099FD29 /* TEManagerSound.mm in Sources */,
 				F773960313E889700099FD29 /* SoundStart.mm in Sources */,
 				F763053F13E9FE8B0015334E /* TEComponentSound.mm in Sources */,
+				F7F141F713EF70BB000B9A54 /* RenderMenu.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

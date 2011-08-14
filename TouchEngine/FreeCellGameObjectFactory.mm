@@ -27,8 +27,7 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
     TEPoint position;
     position.x = 0;
     position.y = 0;
-    RenderImage* renderImage = new RenderImage(@"table_background", position, size);
-    gameObject->addComponent(renderImage);
+    gameObject->addComponent(new RenderImage(@"table_background.png", position, size));
     gameObject->addComponent(new SoundStart(@"shuffle", @"caf"));
     gameObject->position.x = size.width / 2;
     gameObject->position.y = size.height / 2;
@@ -168,8 +167,8 @@ TEGameObject* FreeCellGameObjectFactory::createTableCellStack(TEPoint position) 
 }
 
 TEGameObject* FreeCellGameObjectFactory::createHUDTimer() {
-	const int height = 50;
-	const int x = 185;
+	const int height = 15;
+	const int x = 105;
 	TESize size;
 	size.width = 46;
 	size.height = 14;
@@ -181,6 +180,22 @@ TEGameObject* FreeCellGameObjectFactory::createHUDTimer() {
 	gameObject->addComponent(image);
 	gameObject->position.x = x;
 	gameObject->position.y = height;
+	return gameObject;
+}
+
+TEGameObject* FreeCellGameObjectFactory::createMenu() {
+	TESize size;
+	size.width = 64;
+	size.height = 16;
+	TEPoint offset;
+	offset.x = 0;
+	offset.y = 0;
+	RenderImage* image = new RenderImage(@"menu.png", offset, size);
+	TEGameObject* gameObject = new TEGameObject();
+	gameObject->addComponent(image);
+	TESize screenSize = mGame->getScreenSize();
+	gameObject->position.x = screenSize.width - (size.width / 2);
+	gameObject->position.y = 15;
 	return gameObject;
 }
 

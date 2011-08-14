@@ -93,8 +93,8 @@ TESize TEUtilTexture::getCropSize() const {
 }
 
 void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
-    float width;
-    float height;
+    NSUInteger width;
+    NSUInteger height;
     float i;
     CGContextRef			context = nil;
     void*					data = nil;;
@@ -120,8 +120,8 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
     } else  //NOTE: No colorspace means a mask image
         pixelFormat = kTexture2DPixelFormat_A8;
     
-    width = (float)CGImageGetWidth(cgImage);
-    height = (float)CGImageGetHeight(cgImage);
+    width = CGImageGetWidth(cgImage);
+    height = CGImageGetHeight(cgImage);
 	mBitmapWidth = width;
 	mBitmapHeight = height;
     width = closestPowerOf2(mBitmapWidth);
@@ -131,13 +131,15 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
         case kTexture2DPixelFormat_RGBA8888:
             colorSpace = CGColorSpaceCreateDeviceRGB();
             data = malloc(height * width * 4);
-            context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+            context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace,
+											kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
             CGColorSpaceRelease(colorSpace);
             break;
         case kTexture2DPixelFormat_RGB565:
             colorSpace = CGColorSpaceCreateDeviceRGB();
             data = malloc(height * width * 4);
-            context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
+            context = CGBitmapContextCreate(data, width, height, 8, 4 * width, colorSpace,
+											kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
             CGColorSpaceRelease(colorSpace);
             break;
             
@@ -149,7 +151,7 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
             [NSException raise:NSInternalInconsistencyException format:@"Invalid pixel format"];
     }
     
-    
+	CGContextClearRect(context, CGRectMake(0, 0, width, height));
     CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage)), cgImage);
     if(pixelFormat == kTexture2DPixelFormat_RGB565) {
         tempData = malloc(height * width * 2);
@@ -176,4 +178,5 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
         default:
             [NSException raise:NSInternalInconsistencyException format:@""];
     }
+	free(data);
 }

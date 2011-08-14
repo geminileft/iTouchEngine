@@ -70,7 +70,7 @@ void TEEngine::initGraphics(int width, int height) {
     //required for vertex/textures
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glClearColor(1.0f, 0.7f, 0.12f, 1.0f);
+    glClearColor(0.2f, 1.0f, 0.2f, 1.0f);
 	graphicsChange(width, height);
 
 }
@@ -92,4 +92,11 @@ void TEEngine::graphicsChange(int width, int height) {
 	if (!useOrtho) {
 		glTranslatef(-width / 2, -height / 2, -zDepth);				
 	}
+}
+
+TESize TEEngine::getScreenSize() const {
+	TESize size;
+	size.width = mWidth;
+	size.height = mHeight;
+	return size;
 }

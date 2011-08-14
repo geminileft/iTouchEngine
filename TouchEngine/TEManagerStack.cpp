@@ -142,5 +142,4 @@ void TEManagerStack::touchAcceptListener() {
 			}
 		}
 	}
-	int j = 0;
 }
