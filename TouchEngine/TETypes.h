@@ -21,17 +21,31 @@ typedef TEComponentEvent TEComponentEvent;
 
 struct TESize {
     float width;
-    float height;
+    float height;	
 };
 
 typedef TESize TESize;
 
+inline TESize TESizeMake(float newWidth, float newHeight) {
+	TESize size;
+	size.width = newWidth;
+	size.height = newHeight;
+	return size;
+}
+
 struct TEPoint {
     float x;
-    float y;
+    float y;	
 };
 
 typedef TEPoint TEPoint;
+
+inline TEPoint TEPointMake(float newX, float newY) {
+	TEPoint point;
+	point.x = newX;
+	point.y = newY;
+	return point;
+}
 
 typedef std::list<TEComponent*> TEComponentContainer;
 

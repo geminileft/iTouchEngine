@@ -19,6 +19,7 @@
 
 #define START_X 28
 #define X_GAP 2
+
 FreeCellGame::FreeCellGame() : TEEngine(320, 480), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {

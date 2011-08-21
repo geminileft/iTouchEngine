@@ -15,14 +15,14 @@
 #include "PlayingCard.h"
 
 class FreeCellGame : public TEEngine {
+private:
+	FreeCellGameObjectFactory* mFactory;
+
 public:
     FreeCellGame();
     virtual void start();
     void addTableStack(int startX, FreeCellGameObjectFactory* factory, PlayingCard* cards[][7], TEEventListenerBase* listener);
 	TEEventListenerBase* addHUDMoves();
-
-private:
-	FreeCellGameObjectFactory* mFactory;
 };
 
 #endif

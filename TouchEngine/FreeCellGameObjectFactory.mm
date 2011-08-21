@@ -19,22 +19,6 @@
 #include "StackAceCell.h"
 #include "SoundStart.h"
 
-TEGameObject* FreeCellGameObjectFactory::createBackground() {
-    TEGameObject* gameObject = new TEGameObject();
-    TESize size;
-    size.width = mGame->mWidth;
-    size.height = mGame->mHeight;
-    TEPoint position;
-    position.x = 0;
-    position.y = 0;
-    gameObject->addComponent(new RenderImage(@"table_background.png", position, size));
-    gameObject->addComponent(new SoundStart(@"shuffle", @"caf"));
-    gameObject->position.x = size.width / 2;
-    gameObject->position.y = size.height / 2;
-    gameObject->size = size;
-    return gameObject;
-}
-
 FreeCellGameObjectFactory::FreeCellGameObjectFactory(TEEngine* game) {
 	mGame = game;
     mCardMap["SpadeAce"] = "spade_ace.png";
@@ -93,6 +77,36 @@ FreeCellGameObjectFactory::FreeCellGameObjectFactory(TEEngine* game) {
     mCardMap["ClubQueen"] = "club_queen.png";
     mCardMap["ClubKing"] = "club_king.png";
 }
+
+TEGameObject* FreeCellGameObjectFactory::createBackground() {
+	TEGameObject* gameObject = new TEGameObject();
+	TESize size = TESizeMake(mGame->mWidth, mGame->mHeight);
+	gameObject->addComponent(new RenderImage(@"table_background.png", TEPointMake(0, 0), size));
+	gameObject->addComponent(new SoundStart(@"shuffle", @"caf"));
+	gameObject->position.x = size.width / 2;
+	gameObject->position.y = size.height / 2;
+	gameObject->size.width = size.width;
+	gameObject->size.height = size.height;
+	return gameObject;
+}
+
+/*
+TEGameObject* FreeCellGameObjectFactory::createBackground() {
+    TEGameObject* gameObject = new TEGameObject();
+    TESize size;
+    size.width = mGame->mWidth;
+    size.height = mGame->mHeight;
+    TEPoint position;
+    position.x = 0;
+    position.y = 0;
+    gameObject->addComponent(new RenderImage(@"table_background.png", position, size));
+    gameObject->addComponent(new SoundStart(@"shuffle", @"caf"));
+    gameObject->position.x = size.width / 2;
+    gameObject->position.y = size.height / 2;
+    gameObject->size = size;
+    return gameObject;
+}
+*/
 
 TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
     TEGameObject* gameObject = new TEGameObject();

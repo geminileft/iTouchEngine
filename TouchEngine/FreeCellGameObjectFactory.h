@@ -17,6 +17,7 @@ class FreeCellGameObjectFactory {
 private:
     std::map<std::string, const char*> mCardMap;
 	TEEngine* mGame;
+
 public:
     FreeCellGameObjectFactory(TEEngine* game);
     TEGameObject* createBackground();
