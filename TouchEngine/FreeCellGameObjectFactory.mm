@@ -121,10 +121,7 @@ TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
     } else {
         resourceId = [NSString stringWithUTF8String:iterator->second];
     }
-    TEPoint pt;
-    pt.x = 0;
-    pt.y = 0;
-    RenderImage* image = new RenderImage(resourceId, pt, size);
+    RenderImage* image = new RenderImage(resourceId, TEPointMake(0, 0), size);
     gameObject->addComponent(image);
     gameObject->addComponent(new TouchDrag());
     gameObject->size = size;

@@ -15,7 +15,7 @@
 
 static TEManagerStack* mSharedInstance = NULL;
 static int mAceStackCount = 0;
-int mTableStackCount = 0;
+static int mTableStackCount = 0;
 
 TEManagerStack* TEManagerStack::sharedManager() {
     if (mSharedInstance == NULL) {

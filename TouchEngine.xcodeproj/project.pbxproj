@@ -312,8 +312,8 @@
 		F7124E0413D1EE1B0041BF36 /* TouchEngine */ = {
 			isa = PBXGroup;
 			children = (
-				F7E8D2B413D25B830049AA45 /* Core */,
 				F7E2DC6513D3D4D100E7DC7B /* Game */,
+				F7E8D2B413D25B830049AA45 /* Core */,
 			);
 			path = TouchEngine;
 			sourceTree = "<group>";
@@ -342,12 +342,12 @@
 		F7E2DC6513D3D4D100E7DC7B /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
-				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
-				F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */,
 				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
+				F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */,
 				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
 				F795ECA913D274A500550919 /* FreeCellGameObjectFactory.h */,
+				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
+				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -669,7 +669,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphonesimulator4.1;
 			};
 			name = Debug;
 		};

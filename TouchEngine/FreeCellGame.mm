@@ -17,10 +17,7 @@
 #include "TEManagerTime.h"
 #include "TEManagerStack.h"
 
-#define START_X 28
-#define X_GAP 2
-
-FreeCellGame::FreeCellGame() : TEEngine(320, 480), mFactory(new FreeCellGameObjectFactory(this)){}
+FreeCellGame::FreeCellGame(int width, int height) : TEEngine(width, height), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
     TEGameObject* gameObject;
@@ -35,8 +32,7 @@ void FreeCellGame::start() {
         TEPoint pt;
         pt.x = x;
         pt.y = y;
-        gameObject = mFactory->createFreeCell(pt);
-        addGameObject(gameObject);
+        addGameObject(mFactory->createFreeCell(pt));
         x += CARD_SIZE_WIDTH + X_GAP;
     }
     
@@ -44,8 +40,7 @@ void FreeCellGame::start() {
         TEPoint pt;
         pt.x = x;
         pt.y = y;
-        gameObject = mFactory->createAceCellStack(pt);
-        addGameObject(gameObject);
+        addGameObject(mFactory->createAceCellStack(pt));
         x += CARD_SIZE_WIDTH + X_GAP;
     }
     
@@ -111,9 +106,7 @@ void FreeCellGame::start() {
     deck[50] = new PlayingCard(Queen, Diamond);
     deck[51] = new PlayingCard(King, Diamond);
     
-	long currentTime = TEManagerTime::currentTime();
 	TERandomizer* rand = new TERandomizer(TEManagerTime::currentTime());
-	NSLog(@"game is %ld", currentTime);
     int wLeft = 52;
     for (int i = 0;i < 52;++i) {
 		unsigned int next  = rand->next();
@@ -133,10 +126,7 @@ void FreeCellGame::addTableStack(int startX, FreeCellGameObjectFactory* factory,
     int x = startX;
     int y = mHeight - 120;
     for (int j = 0; j < 8;++j) {
-        TEPoint pt;
-        pt.x = x;
-        pt.y = y;
-        TEGameObject* gameObject = factory->createTableCellStack(pt);
+        TEGameObject* gameObject = factory->createTableCellStack(TEPointMake(x, y));
         StackTableCell* tableStack = new StackTableCell(TableCell);
 		stackManager->addTableStack(tableStack);
         gameObject->addComponent(tableStack);
