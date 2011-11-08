@@ -20,7 +20,7 @@
 FreeCellGame::FreeCellGame(int width, int height) : TEEngine(width, height), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
-    TEGameObject* gameObject;
+    //TEGameObject* gameObject;
     addGameObject(mFactory->createBackground());
     int x = START_X;
     int y = mHeight - 50;
