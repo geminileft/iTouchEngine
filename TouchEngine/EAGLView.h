@@ -10,15 +10,14 @@
 
 @interface EAGLView : UIView {
 @private
-    GLint mFramebufferWidth;
-    GLint mFramebufferHeight;
-    GLuint mDefaultFramebuffer;
-    GLuint mColorRenderbuffer;
+    //GLint mFramebufferWidth;
+    //GLint mFramebufferHeight;
+    //GLuint mDefaultFramebuffer;
+    //GLuint mColorRenderbuffer;
 	long mPreviousInterval;
     TEEngine* mGame;
+    EAGLContext* mContext;
 }
-
-@property (nonatomic, retain) EAGLContext *context;
 
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game;
 - (void)startAnimation;

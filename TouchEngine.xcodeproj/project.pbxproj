@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */; };
 		F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFA13D1EE1B0041BF36 /* UIKit.framework */; };
 		F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFC13D1EE1B0041BF36 /* Foundation.framework */; };
 		F7124DFF13D1EE1B0041BF36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFE13D1EE1B0041BF36 /* CoreGraphics.framework */; };
@@ -111,6 +112,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerGraphics.h; sourceTree = "<group>"; };
+		8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerGraphics.mm; sourceTree = "<group>"; };
 		F7124DF613D1EE1B0041BF36 /* TouchEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7124DFA13D1EE1B0041BF36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7124DFC13D1EE1B0041BF36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -484,6 +487,8 @@
 				F773960213E889700099FD29 /* SoundStart.h */,
 				F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */,
 				F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */,
+				8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */,
+				8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				F773960313E889700099FD29 /* SoundStart.mm in Sources */,
 				F763053F13E9FE8B0015334E /* TEComponentSound.mm in Sources */,
 				F7F141F713EF70BB000B9A54 /* RenderMenu.mm in Sources */,
+				8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,9 @@
 #include "TEInputTouch.h"
 #include "TEManagerInput.h"
 #include "TEManagerTime.h"
+#include "TEManagerGraphics.h"
 
 @implementation EAGLView
-
-@synthesize context;
 
 + (Class)layerClass
 {
@@ -29,31 +28,12 @@
     self = [super initWithFrame:frame];
 	if (self) {
         mGame = game;
-        EAGLContext *aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        if (!aContext)
+        mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+        if (!mContext)
             NSLog(@"Failed to create ES context");
-        else if (![EAGLContext setCurrentContext:aContext])
+        else if (![EAGLContext setCurrentContext:mContext])
             NSLog(@"Failed to set ES context current");
-        self.context = aContext;
-        [aContext release];
-        glGenFramebuffers(1, &mDefaultFramebuffer);
-        glBindFramebuffer(GL_FRAMEBUFFER, mDefaultFramebuffer);
-        glGenRenderbuffers(1, &mColorRenderbuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, mColorRenderbuffer);
-        [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
-        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mFramebufferWidth);
-        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mFramebufferHeight);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mColorRenderbuffer);
-        if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-            NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));        
-        glBindFramebuffer(GL_FRAMEBUFFER, mDefaultFramebuffer);
-        CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
-        eaglLayer.opaque = TRUE;
-        eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking,
-                                        kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
-                                        nil];
-        mGame->initGraphics(mFramebufferWidth, mFramebufferHeight);
+        TEManagerGraphics::initialize(mContext, self.layer);
         [self startAnimation];
     }
     return self;
@@ -61,7 +41,7 @@
 
 - (void)dealloc
 {
-    [context release];
+    [mContext release];
     
     [super dealloc];
 }
@@ -83,7 +63,7 @@
 */
     glClear(GL_COLOR_BUFFER_BIT);
     mGame->run();
-    [context presentRenderbuffer:GL_RENDERBUFFER];
+    [mContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
