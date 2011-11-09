@@ -9,8 +9,6 @@
 #ifndef TouchEngine_TEManagerGraphics_h
 #define TouchEngine_TEManagerGraphics_h
 
-#import <QuartzCore/QuartzCore.h>
-
 class TEManagerGraphics {
 public:
     static void initialize(CALayer* layer);
