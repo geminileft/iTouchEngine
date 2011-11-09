@@ -27,30 +27,31 @@ void TEManagerGraphics::initialize(CALayer* layer) {
 
     glGenRenderbuffers(1, &mRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, mRenderBuffer);
-    glGenFramebuffers(1, &mFrameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
     [mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)layer];
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mHeight);
+
+    glGenFramebuffers(1, &mFrameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mRenderBuffer);
     if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
         NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));        
     glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
 
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
-	glShadeModel(GL_FLAT);
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_DITHER);
 	glDisable(GL_LIGHTING);
-	glTexEnvx(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glClearColor(0.2f, 1.0f, 0.2f, 1.0f);
+
     //always drawing textures...enable once
     glEnable(GL_TEXTURE_2D);
+
     //required for vertex/textures
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glClearColor(0.2f, 1.0f, 0.2f, 1.0f);
 
 	bool useOrtho = false;
 	const int scaleFactor = 1;
