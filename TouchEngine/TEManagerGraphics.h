@@ -13,7 +13,8 @@
 
 class TEManagerGraphics {
 public:
-    static void initialize(EAGLContext* context, CALayer* layer);
+    static void initialize(CALayer* layer);
+    static void render();
 };
 
 #endif

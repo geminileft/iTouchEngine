@@ -6,7 +6,6 @@
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import "EAGLView.h"
 
 #include "TEInputTouch.h"
@@ -22,48 +21,27 @@
 }
 
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game {
-	const int scaleFactor = 1;
-	frame.size.width = game->mWidth * scaleFactor;
-	frame.size.height = game->mHeight * scaleFactor;
     self = [super initWithFrame:frame];
 	if (self) {
         mGame = game;
-        mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        if (!mContext)
-            NSLog(@"Failed to create ES context");
-        else if (![EAGLContext setCurrentContext:mContext])
-            NSLog(@"Failed to set ES context current");
-        TEManagerGraphics::initialize(mContext, self.layer);
-        [self startAnimation];
+        TEManagerGraphics::initialize(self.layer);
+        mGame->start();
+        mPreviousInterval = TEManagerTime::currentTime();
+        CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
+        [aDisplayLink setFrameInterval:1];
+        [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [mContext release];
-    
     [super dealloc];
 }
 
-- (void)startAnimation {
-    mGame->start();
-	mPreviousInterval = TEManagerTime::currentTime();
-    CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
-    [aDisplayLink setFrameInterval:1];
-    [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-}
-
 - (void)drawFrame {
-/*
-	long currentTime = TEManagerTime::currentTime();
-	long difference = currentTime - mPreviousInterval;
-	NSLog(@"frame: %ld", difference);
-	mPreviousInterval = currentTime;
-*/
-    glClear(GL_COLOR_BUFFER_BIT);
     mGame->run();
-    [mContext presentRenderbuffer:GL_RENDERBUFFER];
+    TEManagerGraphics::render();
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -16,13 +16,20 @@ static unsigned int mRenderBuffer;
 static unsigned int mFrameBuffer;
 static int mWidth;
 static int mHeight;
+static EAGLContext* mContext;
 
-void TEManagerGraphics::initialize(EAGLContext* context, CALayer* layer) {
+void TEManagerGraphics::initialize(CALayer* layer) {
+    mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+    if (!mContext)
+        NSLog(@"Failed to create ES context");
+    else if (![EAGLContext setCurrentContext:mContext])
+        NSLog(@"Failed to set ES context current");
+
     glGenRenderbuffers(1, &mRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, mRenderBuffer);
     glGenFramebuffers(1, &mFrameBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
-    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)layer];
+    [mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)layer];
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mHeight);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mRenderBuffer);
@@ -62,4 +69,8 @@ void TEManagerGraphics::initialize(EAGLContext* context, CALayer* layer) {
 		glTranslatef(-mWidth / 2, -mHeight / 2, -zDepth);				
 	}
 
+}
+
+void TEManagerGraphics::render() {
+    [mContext presentRenderbuffer:GL_RENDERBUFFER];
 }
