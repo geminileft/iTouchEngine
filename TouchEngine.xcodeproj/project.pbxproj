@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
+		8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
+		8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
+		8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
+		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */; };
+		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
+		8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */; };
+		8BE9F9ED146B3178007429F7 /* colorbox.fs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
+		8BE9F9EE146B3178007429F7 /* colorbox.vs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
+		8BE9F9EF146B3178007429F7 /* effectbox.vs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
+		8BE9F9F0146B3178007429F7 /* texture.fs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
+		8BE9F9F1146B3178007429F7 /* texture.vs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */; };
 		F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFA13D1EE1B0041BF36 /* UIKit.framework */; };
 		F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFC13D1EE1B0041BF36 /* Foundation.framework */; };
@@ -116,6 +128,15 @@
 		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
 		8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderOGL1.mm; sourceTree = "<group>"; };
 		8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderOGL1.h; sourceTree = "<group>"; };
+		8BE9F9DD146B0B5D007429F7 /* TERendererOGL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERendererOGL2.h; sourceTree = "<group>"; };
+		8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERendererOGL2.mm; sourceTree = "<group>"; };
+		8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerFile.mm; sourceTree = "<group>"; };
+		8BE9F9E2146B0E3F007429F7 /* TEManagerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerFile.h; sourceTree = "<group>"; };
+		8BE9F9E8146B3178007429F7 /* colorbox.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.fs; sourceTree = "<group>"; };
+		8BE9F9E9146B3178007429F7 /* colorbox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.vs; sourceTree = "<group>"; };
+		8BE9F9EA146B3178007429F7 /* effectbox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = effectbox.vs; sourceTree = "<group>"; };
+		8BE9F9EB146B3178007429F7 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
+		8BE9F9EC146B3178007429F7 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
 		8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerGraphics.h; sourceTree = "<group>"; };
 		8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerGraphics.mm; sourceTree = "<group>"; };
 		F7124DF613D1EE1B0041BF36 /* TouchEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +301,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BE9F9E7146B312C007429F7 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				8BE9F9E8146B3178007429F7 /* colorbox.fs */,
+				8BE9F9E9146B3178007429F7 /* colorbox.vs */,
+				8BE9F9EA146B3178007429F7 /* effectbox.vs */,
+				8BE9F9EB146B3178007429F7 /* texture.fs */,
+				8BE9F9EC146B3178007429F7 /* texture.vs */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		F7124DEB13D1EE1B0041BF36 = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +352,7 @@
 		F7124E0413D1EE1B0041BF36 /* TouchEngine */ = {
 			isa = PBXGroup;
 			children = (
+				8BE9F9E7146B312C007429F7 /* Shaders */,
 				F7E2DC6513D3D4D100E7DC7B /* Game */,
 				F7E8D2B413D25B830049AA45 /* Core */,
 			);
@@ -493,6 +527,10 @@
 				F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */,
 				8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */,
 				8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */,
+				8BE9F9DD146B0B5D007429F7 /* TERendererOGL2.h */,
+				8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */,
+				8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */,
+				8BE9F9E2146B0E3F007429F7 /* TEManagerFile.h */,
 				8BE9F9D6146B01A1007429F7 /* TERenderer.h */,
 				8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */,
 				8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */,
@@ -550,6 +588,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */,
+				8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */,
+				8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */,
+				8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */,
+				8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */,
 				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
 				F761D42C13D3C4C000ED12F9 /* free_cell.png in Resources */,
 				F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */,
@@ -656,6 +699,13 @@
 				F7F141F713EF70BB000B9A54 /* RenderMenu.mm in Sources */,
 				8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */,
 				8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */,
+				8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */,
+				8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */,
+				8BE9F9ED146B3178007429F7 /* colorbox.fs in Sources */,
+				8BE9F9EE146B3178007429F7 /* colorbox.vs in Sources */,
+				8BE9F9EF146B3178007429F7 /* effectbox.vs in Sources */,
+				8BE9F9F0146B3178007429F7 /* texture.fs in Sources */,
+				8BE9F9F1146B3178007429F7 /* texture.vs in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

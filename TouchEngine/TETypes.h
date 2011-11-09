@@ -4,6 +4,11 @@
 class TEComponent;
 
 #include <list>
+#include <string>
+
+typedef std::string String;
+
+typedef unsigned int uint;
 
 enum TEComponentEvent {
 	EVENT_TOUCH_STARTED

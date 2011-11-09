@@ -13,12 +13,6 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 
-EAGLContext* mContext;
-static unsigned int mRenderBuffer;
-static unsigned int mFrameBuffer;
-static int mWidth;
-static int mHeight;
-
 TERendererOGL1::TERendererOGL1(CALayer* layer) {
     mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
     if (!mContext)

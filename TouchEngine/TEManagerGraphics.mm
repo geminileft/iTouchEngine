@@ -9,6 +9,7 @@
 #include "TEManagerGraphics.h"
 #include "TERenderer.h"
 #include "TERenderOGL1.h"
+#include "TERendererOGL2.h"
 
 static TERenderer* mRenderer;
 
@@ -24,4 +25,5 @@ void TEManagerGraphics::render() {
 
 void initRenderer(CALayer* layer) {
     mRenderer = new TERendererOGL1(layer);
+    //mRenderer = new TERendererOGL2(layer);
 }
