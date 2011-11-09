@@ -7,36 +7,25 @@
 //
 
 #include "TEManagerGraphics.h"
+#include "TERenderer.h"
+#include "TERenderOGL1.h"
+
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 
-static unsigned int mRenderBuffer;
-static unsigned int mFrameBuffer;
 static int mWidth;
 static int mHeight;
-static EAGLContext* mContext;
+static TERenderer* mRenderer;
+
+static void initRenderer(CALayer* layer);
 
 void TEManagerGraphics::initialize(CALayer* layer) {
-    mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-    if (!mContext)
-        NSLog(@"Failed to create ES context");
-    else if (![EAGLContext setCurrentContext:mContext])
-        NSLog(@"Failed to set ES context current");
+    initRenderer(layer);
 
-    glGenRenderbuffers(1, &mRenderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, mRenderBuffer);
-    [mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)layer];
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mHeight);
-
-    glGenFramebuffers(1, &mFrameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mRenderBuffer);
-    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-        NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));        
-    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
 
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
 	glDisable(GL_DEPTH_TEST);
@@ -73,5 +62,9 @@ void TEManagerGraphics::initialize(CALayer* layer) {
 }
 
 void TEManagerGraphics::render() {
-    [mContext presentRenderbuffer:GL_RENDERBUFFER];
+    mRenderer->render();
+}
+
+void initRenderer(CALayer* layer) {
+    mRenderer = new TERendererOGL1(layer);
 }

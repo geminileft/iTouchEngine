@@ -15,6 +15,7 @@ class TEManagerGraphics {
 public:
     static void initialize(CALayer* layer);
     static void render();
+    
 };
 
 #endif

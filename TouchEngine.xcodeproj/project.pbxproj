@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */; };
 		8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */; };
 		F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFA13D1EE1B0041BF36 /* UIKit.framework */; };
 		F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFC13D1EE1B0041BF36 /* Foundation.framework */; };
@@ -112,6 +113,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
+		8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderOGL1.mm; sourceTree = "<group>"; };
+		8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderOGL1.h; sourceTree = "<group>"; };
 		8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerGraphics.h; sourceTree = "<group>"; };
 		8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerGraphics.mm; sourceTree = "<group>"; };
 		F7124DF613D1EE1B0041BF36 /* TouchEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +493,9 @@
 				F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */,
 				8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */,
 				8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */,
+				8BE9F9D6146B01A1007429F7 /* TERenderer.h */,
+				8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */,
+				8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -648,6 +655,7 @@
 				F763053F13E9FE8B0015334E /* TEComponentSound.mm in Sources */,
 				F7F141F713EF70BB000B9A54 /* RenderMenu.mm in Sources */,
 				8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */,
+				8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
