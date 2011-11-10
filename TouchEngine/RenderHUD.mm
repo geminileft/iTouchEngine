@@ -102,9 +102,6 @@ void RenderHUD::update() {
         TEManagerGraphics::addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
         xAdd += MAX_TEXT_SIZE;
 	}
-}
-
-void RenderHUD::draw() {
 	const int seconds_size = 2;
 	const int minute_size = 2;
 	const int secondsDigitsSize = seconds_size + minute_size + 1;
@@ -114,8 +111,7 @@ void RenderHUD::draw() {
 	}
 	
 	uint digits = 0;
-    const int radix = 10;
-
+    
 	long seconds = (mElapsedTime / 1000) % 60;
 	while ((digits < seconds_size)) {
 		mSecondsDigits[digits] = (int)seconds % radix;
@@ -132,21 +128,20 @@ void RenderHUD::draw() {
 		++digits;
 	}
 	digits = (digits < 4) ? 4 : digits;
-	glPushMatrix();
-	glTranslatef(50 + mX + (MAX_TEXT_SIZE * (seconds_size + minute_size)), mY, 0.0f);
-	//gl.glEnable(GL10.GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
-    uint number;
+    
+    float x = 50 + mX + (MAX_TEXT_SIZE * (seconds_size + minute_size));
 	for(int i = 0;i < digits;i++) {
 		number = mSecondsDigits[i];
-		glTexCoordPointer(2, GL_FLOAT, 0, mTextureBuffers[number]);
-		glVertexPointer(2, GL_FLOAT, 0, mVertexBuffers[number]);
-		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-		glTranslatef(-MAX_TEXT_SIZE, 0.0f, 0.0f);
-	}
-	//gl.glDisable(GL10.GL_TEXTURE_2D);
-	glPopMatrix();
+        TEVec3 vec3;
+        vec3.x = x;
+        vec3.y = mParent->position.y;
+        vec3.z = 0;
+        TEManagerGraphics::addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
+        x -= MAX_TEXT_SIZE;
+    }
+}
 
+void RenderHUD::draw() {
 }
 
 void RenderHUD::createTextureBuffer(int left, int width, int height, float textureBuffer[]) {
