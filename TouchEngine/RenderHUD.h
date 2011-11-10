@@ -9,6 +9,8 @@
 #ifndef RENDERHUD
 #define RENDERHUD
 
+#define MAX_DIGIT_COUNT 5
+
 #include "TEComponentRender.h"
 #include "TETypes.h"
 #include "TEUtilTexture.h"
@@ -25,7 +27,9 @@ private:
 	float mVertexBuffers[11][8];
 	long mElapsedTime;
 	long mPreviousTime;
-	
+    int mMoveCountDigits[MAX_DIGIT_COUNT];
+    uint mMoveDigits;
+    int mSecondsDigits[MAX_DIGIT_COUNT];
 
 public:
     RenderHUD(NSString* resourceName, TEPoint position, TESize size);

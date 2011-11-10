@@ -22,7 +22,6 @@ void RenderImage::update() {
     vec3.y = mParent->position.y;
     vec3.z = 0;
     TEManagerGraphics::addTexture(mTexture, mTexture->mVertexBuffer, mTexture->mTextureBuffer, vec3);
-    
 }
 
 void RenderImage::draw() {

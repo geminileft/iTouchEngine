@@ -9,8 +9,8 @@
 #include "RenderHUD.h"
 #include "TEEventListener.h"
 #include "TEManagerTime.h"
+#include "TEManagerGraphics.h"
 
-#define MAX_DIGIT_COUNT 4
 #define MAX_TEXT_SIZE 18
 
 RenderHUD::RenderHUD(NSString* resourceName, TEPoint position, TESize size) :
@@ -71,55 +71,63 @@ RenderHUD::RenderHUD(NSString* resourceName, TEPoint position, TESize size) :
 	createVertexBuffer(width, height, mVertexBuffers[4]);
 }
 
-void RenderHUD::draw() {
-	int moveCountDigits[MAX_DIGIT_COUNT];
+void RenderHUD::update() {
+	long currentTime = TEManagerTime::currentTime();
+	mElapsedTime += currentTime - mPreviousTime;
+	mPreviousTime = currentTime;
+	TEPoint point = mParent->position;
+	mX = point.x;
+	mY = point.y;
 	for(int i = 0;i < MAX_DIGIT_COUNT;++i) {
-		moveCountDigits[i] = 0;
+		mMoveCountDigits[i] = 0;
 	}
-	int digits = 0;
-	int number;
+	mMoveDigits = 0;
 	const int radix = 10;
 	int count = mCount;
-	while ((count > 0) && (digits < MAX_DIGIT_COUNT)) {
-		moveCountDigits[digits] = count % radix;
+    int number;
+	while ((count > 0) && (mMoveDigits < MAX_DIGIT_COUNT)) {
+		mMoveCountDigits[mMoveDigits] = count % radix;
 		count /= radix;
-		++digits;
+		++mMoveDigits;
 	}
-	digits = (digits == 0) ? 1 : digits;
-	glPushMatrix();
-	glTranslatef(mX, mY, 0.0f);
-	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
-	while (digits > 0) {
-		number = moveCountDigits[--digits];
-		glTexCoordPointer(2, GL_FLOAT, 0, mTextureBuffers[number]);
-		glVertexPointer(2, GL_FLOAT, 0, mVertexBuffers[number]);
-		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-		glTranslatef(MAX_TEXT_SIZE, 0.0f, 0.0f);
-	}
-	glPopMatrix();
+	mMoveDigits = (mMoveDigits == 0) ? 1 : mMoveDigits;
 
+    int xAdd = 0;
+    while (mMoveDigits > 0) {
+		number = mMoveCountDigits[--mMoveDigits];
+        TEVec3 vec3;
+        vec3.x = mParent->position.x + xAdd;
+        vec3.y = mParent->position.y;
+        vec3.z = 0;
+        TEManagerGraphics::addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
+        xAdd += MAX_TEXT_SIZE;
+	}
+}
+
+void RenderHUD::draw() {
 	const int seconds_size = 2;
 	const int minute_size = 2;
 	const int secondsDigitsSize = seconds_size + minute_size + 1;
-	int secondsDigits[secondsDigitsSize];
 	
 	for(int i = 0;i < secondsDigitsSize;++i) {
-		secondsDigits[i] = 0;
+		mSecondsDigits[i] = 0;
 	}
 	
-	digits = 0;
+	uint digits = 0;
+    const int radix = 10;
+
 	long seconds = (mElapsedTime / 1000) % 60;
 	while ((digits < seconds_size)) {
-		secondsDigits[digits] = (int)seconds % radix;
+		mSecondsDigits[digits] = (int)seconds % radix;
 		seconds /= radix;
 		++digits;
 	}
-	secondsDigits[digits] = 10;
+	mSecondsDigits[digits] = 10;
 	++digits;
 	
 	int minutes = (int)mElapsedTime / 60000;
 	while ((minutes > 0) && (digits < seconds_size + minute_size + 1)) {
-		secondsDigits[digits] = (int)minutes % radix;
+		mSecondsDigits[digits] = (int)minutes % radix;
 		minutes /= radix;
 		++digits;
 	}
@@ -128,8 +136,9 @@ void RenderHUD::draw() {
 	glTranslatef(50 + mX + (MAX_TEXT_SIZE * (seconds_size + minute_size)), mY, 0.0f);
 	//gl.glEnable(GL10.GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
+    uint number;
 	for(int i = 0;i < digits;i++) {
-		number = secondsDigits[i];
+		number = mSecondsDigits[i];
 		glTexCoordPointer(2, GL_FLOAT, 0, mTextureBuffers[number]);
 		glVertexPointer(2, GL_FLOAT, 0, mVertexBuffers[number]);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
@@ -138,15 +147,6 @@ void RenderHUD::draw() {
 	//gl.glDisable(GL10.GL_TEXTURE_2D);
 	glPopMatrix();
 
-}
-
-void RenderHUD::update() {
-	long currentTime = TEManagerTime::currentTime();
-	mElapsedTime += currentTime - mPreviousTime;
-	mPreviousTime = currentTime;
-	TEPoint point = mParent->position;
-	mX = point.x;
-	mY = point.y;
 }
 
 void RenderHUD::createTextureBuffer(int left, int width, int height, float textureBuffer[]) {
