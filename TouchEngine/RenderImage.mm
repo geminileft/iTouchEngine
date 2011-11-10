@@ -1,5 +1,6 @@
 #include "RenderImage.h"
 #include "TEManagerGraphics.h"
+#include "TERenderer.h"
 
 RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {    
     /*
@@ -18,7 +19,7 @@ void RenderImage::update() {
     vec3.x = mParent->position.x;
     vec3.y = mParent->position.y;
     vec3.z = 0;
-    TEManagerGraphics::addTexture(mTexture, mTexture->mVertexBuffer, mTexture->mTextureBuffer, vec3);
+    TEManagerGraphics::getRenderer()->addTexture(mTexture, mTexture->mVertexBuffer, mTexture->mTextureBuffer, vec3);
 }
 
 void RenderImage::draw() {

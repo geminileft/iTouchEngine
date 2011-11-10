@@ -10,6 +10,7 @@
 #include "TEEventListener.h"
 #include "TEManagerTime.h"
 #include "TEManagerGraphics.h"
+#include "TERenderer.h"
 
 #define MAX_TEXT_SIZE 18
 
@@ -99,7 +100,7 @@ void RenderHUD::update() {
         vec3.x = mParent->position.x + xAdd;
         vec3.y = mParent->position.y;
         vec3.z = 0;
-        TEManagerGraphics::addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
+        TEManagerGraphics::getRenderer()->addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
         xAdd += MAX_TEXT_SIZE;
 	}
 	const int seconds_size = 2;
@@ -136,7 +137,7 @@ void RenderHUD::update() {
         vec3.x = x;
         vec3.y = mParent->position.y;
         vec3.z = 0;
-        TEManagerGraphics::addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
+        TEManagerGraphics::getRenderer()->addTexture(mTexture, mVertexBuffers[number], mTextureBuffers[number], vec3);
         x -= MAX_TEXT_SIZE;
     }
 }
