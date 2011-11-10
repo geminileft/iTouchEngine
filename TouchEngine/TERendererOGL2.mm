@@ -4,6 +4,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #include "TEManagerFile.h"
+#include "TEUtilTexture.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -66,6 +67,21 @@ void TERendererOGL2::createPrograms() {
 }
 
 void TERendererOGL2::render() {
+    TERenderPrimative* primatives = getRenderPrimatives();
+    uint count = getPrimativeCount();
+    TEUtilTexture* texture;
+    TEVec3 vec;
+    for (int i = 0;i < count;++i) {
+        texture = primatives[i].texture;
+        vec = primatives[i].position;
+        glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
+        glPushMatrix();
+        glTranslatef(vec.x, vec.y, vec.z);
+        glTexCoordPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
+        glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        glPopMatrix();
+    }
     [mContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
