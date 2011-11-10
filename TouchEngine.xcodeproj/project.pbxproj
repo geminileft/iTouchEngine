@@ -12,6 +12,7 @@
 		8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
 		8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
 		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
+		8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE31C1146B4296003BEDA3 /* TERenderer.mm */; };
 		8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */; };
 		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
 		8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */; };
@@ -108,7 +109,7 @@
 		F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6213D3D47400E7DC7B /* ace_cell.png */; };
 		F7E2DC6913D3D57A00E7DC7B /* PlayingCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E2DC6713D3D57A00E7DC7B /* PlayingCard.cpp */; };
 		F7E2DC6B13D3E6D900E7DC7B /* spade_ace.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */; };
-		F7E8D2BA13D262980049AA45 /* TEManagerRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */; };
+		F7E8D2BA13D262980049AA45 /* TEManagerRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2B813D262980049AA45 /* TEManagerRender.mm */; };
 		F7E8D2BD13D262FE0049AA45 /* TEManagerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */; };
 		F7E8D2C113D265E20049AA45 /* TEComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E8D2BF13D265E20049AA45 /* TEComponent.cpp */; };
 		F7E9572713DBDA3300565556 /* TouchDrag.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7E9572513DBDA3200565556 /* TouchDrag.mm */; };
@@ -125,6 +126,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BCE31C1146B4296003BEDA3 /* TERenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderer.mm; sourceTree = "<group>"; };
 		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
 		8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderOGL1.mm; sourceTree = "<group>"; };
 		8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderOGL1.h; sourceTree = "<group>"; };
@@ -252,7 +254,7 @@
 		F7E2DC6813D3D57A00E7DC7B /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
 		F7E2DC6A13D3E6D900E7DC7B /* spade_ace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade_ace.png; sourceTree = "<group>"; };
 		F7E8D2B613D25D290049AA45 /* TEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManager.h; sourceTree = "<group>"; };
-		F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerRender.cpp; sourceTree = "<group>"; };
+		F7E8D2B813D262980049AA45 /* TEManagerRender.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerRender.mm; sourceTree = "<group>"; };
 		F7E8D2B913D262980049AA45 /* TEManagerRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerRender.h; sourceTree = "<group>"; };
 		F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerComponent.cpp; sourceTree = "<group>"; };
 		F7E8D2BC13D262FE0049AA45 /* TEManagerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerComponent.h; sourceTree = "<group>"; };
@@ -473,7 +475,7 @@
 				F7E8D2B613D25D290049AA45 /* TEManager.h */,
 				F7F1621813D292D400A34457 /* TEManagerTouch.cpp */,
 				F7F1621913D292D400A34457 /* TEManagerTouch.h */,
-				F7E8D2B813D262980049AA45 /* TEManagerRender.cpp */,
+				F7E8D2B813D262980049AA45 /* TEManagerRender.mm */,
 				F7E8D2B913D262980049AA45 /* TEManagerRender.h */,
 				F7E8D2BB13D262FE0049AA45 /* TEManagerComponent.cpp */,
 				F7E8D2BC13D262FE0049AA45 /* TEManagerComponent.h */,
@@ -532,6 +534,7 @@
 				8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */,
 				8BE9F9E2146B0E3F007429F7 /* TEManagerFile.h */,
 				8BE9F9D6146B01A1007429F7 /* TERenderer.h */,
+				8BCE31C1146B4296003BEDA3 /* TERenderer.mm */,
 				8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */,
 				8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */,
 			);
@@ -671,7 +674,7 @@
 				F7124E1913D1EE1B0041BF36 /* EAGLView.mm in Sources */,
 				F7C7F0DF13D234B20061A219 /* TEEngine.mm in Sources */,
 				F7C7F0E313D2369C0061A219 /* FreeCellGame.mm in Sources */,
-				F7E8D2BA13D262980049AA45 /* TEManagerRender.cpp in Sources */,
+				F7E8D2BA13D262980049AA45 /* TEManagerRender.mm in Sources */,
 				F7E8D2BD13D262FE0049AA45 /* TEManagerComponent.cpp in Sources */,
 				F7E8D2C113D265E20049AA45 /* TEComponent.cpp in Sources */,
 				F795ECA613D2739500550919 /* TEGameObject.cpp in Sources */,
@@ -706,6 +709,7 @@
 				8BE9F9EF146B3178007429F7 /* effectbox.vs in Sources */,
 				8BE9F9F0146B3178007429F7 /* texture.fs in Sources */,
 				8BE9F9F1146B3178007429F7 /* texture.vs in Sources */,
+				8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

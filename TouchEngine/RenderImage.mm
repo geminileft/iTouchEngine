@@ -1,4 +1,5 @@
 #include "RenderImage.h"
+#include "TEManagerGraphics.h"
 
 RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {
 	TEEventListener<RenderImage>* moveToTopListener = new TEEventListener<RenderImage>(this, &RenderImage::moveToTopListener);
@@ -15,24 +16,23 @@ RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) 
     mCrop[3] = -mHeight;
 }
 
-void RenderImage::update() {}
+void RenderImage::update() {
+    TEVec3 vec3;
+    vec3.x = mParent->position.x;
+    vec3.y = mParent->position.y;
+    vec3.z = 0;
+    TEManagerGraphics::addTexture(mTexture, vec3);
+    
+}
 
 void RenderImage::draw() {
-	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);
-	
-	const bool useDrawTexfOES = false;
-	if (useDrawTexfOES) {
-		glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_CROP_RECT_OES, mCrop);
-		glDrawTexfOES(mParent->position.x - (mWidth / 2), mParent->position.y - (mHeight / 2), 
-									 0.001f, mWidth, mHeight);
-	} else {
-		glPushMatrix();
-		glTranslatef(mParent->position.x, mParent->position.y, 0.0f);
-		glTexCoordPointer(2, GL_FLOAT, 0, mTexture->mTextureBuffer);
-		glVertexPointer(2, GL_FLOAT, 0, mTexture->mVertexBuffer);
-		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-		glPopMatrix();
-	}
+	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);	
+    glPushMatrix();
+    glTranslatef(mParent->position.x, mParent->position.y, 0.0f);
+    glTexCoordPointer(2, GL_FLOAT, 0, mTexture->mTextureBuffer);
+    glVertexPointer(2, GL_FLOAT, 0, mTexture->mVertexBuffer);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    glPopMatrix();
 }
 
 void RenderImage::moveToTopListener() {

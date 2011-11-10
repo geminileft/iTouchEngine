@@ -27,3 +27,11 @@ void initRenderer(CALayer* layer) {
     mRenderer = new TERendererOGL1(layer);
     //mRenderer = new TERendererOGL2(layer);
 }
+
+void TEManagerGraphics::addTexture(TEUtilTexture* texture, TEVec3 position) {
+    mRenderer->addTexture(texture, position);
+}
+
+void TEManagerGraphics::resetRenderer() {
+    mRenderer->reset();
+}

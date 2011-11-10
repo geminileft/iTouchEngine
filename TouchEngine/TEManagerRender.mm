@@ -8,6 +8,8 @@
 
 #include "TEComponentRender.h"
 #include "TEManagerRender.h"
+#include "TEManagerGraphics.h"
+
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
@@ -19,7 +21,7 @@ static TEManagerRender* mSharedInstance = NULL;
 void TEManagerRender::update() {
     TEComponentContainer components = getComponents();
     TEComponentContainer::iterator iterator;
-    glClear(GL_COLOR_BUFFER_BIT);
+    TEManagerGraphics::resetRenderer();
     for (iterator = components.begin(); iterator != components.end();iterator++) {
         TEComponentRender* component = (TEComponentRender*)(*iterator);
         component->update();

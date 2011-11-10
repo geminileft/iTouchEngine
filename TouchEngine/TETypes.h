@@ -80,4 +80,12 @@ inline TERect TERectMake(TEPoint position, TESize size) {
 	return rect;
 }
 
+struct TEVec3 {
+    float x;
+    float y;
+    float z;
+};
+
+typedef struct TEVec3 TEVec3;
+
 #endif
