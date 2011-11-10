@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */; };
 		8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
 		8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
 		8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
@@ -121,6 +122,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B566BC6146B9A520088C712 /* TEUtilMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilMatrix.h; sourceTree = "<group>"; };
+		8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEUtilMatrix.cpp; sourceTree = "<group>"; };
 		8BCE31C1146B4296003BEDA3 /* TERenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderer.mm; sourceTree = "<group>"; };
 		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
 		8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderOGL1.mm; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,
 				F7E9572513DBDA3200565556 /* TouchDrag.mm */,
+				8B566BC6146B9A520088C712 /* TEUtilMatrix.h */,
+				8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */,
 				8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */,
 				8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */,
+				8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

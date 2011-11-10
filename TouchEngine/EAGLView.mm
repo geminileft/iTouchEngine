@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
 	if (self) {
         mGame = game;
-        TEManagerGraphics::initialize(self.layer);
+        TEManagerGraphics::initialize(self.layer, mGame->mWidth, mGame->mHeight);
         mGame->start();
         mPreviousInterval = TEManagerTime::currentTime();
         CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];

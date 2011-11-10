@@ -4,6 +4,7 @@
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
 #include "TEManagerFile.h"
+#include "TEManagerGraphics.h"
 #include "TEUtilTexture.h"
 
 #import <QuartzCore/QuartzCore.h>
@@ -28,27 +29,29 @@ TERendererOGL2::TERendererOGL2(CALayer* layer) {
     
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mHeight);
-    
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
+    checkGlError("prior");
 	glDisable(GL_DEPTH_TEST);
+    checkGlError("prior");
 	glDisable(GL_DITHER);
-	glDisable(GL_LIGHTING);
+    checkGlError("prior");
     glEnable(GL_BLEND);
+    checkGlError("prior");
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    checkGlError("prior");
     glClearColor(0.2f, 1.0f, 0.2f, 1.0f);
     
     //always drawing textures...enable once
-    glEnable(GL_TEXTURE_2D);
     glViewport(0, 0, mWidth, mHeight);
 
     createPrograms();
+    switchProgram("texture");
 }
 
 void TERendererOGL2::createPrograms() {
     std::string vertexShader;
     std::string fragmentShader;
     int program;
-    
+    checkGlError("Prior");
     vertexShader = TEManagerFile::readFileContents("texture.vs");
     fragmentShader = TEManagerFile::readFileContents("texture.fs");
     program = createProgram("texture", vertexShader, fragmentShader);
@@ -75,25 +78,34 @@ void TERendererOGL2::render() {
         texture = primatives[i].texture;
         vec = primatives[i].position;
         glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
-        glPushMatrix();
-        glTranslatef(vec.x, vec.y, vec.z);
-        glTexCoordPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
-        glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
+        //glPushMatrix();
+        //glTranslatef(vec.x, vec.y, vec.z);
+        glVertexAttribPointer (0, 2, GL_FLOAT, false, 0, primatives[i].textureBuffer);
+        glVertexAttribPointer (0, 2, GL_FLOAT, false, 0, primatives[i].vertexBuffer);
+        //glVertexPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
+        //glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-        glPopMatrix();
+        //glPopMatrix();
+
     }
+    
     [mContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 
 int TERendererOGL2::createProgram(String programName, String vertexSource, String fragmentSource) {
     uint program = glCreateProgram();
+    //NSAssert(program != 0, @"Failed to create program");
+    checkGlError("created program");
     mPrograms[programName] = program;
     uint vertexShader = loadShader(GL_VERTEX_SHADER, vertexSource);
     glAttachShader(program, vertexShader);
+    checkGlError("attached shader");
     uint fragmentShader = loadShader(GL_FRAGMENT_SHADER, fragmentSource);
     glAttachShader(program, fragmentShader);
+    checkGlError("attached shader");
     glLinkProgram(program);
+    checkGlError("linked program");
     int linkStatus[1];
     glGetProgramiv(program, GL_LINK_STATUS, linkStatus);
     if (linkStatus[0] != GL_TRUE) {
@@ -116,10 +128,51 @@ void TERendererOGL2::addProgramAttribute(uint program, String attribute) {
 
 uint TERendererOGL2::loadShader(uint shaderType, String source) {
     uint shader = glCreateShader(shaderType);
+    if (shader == 0) {
+        NSLog(@"Big problem!");
+    }
     const char* str = source.c_str();
     int len = source.length();
-    glShaderSource(shader, 1, &str, &len);
+    glShaderSource(shader, 1, &str, NULL);
+    checkGlError("shader source");
     glCompileShader(shader);
+    checkGlError("compile source");
     return shader;
 }
 
+void TERendererOGL2::switchProgram(String programName) {
+    uint program = mPrograms[programName];
+    glUseProgram(program);
+    checkGlError("glUseProgram");
+    
+    if (mProgramAttributes.count(program) > 0) {
+        std::list<String> list = mProgramAttributes[program];
+        std::list<String>::iterator iterator;
+        for (iterator = list.begin();iterator != list.end();++iterator) {
+            uint positionHandle = TEManagerGraphics::getAttributeLocation(program, (*iterator));
+            glEnableVertexAttribArray(positionHandle);
+            checkGlError("glEnableVertexAttribArray");        		
+        }
+    }
+    
+    float* projectionMatrix = TEManagerGraphics::getProjectionMatrix();
+    float* viewMatrix = TEManagerGraphics::getViewMatrix();
+    
+    uint projectionHandle = TEManagerGraphics::getUniformLocation(program, "uProjectionMatrix");
+    glUniformMatrix4fv(projectionHandle, 1, false, projectionMatrix);
+    checkGlError("glUniformMatrix4fv");
+    
+    const uint viewHandle = TEManagerGraphics::getUniformLocation(program, "uViewMatrix");
+    glUniformMatrix4fv(viewHandle, 1, false, viewMatrix);
+    checkGlError("glUniformMatrix4fv");
+}
+
+void TERendererOGL2::checkGlError(String op) {
+    uint error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        if (error == GL_INVALID_ENUM) {
+            NSLog(@"Bad");
+        }
+        NSLog(@"Error!!");
+    }
+}

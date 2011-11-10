@@ -28,6 +28,8 @@ private:
     int createProgram(String programName, String vertexSource, String fragmentSource);
     void addProgramAttribute(uint program, String attribute);
     uint loadShader(uint shaderType, String source);
+    void switchProgram(String programName);
+    void checkGlError(String op);
 
 public:
     TERendererOGL2(CALayer* layer);

@@ -16,10 +16,14 @@ class TERenderer;
 
 class TEManagerGraphics {
 public:
-    static void initialize(CALayer* layer);
+    static void initialize(CALayer* layer, float width, float height);
     static void render();
     static void resetRenderer();
     static TERenderer* getRenderer();
+    static uint getAttributeLocation(uint program, String attribute);
+    static float* getProjectionMatrix();
+    static float* getViewMatrix();
+    static uint getUniformLocation(uint program, String uniform);
 };
 
 #endif
