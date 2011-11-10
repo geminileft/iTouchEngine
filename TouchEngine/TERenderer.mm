@@ -14,3 +14,11 @@ void TERenderer::reset() {
     glClear(GL_COLOR_BUFFER_BIT);
     mTop = 0;
 }
+
+TERenderPrimative* TERenderer::getRenderPrimatives() {
+    return mPrimatives;
+}
+
+uint TERenderer::getPrimativeCount() {
+    return mTop;
+}

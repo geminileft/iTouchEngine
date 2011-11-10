@@ -26,13 +26,6 @@ void RenderImage::update() {
 }
 
 void RenderImage::draw() {
-	glBindTexture(GL_TEXTURE_2D, mTexture->mTextureName);	
-    glPushMatrix();
-    glTranslatef(mParent->position.x, mParent->position.y, 0.0f);
-    glTexCoordPointer(2, GL_FLOAT, 0, mTexture->mTextureBuffer);
-    glVertexPointer(2, GL_FLOAT, 0, mTexture->mVertexBuffer);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    glPopMatrix();
 }
 
 void RenderImage::moveToTopListener() {

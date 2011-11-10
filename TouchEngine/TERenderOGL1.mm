@@ -7,11 +7,12 @@
 //
 
 #include "TERenderOGL1.h"
-#import <QuartzCore/QuartzCore.h>
+#include <QuartzCore/QuartzCore.h>
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+#include "TEUtilTexture.h"
 
 TERendererOGL1::TERendererOGL1(CALayer* layer) {
     mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
@@ -68,5 +69,22 @@ TERendererOGL1::TERendererOGL1(CALayer* layer) {
 }
 
 void TERendererOGL1::render() {
+    TERenderPrimative* primatives = getRenderPrimatives();
+    uint count = getPrimativeCount();
+    TEUtilTexture* texture;
+    TEVec3 vec;
+    for (int i = 0;i < count;++i) {
+        texture = primatives[i].texture;
+        vec = primatives[i].position;
+        glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
+        glPushMatrix();
+        glTranslatef(vec.x, vec.y, vec.z);
+        glTexCoordPointer(2, GL_FLOAT, 0, texture->mTextureBuffer);
+        glVertexPointer(2, GL_FLOAT, 0, texture->mVertexBuffer);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        glPopMatrix();
+    }
+
+
     [mContext presentRenderbuffer:GL_RENDERBUFFER];
 }

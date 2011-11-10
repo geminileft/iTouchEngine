@@ -32,6 +32,8 @@ public:
     virtual void render() = 0;
     void addTexture(TEUtilTexture* texture, TEVec3 position);
     void reset();
+    TERenderPrimative* getRenderPrimatives();
+    uint getPrimativeCount();
 };
 
 #endif
