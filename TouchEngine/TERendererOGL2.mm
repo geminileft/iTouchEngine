@@ -38,7 +38,8 @@ TERendererOGL2::TERendererOGL2(CALayer* layer) {
     
     //always drawing textures...enable once
     glEnable(GL_TEXTURE_2D);
-    
+    glViewport(0, 0, mWidth, mHeight);
+
     createPrograms();
 }
 

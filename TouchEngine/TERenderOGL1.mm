@@ -50,11 +50,12 @@ TERendererOGL1::TERendererOGL1(CALayer* layer) {
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     
+	glViewport(0, 0, mWidth, mHeight);
+
 	bool useOrtho = false;
 	const int scaleFactor = 1;
 	const int zDepth = mHeight / (2 / scaleFactor);
 	const float ratio = (float)mWidth / mHeight;
-	glViewport(0, 0, mWidth, mHeight);
 	glMatrixMode(GL_PROJECTION);
 	if (useOrtho) {
 		glOrthof(0.0f, mWidth, 0.0f, mHeight, 0.0f, 1.0f);

@@ -12,6 +12,7 @@
 #include "TETypes.h"
 
 class TEUtilTexture;
+class TERenderer;
 
 class TEManagerGraphics {
 public:
@@ -19,6 +20,7 @@ public:
     static void render();
     static void addTexture(TEUtilTexture* texture, float* vertexBuffer, float* textureBuffer, TEVec3 position);
     static void resetRenderer();
+    static TERenderer* getRenderer();
 };
 
 #endif

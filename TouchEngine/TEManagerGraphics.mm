@@ -35,3 +35,7 @@ void TEManagerGraphics::addTexture(TEUtilTexture* texture, float* vertexBuffer, 
 void TEManagerGraphics::resetRenderer() {
     mRenderer->reset();
 }
+
+TERenderer* TEManagerGraphics::getRenderer() {
+    return mRenderer;
+}

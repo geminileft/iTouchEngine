@@ -11,6 +11,11 @@ private:
 	int mCrop[4];
 	int mWidth;
 	int mHeight;
+    uint mProgram;
+    uint mCoordsHandle;
+    uint maPositionHandle;
+    uint maTextureHandle;
+
 
 public:
     RenderImage(NSString* resourceName, TEPoint position, TESize size);

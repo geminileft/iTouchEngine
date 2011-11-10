@@ -1,19 +1,16 @@
 #include "RenderImage.h"
 #include "TEManagerGraphics.h"
 
-RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {
+RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {    
+    /*
+    mCoordsHandle = TEManagerGraphics.getAttributeLocation(mProgram, "aCoords");
+    maPositionHandle = TEManagerGraphics.getAttributeLocation(mProgram, "aPosition");
+    maTextureHandle = TEManagerGraphics.getAttributeLocation(mProgram, "aTexture");
+     */
+    mTexture = new TEUtilTexture(resourceName, position, size);
 	TEEventListener<RenderImage>* moveToTopListener = new TEEventListener<RenderImage>(this, &RenderImage::moveToTopListener);
     addEventSubscription(EVENT_MOVE_TO_TOP, moveToTopListener);
-    mTexture = new TEUtilTexture(resourceName, position, size);
-    if (size.width == 0 && size.height == 0) {
-        size = mTexture->getBitmapSize();
-    }
-    mWidth = size.width;
-    mHeight = size.height;
-    mCrop[0] = 0;
-    mCrop[1] = mHeight;
-    mCrop[2] = mWidth;
-    mCrop[3] = -mHeight;
+
 }
 
 void RenderImage::update() {
