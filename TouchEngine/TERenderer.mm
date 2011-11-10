@@ -2,10 +2,12 @@
 
 TERenderer::TERenderer() : mTop(0) {}
 
-void TERenderer::addTexture(TEUtilTexture* texture, TEVec3 position) {
+void TERenderer::addTexture(TEUtilTexture* texture, float* vertexBuffer, float* textureBuffer, TEVec3 position) {
     TERenderPrimative rp;
     rp.texture = texture;
     rp.position = position;
+    rp.vertexBuffer = vertexBuffer;
+    rp.textureBuffer = textureBuffer;
     mPrimatives[mTop] = rp;
     ++mTop;
 }

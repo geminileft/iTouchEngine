@@ -79,8 +79,8 @@ void TERendererOGL1::render() {
         glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
         glPushMatrix();
         glTranslatef(vec.x, vec.y, vec.z);
-        glTexCoordPointer(2, GL_FLOAT, 0, texture->mTextureBuffer);
-        glVertexPointer(2, GL_FLOAT, 0, texture->mVertexBuffer);
+        glTexCoordPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
+        glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
         glPopMatrix();
     }

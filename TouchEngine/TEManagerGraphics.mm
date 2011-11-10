@@ -28,8 +28,8 @@ void initRenderer(CALayer* layer) {
     //mRenderer = new TERendererOGL2(layer);
 }
 
-void TEManagerGraphics::addTexture(TEUtilTexture* texture, TEVec3 position) {
-    mRenderer->addTexture(texture, position);
+void TEManagerGraphics::addTexture(TEUtilTexture* texture, float* vertexBuffer, float* textureBuffer, TEVec3 position) {
+    mRenderer->addTexture(texture, vertexBuffer, textureBuffer, position);
 }
 
 void TEManagerGraphics::resetRenderer() {

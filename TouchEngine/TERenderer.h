@@ -18,6 +18,8 @@ class TEUtilTexture;
 struct TERenderPrimative {
     TEUtilTexture* texture;
     TEVec3 position;
+    float* vertexBuffer;
+    float* textureBuffer;
 };
 
 typedef TERenderPrimative TERenderPrimative;
@@ -30,7 +32,7 @@ private:
 public:
     TERenderer();
     virtual void render() = 0;
-    void addTexture(TEUtilTexture* texture, TEVec3 position);
+    void addTexture(TEUtilTexture* texture, float* vertexBuffer, float* textureBuffer, TEVec3 position);
     void reset();
     TERenderPrimative* getRenderPrimatives();
     uint getPrimativeCount();

@@ -17,7 +17,7 @@ class TEManagerGraphics {
 public:
     static void initialize(CALayer* layer);
     static void render();
-    static void addTexture(TEUtilTexture* texture, TEVec3 position);
+    static void addTexture(TEUtilTexture* texture, float* vertexBuffer, float* textureBuffer, TEVec3 position);
     static void resetRenderer();
 };
 

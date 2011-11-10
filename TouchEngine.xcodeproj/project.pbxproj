@@ -16,11 +16,6 @@
 		8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */; };
 		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
 		8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */; };
-		8BE9F9ED146B3178007429F7 /* colorbox.fs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
-		8BE9F9EE146B3178007429F7 /* colorbox.vs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
-		8BE9F9EF146B3178007429F7 /* effectbox.vs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
-		8BE9F9F0146B3178007429F7 /* texture.fs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
-		8BE9F9F1146B3178007429F7 /* texture.vs in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */; };
 		F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFA13D1EE1B0041BF36 /* UIKit.framework */; };
 		F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFC13D1EE1B0041BF36 /* Foundation.framework */; };
@@ -704,11 +699,6 @@
 				8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */,
 				8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */,
 				8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */,
-				8BE9F9ED146B3178007429F7 /* colorbox.fs in Sources */,
-				8BE9F9EE146B3178007429F7 /* colorbox.vs in Sources */,
-				8BE9F9EF146B3178007429F7 /* effectbox.vs in Sources */,
-				8BE9F9F0146B3178007429F7 /* texture.fs in Sources */,
-				8BE9F9F1146B3178007429F7 /* texture.vs in Sources */,
 				8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
