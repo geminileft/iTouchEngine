@@ -17,8 +17,11 @@
 class TERendererOGL2 : public TERenderer {
 private:
     EAGLContext* mContext;
-    unsigned int mRenderBuffer;
-    unsigned int mFrameBuffer;
+    uint mRenderBuffer;
+    uint mFrameBuffer;
+    uint mCoordsHandle;
+    uint maPositionHandle;
+    uint maTextureHandle;
     int mWidth;
     int mHeight;
     std::map<String, uint> mPrograms;

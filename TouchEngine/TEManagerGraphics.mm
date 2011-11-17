@@ -29,8 +29,8 @@ void TEManagerGraphics::render() {
 }
 
 void initRenderer(CALayer* layer) {
-    //mRenderer = new TERendererOGL1(layer);
-    mRenderer = new TERendererOGL2(layer);
+    mRenderer = new TERendererOGL1(layer);
+    //mRenderer = new TERendererOGL2(layer);
 }
 
 void TEManagerGraphics::resetRenderer() {
@@ -49,21 +49,17 @@ uint TEManagerGraphics::getUniformLocation(uint program, String uniform) {
     return glGetUniformLocation(program, uniform.c_str());
 }
 
-float* TEManagerGraphics::getProjectionMatrix() {
-    float projectionMatrix[16];
+void TEManagerGraphics::getProjectionMatrix(float projectionMatrix[]) {
     float ratio = (float)mWidth / mHeight;
     TEUtilMatrix::setFrustrum(projectionMatrix, -ratio, ratio, -1, 1, 1, mHeight / 2);
-    return projectionMatrix;
 }
 
-float* TEManagerGraphics::getViewMatrix() {
-    float viewMatrix[16];
+void TEManagerGraphics::getViewMatrix(float viewMatrix[]) {
     if (true) {
         TEUtilMatrix::setIdentity(viewMatrix);
         TEUtilMatrix::setTranslate(viewMatrix, -mWidth / 2, -mHeight / 2, -mHeight / 2);
     } else {
         TEUtilMatrix::setLookAt(viewMatrix, 0, mHeight / 4, 0, 0, 0, 0, 0, 1, 0);
     }
-    return viewMatrix;
 }
 

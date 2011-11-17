@@ -4,6 +4,7 @@
 #include "TETypes.h"
 
 #include <string>
+#include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
@@ -15,7 +16,7 @@ private:
 	int mCropWidth;
 	int mCropHeight;
     
-    void GLUtexImage2D(CGImageRef cgImage);
+    void GLUtexImage2D(CGImageRef cgImage) const;
 
 public:
 	GLuint mTextureName;

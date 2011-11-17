@@ -68,7 +68,10 @@ TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize si
 	mVertexBuffer[6] = leftX;
 	mVertexBuffer[7] = topY;
 
-    GLUtexImage2D([image CGImage]);
+    CGImage* cImage = [image CGImage];
+    mBitmapWidth = CGImageGetWidth(cImage);
+    mBitmapHeight = CGImageGetHeight(cImage);
+    GLUtexImage2D(cImage);
 }
 
 TESize TEUtilTexture::getBitmapSize() const {
@@ -91,7 +94,7 @@ TESize TEUtilTexture::getCropSize() const {
     return size;
 }
 
-void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
+void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
     NSUInteger width;
     NSUInteger height;
     float i;
@@ -121,8 +124,6 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
     
     width = CGImageGetWidth(cgImage);
     height = CGImageGetHeight(cgImage);
-	mBitmapWidth = width;
-	mBitmapHeight = height;
     width = closestPowerOf2(mBitmapWidth);
     height = closestPowerOf2(mBitmapHeight);
     

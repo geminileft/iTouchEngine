@@ -80,11 +80,13 @@ void TERendererOGL2::render() {
         glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
         //glPushMatrix();
         //glTranslatef(vec.x, vec.y, vec.z);
-        glVertexAttribPointer (0, 2, GL_FLOAT, false, 0, primatives[i].textureBuffer);
-        glVertexAttribPointer (0, 2, GL_FLOAT, false, 0, primatives[i].vertexBuffer);
+        glVertexAttribPointer(maTextureHandle, 2, GL_FLOAT, false, 0, primatives[i].textureBuffer);
+        glVertexAttribPointer(maPositionHandle, 2, GL_FLOAT, false, 0, primatives[i].vertexBuffer);
         //glVertexPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
         //glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
+        glVertexAttrib2f(mCoordsHandle, vec.x, vec.y);
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        checkGlError("draw");
         //glPopMatrix();
 
     }
@@ -117,13 +119,9 @@ int TERendererOGL2::createProgram(String programName, String vertexSource, Strin
 }
 
 void TERendererOGL2::addProgramAttribute(uint program, String attribute) {
-    std::list<String> list;
-    if (mProgramAttributes.count(program) > 0) {
-        list = mProgramAttributes[program];
-    } else {
-        mProgramAttributes[program] = list;
-    }
+    std::list<String> list = mProgramAttributes[program];
     list.push_back(attribute);
+    mProgramAttributes[program] = list;
 }
 
 uint TERendererOGL2::loadShader(uint shaderType, String source) {
@@ -132,7 +130,6 @@ uint TERendererOGL2::loadShader(uint shaderType, String source) {
         NSLog(@"Big problem!");
     }
     const char* str = source.c_str();
-    int len = source.length();
     glShaderSource(shader, 1, &str, NULL);
     checkGlError("shader source");
     glCompileShader(shader);
@@ -155,8 +152,10 @@ void TERendererOGL2::switchProgram(String programName) {
         }
     }
     
-    float* projectionMatrix = TEManagerGraphics::getProjectionMatrix();
-    float* viewMatrix = TEManagerGraphics::getViewMatrix();
+    float projectionMatrix[16];
+    TEManagerGraphics::getProjectionMatrix(projectionMatrix);
+    float viewMatrix[16];
+    TEManagerGraphics::getViewMatrix(viewMatrix);
     
     uint projectionHandle = TEManagerGraphics::getUniformLocation(program, "uProjectionMatrix");
     glUniformMatrix4fv(projectionHandle, 1, false, projectionMatrix);
@@ -165,6 +164,10 @@ void TERendererOGL2::switchProgram(String programName) {
     const uint viewHandle = TEManagerGraphics::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(viewHandle, 1, false, viewMatrix);
     checkGlError("glUniformMatrix4fv");
+    
+    mCoordsHandle = TEManagerGraphics::getAttributeLocation(program, "aCoords");
+    maPositionHandle = TEManagerGraphics::getAttributeLocation(program, "aPosition");
+    maTextureHandle = TEManagerGraphics::getAttributeLocation(program, "aTexture");
 }
 
 void TERendererOGL2::checkGlError(String op) {
