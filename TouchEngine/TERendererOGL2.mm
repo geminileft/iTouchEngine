@@ -9,6 +9,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+static std::map<String, uint> mPrograms;
+
 TERendererOGL2::TERendererOGL2(CALayer* layer) {
     mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (!mContext)
@@ -146,7 +148,7 @@ void TERendererOGL2::switchProgram(String programName) {
         std::list<String> list = mProgramAttributes[program];
         std::list<String>::iterator iterator;
         for (iterator = list.begin();iterator != list.end();++iterator) {
-            uint positionHandle = TEManagerGraphics::getAttributeLocation(program, (*iterator));
+            uint positionHandle = getAttributeLocation(program, (*iterator));
             glEnableVertexAttribArray(positionHandle);
             checkGlError("glEnableVertexAttribArray");        		
         }
@@ -157,17 +159,17 @@ void TERendererOGL2::switchProgram(String programName) {
     float viewMatrix[16];
     TEManagerGraphics::getViewMatrix(viewMatrix);
     
-    uint projectionHandle = TEManagerGraphics::getUniformLocation(program, "uProjectionMatrix");
+    uint projectionHandle = getUniformLocation(program, "uProjectionMatrix");
     glUniformMatrix4fv(projectionHandle, 1, false, projectionMatrix);
     checkGlError("glUniformMatrix4fv");
     
-    const uint viewHandle = TEManagerGraphics::getUniformLocation(program, "uViewMatrix");
+    const uint viewHandle = getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(viewHandle, 1, false, viewMatrix);
     checkGlError("glUniformMatrix4fv");
     
-    mCoordsHandle = TEManagerGraphics::getAttributeLocation(program, "aCoords");
-    maPositionHandle = TEManagerGraphics::getAttributeLocation(program, "aPosition");
-    maTextureHandle = TEManagerGraphics::getAttributeLocation(program, "aTexture");
+    mCoordsHandle = getAttributeLocation(program, "aCoords");
+    maPositionHandle = getAttributeLocation(program, "aPosition");
+    maTextureHandle = getAttributeLocation(program, "aTexture");
 }
 
 void TERendererOGL2::checkGlError(String op) {
@@ -179,3 +181,12 @@ void TERendererOGL2::checkGlError(String op) {
         NSLog(@"Error!!");
     }
 }
+
+uint TERendererOGL2::getAttributeLocation(uint program, String attribute) {
+    return glGetAttribLocation(program, attribute.c_str());
+}
+
+uint TERendererOGL2::getUniformLocation(uint program, String uniform) {
+    return glGetUniformLocation(program, uniform.c_str());
+}
+

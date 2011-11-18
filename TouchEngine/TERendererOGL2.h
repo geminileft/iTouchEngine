@@ -24,11 +24,9 @@ private:
     uint maTextureHandle;
     int mWidth;
     int mHeight;
-    std::map<String, uint> mPrograms;
     std::map<uint, std::list<String> > mProgramAttributes;
     
     void createPrograms();
-    int createProgram(String programName, String vertexSource, String fragmentSource);
     void addProgramAttribute(uint program, String attribute);
     static uint loadShader(uint shaderType, String source);
     void switchProgram(String programName);
@@ -36,7 +34,10 @@ private:
 
 public:
     TERendererOGL2(CALayer* layer);
+    static int createProgram(String programName, String vertexSource, String fragmentSource);
     virtual void render();
+    static uint getAttributeLocation(uint program, String attribute);
+    static uint getUniformLocation(uint program, String uniform);
 };
 
 #endif

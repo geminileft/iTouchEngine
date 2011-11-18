@@ -20,10 +20,8 @@ public:
     static void render();
     static void resetRenderer();
     static TERenderer* getRenderer();
-    static uint getAttributeLocation(uint program, String attribute);
     static void getProjectionMatrix(float projectionMatrix[]);
     static void getViewMatrix(float viewMatrix[]);
-    static uint getUniformLocation(uint program, String uniform);
 };
 
 #endif

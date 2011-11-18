@@ -41,14 +41,6 @@ TERenderer* TEManagerGraphics::getRenderer() {
     return mRenderer;
 }
 
-uint TEManagerGraphics::getAttributeLocation(uint program, String attribute) {
-    return glGetAttribLocation(program, attribute.c_str());
-}
-
-uint TEManagerGraphics::getUniformLocation(uint program, String uniform) {
-    return glGetUniformLocation(program, uniform.c_str());
-}
-
 void TEManagerGraphics::getProjectionMatrix(float projectionMatrix[]) {
     float ratio = (float)mWidth / mHeight;
     TEUtilMatrix::setFrustrum(projectionMatrix, -ratio, ratio, -1, 1, 1, mHeight / 2);
