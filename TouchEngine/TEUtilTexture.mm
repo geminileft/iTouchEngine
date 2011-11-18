@@ -9,13 +9,6 @@
 #include "TEUtilTexture.h"
 #include "TEUtilsMath.h"
 
-typedef enum {
-	kTexture2DPixelFormat_Automatic = 0,
-	kTexture2DPixelFormat_RGBA8888,
-	kTexture2DPixelFormat_RGB565,
-	kTexture2DPixelFormat_A8,
-} Texture2DPixelFormat;
-
 TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize size) :
 	mBitmapWidth(0), mBitmapHeight(0) {
     UIImage* image = [UIImage imageNamed:resourceName];
@@ -88,7 +81,7 @@ TESize TEUtilTexture::getCropSize() const {
     return size;
 }
 
-uint TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
+uint TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) {
     NSUInteger width;
     NSUInteger height;
     float i;
@@ -119,8 +112,8 @@ uint TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
     
     width = CGImageGetWidth(cgImage);
     height = CGImageGetHeight(cgImage);
-    width = closestPowerOf2(mBitmapWidth);
-    height = closestPowerOf2(mBitmapHeight);
+    width = closestPowerOf2(width);
+    height = closestPowerOf2(height);
     
     switch(pixelFormat) {
         case kTexture2DPixelFormat_RGBA8888:
