@@ -1,7 +1,7 @@
 #ifndef EAGLVIEW
 #define EAGLVIEW
 
-#include "TEEngine.h"
+class TEEngine;
 
 @interface EAGLView : UIView {
 @private

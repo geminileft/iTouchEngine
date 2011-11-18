@@ -9,6 +9,7 @@
 #import "EAGLView.h"
 #import <QuartzCore/QuartzCore.h>
 
+#include "TEEngine.h"
 #include "TEInputTouch.h"
 #include "TEManagerInput.h"
 #include "TEManagerTime.h"
