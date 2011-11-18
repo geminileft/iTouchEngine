@@ -7,7 +7,6 @@
 //
 
 #ifndef FREECELLGAME
-
 #define FREECELLGAME
 
 #define START_X 28

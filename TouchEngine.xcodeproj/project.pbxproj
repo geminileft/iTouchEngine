@@ -14,7 +14,7 @@
 		8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
 		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE31C1146B4296003BEDA3 /* TERenderer.mm */; };
-		8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFFE991475D50D00F2DFDE /* TEManagerTexture.cpp */; };
+		8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */; };
 		8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */; };
 		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
 		8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */; };
@@ -127,7 +127,7 @@
 		8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEUtilMatrix.cpp; sourceTree = "<group>"; };
 		8BCE31C1146B4296003BEDA3 /* TERenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderer.mm; sourceTree = "<group>"; };
 		8BCFFE971475D4F700F2DFDE /* TEManagerTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTexture.h; sourceTree = "<group>"; };
-		8BCFFE991475D50D00F2DFDE /* TEManagerTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEManagerTexture.cpp; sourceTree = "<group>"; };
+		8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerTexture.mm; sourceTree = "<group>"; };
 		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
 		8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderOGL1.mm; sourceTree = "<group>"; };
 		8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderOGL1.h; sourceTree = "<group>"; };
@@ -388,8 +388,8 @@
 			children = (
 				F7C7F0E213D2369C0061A219 /* FreeCellGame.h */,
 				F7C7F0E113D2369C0061A219 /* FreeCellGame.mm */,
-				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
 				F795ECA913D274A500550919 /* FreeCellGameObjectFactory.h */,
+				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
 				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
 				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
 			);
@@ -520,8 +520,8 @@
 				F77395FA13E882040099FD29 /* TEManagerSound.mm */,
 				F7FC1AC813D50FD5003A7211 /* TEManagerStack.cpp */,
 				F7FC1AC913D50FD5003A7211 /* TEManagerStack.h */,
-				8BCFFE991475D50D00F2DFDE /* TEManagerTexture.cpp */,
 				8BCFFE971475D4F700F2DFDE /* TEManagerTexture.h */,
+				8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */,
 				F7A9AD2A13E61CC20053B95A /* TEManagerTime.cpp */,
 				F7A9AD2B13E61CC20053B95A /* TEManagerTime.h */,
 				F7F1621813D292D400A34457 /* TEManagerTouch.cpp */,
@@ -711,7 +711,7 @@
 				8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */,
 				8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */,
 				8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */,
-				8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.cpp in Sources */,
+				8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,8 +16,6 @@ private:
 	int mCropWidth;
 	int mCropHeight;
     
-    static uint GLUtexImage2D(CGImageRef cgImage);
-
 public:
 	uint mTextureName;
 	float mTextureBuffer[8];

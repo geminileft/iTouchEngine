@@ -6,6 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#ifndef TOUCHENGINEAPPDELEGATE
+#define TOUCHENGINEAPPDELEGATE
+
 #import <UIKit/UIKit.h>
 
 #include "FreeCellGame.h"
@@ -19,3 +22,5 @@
 }
 
 @end
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef EAGLVIEW
+#define EAGLVIEW
+
 #include "TEEngine.h"
 
 @interface EAGLView : UIView {
@@ -9,3 +12,5 @@
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game;
 
 @end
+
+#endif
