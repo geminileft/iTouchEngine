@@ -18,12 +18,6 @@ typedef enum {
 
 TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize size) :
 	mBitmapWidth(0), mBitmapHeight(0) {
-    glGenTextures(1, &mTextureName);
-    glBindTexture(GL_TEXTURE_2D, mTextureName);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);    
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     UIImage* image = [UIImage imageNamed:resourceName];
 
 	float left;
@@ -71,7 +65,7 @@ TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize si
     CGImage* cImage = [image CGImage];
     mBitmapWidth = CGImageGetWidth(cImage);
     mBitmapHeight = CGImageGetHeight(cImage);
-    GLUtexImage2D(cImage);
+    mTextureName = GLUtexImage2D(cImage);
 }
 
 TESize TEUtilTexture::getBitmapSize() const {
@@ -94,7 +88,7 @@ TESize TEUtilTexture::getCropSize() const {
     return size;
 }
 
-void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
+uint TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
     NSUInteger width;
     NSUInteger height;
     float i;
@@ -107,6 +101,7 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
     BOOL					hasAlpha;
     CGImageAlphaInfo		info;
     Texture2DPixelFormat    pixelFormat;
+    
     
     info = CGImageGetAlphaInfo(cgImage);
     hasAlpha = ((info == kCGImageAlphaPremultipliedLast)
@@ -164,6 +159,14 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
         
     }
 	
+    uint texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);    
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
     switch(pixelFormat) {
             
         case kTexture2DPixelFormat_RGBA8888:
@@ -179,4 +182,5 @@ void TEUtilTexture::GLUtexImage2D(CGImageRef cgImage) const {
             [NSException raise:NSInternalInconsistencyException format:@""];
     }
 	free(data);
+    return texture;
 }

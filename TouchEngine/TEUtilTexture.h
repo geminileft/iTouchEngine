@@ -16,10 +16,10 @@ private:
 	int mCropWidth;
 	int mCropHeight;
     
-    void GLUtexImage2D(CGImageRef cgImage) const;
+    uint GLUtexImage2D(CGImageRef cgImage) const;
 
 public:
-	GLuint mTextureName;
+	uint mTextureName;
 	float mTextureBuffer[8];
 	float mVertexBuffer[8];
 	TEUtilTexture(NSString* resourceName, TEPoint position, TESize size);
