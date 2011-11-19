@@ -219,7 +219,6 @@
 		F74E05F313D3FA72006DDA9C /* club_five.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club_five.png; sourceTree = "<group>"; };
 		F74E05F413D3FA72006DDA9C /* club_eight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club_eight.png; sourceTree = "<group>"; };
 		F74E05F513D3FA72006DDA9C /* club_ace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club_ace.png; sourceTree = "<group>"; };
-		F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilsMath.h; sourceTree = "<group>"; };
 		F761D42B13D3C4C000ED12F9 /* free_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = free_cell.png; sourceTree = "<group>"; };
 		F763053813E9F5DD0015334E /* shuffle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shuffle.caf; sourceTree = "<group>"; };
 		F763053E13E9FE8B0015334E /* TEComponentSound.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEComponentSound.mm; sourceTree = "<group>"; };
@@ -543,7 +542,6 @@
 				F795ECAB13D27DF800550919 /* TETypes.h */,
 				8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */,
 				8B566BC6146B9A520088C712 /* TEUtilMatrix.h */,
-				F761D41313D3A2DF00ED12F9 /* TEUtilsMath.h */,
 				F7F1622613D2A94B00A34457 /* TEUtilTexture.h */,
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,

@@ -7,7 +7,6 @@
 //
 
 #include "TEUtilTexture.h"
-#include "TEUtilsMath.h"
 #include "TEManagerTexture.h"
 
 TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize size) :

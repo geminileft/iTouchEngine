@@ -1,5 +1,13 @@
 #include "TEManagerTexture.h"
 
+typedef enum {
+	kTexture2DPixelFormat_Automatic = 0,
+	kTexture2DPixelFormat_RGBA8888,
+	kTexture2DPixelFormat_RGB565,
+	kTexture2DPixelFormat_A8,
+} Texture2DPixelFormat;
+
+
 uint TEManagerTexture::GLUtexImage2D(CGImageRef cgImage) {
     NSUInteger width;
     NSUInteger height;
@@ -94,4 +102,12 @@ uint TEManagerTexture::GLUtexImage2D(CGImageRef cgImage) {
     }
     free(data);
     return texture;
+}
+
+int TEManagerTexture::closestPowerOf2(int n) {
+    const int MAX_TEXTURE_SIZE = 1024;
+    int c = 1;
+    while (c < n && c < MAX_TEXTURE_SIZE)
+        c <<= 1;
+    return c;
 }
