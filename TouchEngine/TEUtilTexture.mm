@@ -11,9 +11,9 @@
 #include "TEManagerTexture.h"
 
 TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize size) :
-	mBitmapWidth(0), mBitmapHeight(0) {
+mBitmapWidth(0), mBitmapHeight(0) {
     UIImage* image = [UIImage imageNamed:resourceName];
-
+    
 	float left;
 	if (position.x != 0 || position.y != 0) {
 		left = position.x / size.width;
@@ -41,7 +41,7 @@ TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize si
 	mTextureBuffer[5] = 0.0f;//bottom
 	mTextureBuffer[6] = left;//left
 	mTextureBuffer[7] = 0.0f;//bottom
-
+    
 	const float leftX = -(float)width / 2;
 	const float rightX = leftX + width;
 	const float bottomY = -(float)height / 2;
@@ -55,7 +55,7 @@ TEUtilTexture::TEUtilTexture(NSString* resourceName, TEPoint position, TESize si
 	mVertexBuffer[5] = topY;
 	mVertexBuffer[6] = leftX;
 	mVertexBuffer[7] = topY;
-
+    
     CGImage* cImage = [image CGImage];
     mBitmapWidth = CGImageGetWidth(cImage);
     mBitmapHeight = CGImageGetHeight(cImage);
