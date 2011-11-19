@@ -29,8 +29,8 @@ void TEManagerGraphics::render() {
 }
 
 void initRenderer(CALayer* layer) {
-    //mRenderer = new TERendererOGL1(layer);
-    mRenderer = new TERendererOGL2(layer);
+    mRenderer = new TERendererOGL1(layer);
+    //mRenderer = new TERendererOGL2(layer);
 }
 
 void TEManagerGraphics::resetRenderer() {
