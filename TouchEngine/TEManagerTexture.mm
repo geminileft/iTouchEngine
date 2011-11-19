@@ -13,27 +13,26 @@ uint TEManagerTexture::GLUtexImage2D(CGImageRef cgImage) {
     BOOL					hasAlpha;
     CGImageAlphaInfo		info;
     Texture2DPixelFormat    pixelFormat;
-
-
+    
     info = CGImageGetAlphaInfo(cgImage);
     hasAlpha = ((info == kCGImageAlphaPremultipliedLast)
                 || (info == kCGImageAlphaPremultipliedFirst)
                 || (info == kCGImageAlphaLast)
                 || (info == kCGImageAlphaFirst));
-
+    
     if(CGImageGetColorSpace(cgImage)) {
         if(hasAlpha)
             pixelFormat = kTexture2DPixelFormat_RGBA8888;
-            else
-                pixelFormat = kTexture2DPixelFormat_RGB565;
-                } else  //NOTE: No colorspace means a mask image
-    pixelFormat = kTexture2DPixelFormat_A8;
-
+        else
+            pixelFormat = kTexture2DPixelFormat_RGB565;
+    } else  //NOTE: No colorspace means a mask image
+        pixelFormat = kTexture2DPixelFormat_A8;
+    
     width = CGImageGetWidth(cgImage);
     height = CGImageGetHeight(cgImage);
     width = closestPowerOf2(width);
     height = closestPowerOf2(height);
-
+    
     switch(pixelFormat) {
         case kTexture2DPixelFormat_RGBA8888:
             colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -57,7 +56,7 @@ uint TEManagerTexture::GLUtexImage2D(CGImageRef cgImage) {
         default:
             [NSException raise:NSInternalInconsistencyException format:@"Invalid pixel format"];
     }
-
+    
     CGContextClearRect(context, CGRectMake(0, 0, width, height));
     CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage)), cgImage);
     if(pixelFormat == kTexture2DPixelFormat_RGB565) {
@@ -66,11 +65,11 @@ uint TEManagerTexture::GLUtexImage2D(CGImageRef cgImage) {
         outPixel16 = (unsigned short*)tempData;
         for(i = 0; i < width * height; ++i, ++inPixel32)
             *outPixel16++ = ((((*inPixel32 >> 0) & 0xFF) >> 3) << 11) | ((((*inPixel32 >> 8) & 0xFF) >> 2) << 5) | ((((*inPixel32 >> 16) & 0xFF) >> 3) << 0);
-            free(data);
-            data = tempData;
-            
-            }
-
+        free(data);
+        data = tempData;
+        
+    }
+    
     uint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -78,7 +77,7 @@ uint TEManagerTexture::GLUtexImage2D(CGImageRef cgImage) {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);    
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
+    
     switch(pixelFormat) {
             
         case kTexture2DPixelFormat_RGBA8888:
