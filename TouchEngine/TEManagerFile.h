@@ -12,7 +12,7 @@
 #include "TETypes.h"
 
 class TEManagerFile {
-
+    
 public:
     static String readFileContents(String filename);
 };
