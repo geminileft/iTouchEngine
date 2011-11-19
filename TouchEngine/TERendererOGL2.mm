@@ -97,41 +97,31 @@ void TERendererOGL2::renderTexture() {
     uint program = switchProgram("texture");
     
     const GLfloat squareVertices[] = {
-        -0.5f, -0.5f,
-        0.5f,  -0.5f,
-        -0.5f,  0.5f,
-        0.5f,   0.5f,
+        -0.5f, -0.5f,   //BL
+        0.5f,  -0.5f,   //BR
+        -0.5f,  0.5f,   //TL
+        0.5f,   0.5f,   //TR
     };
-
+    
+    const GLfloat crop[] = {
+        0.0f, 1.0f,   //BL
+        1.0f, 1.0f,   //BR
+        0.0f, 0.0f,   //TL
+        1.0f, 0.0f,   //TR
+    };
+        
     //TERenderPrimative* primatives = getRenderPrimatives();
     //uint count = getPrimativeCount();
     
-    glBindTexture(GL_TEXTURE_2D, mTexture);
     uint maPositionHandle = TERendererOGL2::getAttributeLocation(program, "aPosition");
+    uint maTextureHandle = TERendererOGL2::getAttributeLocation(program, "aTexture");
+    uint mCoordsHandle = TERendererOGL2::getAttributeLocation(program, "aCoords");
+
+    glBindTexture(GL_TEXTURE_2D, mTexture);
 	glVertexAttribPointer(maPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
-    /*
-    if (mCropHash != mLastCropHash) {
-        GLES20.glVertexAttribPointer(maTextureHandle, 2, GLES20.GL_FLOAT, false, 0, mCropBuffer);
-        mLastCropHash = mCropHash;
-    }
-    GLES20.glVertexAttrib2f(mCoordsHandle, mX, mY);
-    GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
-    */
-/*
-    TEUtilTexture* texture;
-    TEVec3 vec;
-    for (int i = 0;i < count;++i) {
-        texture = primatives[i].texture;
-        vec = primatives[i].position;
-        glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
-        glPushMatrix();
-        glTranslatef(vec.x, vec.y, vec.z);
-        glTexCoordPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
-        glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-        glPopMatrix();
-    }
-     */
+	glVertexAttribPointer(maTextureHandle, 2, GL_FLOAT, GL_FALSE, 0, crop);
+    glVertexAttrib2f(mCoordsHandle, 0.0f, 0.0f);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 int TERendererOGL2::createProgram(String programName, String vertexSource, String fragmentSource) {
