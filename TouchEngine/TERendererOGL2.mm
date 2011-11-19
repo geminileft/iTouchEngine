@@ -61,6 +61,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
 }
 
 void TERendererOGL2::render() {
+    glClear(GL_COLOR_BUFFER_BIT);
     renderBasic();
     renderTexture();
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
@@ -83,7 +84,6 @@ void TERendererOGL2::renderBasic() {
         1, 0, 1, 1,
     };
     
-    glClear(GL_COLOR_BUFFER_BIT);
     int m_a_colorHandle = TERendererOGL2::getAttributeLocation(program, "a_color");	
     int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_position");
     
@@ -109,14 +109,14 @@ void TERendererOGL2::renderTexture() {
         0.0f, 0.0f,   //TL
         1.0f, 0.0f,   //TR
     };
-        
+    
     //TERenderPrimative* primatives = getRenderPrimatives();
     //uint count = getPrimativeCount();
     
     uint maPositionHandle = TERendererOGL2::getAttributeLocation(program, "aPosition");
     uint maTextureHandle = TERendererOGL2::getAttributeLocation(program, "aTexture");
     uint mCoordsHandle = TERendererOGL2::getAttributeLocation(program, "aCoords");
-
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, mTexture);
 	glVertexAttribPointer(maPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
 	glVertexAttribPointer(maTextureHandle, 2, GL_FLOAT, GL_FALSE, 0, crop);
