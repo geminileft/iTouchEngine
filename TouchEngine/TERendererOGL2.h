@@ -25,6 +25,7 @@ private:
     uint maTextureHandle;
     int mWidth;
     int mHeight;
+    uint mTexture;
     std::map<uint, std::list<String> > mProgramAttributes;
     
     void addProgramAttribute(uint program, String attribute);

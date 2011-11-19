@@ -6,6 +6,7 @@
 #include <OpenGLES/ES2/glext.h>
 #include "TEManagerFile.h"
 #include "TEManagerGraphics.h"
+#include "TEManagerTexture.h"
 #include "TEUtilTexture.h"
 #include "TEUtilMatrix.h"
 
@@ -43,6 +44,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
     
+    //mTexture = TEManagerTexture
     String vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
     String fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
     int program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
@@ -52,6 +54,10 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     vertexSource = TEManagerFile::readFileContents("texture.vs");
     fragmentSource = TEManagerFile::readFileContents("texture.fs");
     program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
+    
+    UIImage* image = [UIImage imageNamed:@"table_background.png"];
+    CGImage* cImage = [image CGImage];
+    mTexture = TEManagerTexture::GLUtexImage2D(cImage);
 }
 
 void TERendererOGL2::render() {
@@ -88,7 +94,44 @@ void TERendererOGL2::renderBasic() {
 }
 
 void TERendererOGL2::renderTexture() {
-    //uint program = switchProgram("basic");
+    uint program = switchProgram("texture");
+    
+    const GLfloat squareVertices[] = {
+        -0.5f, -0.5f,
+        0.5f,  -0.5f,
+        -0.5f,  0.5f,
+        0.5f,   0.5f,
+    };
+
+    //TERenderPrimative* primatives = getRenderPrimatives();
+    //uint count = getPrimativeCount();
+    
+    glBindTexture(GL_TEXTURE_2D, mTexture);
+    uint maPositionHandle = TERendererOGL2::getAttributeLocation(program, "aPosition");
+	glVertexAttribPointer(maPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
+    /*
+    if (mCropHash != mLastCropHash) {
+        GLES20.glVertexAttribPointer(maTextureHandle, 2, GLES20.GL_FLOAT, false, 0, mCropBuffer);
+        mLastCropHash = mCropHash;
+    }
+    GLES20.glVertexAttrib2f(mCoordsHandle, mX, mY);
+    GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
+    */
+/*
+    TEUtilTexture* texture;
+    TEVec3 vec;
+    for (int i = 0;i < count;++i) {
+        texture = primatives[i].texture;
+        vec = primatives[i].position;
+        glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
+        glPushMatrix();
+        glTranslatef(vec.x, vec.y, vec.z);
+        glTexCoordPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
+        glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        glPopMatrix();
+    }
+     */
 }
 
 int TERendererOGL2::createProgram(String programName, String vertexSource, String fragmentSource) {
