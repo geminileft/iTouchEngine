@@ -1,4 +1,5 @@
 #include "TERendererOGL2.h"
+#import <QuartzCore/QuartzCore.h>
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
@@ -6,94 +7,85 @@
 #include "TEManagerFile.h"
 #include "TEManagerGraphics.h"
 #include "TEUtilTexture.h"
+#include "TEUtilMatrix.h"
 
-#import <QuartzCore/QuartzCore.h>
 
 static std::map<String, uint> mPrograms;
 
-TERendererOGL2::TERendererOGL2(CALayer* layer) {
+TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
+    // Make sure this is the right version!
     mContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    if (!mContext)
-        NSLog(@"Failed to create ES context");
-    else if (![EAGLContext setCurrentContext:mContext])
-        NSLog(@"Failed to set ES context current");
+    if (!mContext || ![EAGLContext setCurrentContext:mContext]) {
+    }
     
-    glGenRenderbuffers(1, &mRenderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, mRenderBuffer);
-    [mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)layer];
+    glGenFramebuffersOES(1, &mFrameBuffer);
+    glGenRenderbuffersOES(1, &mRenderBuffer);
     
-    glGenFramebuffers(1, &mFrameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mRenderBuffer);
-    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-        NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));        
-    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);
+    glBindFramebufferOES(GL_FRAMEBUFFER_OES, mFrameBuffer);
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
+    [mContext renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:(CAEAGLLayer*)eaglLayer];
+    glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, mRenderBuffer);
     
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &mWidth);
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &mHeight);
-    checkGlError("prior");
-	glDisable(GL_DEPTH_TEST);
-    checkGlError("prior");
-	glDisable(GL_DITHER);
-    checkGlError("prior");
+    int backingWidth, backingHeight;
+    
+    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
+    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
+    
+    if(glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
+    }
+    
+    glBindFramebufferOES(GL_FRAMEBUFFER_OES, mFrameBuffer);
+    [EAGLContext setCurrentContext:mContext];
+    
+    glViewport(0, 0, backingWidth, backingHeight);
+    String vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
+    String fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
+    
+    mProgram = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
+    
+    glUseProgram(mProgram);
+    
+    float proj[16];
+    float view[16];
+    TEUtilMatrix::setFrustrum(proj, -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 2.0f);
+    TEUtilMatrix::setIdentity(view);
+    TEUtilMatrix::setTranslate(view, 0, 0, -1.0f);
+    uint mProjHandle  = TERendererOGL2::getUniformLocation(mProgram, "uProjMatrix");
+    uint mViewHandle = TERendererOGL2::getUniformLocation(mProgram, "uViewMatrix");
+    glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
+    glUniformMatrix4fv(mViewHandle, 1, GL_FALSE, &view[0]);
+    
     glEnable(GL_BLEND);
-    checkGlError("prior");
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    checkGlError("prior");
-    glClearColor(0.2f, 1.0f, 0.2f, 1.0f);
-    
-    //always drawing textures...enable once
-    glViewport(0, 0, mWidth, mHeight);
-
-    createPrograms();
-    switchProgram("texture");
-}
-
-void TERendererOGL2::createPrograms() {
-    std::string vertexShader;
-    std::string fragmentShader;
-    int program;
-    checkGlError("Prior");
-    vertexShader = TEManagerFile::readFileContents("texture.vs");
-    fragmentShader = TEManagerFile::readFileContents("texture.fs");
-    program = createProgram("texture", vertexShader, fragmentShader);
-    addProgramAttribute(program, "aPosition");
-    addProgramAttribute(program, "aTexture");
-    
-    vertexShader = TEManagerFile::readFileContents("colorbox.vs");
-    fragmentShader = TEManagerFile::readFileContents("colorbox.fs");
-    program = createProgram("colorbox", vertexShader, fragmentShader);
-    addProgramAttribute(program, "vertices");
-    
-    vertexShader = TEManagerFile::readFileContents("effectbox.vs");
-    fragmentShader = TEManagerFile::readFileContents("colorbox.fs");
-    program = createProgram("effectbox", vertexShader, fragmentShader);
-    addProgramAttribute(program, "vertices");
+    glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 }
 
 void TERendererOGL2::render() {
-    TERenderPrimative* primatives = getRenderPrimatives();
-    uint count = getPrimativeCount();
-    TEUtilTexture* texture;
-    TEVec3 vec;
-    for (int i = 0;i < count;++i) {
-        texture = primatives[i].texture;
-        vec = primatives[i].position;
-        glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
-        //glPushMatrix();
-        //glTranslatef(vec.x, vec.y, vec.z);
-        glVertexAttribPointer(maTextureHandle, 2, GL_FLOAT, false, 0, primatives[i].textureBuffer);
-        glVertexAttribPointer(maPositionHandle, 2, GL_FLOAT, false, 0, primatives[i].vertexBuffer);
-        //glVertexPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
-        //glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
-        glVertexAttrib2f(mCoordsHandle, vec.x, vec.y);
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-        checkGlError("draw");
-        //glPopMatrix();
-
-    }
+    const GLfloat squareVertices[] = {
+        -0.5f, -0.5f,
+        0.5f,  -0.5f,
+        -0.5f,  0.5f,
+        0.5f,   0.5f,
+    };
+    const GLfloat squareColors[] = {
+        1, 1, 0, 1,
+        0, 1, 1, 1,
+        0, 0, 0, 1,
+        1, 0, 1, 1,
+    };
     
-    [mContext presentRenderbuffer:GL_RENDERBUFFER];
+    glClear(GL_COLOR_BUFFER_BIT);
+    int m_a_colorHandle = TERendererOGL2::getAttributeLocation(mProgram, "a_color");	
+    int m_a_positionHandle = TERendererOGL2::getAttributeLocation(mProgram, "a_position");
+    
+	glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
+	glEnableVertexAttribArray(m_a_positionHandle);
+	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
+	glEnableVertexAttribArray(m_a_colorHandle);
+    
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
+    [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
 

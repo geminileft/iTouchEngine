@@ -13,6 +13,7 @@
 #include "TETypes.h"
 #include <map>
 #include <list>
+#import <QuartzCore/QuartzCore.h>
 
 class TERendererOGL2 : public TERenderer {
 private:
@@ -22,20 +23,20 @@ private:
     uint mCoordsHandle;
     uint maPositionHandle;
     uint maTextureHandle;
+    uint mProgram;
     int mWidth;
     int mHeight;
     std::map<uint, std::list<String> > mProgramAttributes;
     
-    void createPrograms();
     void addProgramAttribute(uint program, String attribute);
-    static uint loadShader(uint shaderType, String source);
     void switchProgram(String programName);
     static void checkGlError(String op);
-
+    
 public:
-    TERendererOGL2(CALayer* layer);
-    static int createProgram(String programName, String vertexSource, String fragmentSource);
+    TERendererOGL2(CALayer* eaglLayer);
     virtual void render();
+    static uint loadShader(uint shaderType, String source);
+    static int createProgram(String programName, String vertexSource, String fragmentSource);
     static uint getAttributeLocation(uint program, String attribute);
     static uint getUniformLocation(uint program, String uniform);
 };
