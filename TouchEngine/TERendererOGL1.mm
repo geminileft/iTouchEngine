@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "TERenderOGL1.h"
+#include "TERendererOGL1.h"
 #include <QuartzCore/QuartzCore.h>
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>

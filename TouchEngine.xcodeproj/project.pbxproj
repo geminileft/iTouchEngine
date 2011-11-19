@@ -15,7 +15,7 @@
 		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE31C1146B4296003BEDA3 /* TERenderer.mm */; };
 		8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */; };
-		8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */; };
+		8BE9F9D9146B01DB007429F7 /* TERendererOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */; };
 		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
 		8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */; };
 		8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */; };
@@ -129,8 +129,8 @@
 		8BCFFE971475D4F700F2DFDE /* TEManagerTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTexture.h; sourceTree = "<group>"; };
 		8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerTexture.mm; sourceTree = "<group>"; };
 		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
-		8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderOGL1.mm; sourceTree = "<group>"; };
-		8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderOGL1.h; sourceTree = "<group>"; };
+		8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERendererOGL1.mm; sourceTree = "<group>"; };
+		8BE9F9DA146B01EC007429F7 /* TERendererOGL1.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TERendererOGL1.h; sourceTree = "<group>"; };
 		8BE9F9DD146B0B5D007429F7 /* TERendererOGL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERendererOGL2.h; sourceTree = "<group>"; };
 		8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERendererOGL2.mm; sourceTree = "<group>"; };
 		8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerFile.mm; sourceTree = "<group>"; };
@@ -532,8 +532,8 @@
 				8BCE31C1146B4296003BEDA3 /* TERenderer.mm */,
 				8BE9F9DD146B0B5D007429F7 /* TERendererOGL2.h */,
 				8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */,
-				8BE9F9DA146B01EC007429F7 /* TERenderOGL1.h */,
-				8BE9F9D8146B01DA007429F7 /* TERenderOGL1.mm */,
+				8BE9F9DA146B01EC007429F7 /* TERendererOGL1.h */,
+				8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */,
 				F795ECAB13D27DF800550919 /* TETypes.h */,
 				8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */,
 				8B566BC6146B9A520088C712 /* TEUtilMatrix.h */,
@@ -706,7 +706,7 @@
 				F763053F13E9FE8B0015334E /* TEComponentSound.mm in Sources */,
 				F7F141F713EF70BB000B9A54 /* RenderMenu.mm in Sources */,
 				8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */,
-				8BE9F9D9146B01DB007429F7 /* TERenderOGL1.mm in Sources */,
+				8BE9F9D9146B01DB007429F7 /* TERendererOGL1.mm in Sources */,
 				8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */,
 				8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */,
 				8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */,

@@ -8,7 +8,7 @@
 
 #include "TEManagerGraphics.h"
 #include "TERenderer.h"
-#include "TERenderOGL1.h"
+#include "TERendererOGL1.h"
 #include "TERendererOGL2.h"
 #include "TEUtilMatrix.h"
 
