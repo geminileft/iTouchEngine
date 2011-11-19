@@ -21,6 +21,6 @@ TERenderPrimative* TERenderer::getRenderPrimatives() {
     return mPrimatives;
 }
 
-uint TERenderer::getPrimativeCount() {
+uint TERenderer::getPrimativeCount() const {
     return mTop;
 }

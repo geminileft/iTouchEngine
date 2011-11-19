@@ -35,7 +35,7 @@ public:
     void addTexture(TEUtilTexture* texture, float* vertexBuffer, float* textureBuffer, TEVec3 position);
     void reset();
     TERenderPrimative* getRenderPrimatives();
-    uint getPrimativeCount();
+    uint getPrimativeCount() const;
 };
 
 #endif
