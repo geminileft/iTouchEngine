@@ -32,6 +32,7 @@ private:
     static void checkGlError(String op);
     
     void renderBasic();
+    void renderTexture();
     
 public:
     TERendererOGL2(CALayer* eaglLayer);
