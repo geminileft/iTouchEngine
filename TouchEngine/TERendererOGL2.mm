@@ -38,29 +38,27 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     [EAGLContext setCurrentContext:mContext];
     
     glViewport(0, 0, backingWidth, backingHeight);
-    String vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
-    String fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
-    
-    mProgram = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    
-    glUseProgram(mProgram);
-    
-    float proj[16];
-    float view[16];
-    TEUtilMatrix::setFrustrum(proj, -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 2.0f);
-    TEUtilMatrix::setIdentity(view);
-    TEUtilMatrix::setTranslate(view, 0, 0, -1.0f);
-    uint mProjHandle  = TERendererOGL2::getUniformLocation(mProgram, "uProjMatrix");
-    uint mViewHandle = TERendererOGL2::getUniformLocation(mProgram, "uViewMatrix");
-    glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
-    glUniformMatrix4fv(mViewHandle, 1, GL_FALSE, &view[0]);
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+    
+    String vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
+    String fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
+    mProgram = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
+    addProgramAttribute(mProgram, "a_color");
+    addProgramAttribute(mProgram, "a_position");
 }
 
 void TERendererOGL2::render() {
+    renderBasic();
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
+    [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
+}
+
+void TERendererOGL2::renderBasic() {
+    switchProgram("basic");
+    
     const GLfloat squareVertices[] = {
         -0.5f, -0.5f,
         0.5f,  -0.5f,
@@ -79,13 +77,9 @@ void TERendererOGL2::render() {
     int m_a_positionHandle = TERendererOGL2::getAttributeLocation(mProgram, "a_position");
     
 	glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
-	glEnableVertexAttribArray(m_a_positionHandle);
 	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
-	glEnableVertexAttribArray(m_a_colorHandle);
     
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
-    [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);    
 }
 
 
@@ -140,28 +134,21 @@ void TERendererOGL2::switchProgram(String programName) {
         std::list<String> list = mProgramAttributes[program];
         std::list<String>::iterator iterator;
         for (iterator = list.begin();iterator != list.end();++iterator) {
-            uint positionHandle = getAttributeLocation(program, (*iterator));
-            glEnableVertexAttribArray(positionHandle);
+            uint handle = getAttributeLocation(program, (*iterator));
+            glEnableVertexAttribArray(handle);
             checkGlError("glEnableVertexAttribArray");        		
         }
     }
     
-    float projectionMatrix[16];
-    TEManagerGraphics::getProjectionMatrix(projectionMatrix);
-    float viewMatrix[16];
-    TEManagerGraphics::getViewMatrix(viewMatrix);
-    
-    uint projectionHandle = getUniformLocation(program, "uProjectionMatrix");
-    glUniformMatrix4fv(projectionHandle, 1, false, projectionMatrix);
-    checkGlError("glUniformMatrix4fv");
-    
-    const uint viewHandle = getUniformLocation(program, "uViewMatrix");
-    glUniformMatrix4fv(viewHandle, 1, false, viewMatrix);
-    checkGlError("glUniformMatrix4fv");
-    
-    mCoordsHandle = getAttributeLocation(program, "aCoords");
-    maPositionHandle = getAttributeLocation(program, "aPosition");
-    maTextureHandle = getAttributeLocation(program, "aTexture");
+    float proj[16];
+    float view[16];
+    TEUtilMatrix::setFrustrum(proj, -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 2.0f);
+    TEUtilMatrix::setIdentity(view);
+    TEUtilMatrix::setTranslate(view, 0, 0, -1.0f);
+    uint mProjHandle  = TERendererOGL2::getUniformLocation(mProgram, "uProjMatrix");
+    uint mViewHandle = TERendererOGL2::getUniformLocation(mProgram, "uViewMatrix");
+    glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
+    glUniformMatrix4fv(mViewHandle, 1, GL_FALSE, &view[0]);
 }
 
 void TERendererOGL2::checkGlError(String op) {

@@ -32,6 +32,8 @@ private:
     void switchProgram(String programName);
     static void checkGlError(String op);
     
+    void renderBasic();
+    
 public:
     TERendererOGL2(CALayer* eaglLayer);
     virtual void render();
