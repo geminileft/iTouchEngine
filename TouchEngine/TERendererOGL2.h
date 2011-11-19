@@ -23,13 +23,12 @@ private:
     uint mCoordsHandle;
     uint maPositionHandle;
     uint maTextureHandle;
-    uint mProgram;
     int mWidth;
     int mHeight;
     std::map<uint, std::list<String> > mProgramAttributes;
     
     void addProgramAttribute(uint program, String attribute);
-    void switchProgram(String programName);
+    uint switchProgram(String programName);
     static void checkGlError(String op);
     
     void renderBasic();

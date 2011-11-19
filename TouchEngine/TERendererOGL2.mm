@@ -45,9 +45,13 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     
     String vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
     String fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
-    mProgram = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    addProgramAttribute(mProgram, "a_color");
-    addProgramAttribute(mProgram, "a_position");
+    int program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
+    addProgramAttribute(program, "a_color");
+    addProgramAttribute(program, "a_position");
+
+    vertexSource = TEManagerFile::readFileContents("texture.vs");
+    fragmentSource = TEManagerFile::readFileContents("texture.fs");
+    program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
 }
 
 void TERendererOGL2::render() {
@@ -57,7 +61,7 @@ void TERendererOGL2::render() {
 }
 
 void TERendererOGL2::renderBasic() {
-    switchProgram("basic");
+    uint mProgram = switchProgram("basic");
     
     const GLfloat squareVertices[] = {
         -0.5f, -0.5f,
@@ -125,7 +129,7 @@ uint TERendererOGL2::loadShader(uint shaderType, String source) {
     return shader;
 }
 
-void TERendererOGL2::switchProgram(String programName) {
+uint TERendererOGL2::switchProgram(String programName) {
     uint program = mPrograms[programName];
     glUseProgram(program);
     checkGlError("glUseProgram");
@@ -145,10 +149,11 @@ void TERendererOGL2::switchProgram(String programName) {
     TEUtilMatrix::setFrustrum(proj, -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 2.0f);
     TEUtilMatrix::setIdentity(view);
     TEUtilMatrix::setTranslate(view, 0, 0, -1.0f);
-    uint mProjHandle  = TERendererOGL2::getUniformLocation(mProgram, "uProjMatrix");
-    uint mViewHandle = TERendererOGL2::getUniformLocation(mProgram, "uViewMatrix");
+    uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjMatrix");
+    uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
     glUniformMatrix4fv(mViewHandle, 1, GL_FALSE, &view[0]);
+    return program;
 }
 
 void TERendererOGL2::checkGlError(String op) {
