@@ -169,8 +169,6 @@ void TERendererOGL2::renderTexture() {
     
     unsigned int positionHandle = glGetAttribLocation(simpleProgram, "position");
     unsigned int textureHandle = glGetAttribLocation(simpleProgram, "texcoord");
-    unsigned int mProjHandle = glGetUniformLocation(simpleProgram, "uProjMatrix");
-    unsigned int mViewHandle = glGetUniformLocation(simpleProgram, "uViewMatrix");
     
     float mViewMatrix[16];
     TEUtilMatrix::setIdentity(&mViewMatrix[0]);
@@ -182,11 +180,6 @@ void TERendererOGL2::renderTexture() {
     float mProjMatrix[16];
     TEUtilMatrix::setFrustrum(&mProjMatrix[0], -size, size, -size / (320.0f / 480.0f), size / (320.0f / 480.0f), zNear, zFar);
     TEUtilMatrix::transpose(&mProjMatrix[0]);
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-	
-    glUseProgram(simpleProgram);
-    glUniformMatrix4fv(mViewHandle, 1, GL_FALSE, &mViewMatrix[0] );
-    glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &mProjMatrix[0] );
     glBindTexture(GL_TEXTURE_2D, mTexture);
     glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, cubeVerts);
     glEnableVertexAttribArray(positionHandle);
