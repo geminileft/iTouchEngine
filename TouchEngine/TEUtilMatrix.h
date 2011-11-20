@@ -14,7 +14,9 @@ public:
     static void setFrustrum(float* matrix, float left, float right, float top, float bottom, float near, float far);
     static void setIdentity(float* matrix);
     static void setTranslate(float* matrix, float x, float y, float z);
+    static void setTranslateC(float* matrix, float x, float y, float z);
     static void setLookAt(float* matrix, float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ);
+    static void transpose(float* matrix);
 };
 
 #endif

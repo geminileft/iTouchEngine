@@ -74,6 +74,56 @@ void TEUtilMatrix::setTranslate(float* matrix, float x, float y, float z) {
     matrix[15] = 1;    
 }
 
+void TEUtilMatrix::setTranslateC(float* matrix, float x, float y, float z) {
+    setTranslate(matrix, x, y, z);
+    transpose(matrix);
+}
+
 void TEUtilMatrix::setLookAt(float* matrix, float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ) {
     
 }
+
+void TEUtilMatrix::transpose(float* matrix) {
+    float transpose[16];
+    transpose[0] = matrix[0];
+    transpose[1] = matrix[4];
+    transpose[2] = matrix[8];
+    transpose[3] = matrix[12];
+    
+    transpose[4] = matrix[1];
+    transpose[5] = matrix[5];
+    transpose[6] = matrix[9];
+    transpose[7] = matrix[13];
+    
+    transpose[8] = matrix[2];
+    transpose[9] = matrix[6];
+    transpose[10] = matrix[10];
+    transpose[11] = matrix[14];
+    
+    transpose[12] = matrix[3];
+    transpose[13] = matrix[7];
+    transpose[14] = matrix[11];
+    transpose[15] = matrix[15];
+    
+    matrix[0] = transpose[0];
+    matrix[1] = transpose[1];
+    matrix[2] = transpose[2];
+    matrix[3] = transpose[3];
+    
+    matrix[4] = transpose[4];
+    matrix[5] = transpose[5];
+    matrix[6] = transpose[6];
+    matrix[7] = transpose[7];
+    
+    matrix[8] = transpose[8];
+    matrix[9] = transpose[9];
+    matrix[10] = transpose[10];
+    matrix[11] = transpose[11];
+    
+    matrix[12] = transpose[12];
+    matrix[13] = transpose[13];
+    matrix[14] = transpose[14];
+    matrix[15] = transpose[15];
+    
+}
+
