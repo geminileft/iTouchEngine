@@ -53,6 +53,8 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     vertexSource = TEManagerFile::readFileContents("Shader_texture.vsh");
     fragmentSource = TEManagerFile::readFileContents("Shader_texture.fsh");
     program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
+    addProgramAttribute(program, "position");
+    addProgramAttribute(program, "texcoord");
     
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
@@ -170,21 +172,9 @@ void TERendererOGL2::renderTexture() {
     unsigned int positionHandle = glGetAttribLocation(simpleProgram, "position");
     unsigned int textureHandle = glGetAttribLocation(simpleProgram, "texcoord");
     
-    float mViewMatrix[16];
-    TEUtilMatrix::setIdentity(&mViewMatrix[0]);
-    TEUtilMatrix::setTranslateC(&mViewMatrix[0], 0.0f , 0.0f, -3.0f);
-    
-    const GLfloat zNear = 1, zFar = 600, fieldOfView = 40*M_PI/180.0;
-	GLfloat size = zNear * tanf(fieldOfView / 2.0);
-    
-    float mProjMatrix[16];
-    TEUtilMatrix::setFrustrum(&mProjMatrix[0], -size, size, -size / (320.0f / 480.0f), size / (320.0f / 480.0f), zNear, zFar);
-    TEUtilMatrix::transpose(&mProjMatrix[0]);
     glBindTexture(GL_TEXTURE_2D, mTexture);
     glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, cubeVerts);
-    glEnableVertexAttribArray(positionHandle);
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, 0, 0, cubeTex);
-    glEnableVertexAttribArray(textureHandle);
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, cubeIndices);
 }
 
