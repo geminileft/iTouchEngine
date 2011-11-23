@@ -63,7 +63,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
 
 void TERendererOGL2::render() {
     glClear(GL_COLOR_BUFFER_BIT);
-    renderBasic();
+    //renderBasic();
     renderTexture();
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
     [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -78,6 +78,7 @@ void TERendererOGL2::renderBasic() {
         -1.0f,  0.5f,//lt
         0.0f,   0.5f,//rt
     };
+
     const GLfloat squareColors[] = {
         1, 1, 0, 1,
         0, 1, 1, 1,
@@ -97,85 +98,29 @@ void TERendererOGL2::renderBasic() {
 void TERendererOGL2::renderTexture() {
     uint simpleProgram = switchProgram("texture");
 
-    GLfloat cubeVerts[] =
-    {
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f,  0.5f,
-        0.5f, -0.5f,  0.5f,
-        0.5f, -0.5f, -0.5f,
-        -0.5f,  0.5f, -0.5f,
-        -0.5f,  0.5f,  0.5f,
-        0.5f,  0.5f,  0.5f,
-        0.5f,  0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f,  0.5f, -0.5f,
-        0.5f,  0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f, 0.5f,
-        -0.5f,  0.5f, 0.5f,
-        0.5f,  0.5f, 0.5f, 
-        0.5f, -0.5f, 0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f,  0.5f,
-        0.5f,  0.5f,  0.5f,
-        0.5f,  0.5f, -0.5f,
-    };
-    
-    GLfloat cubeTex[] =
-    {
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-    };
-    
-    GLushort cubeIndices[] =
-    {
-        0, 2, 1,
-        0, 3, 2, 
-        4, 5, 6,
-        4, 6, 7,
-        8, 9, 10,
-        8, 10, 11, 
-        12, 15, 14,
-        12, 14, 13, 
-        16, 17, 18,
-        16, 18, 19, 
-        20, 23, 22,
-        20, 22, 21
-    };
-
     uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "position");
     uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "texcoord");
     
     glBindTexture(GL_TEXTURE_2D, mTexture);
-    glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, cubeVerts);
-    glVertexAttribPointer(textureHandle, 2, GL_FLOAT, 0, 0, cubeTex);
-    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, cubeIndices);
+
+    const float vertices[] = {
+        -1.0f, -0.5f, -0.5f,//lb
+        0.0f,  -0.5f, -0.5f,//rb
+        -1.0f,  0.5f, -0.5f,//lt
+        0.0f,   0.5f, -0.5f//rt
+    };
+    
+    const float textureCoords[] = {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.0f, 1.0f,
+        1.0f, 1.0f,
+    };    
+    
+    glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, vertices);
+    glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
 }
 
 int TERendererOGL2::createProgram(String programName, String vertexSource, String fragmentSource) {
