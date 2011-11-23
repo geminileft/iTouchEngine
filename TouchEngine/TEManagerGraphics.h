@@ -20,8 +20,6 @@ public:
     static void render();
     static void resetRenderer();
     static TERenderer* getRenderer();
-    static void getProjectionMatrix(float projectionMatrix[]);
-    static void getViewMatrix(float viewMatrix[]);
 };
 
 #endif

@@ -41,17 +41,3 @@ TERenderer* TEManagerGraphics::getRenderer() {
     return mRenderer;
 }
 
-void TEManagerGraphics::getProjectionMatrix(float projectionMatrix[]) {
-    float ratio = (float)mWidth / mHeight;
-    TEUtilMatrix::setFrustrum(projectionMatrix, -ratio, ratio, -1, 1, 1, mHeight / 2);
-}
-
-void TEManagerGraphics::getViewMatrix(float viewMatrix[]) {
-    if (true) {
-        TEUtilMatrix::setIdentity(viewMatrix);
-        TEUtilMatrix::setTranslate(viewMatrix, -mWidth / 2, -mHeight / 2, -mHeight / 2);
-    } else {
-        TEUtilMatrix::setLookAt(viewMatrix, 0, mHeight / 4, 0, 0, 0, 0, 0, 1, 0);
-    }
-}
-

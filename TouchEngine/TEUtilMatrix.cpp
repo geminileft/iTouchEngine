@@ -8,7 +8,7 @@
 
 #include "TEUtilMatrix.h"
 
-void TEUtilMatrix::setFrustrum(float* matrix, float left, float right, float top, float bottom, float near, float far) {
+void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float top, float bottom, float near, float far) {
     matrix[0] = (2 * near) / (right - left);
     matrix[1] = 0;
     matrix[2] = (right + left) / (right - left);
