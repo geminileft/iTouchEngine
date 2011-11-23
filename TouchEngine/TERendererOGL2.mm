@@ -168,9 +168,9 @@ void TERendererOGL2::renderTexture() {
         20, 23, 22,
         20, 22, 21
     };
-    
-    unsigned int positionHandle = glGetAttribLocation(simpleProgram, "position");
-    unsigned int textureHandle = glGetAttribLocation(simpleProgram, "texcoord");
+
+    uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "position");
+    uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "texcoord");
     
     glBindTexture(GL_TEXTURE_2D, mTexture);
     glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, cubeVerts);
