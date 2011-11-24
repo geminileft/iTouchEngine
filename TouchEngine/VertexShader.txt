@@ -1,4 +1,4 @@
-uniform mat4 uProjMatrix;
+uniform mat4 uProjectionMatrix;
 uniform mat4 uViewMatrix;
 
 attribute vec4 a_position;
@@ -8,7 +8,7 @@ varying vec4 v_color;
 
 void main()
 {
-    mat4 mvp = uViewMatrix * uProjMatrix;
+    mat4 mvp = uViewMatrix * uProjectionMatrix;
     gl_Position = mvp * a_position;
    v_color = a_color;
 }
