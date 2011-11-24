@@ -100,6 +100,7 @@ void TERendererOGL2::renderTexture() {
 
     uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aPosition");
     uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aTexture");
+    uint coordsHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aCoords");
     
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
@@ -119,6 +120,7 @@ void TERendererOGL2::renderTexture() {
     
     glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, vertices);
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
+    glVertexAttrib2f(coordsHandle, 0.0f, 0.0f);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 }
