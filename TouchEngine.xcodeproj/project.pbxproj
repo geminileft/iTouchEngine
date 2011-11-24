@@ -312,10 +312,10 @@
 			children = (
 				8BD8D58114774347009D47FA /* VertexShader.txt */,
 				8BD8D58014774347009D47FA /* FragmentShader.txt */,
+				8BE9F9E9146B3178007429F7 /* colorbox.vs */,
+				8BE9F9E8146B3178007429F7 /* colorbox.fs */,
 				8BE9F9EC146B3178007429F7 /* texture.vs */,
 				8BE9F9EB146B3178007429F7 /* texture.fs */,
-				8BE9F9E8146B3178007429F7 /* colorbox.fs */,
-				8BE9F9E9146B3178007429F7 /* colorbox.vs */,
 				8BE9F9EA146B3178007429F7 /* effectbox.vs */,
 			);
 			name = Shaders;

@@ -68,24 +68,13 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
 void TERendererOGL2::render() {
     glClear(GL_COLOR_BUFFER_BIT);
     renderBasic();
-    renderTexture();
+    //renderTexture();
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
     [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
-
-    const GLfloat squareVertices[] = {
-        -0.5f, -0.5f, 0.0f,//lb
-        0.5f,  -0.5f, 0.0f,//rb
-        -0.5f,  0.5f, 0.0f,//lt
-        0.5f,   0.5f, 0.0f,//rt
-    };
-
-    int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
-    glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
-/*
 
     const GLfloat squareColors[] = {
         1, 1, 0, 1,
@@ -96,9 +85,19 @@ void TERendererOGL2::renderBasic() {
     
     int m_a_colorHandle = TERendererOGL2::getAttributeLocation(program, "a_color");	
 	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
+
+    const GLfloat squareVertices[] = {
+        -0.5f, -0.5f, 0.0f,//lb
+        0.5f,  -0.5f, 0.0f,//rb
+        -0.5f,  0.5f, 0.0f,//lt
+        0.5f,   0.5f, 0.0f,//rt
+    };
+
+    int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
+    glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-*/
+
 }
 
 void TERendererOGL2::renderTexture() {
