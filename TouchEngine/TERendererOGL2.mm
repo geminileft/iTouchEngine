@@ -72,7 +72,6 @@ void TERendererOGL2::render() {
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
 
-
     const GLfloat squareVertices[] = {
         -0.5f, -0.5f, 0.0f,//lb
         0.5f,  -0.5f, 0.0f,//rb
@@ -80,6 +79,9 @@ void TERendererOGL2::renderBasic() {
         0.5f,   0.5f, 0.0f,//rt
     };
 
+    int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
+    glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
+/*
     const GLfloat squareColors[] = {
         1, 1, 0, 1,
         0, 1, 1, 1,
@@ -88,13 +90,10 @@ void TERendererOGL2::renderBasic() {
     };
     
     int m_a_colorHandle = TERendererOGL2::getAttributeLocation(program, "a_color");	
-    int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
-    
-	glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
 	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
+*/
 }
 
 void TERendererOGL2::renderTexture() {
@@ -124,7 +123,6 @@ void TERendererOGL2::renderTexture() {
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
     glVertexAttrib2f(coordsHandle, 0.0f, 0.0f);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
 }
 
 int TERendererOGL2::createProgram(String programName, String vertexSource, String fragmentSource) {
@@ -186,7 +184,7 @@ uint TERendererOGL2::switchProgram(String programName) {
     
     float proj[16];
     float view[16];
-    TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 20.0f);
+    TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 200.0f);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], 0, 0, -1.0f);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");

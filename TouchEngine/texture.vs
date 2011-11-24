@@ -1,5 +1,5 @@
-uniform mat4 uViewMatrix;
 uniform mat4 uProjectionMatrix;
+uniform mat4 uViewMatrix;
 
 attribute vec4 aPosition;
 attribute vec2 aTexture;
