@@ -8,25 +8,25 @@
 
 #include "TEUtilMatrix.h"
 
-void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float top, float bottom, float near, float far) {
-    matrix[0] = (2 * near) / (right - left);
+void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float bottom, float top, float near, float far) {
+    matrix[0] = (2.0f * near) / (right - left);
     matrix[1] = 0;
     matrix[2] = (right + left) / (right - left);
     matrix[3] = 0;
     
     matrix[4] = 0;
-    matrix[5] = (2 * near) / (top - bottom);
+    matrix[5] = (2.0f * near) / (top - bottom);
     matrix[6] = (top + bottom) / (top - bottom);
     matrix[7] = 0;
     
     matrix[8] = 0;
     matrix[9] = 0;
     matrix[10] = - ((far + near) / (far - near));
-    matrix[11] = - ((2 * far * near) / (far - near));
+    matrix[11] = - ((2.0f * far * near) / (far - near));
     
     matrix[12] = 0;
     matrix[13] = 0;
-    matrix[14] = -1;
+    matrix[14] = -1.0f;
     matrix[15] = 0;    
 }
 

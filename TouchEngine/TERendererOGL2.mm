@@ -64,7 +64,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
 void TERendererOGL2::render() {
     glClear(GL_COLOR_BUFFER_BIT);
     renderBasic();
-    renderTexture();
+    //renderTexture();
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
     [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
@@ -73,10 +73,10 @@ void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
     
     const GLfloat squareVertices[] = {
-        -1.0f, -0.5f, 0.0f,//lb
-        0.0f,  -0.5f, 0.0f,//rb
-        -1.0f,  0.5f, 0.0f,//lt
-        0.0f,   0.5f, 0.0f,//rt
+        -0.5f, -0.5f, 0.0f,//lb
+        0.5f,  -0.5f, 0.0f,//rb
+        -0.5f,  0.5f, 0.0f,//lt
+        0.5f,   0.5f, 0.0f,//rt
     };
 
     const GLfloat squareColors[] = {
@@ -104,10 +104,10 @@ void TERendererOGL2::renderTexture() {
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
     const float vertices[] = {
-        -0.5f, -0.5f, -5.0f,//lb
-        0.5f,  -0.5f, -5.0f,//rb
-        -0.5f,  0.5f, -5.0f,//lt
-        0.5f,   0.5f, -5.0f//rt
+        -0.5f, -0.5f, -1.0f,//lb
+        0.5f,  -0.5f, -1.0f,//rb
+        -0.5f,  0.5f, -1.0f,//lt
+        0.5f,   0.5f, -1.0f//rt
     };
     
     const float textureCoords[] = {
@@ -182,9 +182,9 @@ uint TERendererOGL2::switchProgram(String programName) {
     
     float proj[16];
     float view[16];
-    TEUtilMatrix::setFrustum(proj, -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 2.0f);
-    TEUtilMatrix::setIdentity(view);
-    TEUtilMatrix::setTranslate(view, 0, 0, -2.1f);
+    TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 20.0f);
+    TEUtilMatrix::setIdentity(&view[0]);
+    TEUtilMatrix::setTranslate(&view[0], 0, 0, -1.0f);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjMatrix");
     uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);

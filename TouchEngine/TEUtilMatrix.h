@@ -11,7 +11,7 @@
 
 class TEUtilMatrix {
 public:
-    static void setFrustum(float* matrix, float left, float right, float top, float bottom, float near, float far);
+    static void setFrustum(float* matrix, float left, float right, float bottom, float top, float near, float far);
     static void setIdentity(float* matrix);
     static void setTranslate(float* matrix, float x, float y, float z);
     static void setTranslateC(float* matrix, float x, float y, float z);
