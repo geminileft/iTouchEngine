@@ -6,4 +6,5 @@ attribute vec4 vertices;
 void main() {
 	mat4 identityMatrix = mat4(1,0,0,0, 0,1,0,0, 0,0,1,0, position.x,position.y,0,1);
 	gl_Position = (uViewMatrix * (uProjectionMatrix * (identityMatrix))) * vertices;
+	gl_PointSize = 1.0;
 }
