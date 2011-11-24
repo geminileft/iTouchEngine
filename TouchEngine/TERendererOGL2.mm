@@ -186,7 +186,7 @@ uint TERendererOGL2::switchProgram(String programName) {
     TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 2.0f);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], 0, 0, -1.0f);
-    TEUtilMatrix::transpose(&proj[0]);
+    //TEUtilMatrix::transpose(&proj[0]);
     TEUtilMatrix::transpose(&view[0]);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
     uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");

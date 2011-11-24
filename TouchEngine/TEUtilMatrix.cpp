@@ -8,7 +8,54 @@
 
 #include "TEUtilMatrix.h"
 
+/*
+ row major | column major
+
+ row[0] = column[0];
+ row[1] = column[4];
+ row[2] = column[8];
+ row[3] = column[12];
+ 
+ row[4] = column[1];
+ row[5] = column[5];
+ row[6] = column[9];
+ row[7] = column[13];
+ 
+ row[8] = column[2];
+ row[9] = column[6];
+ row[10] = column[10];
+ row[11] = column[14];
+ 
+ row[12] = column[3];
+ row[13] = column[7];
+ row[14] = column[11];
+ row[15] = column[15];
+
+*/
+
 void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float bottom, float top, float near, float far) {
+    matrix[0] = (2.0f * near) / (right - left);
+    matrix[4] = 0;
+    matrix[8] = (right + left) / (right - left);
+    matrix[12] = 0;
+    
+    matrix[1] = 0;
+    matrix[5] = (2.0f * near) / (top - bottom);
+    matrix[9] = (top + bottom) / (top - bottom);
+    matrix[13] = 0;
+    
+    matrix[2] = 0;
+    matrix[6] = 0;
+    matrix[10] = - ((far + near) / (far - near));
+    matrix[14] = - ((2.0f * far * near) / (far - near));
+    
+    matrix[3] = 0;
+    matrix[7] = 0;
+    matrix[11] = -1.0f;
+    matrix[15] = 0;
+
+/*
+--row major
     matrix[0] = (2.0f * near) / (right - left);
     matrix[1] = 0;
     matrix[2] = (right + left) / (right - left);
@@ -27,7 +74,8 @@ void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float bott
     matrix[12] = 0;
     matrix[13] = 0;
     matrix[14] = -1.0f;
-    matrix[15] = 0;    
+    matrix[15] = 0;
+*/
 }
 
 void TEUtilMatrix::setIdentity(float* matrix) {
