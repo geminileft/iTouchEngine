@@ -63,8 +63,8 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
 
 void TERendererOGL2::render() {
     glClear(GL_COLOR_BUFFER_BIT);
-    renderBasic();
-    //renderTexture();
+    //renderBasic();
+    renderTexture();
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mRenderBuffer);
     [mContext presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
