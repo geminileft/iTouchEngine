@@ -74,7 +74,7 @@ void TERendererOGL2::render() {
 
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
-    
+
     const GLfloat squareVertices[] = {
         -0.5f, -0.5f, 0.0f,//lb
         0.5f,  -0.5f, 0.0f,//rb
@@ -97,7 +97,7 @@ void TERendererOGL2::renderBasic() {
 
 void TERendererOGL2::renderTexture() {
     uint simpleProgram = switchProgram("texture");
-
+    
     uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aPosition");
     uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aTexture");
     uint coordsHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aCoords");
