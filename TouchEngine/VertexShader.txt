@@ -1,11 +1,11 @@
-uniform mat4 uProjectionMatrix;
 uniform mat4 uViewMatrix;
+uniform mat4 uProjectionMatrix;
 
-attribute vec4 a_location;
+attribute vec4 vertices;
 
 void main()
 {
     mat4 mvp = uViewMatrix * uProjectionMatrix;
-    gl_Position = mvp * a_location;
+    gl_Position = mvp * vertices;
 }
 

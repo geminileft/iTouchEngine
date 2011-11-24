@@ -57,8 +57,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
     fragmentSource = TEManagerFile::readFileContents("colorbox.fs");
     program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    //addProgramAttribute(program, "a_color");
-    addProgramAttribute(program, "a_location");
+    addProgramAttribute(program, "vertices");
 
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
@@ -75,17 +74,6 @@ void TERendererOGL2::render() {
 
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
-
-    /*
-    const GLfloat squareColors[] = {
-        1, 1, 0, 1,
-        0, 1, 1, 1,
-        0, 0, 0, 1,
-        1, 0, 1, 1,
-    };
-    uint m_a_colorHandle = TERendererOGL2::getAttributeLocation(program, "a_color");	
-	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
-    */
     
     const GLfloat squareVertices[] = {
         -0.5f, -0.5f, 0.0f,//lb
@@ -94,7 +82,7 @@ void TERendererOGL2::renderBasic() {
         0.5f,   0.5f, 0.0f,//rt
     };
     
-    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
+    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
     glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
