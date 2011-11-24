@@ -185,7 +185,7 @@ uint TERendererOGL2::switchProgram(String programName) {
     TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 20.0f);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], 0, 0, -1.0f);
-    uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjMatrix");
+    uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
     uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
     glUniformMatrix4fv(mViewHandle, 1, GL_FALSE, &view[0]);
