@@ -71,7 +71,8 @@ void TERendererOGL2::render() {
 
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
-    /*
+
+/*
     const GLfloat squareVertices[] = {
         -0.5f, -0.5f, 0.0f,//lb
         0.5f,  -0.5f, 0.0f,//rb
@@ -93,7 +94,7 @@ void TERendererOGL2::renderBasic() {
 	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    */
+*/
 }
 
 void TERendererOGL2::renderTexture() {
