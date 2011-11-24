@@ -33,7 +33,7 @@
 
 */
 
-void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float bottom, float top, float near, float far) {
+void TEUtilMatrix::setFrustum(float* matrix, MatrixStorageFormat format, float left, float right, float bottom, float top, float near, float far) {
     matrix[0] = (2.0f * near) / (right - left);
     matrix[4] = 0;
     matrix[8] = (right + left) / (right - left);
@@ -53,29 +53,9 @@ void TEUtilMatrix::setFrustum(float* matrix, float left, float right, float bott
     matrix[7] = 0;
     matrix[11] = -1.0f;
     matrix[15] = 0;
-
-/*
---row major
-    matrix[0] = (2.0f * near) / (right - left);
-    matrix[1] = 0;
-    matrix[2] = (right + left) / (right - left);
-    matrix[3] = 0;
     
-    matrix[4] = 0;
-    matrix[5] = (2.0f * near) / (top - bottom);
-    matrix[6] = (top + bottom) / (top - bottom);
-    matrix[7] = 0;
-    
-    matrix[8] = 0;
-    matrix[9] = 0;
-    matrix[10] = - ((far + near) / (far - near));
-    matrix[11] = - ((2.0f * far * near) / (far - near));
-    
-    matrix[12] = 0;
-    matrix[13] = 0;
-    matrix[14] = -1.0f;
-    matrix[15] = 0;
-*/
+    if (format == RowMajor)
+        transpose(matrix);
 }
 
 void TEUtilMatrix::setIdentity(float* matrix) {
@@ -100,7 +80,7 @@ void TEUtilMatrix::setIdentity(float* matrix) {
     matrix[15] = 1;
 }
 
-void TEUtilMatrix::setTranslate(float* matrix, float x, float y, float z) {
+void TEUtilMatrix::setTranslate(float* matrix, MatrixStorageFormat format, float x, float y, float z) {
     matrix[0] = 1;
     matrix[1] = 0;
     matrix[2] = 0;
@@ -119,12 +99,10 @@ void TEUtilMatrix::setTranslate(float* matrix, float x, float y, float z) {
     matrix[12] = 0;
     matrix[13] = 0;
     matrix[14] = 0;
-    matrix[15] = 1;    
-}
-
-void TEUtilMatrix::setTranslateC(float* matrix, float x, float y, float z) {
-    setTranslate(matrix, x, y, z);
-    transpose(matrix);
+    matrix[15] = 1;
+    
+    if (format == ColumnMajor)
+        transpose(matrix);
 }
 
 void TEUtilMatrix::setLookAt(float* matrix, float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ) {
