@@ -43,19 +43,23 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
-    
-    String vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
-    String fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
-    int program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    addProgramAttribute(program, "a_color");
-    addProgramAttribute(program, "a_location");
 
+    int program;
+    String vertexSource;
+    String fragmentSource;
+    
     vertexSource = TEManagerFile::readFileContents("texture.vs");
     fragmentSource = TEManagerFile::readFileContents("texture.fs");
     program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
     addProgramAttribute(program, "aPosition");
     addProgramAttribute(program, "aTexture");
     
+    vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
+    fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
+    program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
+    addProgramAttribute(program, "a_color");
+    addProgramAttribute(program, "a_location");
+
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
     mTexture = TEManagerTexture::GLUtexImage2D(cImage);
@@ -82,6 +86,7 @@ void TERendererOGL2::renderBasic() {
     int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
     glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
 /*
+
     const GLfloat squareColors[] = {
         1, 1, 0, 1,
         0, 1, 1, 1,
