@@ -83,7 +83,7 @@ void TERendererOGL2::renderBasic() {
         1, 0, 1, 1,
     };
     
-    int m_a_colorHandle = TERendererOGL2::getAttributeLocation(program, "a_color");	
+    uint m_a_colorHandle = TERendererOGL2::getAttributeLocation(program, "a_color");	
 	glVertexAttribPointer(m_a_colorHandle, 4, GL_FLOAT, GL_FALSE, 0, squareColors);
 
     const GLfloat squareVertices[] = {
@@ -93,9 +93,12 @@ void TERendererOGL2::renderBasic() {
         0.5f,   0.5f, 0.0f,//rt
     };
 
-    int m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
+    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "a_location");
     glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
+    uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
+    glUniform4f(colorHandle, 1.0f, 0.0f, 0.0f, 1.0f);
+
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 }
