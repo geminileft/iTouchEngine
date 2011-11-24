@@ -15,7 +15,6 @@
 		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE31C1146B4296003BEDA3 /* TERenderer.mm */; };
 		8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */; };
-		8BD8D58214774347009D47FA /* FragmentShader.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8D58014774347009D47FA /* FragmentShader.txt */; };
 		8BD8D58314774347009D47FA /* VertexShader.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8D58114774347009D47FA /* VertexShader.txt */; };
 		8BE9F9D9146B01DB007429F7 /* TERendererOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */; };
 		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
@@ -130,7 +129,6 @@
 		8BCE31C1146B4296003BEDA3 /* TERenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderer.mm; sourceTree = "<group>"; };
 		8BCFFE971475D4F700F2DFDE /* TEManagerTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTexture.h; sourceTree = "<group>"; };
 		8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerTexture.mm; sourceTree = "<group>"; };
-		8BD8D58014774347009D47FA /* FragmentShader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.txt; sourceTree = "<group>"; };
 		8BD8D58114774347009D47FA /* VertexShader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertexShader.txt; sourceTree = "<group>"; };
 		8BE9F9D6146B01A1007429F7 /* TERenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERenderer.h; sourceTree = "<group>"; };
 		8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERendererOGL1.mm; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				8BD8D58114774347009D47FA /* VertexShader.txt */,
-				8BD8D58014774347009D47FA /* FragmentShader.txt */,
 				8BE9F9E9146B3178007429F7 /* colorbox.vs */,
 				8BE9F9E8146B3178007429F7 /* colorbox.fs */,
 				8BE9F9EC146B3178007429F7 /* texture.vs */,
@@ -668,7 +665,6 @@
 				F7F141F313EF5A93000B9A54 /* menu_bar.png in Resources */,
 				F7C46D4E13F74D50000534DB /* moves.png in Resources */,
 				F71ED8A51400AA64002311DD /* table_background.png in Resources */,
-				8BD8D58214774347009D47FA /* FragmentShader.txt in Resources */,
 				8BD8D58314774347009D47FA /* VertexShader.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

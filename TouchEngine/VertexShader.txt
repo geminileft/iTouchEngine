@@ -2,7 +2,6 @@ uniform mat4 uProjectionMatrix;
 uniform mat4 uViewMatrix;
 
 attribute vec4 a_location;
-attribute vec4 a_color;
 
 void main()
 {
