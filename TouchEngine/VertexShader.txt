@@ -4,12 +4,9 @@ uniform mat4 uViewMatrix;
 attribute vec4 a_location;
 attribute vec4 a_color;
 
-varying vec4 boxColor;
-
 void main()
 {
     mat4 mvp = uViewMatrix * uProjectionMatrix;
     gl_Position = mvp * a_location;
-    boxColor = a_color;
 }
 

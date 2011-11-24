@@ -55,7 +55,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     addProgramAttribute(program, "aTexture");
     
     vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
-    fragmentSource = TEManagerFile::readFileContents("FragmentShader.txt");
+    fragmentSource = TEManagerFile::readFileContents("colorbox.fs");
     program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
     addProgramAttribute(program, "a_color");
     addProgramAttribute(program, "a_location");
@@ -97,7 +97,7 @@ void TERendererOGL2::renderBasic() {
     glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
-    glUniform4f(colorHandle, 1.0f, 0.0f, 0.0f, 1.0f);
+    glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
