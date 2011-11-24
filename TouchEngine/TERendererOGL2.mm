@@ -54,7 +54,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     addProgramAttribute(program, "aPosition");
     addProgramAttribute(program, "aTexture");
     
-    vertexSource = TEManagerFile::readFileContents("VertexShader.txt");
+    vertexSource = TEManagerFile::readFileContents("colorbox.vs");
     fragmentSource = TEManagerFile::readFileContents("colorbox.fs");
     program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
     addProgramAttribute(program, "vertices");
