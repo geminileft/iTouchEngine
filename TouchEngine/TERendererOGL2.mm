@@ -51,7 +51,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     addProgramAttribute(program, "a_position");
 
     vertexSource = TEManagerFile::readFileContents("Shader_texture.vsh");
-    fragmentSource = TEManagerFile::readFileContents("Shader_texture.fsh");
+    fragmentSource = TEManagerFile::readFileContents("texture.fs");
     program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
     addProgramAttribute(program, "aPosition");
     addProgramAttribute(program, "aTexture");
