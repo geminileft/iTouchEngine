@@ -6,7 +6,7 @@
 //
 
 attribute vec4 aPosition;
-attribute vec2 texcoord;
+attribute vec2 aTexture;
 uniform mat4 uProjMatrix;
 uniform mat4 uViewMatrix;
 
@@ -16,5 +16,5 @@ void main()
 {
     mat4 mvp = uProjMatrix * uViewMatrix;
     gl_Position = mvp * aPosition;
-	v_texcoord=texcoord;
+	v_texcoord=aTexture;
 }

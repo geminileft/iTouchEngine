@@ -54,7 +54,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     fragmentSource = TEManagerFile::readFileContents("Shader_texture.fsh");
     program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
     addProgramAttribute(program, "aPosition");
-    addProgramAttribute(program, "texcoord");
+    addProgramAttribute(program, "aTexture");
     
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
@@ -99,7 +99,7 @@ void TERendererOGL2::renderTexture() {
     uint simpleProgram = switchProgram("texture");
 
     uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aPosition");
-    uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "texcoord");
+    uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aTexture");
     
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
