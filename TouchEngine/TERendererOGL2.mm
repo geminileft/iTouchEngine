@@ -76,14 +76,14 @@ void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
 
     const GLfloat squareVertices[] = {
-        -0.5f, -0.5f, 0.0f,//lb
-        0.5f,  -0.5f, 0.0f,//rb
-        -0.5f,  0.5f, 0.0f,//lt
-        0.5f,   0.5f, 0.0f,//rt
+        -0.5f, -0.5f,//lb
+        0.5f,  -0.5f,//rb
+        -0.5f,  0.5f,//lt
+        0.5f,   0.5f,//rt
     };
     
     uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
-    glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
+    glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
