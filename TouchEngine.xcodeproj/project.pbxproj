@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */; };
-		8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
-		8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
-		8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
-		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
+		8B5F5CE5147EFCFA00AA0B26 /* colorbox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8B5F5CE1147EFCFA00AA0B26 /* colorbox.fs */; };
+		8B5F5CE6147EFCFA00AA0B26 /* colorbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8B5F5CE2147EFCFA00AA0B26 /* colorbox.vs */; };
+		8B5F5CE7147EFCFA00AA0B26 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8B5F5CE3147EFCFA00AA0B26 /* texture.fs */; };
+		8B5F5CE8147EFCFA00AA0B26 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8B5F5CE4147EFCFA00AA0B26 /* texture.vs */; };
 		8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE31C1146B4296003BEDA3 /* TERenderer.mm */; };
 		8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */; };
 		8BE9F9D9146B01DB007429F7 /* TERendererOGL1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */; };
@@ -124,6 +124,10 @@
 /* Begin PBXFileReference section */
 		8B566BC6146B9A520088C712 /* TEUtilMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilMatrix.h; sourceTree = "<group>"; };
 		8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEUtilMatrix.cpp; sourceTree = "<group>"; };
+		8B5F5CE1147EFCFA00AA0B26 /* colorbox.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.fs; sourceTree = "<group>"; };
+		8B5F5CE2147EFCFA00AA0B26 /* colorbox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.vs; sourceTree = "<group>"; };
+		8B5F5CE3147EFCFA00AA0B26 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
+		8B5F5CE4147EFCFA00AA0B26 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
 		8BCE31C1146B4296003BEDA3 /* TERenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderer.mm; sourceTree = "<group>"; };
 		8BCFFE971475D4F700F2DFDE /* TEManagerTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTexture.h; sourceTree = "<group>"; };
 		8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerTexture.mm; sourceTree = "<group>"; };
@@ -134,10 +138,6 @@
 		8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERendererOGL2.mm; sourceTree = "<group>"; };
 		8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerFile.mm; sourceTree = "<group>"; };
 		8BE9F9E2146B0E3F007429F7 /* TEManagerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerFile.h; sourceTree = "<group>"; };
-		8BE9F9E8146B3178007429F7 /* colorbox.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.fs; sourceTree = "<group>"; };
-		8BE9F9E9146B3178007429F7 /* colorbox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.vs; sourceTree = "<group>"; };
-		8BE9F9EB146B3178007429F7 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
-		8BE9F9EC146B3178007429F7 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
 		8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerGraphics.h; sourceTree = "<group>"; };
 		8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerGraphics.mm; sourceTree = "<group>"; };
 		F7124DF613D1EE1B0041BF36 /* TouchEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,10 +304,10 @@
 		8BE9F9E7146B312C007429F7 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				8BE9F9E9146B3178007429F7 /* colorbox.vs */,
-				8BE9F9E8146B3178007429F7 /* colorbox.fs */,
-				8BE9F9EC146B3178007429F7 /* texture.vs */,
-				8BE9F9EB146B3178007429F7 /* texture.fs */,
+				8B5F5CE1147EFCFA00AA0B26 /* colorbox.fs */,
+				8B5F5CE2147EFCFA00AA0B26 /* colorbox.vs */,
+				8B5F5CE3147EFCFA00AA0B26 /* texture.fs */,
+				8B5F5CE4147EFCFA00AA0B26 /* texture.vs */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -591,10 +591,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */,
-				8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */,
-				8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */,
-				8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */,
 				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
 				F761D42C13D3C4C000ED12F9 /* free_cell.png in Resources */,
 				F7E2DC6313D3D47400E7DC7B /* ace_cell.png in Resources */,
@@ -654,6 +650,10 @@
 				F71A35FD13E37DDA00487B99 /* time.png in Resources */,
 				F71A360213E39C4500487B99 /* numbers.png in Resources */,
 				F763053913E9F5DD0015334E /* shuffle.caf in Resources */,
+				8B5F5CE5147EFCFA00AA0B26 /* colorbox.fs in Resources */,
+				8B5F5CE6147EFCFA00AA0B26 /* colorbox.vs in Resources */,
+				8B5F5CE7147EFCFA00AA0B26 /* texture.fs in Resources */,
+				8B5F5CE8147EFCFA00AA0B26 /* texture.vs in Resources */,
 				F76E98BA13EE737D002F8CCB /* menu.png in Resources */,
 				F7F141F313EF5A93000B9A54 /* menu_bar.png in Resources */,
 				F7C46D4E13F74D50000534DB /* moves.png in Resources */,
