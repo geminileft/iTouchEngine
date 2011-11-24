@@ -76,10 +76,10 @@ void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
 
     const GLfloat squareVertices[] = {
-        -0.5f, -0.5f, -1.0f,//lb
-        0.5f,  -0.5f, -1.0f,//rb
-        -0.5f,  0.5f, -1.0f,//lt
-        0.5f,   0.5f, -1.0f//rt
+        -0.5f, -0.5f, -0.0f,//lb
+        0.5f,  -0.5f, -0.0f,//rb
+        -0.5f,  0.5f, -0.0f,//lt
+        0.5f,   0.5f, -0.0f//rt
     };
     
     uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
@@ -105,10 +105,10 @@ void TERendererOGL2::renderTexture() {
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
     const float vertices[] = {
-        -0.5f, -0.5f, -1.0f,//lb
-        0.5f,  -0.5f, -1.0f,//rb
-        -0.5f,  0.5f, -1.0f,//lt
-        0.5f,   0.5f, -1.0f//rt
+        -0.5f, -0.5f, -0.0f,//lb
+        0.5f,  -0.5f, -0.0f,//rb
+        -0.5f,  0.5f, -0.0f,//lt
+        0.5f,   0.5f, -0.0f//rt
     };
     
     const float textureCoords[] = {
@@ -183,9 +183,9 @@ uint TERendererOGL2::switchProgram(String programName) {
     
     float proj[16];
     float view[16];
-    TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 200.0f);
+    TEUtilMatrix::setFrustum(&proj[0], -0.5, 0.5f, -0.75f, 0.75f, 0.5f, 10.0f);
     TEUtilMatrix::setIdentity(&view[0]);
-    TEUtilMatrix::setTranslate(&view[0], 0, 0, -2.0f);
+    TEUtilMatrix::setTranslate(&view[0], 0, 0, -1.0f);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
     uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);

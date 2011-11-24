@@ -10,7 +10,6 @@
 		8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */; };
 		8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
 		8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
-		8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
 		8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EB146B3178007429F7 /* texture.fs */; };
 		8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EC146B3178007429F7 /* texture.vs */; };
 		8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE31C1146B4296003BEDA3 /* TERenderer.mm */; };
@@ -137,7 +136,6 @@
 		8BE9F9E2146B0E3F007429F7 /* TEManagerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerFile.h; sourceTree = "<group>"; };
 		8BE9F9E8146B3178007429F7 /* colorbox.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.fs; sourceTree = "<group>"; };
 		8BE9F9E9146B3178007429F7 /* colorbox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorbox.vs; sourceTree = "<group>"; };
-		8BE9F9EA146B3178007429F7 /* effectbox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = effectbox.vs; sourceTree = "<group>"; };
 		8BE9F9EB146B3178007429F7 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
 		8BE9F9EC146B3178007429F7 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
 		8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerGraphics.h; sourceTree = "<group>"; };
@@ -310,7 +308,6 @@
 				8BE9F9E8146B3178007429F7 /* colorbox.fs */,
 				8BE9F9EC146B3178007429F7 /* texture.vs */,
 				8BE9F9EB146B3178007429F7 /* texture.fs */,
-				8BE9F9EA146B3178007429F7 /* effectbox.vs */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -596,7 +593,6 @@
 			files = (
 				8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */,
 				8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */,
-				8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */,
 				8BCE31BF146B3961003BEDA3 /* texture.fs in Resources */,
 				8BCE31C0146B3961003BEDA3 /* texture.vs in Resources */,
 				F7124E0913D1EE1B0041BF36 /* InfoPlist.strings in Resources */,
