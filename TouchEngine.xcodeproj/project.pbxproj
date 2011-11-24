@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */; };
-		8B7005AE1478803400CEF233 /* Shader_texture.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 8B7005AC1478803400CEF233 /* Shader_texture.vsh */; };
 		8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E8146B3178007429F7 /* colorbox.fs */; };
 		8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E9146B3178007429F7 /* colorbox.vs */; };
 		8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8BE9F9EA146B3178007429F7 /* effectbox.vs */; };
@@ -128,7 +127,6 @@
 /* Begin PBXFileReference section */
 		8B566BC6146B9A520088C712 /* TEUtilMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUtilMatrix.h; sourceTree = "<group>"; };
 		8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TEUtilMatrix.cpp; sourceTree = "<group>"; };
-		8B7005AC1478803400CEF233 /* Shader_texture.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader_texture.vsh; sourceTree = "<group>"; };
 		8BCE31C1146B4296003BEDA3 /* TERenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERenderer.mm; sourceTree = "<group>"; };
 		8BCFFE971475D4F700F2DFDE /* TEManagerTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerTexture.h; sourceTree = "<group>"; };
 		8BCFFE991475D50D00F2DFDE /* TEManagerTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerTexture.mm; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 		8BE9F9E7146B312C007429F7 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				8B7005AC1478803400CEF233 /* Shader_texture.vsh */,
 				8BD8D58114774347009D47FA /* VertexShader.txt */,
 				8BD8D58014774347009D47FA /* FragmentShader.txt */,
 				8BE9F9EC146B3178007429F7 /* texture.vs */,
@@ -603,7 +600,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B7005AE1478803400CEF233 /* Shader_texture.vsh in Resources */,
 				8BCE31BC146B3961003BEDA3 /* colorbox.fs in Resources */,
 				8BCE31BD146B3961003BEDA3 /* colorbox.vs in Resources */,
 				8BCE31BE146B3961003BEDA3 /* effectbox.vs in Resources */,
