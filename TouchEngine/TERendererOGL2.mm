@@ -89,7 +89,7 @@ void TERendererOGL2::renderBasic() {
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
     uint posHandle = TERendererOGL2::getAttributeLocation(program, "position");
-    glVertexAttrib2f(posHandle, 0.0f, 0.0f);
+    glVertexAttrib2f(posHandle, -0.5f, 0.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
@@ -120,7 +120,7 @@ void TERendererOGL2::renderTexture() {
     
     glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, vertices);
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
-    glVertexAttrib2f(coordsHandle, 0.0f, 0.0f);
+    glVertexAttrib2f(coordsHandle, 0.5f, 0.0f);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
