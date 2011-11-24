@@ -88,6 +88,9 @@ void TERendererOGL2::renderBasic() {
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
+    uint posHandle = TERendererOGL2::getAttributeLocation(program, "position");
+    glVertexAttrib2f(posHandle, 0.0f, 0.0f);
+
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 }

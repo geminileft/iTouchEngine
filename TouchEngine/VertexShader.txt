@@ -1,10 +1,12 @@
 uniform mat4 uViewMatrix;
 uniform mat4 uProjectionMatrix;
 
+attribute vec2 position;
 attribute vec4 vertices;
 
 void main()
 {
+    vec2 newPos = position;
     mat4 mvp = uViewMatrix * uProjectionMatrix;
     gl_Position = mvp * vertices;
 }
