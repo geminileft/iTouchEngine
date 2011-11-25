@@ -76,20 +76,20 @@ void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
 
     const GLfloat squareVertices[] = {
-        -0.5f, -0.5f, -0.0f,//lb
-        0.5f,  -0.5f, -0.0f,//rb
-        -0.5f,  0.5f, -0.0f,//lt
-        0.5f,   0.5f, -0.0f//rt
+        -1.0f, -1.0f,//lb
+        1.0f,  -1.0f,//rb
+        -1.0f,  1.0f,//lt
+        1.0f,   1.0f,//rt
     };
     
     uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
-    glVertexAttribPointer(m_a_positionHandle, 3, GL_FLOAT, GL_FALSE, 0, squareVertices);
+    glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
     uint posHandle = TERendererOGL2::getAttributeLocation(program, "position");
-    glVertexAttrib2f(posHandle, -0.5f, 0.0f);
+    glVertexAttrib2f(posHandle, -1.0f, 0.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
@@ -105,10 +105,10 @@ void TERendererOGL2::renderTexture() {
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
     const float vertices[] = {
-        -0.5f, -0.5f, -0.0f,//lb
-        0.5f,  -0.5f, -0.0f,//rb
-        -0.5f,  0.5f, -0.0f,//lt
-        0.5f,   0.5f, -0.0f//rt
+        -1.0f, -1.0f,//lb
+        1.0f,  -1.0f,//rb
+        -1.0f,  1.0f,//lt
+        1.0f,   1.0f,//rt
     };
     
     const float textureCoords[] = {
@@ -118,9 +118,9 @@ void TERendererOGL2::renderTexture() {
         1.0f, 1.0f,
     };
     
-    glVertexAttribPointer(positionHandle, 3, GL_FLOAT, false, 0, vertices);
+    glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, vertices);
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
-    glVertexAttrib2f(coordsHandle, 0.5f, 0.0f);
+    glVertexAttrib2f(coordsHandle, 1.0f, 0.0f);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
@@ -187,7 +187,7 @@ uint TERendererOGL2::switchProgram(String programName) {
     float ratio = (float)mWidth/(float)mHeight;
     TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1.0f, 1.0f, 1.0f, zDepth);
     */
-    float zDepth = 2.0f;
+    float zDepth = 4.0f;
     TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -0.5, 0.5f, -0.75f, 0.75f, 1.0f, zDepth);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
