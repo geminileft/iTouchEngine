@@ -122,7 +122,7 @@ void TERendererOGL2::renderTexture() {
     
     glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, vertices);
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
-    glVertexAttrib2f(coordsHandle, sideSize, 0.0f);
+    glVertexAttrib2f(coordsHandle, (float)mWidth / 2, (float)mHeight / 2);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
@@ -189,11 +189,14 @@ uint TERendererOGL2::switchProgram(String programName) {
  final float ratio = (float)mWidth / mHeight;
  Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1, 1, 1, mHeight / 2);
 */
-    float zDepth = 240.0f;
+    float zDepth = (float)mHeight / 2;
     const float ratio = (float)mWidth/(float)mHeight;
-    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, 241.0f);
+    //todo: figure out why zDepth doesn't quite work with frustum and translate
+    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, zDepth + 0.1f);
     TEUtilMatrix::setIdentity(&view[0]);
-    TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
+    //Matrix.translateM(viewMatrix, 0, -mWidth / 2, -mHeight / 2, -mHeight / 2);
+    TEUtilMatrix::setTranslate(&view[0], ColumnMajor, -(float)mWidth / 2, -(float)mHeight / 2, -zDepth);
+    //TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
     uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
