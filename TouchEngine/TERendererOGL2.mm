@@ -27,18 +27,16 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     [mContext renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:(CAEAGLLayer*)eaglLayer];
     glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, mRenderBuffer);
     
-    int backingWidth, backingHeight;
-    
-    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
-    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
-    
+    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &mWidth);
+    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &mHeight);
+        
     if(glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
     }
     
     glBindFramebufferOES(GL_FRAMEBUFFER_OES, mFrameBuffer);
     [EAGLContext setCurrentContext:mContext];
     
-    glViewport(0, 0, backingWidth, backingHeight);
+    glViewport(0, 0, mWidth, mHeight);
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -183,12 +181,15 @@ uint TERendererOGL2::switchProgram(String programName) {
     
     float proj[16];
     float view[16];
-    /*
-    float ratio = (float)mWidth/(float)mHeight;
-    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1.0f, 1.0f, 1.0f, zDepth);
-    */
     float zDepth = 4.0f;
-    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -0.5, 0.5f, -0.75f, 0.75f, 1.0f, zDepth);
+/*
+ final float ratio = (float)mWidth / mHeight;
+ Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1, 1, 1, mHeight / 2);
+*/
+    float height = 0.75f;
+    
+    const float ratio = (float)mWidth/(float)mHeight;
+    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -height * ratio, height * ratio, -height, height, 1.0f, zDepth);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
