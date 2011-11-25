@@ -73,7 +73,7 @@ void TERendererOGL2::render() {
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
 
-    const float totalSize = 8.0f / 3.0f;
+    const float totalSize = 160.0f;
     const float sideSize = totalSize / 2.0f;
     const GLfloat squareVertices[] = {
         -sideSize, -sideSize,//lb
@@ -104,7 +104,7 @@ void TERendererOGL2::renderTexture() {
     
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
-    const float totalSize = 8.0f / 3.0f;
+    const float totalSize = 160.0f;
     const float sideSize = totalSize / 2.0f;
     const float vertices[] = {
         -sideSize, -sideSize,//lb
@@ -189,9 +189,9 @@ uint TERendererOGL2::switchProgram(String programName) {
  final float ratio = (float)mWidth / mHeight;
  Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1, 1, 1, mHeight / 2);
 */
-    float zDepth = 4.0f;
+    float zDepth = 240.0f;
     const float ratio = (float)mWidth/(float)mHeight;
-    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, zDepth);
+    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, 241.0f);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
