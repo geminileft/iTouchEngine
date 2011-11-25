@@ -73,11 +73,13 @@ void TERendererOGL2::render() {
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
 
+    const float totalSize = 8.0f / 3.0f;
+    const float sideSize = totalSize / 2.0f;
     const GLfloat squareVertices[] = {
-        -1.0f, -1.0f,//lb
-        1.0f,  -1.0f,//rb
-        -1.0f,  1.0f,//lt
-        1.0f,   1.0f,//rt
+        -sideSize, -sideSize,//lb
+        sideSize,  -sideSize,//rb
+        -sideSize,  sideSize,//lt
+        sideSize,   sideSize,//rt
     };
     
     uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
@@ -87,7 +89,7 @@ void TERendererOGL2::renderBasic() {
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
     uint posHandle = TERendererOGL2::getAttributeLocation(program, "position");
-    glVertexAttrib2f(posHandle, -1.0f, 0.0f);
+    glVertexAttrib2f(posHandle, -sideSize, 0.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
@@ -102,11 +104,13 @@ void TERendererOGL2::renderTexture() {
     
     glBindTexture(GL_TEXTURE_2D, mTexture);
 
+    const float totalSize = 8.0f / 3.0f;
+    const float sideSize = totalSize / 2.0f;
     const float vertices[] = {
-        -1.0f, -1.0f,//lb
-        1.0f,  -1.0f,//rb
-        -1.0f,  1.0f,//lt
-        1.0f,   1.0f,//rt
+        -sideSize, -sideSize,//lb
+        sideSize,  -sideSize,//rb
+        -sideSize,  sideSize,//lt
+        sideSize,   sideSize,//rt
     };
     
     const float textureCoords[] = {
@@ -118,7 +122,7 @@ void TERendererOGL2::renderTexture() {
     
     glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, vertices);
     glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
-    glVertexAttrib2f(coordsHandle, 1.0f, 0.0f);
+    glVertexAttrib2f(coordsHandle, sideSize, 0.0f);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
@@ -185,10 +189,9 @@ uint TERendererOGL2::switchProgram(String programName) {
  final float ratio = (float)mWidth / mHeight;
  Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1, 1, 1, mHeight / 2);
 */
-    float height = 0.75f;
-    float zDepth = 4.0f;    
+    float zDepth = 4.0f;
     const float ratio = (float)mWidth/(float)mHeight;
-    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -height * ratio, height * ratio, -height, height, 1.0f, zDepth);
+    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, zDepth);
     TEUtilMatrix::setIdentity(&view[0]);
     TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
