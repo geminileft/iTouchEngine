@@ -181,13 +181,12 @@ uint TERendererOGL2::switchProgram(String programName) {
     
     float proj[16];
     float view[16];
-    float zDepth = 4.0f;
 /*
  final float ratio = (float)mWidth / mHeight;
  Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1, 1, 1, mHeight / 2);
 */
     float height = 0.75f;
-    
+    float zDepth = 4.0f;    
     const float ratio = (float)mWidth/(float)mHeight;
     TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -height * ratio, height * ratio, -height, height, 1.0f, zDepth);
     TEUtilMatrix::setIdentity(&view[0]);
