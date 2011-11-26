@@ -55,7 +55,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     vertexSource = TEManagerFile::readFileContents("colorbox.vs");
     fragmentSource = TEManagerFile::readFileContents("colorbox.fs");
     program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    addProgramAttribute(program, "vertices");
+    addProgramAttribute(program, "aPosition");
 
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
@@ -83,10 +83,9 @@ void TERendererOGL2::renderBasic() {
         sideSize,   sideSize,//rt
     };
 
-    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
+    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "aPosition");
     glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
-/*
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
@@ -94,7 +93,6 @@ void TERendererOGL2::renderBasic() {
     glVertexAttrib2f(posHandle, -sideSize, 0.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-*/
 }
 
 void TERendererOGL2::renderTexture() {
