@@ -364,7 +364,6 @@
 				F7124E0613D1EE1B0041BF36 /* TouchEngine-Info.plist */,
 				F7124E0713D1EE1B0041BF36 /* InfoPlist.strings */,
 				F7124E0A13D1EE1B0041BF36 /* TouchEngine-Prefix.pch */,
-				F7124E0B13D1EE1B0041BF36 /* main.m */,
 			);
 			name = "Supporting Files";
 			path = TouchEngine;
@@ -388,6 +387,7 @@
 				F795ECA813D274A500550919 /* FreeCellGameObjectFactory.mm */,
 				F7124E0D13D1EE1B0041BF36 /* TouchEngineAppDelegate.h */,
 				F7124E0E13D1EE1B0041BF36 /* TouchEngineAppDelegate.mm */,
+				F7124E0B13D1EE1B0041BF36 /* main.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
