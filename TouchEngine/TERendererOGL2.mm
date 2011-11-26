@@ -55,7 +55,7 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     vertexSource = TEManagerFile::readFileContents("colorbox.vs");
     fragmentSource = TEManagerFile::readFileContents("colorbox.fs");
     program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    //addProgramAttribute(program, "vertices");
+    addProgramAttribute(program, "vertices");
 
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
@@ -72,24 +72,25 @@ void TERendererOGL2::render() {
 
 void TERendererOGL2::renderBasic() {
     uint program = switchProgram("basic");
-/*
+
     const float totalSize = 160.0f;
     const float sideSize = totalSize / 2.0f;
+
     const GLfloat squareVertices[] = {
         -sideSize, -sideSize,//lb
         sideSize,  -sideSize,//rb
         -sideSize,  sideSize,//lt
         sideSize,   sideSize,//rt
     };
-    
+
     uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "vertices");
     glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
-
+/*
     uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
-    uint posHandle = TERendererOGL2::getAttributeLocation(program, "position");
+    uint posHandle = TERendererOGL2::getAttributeLocation(program, "aCoords");
     glVertexAttrib2f(posHandle, -sideSize, 0.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
@@ -112,39 +113,10 @@ void TERendererOGL2::renderTexture() {
         vec = primatives[i].position;
         glBindTexture(GL_TEXTURE_2D, texture->mTextureName);	
         glVertexAttrib2f(coordsHandle, vec.x, vec.y);
-        //glTranslatef(vec.x, vec.y, vec.z);
         glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, primatives[i].textureBuffer);
-        //glTexCoordPointer(2, GL_FLOAT, 0, primatives[i].textureBuffer);
         glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, primatives[i].vertexBuffer);
-        //glVertexPointer(2, GL_FLOAT, 0, primatives[i].vertexBuffer);
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     }
-/*
-    glBindTexture(GL_TEXTURE_2D, mTexture);
-
-    const float vertices[] = {
-        -160, -240,//lb
-        160,  -240,//rb
-        160,   240,//rt
-        -160,  240,//lt
-    };
-    
-    const float textureCoords[] = {
-        0.0f, 0.0f,//lb
-        1.0f, 0.0f,//rb
-        1.0f, 1.0f,//rt
-        0.0f, 1.0f,//lt
-    };
-    
-    TEVec3 vec;
-    vec.x = (float)mWidth / 2;
-    vec.y = (float)mHeight / 2;
-    vec.z = 0.0f;
-    glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, vertices);
-    glVertexAttribPointer(textureHandle, 2, GL_FLOAT, false, 0, textureCoords);
-    glVertexAttrib2f(coordsHandle, (float)mWidth / 2, (float)mHeight / 2);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-*/
 }
 
 int TERendererOGL2::createProgram(String programName, String vertexSource, String fragmentSource) {
