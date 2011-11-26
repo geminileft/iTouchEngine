@@ -21,7 +21,6 @@
     UIViewController* vc = [[UIViewController alloc] init];
     vc.view = view;
     mWindow.rootViewController = vc;
-    //[mWindow addSubview:view];
     [mWindow makeKeyAndVisible];
     return YES;
 }
