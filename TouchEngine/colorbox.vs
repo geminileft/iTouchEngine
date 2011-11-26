@@ -1,5 +1,6 @@
 uniform mat4 uViewMatrix;
 uniform mat4 uProjectionMatrix;
+
 attribute vec2 position;
 attribute vec4 vertices;
 
