@@ -49,13 +49,13 @@ TERendererOGL2::TERendererOGL2(CALayer* eaglLayer) {
     vertexSource = TEManagerFile::readFileContents("texture.vs");
     fragmentSource = TEManagerFile::readFileContents("texture.fs");
     program = TERendererOGL2::createProgram("texture", vertexSource, fragmentSource);
-    addProgramAttribute(program, "aPosition");
-    addProgramAttribute(program, "aTexture");
+    addProgramAttribute(program, "aVertices");
+    addProgramAttribute(program, "aTextureCoords");
     
     vertexSource = TEManagerFile::readFileContents("colorbox.vs");
     fragmentSource = TEManagerFile::readFileContents("colorbox.fs");
     program = TERendererOGL2::createProgram("basic", vertexSource, fragmentSource);
-    addProgramAttribute(program, "aPosition");
+    addProgramAttribute(program, "aVertices");
 
     UIImage* image = [UIImage imageNamed:@"table_background.png"];
     CGImage* cImage = [image CGImage];
@@ -83,13 +83,13 @@ void TERendererOGL2::renderBasic() {
         sideSize,   sideSize,//rt
     };
 
-    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "aPosition");
+    uint m_a_positionHandle = TERendererOGL2::getAttributeLocation(program, "aVertices");
     glVertexAttribPointer(m_a_positionHandle, 2, GL_FLOAT, GL_FALSE, 0, squareVertices);
     
-    uint colorHandle = TERendererOGL2::getUniformLocation(program, "color");
+    uint colorHandle = TERendererOGL2::getUniformLocation(program, "aColor");
     glUniform4f(colorHandle, 1.0f, 0.0f, 1.0f, 1.0f);
 
-    uint posHandle = TERendererOGL2::getAttributeLocation(program, "aCoords");
+    uint posHandle = TERendererOGL2::getAttributeLocation(program, "aPosition");
     glVertexAttrib2f(posHandle, -sideSize, 0.0f);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
@@ -98,9 +98,9 @@ void TERendererOGL2::renderBasic() {
 void TERendererOGL2::renderTexture() {
     uint simpleProgram = switchProgram("texture");
     
-    uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aPosition");
-    uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aTexture");
-    uint coordsHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aCoords");
+    uint positionHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aVertices");
+    uint textureHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aTextureCoords");
+    uint coordsHandle = TERendererOGL2::getAttributeLocation(simpleProgram, "aPosition");
 
     TERenderPrimative* primatives = getRenderPrimatives();
     uint count = getPrimativeCount();
