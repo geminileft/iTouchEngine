@@ -41,6 +41,10 @@
     [super dealloc];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"viewDidAppear");
+}
+
 - (void)drawFrame {
     mGame->run();
     TEManagerGraphics::render();

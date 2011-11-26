@@ -18,7 +18,10 @@
 
     EAGLView* view = [[EAGLView alloc] initWithFrame:frame game:game];
     mWindow = [[UIWindow alloc] initWithFrame:frame];
-    [mWindow addSubview:view];
+    UIViewController* vc = [[UIViewController alloc] init];
+    vc.view = view;
+    mWindow.rootViewController = vc;
+    //[mWindow addSubview:view];
     [mWindow makeKeyAndVisible];
     return YES;
 }
