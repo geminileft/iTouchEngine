@@ -176,18 +176,12 @@ uint TERendererOGL2::switchProgram(String programName) {
     
     float proj[16];
     float view[16];
-/*
- final float ratio = (float)mWidth / mHeight;
- Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1, 1, 1, mHeight / 2);
-*/
     float zDepth = (float)mHeight / 2;
     const float ratio = (float)mWidth/(float)mHeight;
-    //todo: figure out why zDepth doesn't quite work with frustum and translate
-    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, zDepth + 0.1f);
+    //todo: figure out why zDepth doesn't quite work with frustum and translate being same
+    TEUtilMatrix::setFrustum(&proj[0], ColumnMajor, -ratio, ratio, -1, 1, 1.0f, 1000.0f);
     TEUtilMatrix::setIdentity(&view[0]);
-    //Matrix.translateM(viewMatrix, 0, -mWidth / 2, -mHeight / 2, -mHeight / 2);
     TEUtilMatrix::setTranslate(&view[0], ColumnMajor, -(float)mWidth / 2, -(float)mHeight / 2, -zDepth);
-    //TEUtilMatrix::setTranslate(&view[0], ColumnMajor, 0, 0, -zDepth);
     uint mProjHandle  = TERendererOGL2::getUniformLocation(program, "uProjectionMatrix");
     uint mViewHandle = TERendererOGL2::getUniformLocation(program, "uViewMatrix");
     glUniformMatrix4fv(mProjHandle, 1, GL_FALSE, &proj[0]);
