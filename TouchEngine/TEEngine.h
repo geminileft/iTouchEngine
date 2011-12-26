@@ -7,12 +7,15 @@
 class TEManager;
 class TEGameObject;
 
+@class TERunnable;
+
 class TEEngine {
 
 private:
     std::vector<TEManager*> mManagers;
     std::vector<TEGameObject*> mGameObjects;
-
+    TERunnable* mRunnable;
+    
 public:
 	int mHeight;
 	int mWidth;

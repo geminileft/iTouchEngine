@@ -18,6 +18,7 @@
 		8BE9F9DF146B0B72007429F7 /* TERendererOGL2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */; };
 		8BE9F9E1146B0E26007429F7 /* TEManagerFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9F9E0146B0E25007429F7 /* TEManagerFile.mm */; };
 		8BFB89231468ED7F00D30096 /* TEManagerGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */; };
+		D7F8CD4314A91DD2007C822A /* TERunnable.mm in Sources */ = {isa = PBXBuildFile; fileRef = D7F8CD4214A91DD2007C822A /* TERunnable.mm */; };
 		F7124DFB13D1EE1B0041BF36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFA13D1EE1B0041BF36 /* UIKit.framework */; };
 		F7124DFD13D1EE1B0041BF36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFC13D1EE1B0041BF36 /* Foundation.framework */; };
 		F7124DFF13D1EE1B0041BF36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7124DFE13D1EE1B0041BF36 /* CoreGraphics.framework */; };
@@ -140,6 +141,8 @@
 		8BE9F9E2146B0E3F007429F7 /* TEManagerFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerFile.h; sourceTree = "<group>"; };
 		8BFB89201468ED0B00D30096 /* TEManagerGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEManagerGraphics.h; sourceTree = "<group>"; };
 		8BFB89221468ED7F00D30096 /* TEManagerGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TEManagerGraphics.mm; sourceTree = "<group>"; };
+		D7F8CD4114A91DD2007C822A /* TERunnable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TERunnable.h; sourceTree = "<group>"; };
+		D7F8CD4214A91DD2007C822A /* TERunnable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TERunnable.mm; sourceTree = "<group>"; };
 		F7124DF613D1EE1B0041BF36 /* TouchEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7124DFA13D1EE1B0041BF36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7124DFC13D1EE1B0041BF36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -537,6 +540,8 @@
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,
 				F7E9572513DBDA3200565556 /* TouchDrag.mm */,
+				D7F8CD4114A91DD2007C822A /* TERunnable.h */,
+				D7F8CD4214A91DD2007C822A /* TERunnable.mm */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -706,6 +711,7 @@
 				8BCE31C2146B4296003BEDA3 /* TERenderer.mm in Sources */,
 				8B566BC9146BA2840088C712 /* TEUtilMatrix.cpp in Sources */,
 				8BCFFE9A1475D50D00F2DFDE /* TEManagerTexture.mm in Sources */,
+				D7F8CD4314A91DD2007C822A /* TERunnable.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

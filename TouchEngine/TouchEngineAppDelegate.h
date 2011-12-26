@@ -22,8 +22,6 @@
     TEEngine* mGame;
 }
 
--(void) drawFrame;
-
 @end
 
 #endif

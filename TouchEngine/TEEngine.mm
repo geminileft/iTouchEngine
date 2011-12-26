@@ -1,5 +1,6 @@
 #include "TEEngine.h"
 #include "TEGameObject.h"
+#include "TERunnable.h"
 #include "TEManagerRender.h"
 #include "TEManagerTouch.h"
 #include "TEManagerStack.h"
@@ -69,5 +70,6 @@ TESize TEEngine::getScreenSize() const {
 void TEEngine::initializeIOS(CALayer* layer) {
     TEManagerGraphics::initialize(layer, mWidth, mHeight);
     start();
+    mRunnable = [[TERunnable alloc] initWithGame:this];
 }
 
