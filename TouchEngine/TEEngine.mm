@@ -66,7 +66,8 @@ TESize TEEngine::getScreenSize() const {
 	return size;
 }
 
-void TEEngine::initializeIOS() {
-    
+void TEEngine::initializeIOS(CALayer* layer) {
+    TEManagerGraphics::initialize(layer, mWidth, mHeight);
+    start();
 }
 

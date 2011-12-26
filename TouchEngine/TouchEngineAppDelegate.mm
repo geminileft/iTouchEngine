@@ -23,8 +23,7 @@
     mWindow.rootViewController = vc;
     
     mGame = new FreeCellGame(frame.size.width, frame.size.height);
-    TEManagerGraphics::initialize(view.layer, mGame->mWidth, mGame->mHeight);
-    mGame->start();
+    mGame->initializeIOS(view.layer);
 
     CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
     [aDisplayLink setFrameInterval:1];

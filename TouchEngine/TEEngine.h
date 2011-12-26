@@ -21,10 +21,8 @@ public:
     virtual void start() = 0;
     void run();
     void addGameObject(TEGameObject* gameObject);
-    void initGraphics(int width, int height);
-	void graphicsChange(int width, int height);
     TESize getScreenSize() const;
-    void initializeIOS();
+    void initializeIOS(CALayer* layer);
 };
 
 #endif
