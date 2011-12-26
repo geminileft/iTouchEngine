@@ -8,23 +8,32 @@
 
 #import "TouchEngineAppDelegate.h"
 #import "EAGLView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TouchEngineAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     CGRect frame = [[UIScreen mainScreen] bounds];
-    FreeCellGame* game = new FreeCellGame(frame.size.width, frame.size.height);
+    mGame = new FreeCellGame(frame.size.width, frame.size.height);
 
-    EAGLView* view = [[EAGLView alloc] initWithFrame:frame game:game];
+    EAGLView* view = [[EAGLView alloc] initWithFrame:frame game:mGame];
     mWindow = [[UIWindow alloc] initWithFrame:frame];
     UIViewController* vc = [[UIViewController alloc] init];
     vc.view = view;
     mWindow.rootViewController = vc;
     [mWindow makeKeyAndVisible];
+    
+    CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
+    [aDisplayLink setFrameInterval:1];
+    [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+
     return YES;
 }
 
+- (void)drawFrame {
+    mGame->run();
+}
 
 - (void)dealloc
 {

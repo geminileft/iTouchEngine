@@ -5,7 +5,7 @@ class TEEngine;
 
 @interface EAGLView : UIView {
 @private
-    TEEngine* mGame;
+    //TEEngine* mGame;
 }
 
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game;

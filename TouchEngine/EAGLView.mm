@@ -12,7 +12,6 @@
 #include "TEEngine.h"
 #include "TEInputTouch.h"
 #include "TEManagerInput.h"
-#include "TEManagerTime.h"
 #include "TEManagerGraphics.h"
 
 @implementation EAGLView
@@ -24,12 +23,9 @@
 - (id)initWithFrame:(CGRect)frame game:(TEEngine*) game {
     self = [super initWithFrame:frame];
 	if (self) {
-        mGame = game;
-        TEManagerGraphics::initialize(self.layer, mGame->mWidth, mGame->mHeight);
-        mGame->start();
-        CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
-        [aDisplayLink setFrameInterval:1];
-        [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        //mGame = game;
+        TEManagerGraphics::initialize(self.layer, game->mWidth, game->mHeight);
+        game->start();
     }
     return self;
 }
@@ -41,10 +37,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     NSLog(@"viewDidAppear");
-}
-
-- (void)drawFrame {
-    mGame->run();
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

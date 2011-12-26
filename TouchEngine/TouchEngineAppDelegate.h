@@ -19,7 +19,10 @@
 
 @private
     UIWindow* mWindow;
+    TEEngine* mGame;
 }
+
+-(void) drawFrame;
 
 @end
 
