@@ -5,7 +5,6 @@ class TEEngine;
 
 @interface EAGLView : UIView {
 @private
-	long mPreviousInterval;
     TEEngine* mGame;
 }
 

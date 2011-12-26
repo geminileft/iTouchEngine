@@ -27,7 +27,6 @@
         mGame = game;
         TEManagerGraphics::initialize(self.layer, mGame->mWidth, mGame->mHeight);
         mGame->start();
-        mPreviousInterval = TEManagerTime::currentTime();
         CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
         [aDisplayLink setFrameInterval:1];
         [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
