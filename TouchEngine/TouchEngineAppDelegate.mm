@@ -16,15 +16,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     CGRect frame = [[UIScreen mainScreen] bounds];
-    mGame = new FreeCellGame(frame.size.width, frame.size.height);
-
-    EAGLView* view = [[EAGLView alloc] initWithFrame:frame game:mGame];
+    EAGLView* view = [[EAGLView alloc] initWithFrame:frame];
     mWindow = [[UIWindow alloc] initWithFrame:frame];
     UIViewController* vc = [[UIViewController alloc] init];
     vc.view = view;
     mWindow.rootViewController = vc;
-    [mWindow makeKeyAndVisible];
     
+    mGame = new FreeCellGame(frame.size.width, frame.size.height);
     TEManagerGraphics::initialize(view.layer, mGame->mWidth, mGame->mHeight);
     mGame->start();
 
@@ -32,6 +30,7 @@
     [aDisplayLink setFrameInterval:1];
     [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 
+    [mWindow makeKeyAndVisible];
     return YES;
 }
 
@@ -41,6 +40,8 @@
 
 - (void)dealloc
 {
+    [mWindow release];
+    delete mGame;
     [super dealloc];
 }
 

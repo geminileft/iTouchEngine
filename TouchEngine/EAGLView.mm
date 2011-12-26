@@ -9,32 +9,13 @@
 #import "EAGLView.h"
 #import <QuartzCore/QuartzCore.h>
 
-#include "TEEngine.h"
 #include "TEInputTouch.h"
 #include "TEManagerInput.h"
-#include "TEManagerGraphics.h"
 
 @implementation EAGLView
 
 + (Class)layerClass {
     return [CAEAGLLayer class];
-}
-
-- (id)initWithFrame:(CGRect)frame game:(TEEngine*) game {
-    self = [super initWithFrame:frame];
-	if (self) {
-        //mGame = game;
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"viewDidAppear");
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -71,6 +52,11 @@
         TEInputTouch* inputTouch = new TEInputTouch([touch hash], x, y);
         inputManager->endTouch(inputTouch);
     }
+}
+
+- (void)dealloc
+{
+    [super dealloc];
 }
 
 @end

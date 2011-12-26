@@ -65,3 +65,8 @@ TESize TEEngine::getScreenSize() const {
 	size.height = mHeight;
 	return size;
 }
+
+void TEEngine::initializeIOS() {
+    
+}
+

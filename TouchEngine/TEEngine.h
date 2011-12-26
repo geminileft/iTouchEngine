@@ -12,6 +12,7 @@ class TEEngine {
 private:
     std::vector<TEManager*> mManagers;
     std::vector<TEGameObject*> mGameObjects;
+
 public:
 	int mHeight;
 	int mWidth;
@@ -23,6 +24,7 @@ public:
     void initGraphics(int width, int height);
 	void graphicsChange(int width, int height);
     TESize getScreenSize() const;
+    void initializeIOS();
 };
 
 #endif
