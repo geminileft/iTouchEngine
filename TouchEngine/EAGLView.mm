@@ -24,8 +24,6 @@
     self = [super initWithFrame:frame];
 	if (self) {
         //mGame = game;
-        TEManagerGraphics::initialize(self.layer, game->mWidth, game->mHeight);
-        game->start();
     }
     return self;
 }

@@ -8,6 +8,7 @@
 
 #import "TouchEngineAppDelegate.h"
 #import "EAGLView.h"
+#import "TEManagerGraphics.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation TouchEngineAppDelegate
@@ -24,6 +25,9 @@
     mWindow.rootViewController = vc;
     [mWindow makeKeyAndVisible];
     
+    TEManagerGraphics::initialize(view.layer, mGame->mWidth, mGame->mHeight);
+    mGame->start();
+
     CADisplayLink *aDisplayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(drawFrame)];
     [aDisplayLink setFrameInterval:1];
     [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
