@@ -1,11 +1,3 @@
-//
-//  main.m
-//  TouchEngine
-//
-//  Created by geminileft on 7/16/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 int main(int argc, char *argv[])
