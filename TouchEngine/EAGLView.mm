@@ -17,8 +17,7 @@
 
 @implementation EAGLView
 
-+ (Class)layerClass
-{
++ (Class)layerClass {
     return [CAEAGLLayer class];
 }
 
@@ -47,7 +46,6 @@
 
 - (void)drawFrame {
     mGame->run();
-    TEManagerGraphics::render();
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

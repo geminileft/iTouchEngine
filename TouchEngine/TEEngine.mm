@@ -4,6 +4,7 @@
 #include "TEManagerTouch.h"
 #include "TEManagerStack.h"
 #include "TEManagerSound.h"
+#include "TEManagerGraphics.h"
 #include "TEComponentRender.h"
 #include "TEComponentTouch.h"
 #include "TEComponentStack.h"
@@ -31,6 +32,8 @@ void TEEngine::run() {
     for (int count = 0;count < managerCount; ++count) {
         mManagers[count]->update();
     }
+    TEManagerGraphics::render();
+
 }
 
 void TEEngine::addGameObject(TEGameObject* gameObject) {
