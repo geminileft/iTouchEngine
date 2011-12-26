@@ -1,11 +1,3 @@
-//
-//  EAGLView.m
-//  OpenGLES_iPhone
-//
-//  Created by mmalc Crawford on 11/18/10.
-//  Copyright 2010 Apple Inc. All rights reserved.
-//
-
 #import "EAGLView.h"
 #import <QuartzCore/QuartzCore.h>
 

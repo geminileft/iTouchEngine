@@ -9,15 +9,14 @@
 #include "FreeCellGameObjectFactory.h"
 #include "TEEngine.h"
 #include "TETypes.h"
-
 #include "TEManagerStack.h"
 #include "PlayingCard.h"
-
 #include "RenderImage.h"
 #include "TouchDrag.h"
 #include "StackFreeCell.h"
 #include "StackAceCell.h"
 #include "SoundStart.h"
+#include "TEGameObject.h"
 
 FreeCellGameObjectFactory::FreeCellGameObjectFactory(TEEngine* game) {
 	mGame = game;

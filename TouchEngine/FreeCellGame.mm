@@ -16,11 +16,12 @@
 #include "TERandomizer.h"
 #include "TEManagerTime.h"
 #include "TEManagerStack.h"
+#include "PlayingCard.h"
+#include "FreeCellGameObjectFactory.h"
 
 FreeCellGame::FreeCellGame(int width, int height) : TEEngine(width, height), mFactory(new FreeCellGameObjectFactory(this)){}
 
 void FreeCellGame::start() {
-    //TEGameObject* gameObject;
     addGameObject(mFactory->createBackground());
     int x = START_X;
     int y = mHeight - 50;

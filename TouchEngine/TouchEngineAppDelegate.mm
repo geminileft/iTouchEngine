@@ -1,6 +1,8 @@
 #import "TouchEngineAppDelegate.h"
 #import "EAGLView.h"
 
+#include "FreeCellGame.h"
+
 @implementation TouchEngineAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

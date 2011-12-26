@@ -2,16 +2,15 @@
 #define FREECELLGAMEOBJECTFACTORY
 
 class TEEngine;
-
-#include "TEGameObject.h"
-#include <string>
-#include <map>
+class TEGameObject;
+class PlayingCard;
 
 #define CARD_SIZE_WIDTH 36//48
 #define CARD_SIZE_HEIGHT 48//64
 
-class TEGameObject;
-class PlayingCard;
+#include <string>
+#include <map>
+#include "TETypes.h"
 
 class FreeCellGameObjectFactory {
 private:

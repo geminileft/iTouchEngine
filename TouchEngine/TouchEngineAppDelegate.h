@@ -9,9 +9,9 @@
 #ifndef TOUCHENGINEAPPDELEGATE
 #define TOUCHENGINEAPPDELEGATE
 
-#import <UIKit/UIKit.h>
+class TEEngine;
 
-#include "FreeCellGame.h"
+#import <UIKit/UIKit.h>
 
 @class TouchEngineViewController;
 
