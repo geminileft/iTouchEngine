@@ -1,11 +1,3 @@
-//
-//  PlayingCard.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/17/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "PlayingCard.h"
 	
 PlayingCard::PlayingCard(FaceValue faceValue, Suit suit) {

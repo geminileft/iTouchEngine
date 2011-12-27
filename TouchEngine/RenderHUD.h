@@ -1,11 +1,3 @@
-//
-//  RenderHUD.h
-//  TouchEngine
-//
-//  Created by geminileft on 7/29/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #ifndef RENDERHUD
 #define RENDERHUD
 

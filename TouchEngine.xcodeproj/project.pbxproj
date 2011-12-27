@@ -533,6 +533,8 @@
 				8BE9F9D8146B01DA007429F7 /* TERendererOGL1.mm */,
 				8BE9F9DD146B0B5D007429F7 /* TERendererOGL2.h */,
 				8BE9F9DE146B0B72007429F7 /* TERendererOGL2.mm */,
+				D7F8CD4114A91DD2007C822A /* TERunnable.h */,
+				D7F8CD4214A91DD2007C822A /* TERunnable.mm */,
 				F795ECAB13D27DF800550919 /* TETypes.h */,
 				8B566BC8146BA2840088C712 /* TEUtilMatrix.cpp */,
 				8B566BC6146B9A520088C712 /* TEUtilMatrix.h */,
@@ -540,8 +542,6 @@
 				F7F1622513D2A94A00A34457 /* TEUtilTexture.mm */,
 				F7E9572613DBDA3200565556 /* TouchDrag.h */,
 				F7E9572513DBDA3200565556 /* TouchDrag.mm */,
-				D7F8CD4114A91DD2007C822A /* TERunnable.h */,
-				D7F8CD4214A91DD2007C822A /* TERunnable.mm */,
 			);
 			name = Core;
 			sourceTree = "<group>";
