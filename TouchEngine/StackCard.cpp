@@ -1,6 +1,7 @@
 #include "StackCard.h"
 #include "PlayingCard.h"
 #include "TEGameObject.h"
+#include "TEEventListener.h"
 
 StackCard::StackCard(PlayingCard* card) : TEComponentStack(Card), mMoving(false), mPreviousStack(NULL), mMoveToFoundation(false) {
     setPlayingCard(card);

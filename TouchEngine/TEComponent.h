@@ -2,7 +2,6 @@
 #define TECOMPONENT
 
 #include "TETypes.h"
-#include "TEEventListener.h"
 
 #include <map>
 
@@ -11,6 +10,7 @@
 class TEComponent;
 class TEManagerComponent;
 class TEGameObject;
+class TEEventListenerBase;
 
 class TEComponent {
 private:
