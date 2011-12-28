@@ -1,4 +1,5 @@
 #include "TEComponentTouch.h"
+#include "TEGameObject.h"
 
 bool TEComponentTouch::containsPoint(TEPoint point) {
     bool returnValue = false;

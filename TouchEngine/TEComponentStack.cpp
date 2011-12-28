@@ -8,6 +8,7 @@
 
 #include "TEComponentStack.h"
 #include "TETypes.h"
+#include "TEGameObject.h"
 
 static int mOpenFreeCellCount = 0;
 static int mOpenTableCellCount = 0;

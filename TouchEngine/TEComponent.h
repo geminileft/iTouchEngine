@@ -2,7 +2,6 @@
 #define TECOMPONENT
 
 #include "TETypes.h"
-#include "TEGameObject.h"
 #include "TEEventListener.h"
 
 #include <map>

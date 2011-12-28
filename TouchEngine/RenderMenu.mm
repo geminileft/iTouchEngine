@@ -1,5 +1,6 @@
 #include "RenderMenu.h"
 #include "TEUtilTexture.h"
+#include "TEGameObject.h"
 
 RenderMenu::RenderMenu(NSString* menuResourceName, NSString* buttonResourceName, TEPoint menuPosition, TEPoint buttonPosition) {
 	mPosition = menuPosition;

@@ -12,6 +12,7 @@
 #include "StackTableCell.h"
 #include "StackCard.h"
 #include "PlayingCard.h"
+#include "TEGameObject.h"
 
 static TEManagerStack* mSharedInstance = NULL;
 static int mAceStackCount = 0;

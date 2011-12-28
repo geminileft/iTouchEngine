@@ -1,11 +1,3 @@
-//
-//  StackFreeCell.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/29/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "StackFreeCell.h"
 
 StackFreeCell::StackFreeCell() : TEComponentStack(FreeCell) {

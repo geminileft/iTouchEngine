@@ -2,6 +2,7 @@
 #include "TEManagerGraphics.h"
 #include "TERenderer.h"
 #include "TEUtilTexture.h"
+#include "TEGameObject.h"
 
 RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {    
     mTexture = new TEUtilTexture(resourceName, position, size);

@@ -4,6 +4,7 @@
 #include "TEManagerGraphics.h"
 #include "TERenderer.h"
 #include "TEUtilTexture.h"
+#include "TEGameObject.h"
 
 #define MAX_TEXT_SIZE 18
 

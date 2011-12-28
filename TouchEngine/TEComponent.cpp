@@ -1,4 +1,5 @@
 #include "TEComponent.h"
+#include "TEGameObject.h"
 
 void TEComponent::setParent(TEGameObject* parentGameObject) {
     mParent = parentGameObject;
