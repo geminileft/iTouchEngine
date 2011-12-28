@@ -10,6 +10,7 @@
 #include "TEManagerTime.h"
 #include "TEGameObject.h"
 #include "TEEventListener.h"
+#include "TEInputTouch.h"
 
 TouchDrag::TouchDrag() : TEComponentTouch(), mTouch(NULL), mTouchValid(false) {
 	TEEventListener<TouchDrag>* touchAcceptListener = new TEEventListener<TouchDrag>(this, &TouchDrag::touchAcceptListener);

@@ -2,6 +2,7 @@
 #include "TEComponent.h"
 #include "TEComponentTouch.h"
 #include "TEManagerInput.h"
+#include "TEInputTouch.h"
 
 static TEManagerTouch* mSharedInstance = NULL;
 
