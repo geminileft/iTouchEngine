@@ -1,11 +1,12 @@
 #ifndef RENDERHUD
 #define RENDERHUD
 
+class TEUtilTexture;
+
 #define MAX_DIGIT_COUNT 5
 
 #include "TEComponentRender.h"
 #include "TETypes.h"
-#include "TEUtilTexture.h"
 
 class RenderHUD : public TEComponentRender {
 private:

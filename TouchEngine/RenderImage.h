@@ -1,9 +1,10 @@
 #ifndef RENDERIMAGE
 #define RENDERIMAGE
 
+class TEUtilTexture;
+
 #include "TEComponentRender.h"
 #include "TETypes.h"
-#include "TEUtilTexture.h"
 
 class RenderImage : public TEComponentRender {
 private:

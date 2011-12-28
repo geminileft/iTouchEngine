@@ -1,11 +1,3 @@
-//
-//  RenderMenu.h
-//  TouchEngine
-//
-//  Created by geminileft on 8/7/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #ifndef RENDERMENU
 #define RENDERMENU
 

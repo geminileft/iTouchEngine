@@ -1,17 +1,12 @@
 #include "RenderImage.h"
 #include "TEManagerGraphics.h"
 #include "TERenderer.h"
+#include "TEUtilTexture.h"
 
 RenderImage::RenderImage(NSString* resourceName, TEPoint position, TESize size) {    
-    /*
-    mCoordsHandle = TEManagerGraphics.getAttributeLocation(mProgram, "aCoords");
-    maPositionHandle = TEManagerGraphics.getAttributeLocation(mProgram, "aPosition");
-    maTextureHandle = TEManagerGraphics.getAttributeLocation(mProgram, "aTexture");
-     */
     mTexture = new TEUtilTexture(resourceName, position, size);
 	TEEventListener<RenderImage>* moveToTopListener = new TEEventListener<RenderImage>(this, &RenderImage::moveToTopListener);
     addEventSubscription(EVENT_MOVE_TO_TOP, moveToTopListener);
-
 }
 
 void RenderImage::update() {
