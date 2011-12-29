@@ -9,7 +9,6 @@ class TEEngine;
 @interface TouchEngineAppDelegate : NSObject <UIApplicationDelegate> {
 
 @private
-    UIWindow* mWindow;
     TEEngine* mGame;
 }
 

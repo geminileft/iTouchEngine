@@ -12,7 +12,6 @@
 
 - (void)dealloc
 {
-    [mWindow release];
     delete mGame;
     [super dealloc];
 }
