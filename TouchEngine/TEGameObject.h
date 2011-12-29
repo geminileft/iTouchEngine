@@ -1,7 +1,6 @@
 #ifndef TEGAMEOBJECT
 #define TEGAMEOBJECT
 
-#include "TEComponent.h"
 #include "TEManagerComponent.h"
 #include "TETypes.h"
 #include <map>

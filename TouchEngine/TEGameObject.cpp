@@ -1,5 +1,6 @@
 #include "TEGameObject.h"
 #include "TEEventListenerBase.h"
+#include "TEComponent.h"
 
 void TEGameObject::update() {}
 

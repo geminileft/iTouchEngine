@@ -3,7 +3,6 @@
 
 class TEInputTouch;
 
-#include "TEManagerComponent.h"
 #include <map>
 
 class TEManagerInput {
