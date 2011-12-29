@@ -14,6 +14,7 @@
 #include <OpenGLES/ES1/glext.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+#include "EAGLView.h"
     
 TEEngine::TEEngine(int width, int height) {
 	mWidth = width;
@@ -67,9 +68,17 @@ TESize TEEngine::getScreenSize() const {
 	return size;
 }
 
-void TEEngine::initializeIOS(CALayer* layer) {
-    TEManagerGraphics::initialize(layer, mWidth, mHeight);
+void TEEngine::initializeIOS() {
+    CGRect frame = [[UIScreen mainScreen] bounds];    
+    EAGLView* view = [[EAGLView alloc] initWithFrame:frame];
+    mWindow = [[UIWindow alloc] initWithFrame:frame];
+    UIViewController* vc = [[UIViewController alloc] init];
+    vc.view = view;
+    mWindow.rootViewController = vc;
+
+    TEManagerGraphics::initialize(view.layer, mWidth, mHeight);
     start();
     mRunnable = [[TERunnable alloc] initWithGame:this];
+    [mWindow makeKeyAndVisible];
 }
 
