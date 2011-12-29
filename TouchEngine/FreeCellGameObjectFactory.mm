@@ -81,24 +81,6 @@ TEGameObject* FreeCellGameObjectFactory::createBackground() {
 	return gameObject;
 }
 
-/*
-TEGameObject* FreeCellGameObjectFactory::createBackground() {
-    TEGameObject* gameObject = new TEGameObject();
-    TESize size;
-    size.width = mGame->mWidth;
-    size.height = mGame->mHeight;
-    TEPoint position;
-    position.x = 0;
-    position.y = 0;
-    gameObject->addComponent(new RenderImage(@"table_background.png", position, size));
-    gameObject->addComponent(new SoundStart(@"shuffle", @"caf"));
-    gameObject->position.x = size.width / 2;
-    gameObject->position.y = size.height / 2;
-    gameObject->size = size;
-    return gameObject;
-}
-*/
-
 TEGameObject* FreeCellGameObjectFactory::createPlayingCard(PlayingCard* card) {
     TEGameObject* gameObject = new TEGameObject();
     TESize size;
