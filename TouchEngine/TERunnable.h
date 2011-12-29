@@ -1,12 +1,5 @@
-//
-//  TERunnable.h
-//  TouchEngine
-//
-//  Created by dev on 12/26/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
+#ifndef TERUNNABLE_H
+#define TERUNNABLE_H
 
 class TEEngine;
 
@@ -19,3 +12,5 @@ class TEEngine;
 -(void) run;
 
 @end
+
+#endif
