@@ -10,8 +10,7 @@
     return YES;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     delete mGame;
     [super dealloc];
 }

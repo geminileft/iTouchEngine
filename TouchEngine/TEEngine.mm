@@ -77,7 +77,7 @@ void TEEngine::initialize() {
     mWindow.rootViewController = vc;
 
     TEManagerGraphics::initialize(view.layer, mWidth, mHeight);
-    start();
+    this->start();
     mRunnable = [[TERunnable alloc] initWithGame:this];
     [mWindow makeKeyAndVisible];
 }
