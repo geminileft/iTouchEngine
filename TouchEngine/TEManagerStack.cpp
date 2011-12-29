@@ -1,11 +1,3 @@
-//
-//  TEManagerStack.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/18/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TEManagerStack.h"
 #include "TEComponentStack.h"
 #include "StackAceCell.h"

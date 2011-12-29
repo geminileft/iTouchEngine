@@ -2,7 +2,6 @@
 #define TEUTILTEXTURE
 
 #include "TETypes.h"
-
 #include <string>
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>

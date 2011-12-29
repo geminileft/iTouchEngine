@@ -1,14 +1,14 @@
 #ifndef FREECELLGAME
 #define FREECELLGAME
 
+#include "TEEngine.h"
+
 class FreeCellGameObjectFactory;
 class PlayingCard;
 class TEEventListenerBase;
 
 #define START_X 28
 #define X_GAP 2
-
-#include "TEEngine.h"
 
 class FreeCellGame : public TEEngine {
 private:

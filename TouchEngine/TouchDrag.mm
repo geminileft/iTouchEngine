@@ -1,11 +1,3 @@
-//
-//  TouchDrag.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/23/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TouchDrag.h"
 #include "TEManagerTime.h"
 #include "TEGameObject.h"

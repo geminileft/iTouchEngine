@@ -2,7 +2,6 @@
 #define TECOMPONENT
 
 #include "TETypes.h"
-
 #include <map>
 
 #define LAST_INDEX -1

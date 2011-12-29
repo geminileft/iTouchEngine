@@ -1,15 +1,7 @@
-//
-//  TERunnable.m
-//  TouchEngine
-//
-//  Created by dev on 12/26/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
+#include "TEEngine.h"
 
 #import "TERunnable.h"
 #import <QuartzCore/QuartzCore.h>
-
-#include "TEEngine.h"
 
 @implementation TERunnable
 

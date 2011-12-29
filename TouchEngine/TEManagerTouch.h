@@ -1,10 +1,10 @@
 #ifndef TEMANAGERTOUCH
 #define TEMANAGERTOUCH
 
-class TEComponentTouch;
-
 #include "TEManagerComponent.h"
 #include <map>
+
+class TEComponentTouch;
 
 class TEManagerTouch : public TEManagerComponent {
 private:

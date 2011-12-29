@@ -1,9 +1,9 @@
 #ifndef TouchEngine_TERenderer_h
 #define TouchEngine_TERenderer_h
 
-class TEUtilTexture;
-
 #include "TETypes.h"
+
+class TEUtilTexture;
 
 #define MAX_RENDER_PRIMATIVES   1000
 

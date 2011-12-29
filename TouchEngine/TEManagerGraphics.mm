@@ -1,11 +1,3 @@
-//
-//  TEManagerGraphics.cpp
-//  TouchEngine
-//
-//  Created by developer on 11/7/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TEManagerGraphics.h"
 #include "TERenderer.h"
 #include "TERendererOGL1.h"

@@ -1,10 +1,10 @@
 #ifndef TETYPES
 #define TETYPES
 
-class TEComponent;
-
 #include <list>
 #include <string>
+
+class TEComponent;
 
 typedef std::string String;
 

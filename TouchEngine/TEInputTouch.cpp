@@ -1,4 +1,3 @@
-
 #include "TEInputTouch.h"
 
 TEInputTouch::TEInputTouch(unsigned int hash, float x, float y) {
@@ -16,7 +15,7 @@ TEInputTouch::TEInputTouch(bool began, bool ended, TEPoint startPoint, TEPoint e
     mEnd = ended;
     mStartPoint = startPoint;
     mEndPoint = endPoint;
-    mHash = hash;	
+    mHash = hash;
 }
 
 bool TEInputTouch::began() const {

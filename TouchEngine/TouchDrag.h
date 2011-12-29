@@ -4,9 +4,9 @@
 #define TAP_DOWN_THRESHOLD_MS 130
 #define TAP_UP_THRESHOLD_MS 200
 
-class TEInputTouch;
-
 #include "TEComponentTouch.h"
+
+class TEInputTouch;
 
 enum TouchAction {
 	NONE

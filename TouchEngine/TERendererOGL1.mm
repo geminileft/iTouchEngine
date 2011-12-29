@@ -1,11 +1,3 @@
-//
-//  TERenderOGL1.cpp
-//  TouchEngine
-//
-//  Created by developer on 11/9/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TERendererOGL1.h"
 #include <QuartzCore/QuartzCore.h>
 #include <OpenGLES/ES1/gl.h>

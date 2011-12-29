@@ -1,11 +1,3 @@
-//
-//  TERandomizer.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/31/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TERandomizer.h"
 
 TERandomizer::TERandomizer(unsigned int seed) : mNumber(seed){}

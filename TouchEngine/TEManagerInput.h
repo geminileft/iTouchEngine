@@ -1,9 +1,9 @@
 #ifndef TEMANAGERINPUT
 #define TEMANAGERINPUT
 
-class TEInputTouch;
-
 #include <map>
+
+class TEInputTouch;
 
 class TEManagerInput {
 private:

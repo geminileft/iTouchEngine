@@ -1,10 +1,10 @@
 #ifndef TECOMPONENTTOUCH
 #define TECOMPONENTTOUCH
 
-class TEInputTouch;
-
 #include "TEComponent.h"
 #include "TETypes.h"
+
+class TEInputTouch;
 
 class TEComponentTouch : public TEComponent {
 

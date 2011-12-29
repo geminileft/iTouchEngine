@@ -1,11 +1,3 @@
-//
-//  TEManagerInput.cpp
-//  TouchEngine
-//
-//  Created by geminileft on 7/22/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #include "TEManagerInput.h"
 #include "TEInputTouch.h"
 
