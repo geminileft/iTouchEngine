@@ -1,5 +1,4 @@
 #import "TouchEngineAppDelegate.h"
-#import "EAGLView.h"
 
 #include "FreeCellGame.h"
 
@@ -7,7 +6,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     mGame = new FreeCellGame(320, 480);
-    mGame->initializeIOS();
+    mGame->initialize();
     return YES;
 }
 

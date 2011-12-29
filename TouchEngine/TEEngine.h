@@ -16,7 +16,7 @@ private:
     std::vector<TEGameObject*> mGameObjects;
     TERunnable* mRunnable;
     UIWindow* mWindow;
-    
+
 public:
 	int mHeight;
 	int mWidth;
@@ -26,7 +26,7 @@ public:
     void run();
     void addGameObject(TEGameObject* gameObject);
     TESize getScreenSize() const;
-    void initializeIOS();
+    void initialize();
 };
 
 #endif

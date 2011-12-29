@@ -27,7 +27,7 @@ TEEngine::TEEngine(int width, int height) {
     mManagers.push_back(stackManager);
     mManagers.push_back(soundManager);
     mManagers.push_back(renderManager);
-	}
+}
 
 void TEEngine::run() {
     int managerCount = mManagers.size();
@@ -68,7 +68,7 @@ TESize TEEngine::getScreenSize() const {
 	return size;
 }
 
-void TEEngine::initializeIOS() {
+void TEEngine::initialize() {
     CGRect frame = [[UIScreen mainScreen] bounds];    
     EAGLView* view = [[EAGLView alloc] initWithFrame:frame];
     mWindow = [[UIWindow alloc] initWithFrame:frame];
